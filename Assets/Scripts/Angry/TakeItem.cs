@@ -1,31 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TakeItem : MonoBehaviour {
+namespace AngryScene
+{
+    public class TakeItem : MonoBehaviour
+    {
 
-    GameObject iPad;
-    GameObject[] GUI;
+        GameObject[] GUI;
+        Animator anim;
+        bool GUIon = false;
+        public Animator other;
 
-    public void Awake() {
-        iPad = GameObject.FindGameObjectWithTag("iPad");
-        GUI = GameObject.FindGameObjectsWithTag("GUI");
-    }
-
-    public void StartTakingItem() {
-        iPad.transform.parent = transform;
-        iPad.transform.localPosition = new Vector3(0.1f, 1.43f, 0.3f);
-        iPad.transform.Rotate(new Vector3(344.1776f, 180f, 0f));
-
-        StartGUI();
-    }
-
-    void StartGUI() {
-        for (int ii = 0; ii < GUI.Length; ++ii)
+        public void Awake()
         {
-            if (GUI[ii].name == "EmotionsCanvas")
+            GUI = GameObject.FindGameObjectsWithTag("GUI");
+            anim = GetComponent<Animator>();
+        }
+
+        void Update()
+        {
+            if (Time.deltaTime > 5) // simulate dialogue
             {
-                GUI[ii].GetComponent<Canvas>().enabled = true;
-                return;
+                anim.SetTrigger("IsTakingIPad");
+                other.SetTrigger("IsLosingIPad");
+            }
+            if (anim.GetBool("IsUsingIPad")) StartGUI();
+        }
+
+        public void StartUsingIPad() {
+            anim.SetBool("IsUsingIPad", true);
+            other.SetBool("IsIdle", true);
+        }
+
+        void StartGUI()
+        {
+            if (GUIon) return; // don't want to execute multiple times
+            GUIon = true;
+            for (int ii = 0; ii < GUI.Length; ++ii)
+            {
+                if (GUI[ii].name == "EmotionsCanvas")
+                {
+                    GUI[ii].GetComponent<Canvas>().enabled = true;
+                    return;
+                }
             }
         }
     }
