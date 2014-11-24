@@ -10,13 +10,16 @@ public class ButtonDragDrop : MonoBehaviour {
     public Button dropContainer;
     Color oldColor;
 
+    public void Awake() {
+        oldColor = dropContainer.image.color;
+    }
+
     public void MoveButton() {
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
         // check if in range of container and highlight the container
-        if (RectsOverlap(dropContainer.GetComponent<RectTransform>().rect, GetComponent<RectTransform>().rect))
+        if (RectsOverlap(dropContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
-            oldColor = dropContainer.image.color;
             dropContainer.image.color = Color.red;
         }
         else
@@ -38,12 +41,13 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void SubmitAnswer() { }
 
-    bool RectsOverlap(Rect r1, Rect r2) {
-        bool widthOverlap =  ((r1.xMin >= r2.xMin) && (r1.xMin <= r2.xMax)) ||
-                            ((r2.xMin >= r1.xMin) && (r2.xMin <= r1.xMax));
-   
-        bool heightOverlap = ((r1.yMin >= r2.yMin) && (r1.yMin <= r2.yMax)) ||
-                            ((r2.yMin >= r1.yMin) && (r2.yMin <= r1.yMax));
+    bool RectsOverlap(RectTransform r1, RectTransform r2)
+    {
+        bool widthOverlap = (r1.position.x >= r2.position.x && r1.position.x <= r2.position.x + r2.rect.width) ||
+                            (r2.position.x >= r1.position.x && r2.position.x <= r1.position.x + r1.rect.width);
+
+        bool heightOverlap = (r1.position.y >= r2.position.y && r1.position.y <= r2.position.y + r2.rect.height) ||
+                            (r2.position.y >= r1.position.y && r2.position.y <= r1.position.y + r1.rect.height);
                        
         return (widthOverlap && heightOverlap);
     }
