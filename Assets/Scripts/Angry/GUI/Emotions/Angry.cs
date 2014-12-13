@@ -1,21 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Angry : MonoBehaviour {
+public class Angry : ButtonDragDrop {
 
     GameObject[] GUI;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         GUI = GameObject.FindGameObjectsWithTag("GUI");
     }
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Angry click");
-
-        StartGUI();
+        base.ButtonDown();
+        Debug.Log("Angry clicked");
     }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Angry submitted");
+    }
+
+    //public void ClickTest()
+    //{
+    //    Debug.Log("Angry click");
+
+    //    StartGUI();
+    //}
 
     void StartGUI()
     {

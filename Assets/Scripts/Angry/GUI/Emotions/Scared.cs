@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Scared : MonoBehaviour {
+public class Scared : ButtonDragDrop {
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Scared click");
+        base.ButtonDown();
+        Debug.Log("Scared clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Scared submitted");
     }
 }

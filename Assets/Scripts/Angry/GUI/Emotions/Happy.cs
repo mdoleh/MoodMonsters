@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Happy : MonoBehaviour {
+public class Happy : ButtonDragDrop {
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Happy click");
+        base.ButtonDown();
+        Debug.Log("Happy clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Happy submitted");
     }
 }
