@@ -10,6 +10,7 @@ namespace AngryScene
         Animator anim;
         bool GUIon = false;
         public Animator other;
+        float timer = 0.0f;
 
         public void Awake()
         {
@@ -19,9 +20,12 @@ namespace AngryScene
 
         void Update()
         {
-            if (Time.deltaTime > 5) // simulate dialogue
+            timer += Time.deltaTime;
+            if (timer > 5.0f) // simulate dialogue
             {
+                anim.SetBool("IsIdle", false);
                 anim.SetTrigger("IsTakingIPad");
+                other.SetBool("IsUsingIPad", false);
                 other.SetTrigger("IsLosingIPad");
             }
             if (anim.GetBool("IsUsingIPad")) StartGUI();
