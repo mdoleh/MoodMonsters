@@ -11,7 +11,9 @@ public class Hot : ButtonDragDrop {
 
     public override void SubmitAnswer()
     {
-        base.SubmitAnswer();
         Debug.Log("Hot submitted");
+        GameObject.Destroy(gameObject);
+        correctCount += 1;
+        base.SubmitAnswer();
     }
 }

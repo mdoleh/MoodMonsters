@@ -12,7 +12,9 @@ public class Jumping : ButtonDragDrop
 
     public override void SubmitAnswer()
     {
-        base.SubmitAnswer();
         Debug.Log("Jumping submitted");
+        GameObject.Destroy(gameObject);
+        correctCount += 1;
+        base.SubmitAnswer();
     }
 }
