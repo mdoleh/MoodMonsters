@@ -33,7 +33,7 @@ namespace AngryScene
 
         public void StartUsingIPad() {
             anim.SetBool("IsUsingIPad", true);
-            other.SetBool("IsIdle", true);
+            other.SetBool("IsAngry", true);
         }
 
         void StartGUI()
