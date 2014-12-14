@@ -7,6 +7,7 @@ namespace AngryScene
     {
         public class Hide : ButtonDragDrop
         {
+            public AngryScene.RunAway runAway;
 
             public override void ButtonDown()
             {
@@ -18,7 +19,7 @@ namespace AngryScene
             {
                 base.SubmitAnswer();
                 Debug.Log("Hide submitted");
-                //NextGUI();
+                runAway.StartTurning();
             }
         }
     }

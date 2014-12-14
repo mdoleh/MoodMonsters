@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 755f70972601c574198d9b1d05ad16fb
+guid: eafd1c01cc81ffb40b1b48a29b83a7cc
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -108,7 +108,7 @@ ModelImporter:
     400100: //RootNode
     400102: objlowbody4
     4300000: objlowbody4
-    7400000: sad_right_turn_1
+    7400000: sad_left_turn
     7400002: mixamo.com
     9500000: //RootNode
     13700000: objlowbody4
@@ -151,7 +151,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .995975912
+      - time: .997987926
         functionName: UpdateRotation
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 2b4ba5803ea48564490c64c23501e989,
