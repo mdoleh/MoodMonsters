@@ -3,22 +3,21 @@ using System.Collections;
 
 namespace AngryScene
 {
-    namespace ActionsGUI
+    namespace EmotionsGUI
     {
-        public class Express : ButtonDragDrop
+        public class WrongAnswer : ButtonDragDrop
         {
 
             public override void ButtonDown()
             {
                 base.ButtonDown();
-                Debug.Log("Express clicked");
+                Debug.Log("Wrong answer clicked");
             }
 
             public override void SubmitAnswer()
             {
                 base.SubmitAnswer();
-                Debug.Log("Express submitted");
-                //NextGUI();
+                Debug.Log("Wrong answer submitted");
             }
         }
     }

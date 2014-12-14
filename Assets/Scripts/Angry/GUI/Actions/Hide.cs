@@ -1,10 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hide : MonoBehaviour {
-
-    public void ClickTest()
+namespace AngryScene
+{
+    namespace ActionsGUI
     {
-        Debug.Log("Hide click");
+        public class Hide : ButtonDragDrop
+        {
+
+            public override void ButtonDown()
+            {
+                base.ButtonDown();
+                Debug.Log("Hide clicked");
+            }
+
+            public override void SubmitAnswer()
+            {
+                base.SubmitAnswer();
+                Debug.Log("Hide submitted");
+                //NextGUI();
+            }
+        }
     }
 }
+

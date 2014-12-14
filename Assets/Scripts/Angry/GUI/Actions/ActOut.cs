@@ -1,10 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ActOut : MonoBehaviour {
-
-    public void ClickTest()
+namespace AngryScene
+{
+    namespace ActionsGUI
     {
-        Debug.Log("Actout click");
+        public class ActOut : ButtonDragDrop
+        {
+
+            public override void ButtonDown()
+            {
+                base.ButtonDown();
+                Debug.Log("ActOut clicked");
+            }
+
+            public override void SubmitAnswer()
+            {
+                base.SubmitAnswer();
+                Debug.Log("ActOut submitted");
+                //NextGUI();
+            }
+        }
     }
 }
