@@ -23,13 +23,6 @@ public class Angry : ButtonDragDrop {
         Debug.Log("Angry submitted");
     }
 
-    //public void ClickTest()
-    //{
-    //    Debug.Log("Angry click");
-
-    //    StartGUI();
-    //}
-
     void StartGUI()
     {
         for (int ii = 0; ii < GUI.Length; ++ii)
