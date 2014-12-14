@@ -8,6 +8,7 @@ public class ButtonDragDrop : MonoBehaviour {
 
     protected static int correctCount = 0;
     protected Vector2 originalPosition;
+    protected AudioSource buttonAudio;
     public Button dropContainer;
     Color oldColor;
     GameObject[] GUI;
@@ -16,6 +17,7 @@ public class ButtonDragDrop : MonoBehaviour {
     public virtual void Awake() {
         oldColor = dropContainer.image.color;
         GUI = GameObject.FindGameObjectsWithTag("GUI");
+        buttonAudio = GetComponent<AudioSource>();
     }
 
     public void MoveButton() {
@@ -34,7 +36,8 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void ButtonDown()
     {
-        originalPosition = transform.position; 
+        originalPosition = transform.position;
+        if (buttonAudio != null) buttonAudio.Play();
     }
 
     public virtual void ButtonRelease()

@@ -7,7 +7,6 @@ namespace AngryScene
     {
         public class CorrectAnswer : ButtonDragDrop
         {
-
             public override void ButtonDown()
             {
                 base.ButtonDown();
