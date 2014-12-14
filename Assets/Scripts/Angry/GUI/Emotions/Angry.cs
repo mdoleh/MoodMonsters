@@ -21,6 +21,7 @@ public class Angry : ButtonDragDrop {
     {
         base.SubmitAnswer();
         Debug.Log("Angry submitted");
+        StartGUI();
     }
 
     void StartGUI()

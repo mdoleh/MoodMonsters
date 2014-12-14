@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HandsShaking : MonoBehaviour {
+public class HandsShaking : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("HandsShaking click");
+        base.ButtonDown();
+        Debug.Log("HandsShaking clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("HandsShaking submitted");
     }
 }

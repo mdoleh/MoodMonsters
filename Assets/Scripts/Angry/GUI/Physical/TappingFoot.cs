@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TappingFoot : MonoBehaviour {
+public class TappingFoot : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("TappingFoot click");
+        base.ButtonDown();
+        Debug.Log("TappingFoot clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("TappingFoot submitted");
     }
 }

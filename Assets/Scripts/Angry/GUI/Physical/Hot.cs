@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hot : MonoBehaviour {
+public class Hot : ButtonDragDrop {
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Hot click");
+        base.ButtonDown();
+        Debug.Log("Hot clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Hot submitted");
     }
 }

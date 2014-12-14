@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HeartRacing : MonoBehaviour {
+public class HeartRacing : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("HeartRacing click");
+        base.ButtonDown();
+        Debug.Log("HeartRacing clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("HeartRacing submitted");
     }
 }

@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tired : MonoBehaviour {
+public class Tired : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Tired click");
+        base.ButtonDown();
+        Debug.Log("Tired clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Tired submitted");
     }
 }

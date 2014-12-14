@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sweating : MonoBehaviour {
+public class Sweating : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Sweating click");
+        base.ButtonDown();
+        Debug.Log("Sweating clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Sweating submitted");
     }
 }

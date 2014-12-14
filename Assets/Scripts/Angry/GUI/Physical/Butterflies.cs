@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Butterflies : MonoBehaviour {
+public class Butterflies : ButtonDragDrop {
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Butterflies click");
+        base.ButtonDown();
+        Debug.Log("Butterflies clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Butterflies submitted");
     }
 }

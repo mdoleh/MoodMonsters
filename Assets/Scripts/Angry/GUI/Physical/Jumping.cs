@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jumping : MonoBehaviour {
+public class Jumping : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Jumping click");
+        base.ButtonDown();
+        Debug.Log("Jumping clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Jumping submitted");
     }
 }

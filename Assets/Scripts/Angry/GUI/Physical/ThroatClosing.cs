@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThroatClosing : MonoBehaviour {
+public class ThroatClosing : ButtonDragDrop
+{
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("ThroatClosing click");
+        base.ButtonDown();
+        Debug.Log("ThroatClosing clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("ThroatClosing submitted");
     }
 }

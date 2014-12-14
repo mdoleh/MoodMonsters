@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tingling : MonoBehaviour {
+public class Tingling : ButtonDragDrop {
 
-    public void ClickTest()
+    public override void ButtonDown()
     {
-        Debug.Log("Tingling click");
+        base.ButtonDown();
+        Debug.Log("Tingling clicked");
+    }
+
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        Debug.Log("Tingling submitted");
     }
 }
