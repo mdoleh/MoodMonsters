@@ -4,6 +4,7 @@ using System.Collections;
 public class SceneReset : MonoBehaviour {
     public string sceneToLoad;
     AudioSource audio;
+    bool startedPlaying = false;
 
     void Awake() {
         audio = GetComponent<AudioSource>();
@@ -13,10 +14,11 @@ public class SceneReset : MonoBehaviour {
     {
         if (other.name == "Lily") {
             audio.Play();
+            startedPlaying = true;
         }
     }
 
     void Update() {
-        if (!audio.isPlaying) Application.LoadLevel(sceneToLoad);
+        if (startedPlaying && !audio.isPlaying) Application.LoadLevel(sceneToLoad);
     }
 }
