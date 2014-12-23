@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
-    public class RunAway : MonoBehaviour
+    public class RunAway : ActionBase
     {
 
         Animator anim;
@@ -16,6 +16,7 @@ namespace AngryScene
         }
 
         void Update() {
+            base.Update();
             if (run)
             {
                 float move = Time.deltaTime * 1.5f;
@@ -36,6 +37,8 @@ namespace AngryScene
 
         public void StartRunningAway()
         {
+            startTimer = true;
+            eventTrigger = true;
             anim.SetTrigger("IsHiding");
             run = true;
         }

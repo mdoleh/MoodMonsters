@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
-    public class TakeItBack : MonoBehaviour
+    public class TakeItBack : ActionBase
     {
         public Animator other;
         Animator anim;
@@ -23,6 +23,8 @@ namespace AngryScene
         {
             anim.SetBool("IsUsingIPad", true);
             other.SetTrigger("IsSad");
+            startTimer = true;
+            eventTrigger = true;
         }
     }
 }
