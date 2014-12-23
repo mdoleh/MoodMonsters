@@ -9,6 +9,7 @@ namespace AngryScene
         GameObject[] GUI;
         Animator anim;
         bool GUIon = false;
+        bool animationsTriggered = false;
         public Animator other;
         float timer = 0.0f;
 
@@ -21,12 +22,13 @@ namespace AngryScene
         void Update()
         {
             timer += Time.deltaTime;
-            if (timer > 5.0f) // simulate dialogue
+            if (timer > 5.0f && !animationsTriggered) // simulate dialogue
             {
                 anim.SetBool("IsIdle", false);
                 anim.SetTrigger("IsTakingIPad");
                 other.SetBool("IsUsingIPad", false);
                 other.SetTrigger("IsLosingIPad");
+                animationsTriggered = true;
             }
             if (anim.GetBool("IsUsingIPad")) StartGUI();
         }

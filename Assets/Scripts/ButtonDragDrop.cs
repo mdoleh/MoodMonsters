@@ -80,7 +80,7 @@ public class ButtonDragDrop : MonoBehaviour {
                 NextGUI("PhysicalCanvas", "ActionsCanvas");
                 break;
             case "ActionsCanvas":
-                // not sure what to do yet, exit scene maybe?
+                // go to puzzle mini game
                 break;
             default:
                 // do nothing

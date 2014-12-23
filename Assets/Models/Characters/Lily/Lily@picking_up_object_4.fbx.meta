@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1d21c44c60737c43a71747b1aa8aef3
+guid: 8296527acdefa5244b519f04013eb7ae
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -54,7 +54,6 @@ ModelImporter:
     100096: Bip01 Spine
     100098: Bip01 Spine1
     100100: //RootNode
-    100102: objlowbody4
     400000: Bip01
     400002: Bip01 Footsteps
     400004: Bip01 Head
@@ -106,12 +105,8 @@ ModelImporter:
     400096: Bip01 Spine
     400098: Bip01 Spine1
     400100: //RootNode
-    400102: objlowbody4
-    4300000: objlowbody4
-    7400000: surprised_1
-    7400002: mixamo.com
+    7400000: picking_up_object_4
     9500000: //RootNode
-    13700000: objlowbody4
   materials:
     importMaterials: 1
     materialName: 0
@@ -129,10 +124,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: picking_up_object_4
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 121
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -150,7 +145,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .829179347
+        functionName: StartUsingIPad
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 665ab4f9b4f85734b9d0792717ced036,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -300,8 +303,6 @@ ModelImporter:
       - path: Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Neck/Bip01 R Clavicle/Bip01
           R UpperArm/Bip01 R Forearm/Bip01 R Hand/Bip01 R Finger2/Bip01 R Finger21/Bip01
           R Finger22/Bip01 R Finger2Nub
-        weight: 1
-      - path: objlowbody4
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}

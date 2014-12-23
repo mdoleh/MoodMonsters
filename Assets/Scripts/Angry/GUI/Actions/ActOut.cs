@@ -7,6 +7,7 @@ namespace AngryScene
     {
         public class ActOut : ButtonDragDrop
         {
+            public AngryScene.TakeItBack takeItBack;
 
             public override void ButtonDown()
             {
@@ -18,6 +19,7 @@ namespace AngryScene
             {
                 base.SubmitAnswer();
                 Debug.Log("ActOut submitted");
+                takeItBack.StartTaking();
                 //NextGUI();
             }
         }
