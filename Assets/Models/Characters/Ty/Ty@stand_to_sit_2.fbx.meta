@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2b35a0102dd1f14f8aeb71653508345
+guid: 1f38a1fdd043ecb4fa39d5c5681a45f1
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -131,7 +131,8 @@ ModelImporter:
     400122: Boy:Spine1
     400124: Boy:Spine2
     400126: //RootNode
-    7400000: right_turn
+    7400000: stand_to_sit_2
+    7400002: sitting_idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -150,17 +151,171 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: right_turn
+      name: stand_to_sit_2
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 28
+      lastFrame: 67
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: .899999976
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy:Hips
+        weight: 1
+      - path: Boy:Hips/Boy:LeftUpLeg
+        weight: 1
+      - path: Boy:Hips/Boy:LeftUpLeg/Boy:LeftLeg
+        weight: 1
+      - path: Boy:Hips/Boy:LeftUpLeg/Boy:LeftLeg/Boy:LeftFoot
+        weight: 1
+      - path: Boy:Hips/Boy:LeftUpLeg/Boy:LeftLeg/Boy:LeftFoot/Boy:LeftToeBase
+        weight: 1
+      - path: Boy:Hips/Boy:RightUpLeg
+        weight: 1
+      - path: Boy:Hips/Boy:RightUpLeg/Boy:RightLeg
+        weight: 1
+      - path: Boy:Hips/Boy:RightUpLeg/Boy:RightLeg/Boy:RightFoot
+        weight: 1
+      - path: Boy:Hips/Boy:RightUpLeg/Boy:RightLeg/Boy:RightFoot/Boy:RightToeBase
+        weight: 1
+      - path: Boy:Hips/Boy:Spine
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandIndex1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandIndex1/Boy:LeftHandIndex2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandIndex1/Boy:LeftHandIndex2/Boy:LeftHandIndex3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandIndex1/Boy:LeftHandIndex2/Boy:LeftHandIndex3/Boy:LeftHandIndex4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandMiddle1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandMiddle1/Boy:LeftHandMiddle2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandMiddle1/Boy:LeftHandMiddle2/Boy:LeftHandMiddle3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandMiddle1/Boy:LeftHandMiddle2/Boy:LeftHandMiddle3/Boy:LeftHandMiddle4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandPinky1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandPinky1/Boy:LeftHandPinky2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandPinky1/Boy:LeftHandPinky2/Boy:LeftHandPinky3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandPinky1/Boy:LeftHandPinky2/Boy:LeftHandPinky3/Boy:LeftHandPinky4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandRing1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandRing1/Boy:LeftHandRing2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandRing1/Boy:LeftHandRing2/Boy:LeftHandRing3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandRing1/Boy:LeftHandRing2/Boy:LeftHandRing3/Boy:LeftHandRing4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandThumb1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandThumb1/Boy:LeftHandThumb2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandThumb1/Boy:LeftHandThumb2/Boy:LeftHandThumb3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:LeftShoulder/Boy:LeftArm/Boy:LeftForeArm/Boy:LeftHand/Boy:LeftHandThumb1/Boy:LeftHandThumb2/Boy:LeftHandThumb3/Boy:LeftHandThumb4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:Neck
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:Neck/Boy:Head
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:Neck/Boy:Head/Boy:HeadTop_End
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandIndex1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandIndex1/Boy:RightHandIndex2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandIndex1/Boy:RightHandIndex2/Boy:RightHandIndex3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandIndex1/Boy:RightHandIndex2/Boy:RightHandIndex3/Boy:RightHandIndex4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandMiddle1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandMiddle1/Boy:RightHandMiddle2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandMiddle1/Boy:RightHandMiddle2/Boy:RightHandMiddle3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandMiddle1/Boy:RightHandMiddle2/Boy:RightHandMiddle3/Boy:RightHandMiddle4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandPinky1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandPinky1/Boy:RightHandPinky2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandPinky1/Boy:RightHandPinky2/Boy:RightHandPinky3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandPinky1/Boy:RightHandPinky2/Boy:RightHandPinky3/Boy:RightHandPinky4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandRing1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandRing1/Boy:RightHandRing2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandRing1/Boy:RightHandRing2/Boy:RightHandRing3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandRing1/Boy:RightHandRing2/Boy:RightHandRing3/Boy:RightHandRing4
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandThumb1
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandThumb1/Boy:RightHandThumb2
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandThumb1/Boy:RightHandThumb2/Boy:RightHandThumb3
+        weight: 1
+      - path: Boy:Hips/Boy:Spine/Boy:Spine1/Boy:Spine2/Boy:RightShoulder/Boy:RightArm/Boy:RightForeArm/Boy:RightHand/Boy:RightHandThumb1/Boy:RightHandThumb2/Boy:RightHandThumb3/Boy:RightHandThumb4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: sitting_idle
+      takeName: mixamo.com
+      firstFrame: 60
+      lastFrame: 67
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

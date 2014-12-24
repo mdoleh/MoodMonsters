@@ -4,21 +4,25 @@ using System.Collections;
 public class SceneReset : MonoBehaviour {
     public string sceneToLoad;
     public Canvas noSymbol;
-    AudioSource audio;
+    AudioSource incorrectAudio;
     bool startedPlaying = false;
     Animator noSymbolAnimator;
 
     void Awake() {
-        audio = GetComponent<AudioSource>();
+        incorrectAudio = GetComponent<AudioSource>();
         noSymbolAnimator = noSymbol.GetComponent<Animator>();
     }
 
     public void TriggerSceneReset()
     {
-        audio.Play();
+        incorrectAudio.Play();
         startedPlaying = true;
         noSymbol.enabled = true;
         noSymbolAnimator.SetTrigger("NotRight");
+    }
+
+    public void TriggerCorrect() {
+        Debug.Log("Correct!");
     }
 
     //void OnTriggerEnter(Collider other)

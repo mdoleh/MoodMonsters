@@ -7,6 +7,7 @@ namespace AngryScene
     {
         protected bool startTimer = false;
         protected bool eventTrigger = false;
+        protected bool isCorrect = false;
         protected float timer = 0.0f;
         public SceneReset sceneReset;
         bool sceneResetting = false;
@@ -20,7 +21,11 @@ namespace AngryScene
 
             if (eventTrigger && timer > 5.0f && !sceneResetting)
             {
-                sceneReset.TriggerSceneReset();
+                if (isCorrect) {
+                    sceneReset.TriggerCorrect();
+                } else {
+                    sceneReset.TriggerSceneReset();
+                }
                 sceneResetting = true;
             }
         }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a026c2f04ae53df448b919ba6e0533ad
+guid: bd13df1cc16a7c5448e458299550a3f7
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -105,7 +105,7 @@ ModelImporter:
     400096: Bip01 Spine
     400098: Bip01 Spine1
     400100: //RootNode
-    7400000: talking_1
+    7400000: sitting_idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -124,16 +124,16 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: talking_1
+      name: sitting_idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 118
+      lastFrame: 287
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -145,15 +145,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: .420600861
-        functionName: TriggerListening
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 2bd6fca90899c4747bc9835c2b86c25d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1
