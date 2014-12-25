@@ -20,6 +20,7 @@ namespace AngryScene
                 base.SubmitAnswer();
                 Debug.Log("Express submitted");
                 share.StartTalking();
+                HideGUI();
                 //NextGUI();
             }
         }

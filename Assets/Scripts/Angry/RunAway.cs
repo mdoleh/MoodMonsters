@@ -22,9 +22,9 @@ namespace AngryScene
                 float move = Time.deltaTime * 1.5f;
                 transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
             }
-            if (anim.GetBool("IsTurning") && Mathf.Abs(transform.rotation.eulerAngles.y - rotation) >= 180)
+            if (anim.GetBool("IsTurningSad") && Mathf.Abs(transform.rotation.eulerAngles.y - rotation) >= 180)
             {
-                anim.SetBool("IsTurning", false);
+                anim.SetBool("IsTurningSad", false);
                 StartRunningAway();
             }
         }
@@ -32,7 +32,7 @@ namespace AngryScene
         public void StartTurning()
         {
             rotation = transform.rotation.y;
-            anim.SetBool("IsTurning", true);
+            anim.SetBool("IsTurningSad", true);
         }
 
         public void StartRunningAway()

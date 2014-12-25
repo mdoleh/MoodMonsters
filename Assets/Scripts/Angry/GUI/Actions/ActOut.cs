@@ -20,6 +20,7 @@ namespace AngryScene
                 base.SubmitAnswer();
                 Debug.Log("ActOut submitted");
                 takeItBack.StartTaking();
+                HideGUI();
                 //NextGUI();
             }
         }

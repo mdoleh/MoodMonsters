@@ -68,9 +68,14 @@ public class ButtonDragDrop : MonoBehaviour {
         return (widthOverlap && heightOverlap);
     }
 
+    protected void HideGUI()
+    {
+        findCurrentGUI().enabled = false;
+    }
+
     protected void NextGUI()
     {
-        string currentGUI = findCurrentGUI();
+        string currentGUI = findCurrentGUIName();
         switch (currentGUI)
         {
             case "EmotionsCanvas":
@@ -103,9 +108,18 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
-    string findCurrentGUI() {
+    string findCurrentGUIName() {
         for (int ii = 0; ii < GUI.Length; ++ii) {
             if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].name;
+        }
+        return null;
+    }
+
+    Canvas findCurrentGUI()
+    {
+        for (int ii = 0; ii < GUI.Length; ++ii)
+        {
+            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].GetComponent<Canvas>();
         }
         return null;
     }
