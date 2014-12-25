@@ -45,7 +45,7 @@ namespace AngryScene
 
         public void UpdateRotationHide() {
 //            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
-            //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 85.0f, 0));
+//            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 90.0f, 0));
             transform.Rotate(new Vector3(0, -90.0f, 0));
         }
     }
