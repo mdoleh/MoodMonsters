@@ -26,7 +26,7 @@ public class SceneReset : MonoBehaviour {
         incorrectAudio.Play();
         startedPlaying = true;
         noSymbol.enabled = true;
-        noSymbolAnimator.SetTrigger("NotRight");
+        noSymbolAnimator.SetTrigger("ShowCanvas");
         sceneToLoad = sceneToLoadIncorrect;
     }
 
@@ -34,7 +34,7 @@ public class SceneReset : MonoBehaviour {
         correctAudio.Play();
         startedPlaying = true;
         correctSymbol.enabled = true;
-        correctSymbolAnimator.SetTrigger("Right");
+        correctSymbolAnimator.SetTrigger("ShowCanvas");
         sceneToLoad = sceneToLoadCorrect;
     }
 
@@ -49,6 +49,6 @@ public class SceneReset : MonoBehaviour {
     //}
 
     void Update() {
-        if (startedPlaying && !audio.isPlaying) Application.LoadLevel(sceneToLoad);
+        if (startedPlaying && !incorrectAudio.isPlaying && !correctAudio.isPlaying) Application.LoadLevel(sceneToLoad);
     }
 }

@@ -35,16 +35,16 @@ namespace AngryScene
         public void StartSitting() {
             anim.SetTrigger("IsSharing");
             otherAnim.SetTrigger("IsSharing");
+            isCorrect = true;
             startTimer = true;
             eventTrigger = true;
-            isCorrect = true;
         }
 
         // Update is called once per frame
         void Update()
         {
             base.Update();
-            if (anim.GetBool("IsTurning") && Mathf.Abs(transform.rotation.eulerAngles.y - rotation) >= 90)
+            if (anim.GetBool("IsTurning") && Mathf.Abs(transform.rotation.eulerAngles.y - rotation) >= 80)
             {
                 anim.SetBool("IsTurning", false);
                 StartSitting();
@@ -60,10 +60,11 @@ namespace AngryScene
 
         public void UpdateRotation()
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
-            other.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
-            //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 85.0f, 0));
-            //transform.Rotate(new Vector3(0, -90.0f, 0));
+//            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
+//            other.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
+//            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 85.0f, 0));
+            transform.Rotate(new Vector3(0, 90.0f, 0));
+            other.Rotate(new Vector3(0, 90.0f, 0));
         }
     }
 }
