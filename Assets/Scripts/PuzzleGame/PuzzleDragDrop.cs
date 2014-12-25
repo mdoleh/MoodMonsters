@@ -12,8 +12,8 @@ public class PuzzleDragDrop : MonoBehaviour {
 
     public virtual void Awake()
     {
-        oldColor = correctContainer.GetComponent<Image>().color;
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
+        oldColor = gridPanels[0].GetComponent<Image>().color;
     }
 
     public void MovePanel()
