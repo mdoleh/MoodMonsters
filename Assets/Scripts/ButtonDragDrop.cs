@@ -37,7 +37,7 @@ public class ButtonDragDrop : MonoBehaviour {
     public virtual void ButtonDown()
     {
         originalPosition = transform.position;
-        if (buttonAudio != null) buttonAudio.Play();
+        Utilities.PlayAudio(buttonAudio);
     }
 
     public virtual void ButtonRelease()
@@ -94,12 +94,14 @@ public class ButtonDragDrop : MonoBehaviour {
         
     }
 
-    void NextGUI(string current, string next) {
+    void NextGUI(string current, string next)
+    {
         for (int ii = 0; ii < GUI.Length; ++ii)
         {
             if (GUI[ii].name == next)
             {
                 GUI[ii].GetComponent<Canvas>().enabled = true;
+                Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
             }
             if (GUI[ii].name == current)
             {

@@ -42,6 +42,7 @@ namespace AngryScene
                 if (GUI[ii].name == "ActionsCanvas")
                 {
                     GUI[ii].GetComponent<Canvas>().enabled = true;
+                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
                     return;
                 }
             }
