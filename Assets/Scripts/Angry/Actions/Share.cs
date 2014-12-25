@@ -58,12 +58,12 @@ namespace AngryScene
             }
         }
 
-        public void UpdateRotation()
+        public void UpdateRotationShare()
         {
 //            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
 //            other.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
 //            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 85.0f, 0));
-            transform.Rotate(new Vector3(0, 90.0f, 0));
+            transform.Rotate(new Vector3(0, -90.0f, 0));
             other.Rotate(new Vector3(0, 90.0f, 0));
         }
     }

@@ -31,7 +31,7 @@ namespace AngryScene
 
         public void StartTurning()
         {
-            rotation = transform.rotation.y;
+            rotation = transform.rotation.eulerAngles.y;
             anim.SetBool("IsTurningSad", true);
         }
 
@@ -43,10 +43,10 @@ namespace AngryScene
             run = true;
         }
 
-        public void UpdateRotation() {
-            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
+        public void UpdateRotationHide() {
+//            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
             //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 85.0f, 0));
-            //transform.Rotate(new Vector3(0, -90.0f, 0));
+            transform.Rotate(new Vector3(0, -90.0f, 0));
         }
     }
 }

@@ -205,8 +205,7 @@ ModelImporter:
       - time: .83061105
         functionName: StartUsingIPad
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: bcf642d1d7e4f624e8e905558cbca63b,
-          type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
