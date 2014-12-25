@@ -3,10 +3,11 @@ using System.Collections;
 
 namespace StartScreen
 {
-    public class Angry : MonoBehaviour
+    public class Angry : StartMenuButton
     {
-        public void ButtonClick() {
-            Application.LoadLevel("AngryScene");
+        protected void ButtonClick() {
+            base.ButtonClick();
+            Debug.Log("Angry clicked");
         }
     }
 }

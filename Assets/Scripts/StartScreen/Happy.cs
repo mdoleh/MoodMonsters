@@ -3,9 +3,10 @@ using System.Collections;
 
 namespace StartScreen
 {
-    public class Happy : MonoBehaviour
+    public class Happy : StartMenuButton
     {
-        public void ButtonClick() {
+        protected void ButtonClick() {
+            base.ButtonClick();
             Debug.Log("Happy clicked");
         }
     }

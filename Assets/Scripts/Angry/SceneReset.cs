@@ -49,6 +49,6 @@ public class SceneReset : MonoBehaviour {
     //}
 
     void Update() {
-        if (startedPlaying && !incorrectAudio.isPlaying && !correctAudio.isPlaying) Application.LoadLevel(sceneToLoad);
+        if (startedPlaying && !incorrectAudio.isPlaying && !correctAudio.isPlaying) Utilities.LoadScene(sceneToLoad);
     }
 }

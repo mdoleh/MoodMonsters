@@ -3,9 +3,10 @@ using System.Collections;
 
 namespace StartScreen
 {
-    public class Scared : MonoBehaviour
+    public class Scared : StartMenuButton
     {
-        public void ButtonClick() {
+        protected void ButtonClick() {
+            base.ButtonClick();
             Debug.Log("Scared clicked");
         }
     }
