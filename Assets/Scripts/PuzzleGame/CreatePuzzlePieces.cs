@@ -9,6 +9,8 @@ public class CreatePuzzlePieces : MonoBehaviour
     public GameObject piecePrefab;
     private GameObject[] gridPanels;
 
+    private const string PANEL_BASE = "GridPanel";
+
     public virtual void Awake()
     {
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
@@ -28,5 +30,14 @@ public class CreatePuzzlePieces : MonoBehaviour
         texture.Apply();
         ((GameObject)piece).GetComponent<RawImage>().texture = texture;
         ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = gridPanels[0].transform;
+    }
+
+    private GameObject GetGridPanelByName(GameObject[] gridPanels, string name)
+    {
+        foreach (var gridPanel in gridPanels)
+        {
+            if (gridPanel.name.Equals(name)) return gridPanel;
+        }
+        return null;
     }
 }
