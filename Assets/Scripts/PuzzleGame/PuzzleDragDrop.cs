@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class PuzzleDragDrop : MonoBehaviour {
@@ -45,7 +46,7 @@ public class PuzzleDragDrop : MonoBehaviour {
     public virtual void SubmitAnswer() {
         correctContainer.GetComponent<Image>().color = oldColor;
         transform.position = correctContainer.transform.position;
-        disabled = true;
+//        disabled = true;
     }
 
     bool RectsOverlap(RectTransform r1, RectTransform r2)

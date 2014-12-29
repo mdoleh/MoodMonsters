@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mime;
 using UnityEngine.UI;
 
@@ -10,34 +12,59 @@ public class CreatePuzzlePieces : MonoBehaviour
     private GameObject[] gridPanels;
 
     private const string PANEL_BASE = "GridPanel";
+    private const int DIMENSIONS = 3;
 
     public virtual void Awake()
     {
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
-        GeneratePuzzlePieces(photo);
+        List<Object> pieces = GeneratePuzzlePieces(photo);
+        RandomizePiecePositions(pieces);
     }
 
-    private void GeneratePuzzlePieces(Texture2D photo)
+    private List<Object> GeneratePuzzlePieces(Texture2D photo)
     {
-        int width = (int)GetComponent<RectTransform>().rect.width / 3;
-        int height = (int)GetComponent<RectTransform>().rect.height / 3;
+        int width = (int)GetComponent<RectTransform>().rect.width / DIMENSIONS;
+        int height = (int)GetComponent<RectTransform>().rect.height / DIMENSIONS;
+        TextureScale.Bilinear(photo, width * DIMENSIONS, height * DIMENSIONS);
+        photo.Apply();
 
-        var imageData = photo.GetPixels(0, 0, width, height);
-        var piece = Instantiate(piecePrefab);
-        ((GameObject)piece).transform.parent = transform;
-        var texture = new Texture2D(width, height);
-        texture.SetPixels(imageData);
-        texture.Apply();
-        ((GameObject)piece).GetComponent<RawImage>().texture = texture;
-        ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = gridPanels[0].transform;
+        Color[] imageData;
+        List<Object> pieces = new List<Object>();
+        Object piece;
+        int panelNumber = 1;
+
+        for (int y = 0; y < DIMENSIONS; ++y)
+        {
+            for (int x = 0; x < DIMENSIONS; ++x)
+            {
+                piece = Instantiate(piecePrefab);
+                ((GameObject)piece).transform.parent = transform;
+                imageData = photo.GetPixels(x * width, y * height, width, height);
+                var texture = new Texture2D(width, height);
+                texture.SetPixels(imageData);
+                texture.Apply();
+
+                ((GameObject)piece).GetComponent<RawImage>().texture = texture;
+                ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = GetGridPanelByName(gridPanels, PANEL_BASE + panelNumber++).transform;
+                pieces.Add(piece);
+            }
+        }
+        return pieces;
     }
 
     private GameObject GetGridPanelByName(GameObject[] gridPanels, string name)
     {
-        foreach (var gridPanel in gridPanels)
+        return gridPanels.FirstOrDefault(gridPanel => gridPanel.name.Equals(name));
+    }
+
+    private void RandomizePiecePositions(List<Object> pieces)
+    {
+        float max = ((GameObject)pieces[0]).transform.parent.GetComponent<RectTransform>().rect.width - ((GameObject) pieces[0]).GetComponent<RectTransform>().rect.width;
+        max /= 2;
+        float min = max*-1;
+        foreach (var piece in pieces)
         {
-            if (gridPanel.name.Equals(name)) return gridPanel;
+            ((GameObject)piece).transform.localPosition = new Vector3(Random.Range(min, max), Random.Range(min, max), 0f);
         }
-        return null;
     }
 }
