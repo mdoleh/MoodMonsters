@@ -4,16 +4,20 @@ using UnityEngine.UI;
 
 public class ButtonDoubleClick : MonoBehaviour
 {
+    public string sceneToLoad;
+
+    private AudioSource instructions;
     private int count = 0;
     private float timer = 0;
     private bool toggle = false;
-    private Color originalColor;
-    private GameObject backgroundGlow;
+    protected Color originalColor;
+    private Transform backgroundGlow;
 
     protected virtual void Awake()
     {
         originalColor = GetComponent<Image>().color;
-        backgroundGlow = GameObject.FindGameObjectWithTag("GUI");
+        backgroundGlow = transform.parent.Find("BackgroundGlow");
+        instructions = GetComponent<AudioSource>();
     }
 
     public virtual void ButtonClicked()
@@ -24,19 +28,18 @@ public class ButtonDoubleClick : MonoBehaviour
             GetComponent<Image>().color = Color.yellow;
             backgroundGlow.GetComponent<Image>().enabled = true;
         }
+        if (count > 1)
+        {
+            count = 0;
+            Utilities.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Utilities.PlayAudio(instructions);
+        }
     }
 
-    protected bool CheckCount()
-    {
-        return count > 1;
-    }
-
-    protected void ResetCount()
-    {
-        count = 0;
-    }
-
-    protected void Update()
+    protected virtual void Update()
     {
         timer += Time.deltaTime;
         if (count < 1)
