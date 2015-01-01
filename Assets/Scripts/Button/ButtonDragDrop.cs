@@ -11,12 +11,10 @@ public class ButtonDragDrop : MonoBehaviour {
     protected AudioSource buttonAudio;
     public Button dropContainer;
     Color oldColor;
-    GameObject[] GUI;
     const int CORRECT_AMOUNT = 3;
 
-    public virtual void Awake() {
+    protected virtual void Awake() {
         oldColor = dropContainer.image.color;
-        GUI = GameObject.FindGameObjectsWithTag("GUI");
         buttonAudio = GetComponent<AudioSource>();
     }
 
@@ -70,12 +68,12 @@ public class ButtonDragDrop : MonoBehaviour {
 
     protected void HideGUI()
     {
-        findCurrentGUI().enabled = false;
+        GUIDetect.GetCurrentGUI().enabled = false;
     }
 
     protected void NextGUI()
     {
-        string currentGUI = findCurrentGUIName();
+        string currentGUI = GUIDetect.GetCurrentGUIName();
         switch (currentGUI)
         {
             case "EmotionsCanvas":
@@ -96,6 +94,7 @@ public class ButtonDragDrop : MonoBehaviour {
 
     void NextGUI(string current, string next)
     {
+        var GUI = GUIDetect.GetAllGUI();
         for (int ii = 0; ii < GUI.Length; ++ii)
         {
             if (GUI[ii].name == next)
@@ -110,19 +109,19 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
-    string findCurrentGUIName() {
-        for (int ii = 0; ii < GUI.Length; ++ii) {
-            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].name;
-        }
-        return null;
-    }
+//    string findCurrentGUIName() {
+//        for (int ii = 0; ii < GUI.Length; ++ii) {
+//            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].name;
+//        }
+//        return null;
+//    }
 
-    Canvas findCurrentGUI()
-    {
-        for (int ii = 0; ii < GUI.Length; ++ii)
-        {
-            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].GetComponent<Canvas>();
-        }
-        return null;
-    }
+//    Canvas findCurrentGUI()
+//    {
+//        for (int ii = 0; ii < GUI.Length; ++ii)
+//        {
+//            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].GetComponent<Canvas>();
+//        }
+//        return null;
+//    }
 }

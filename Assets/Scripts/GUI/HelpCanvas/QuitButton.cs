@@ -5,6 +5,6 @@ public class QuitButton : ButtonSelect {
 
 	protected override void DoubleClickAction()
     {
-        Debug.Log("Quit clicked.");
+        Utilities.LoadScene("TitleScreen");
     }
 }

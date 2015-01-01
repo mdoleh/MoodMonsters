@@ -22,4 +22,9 @@ public class GUIDetect : MonoBehaviour {
         }
         return null;
     }
+
+    public static GameObject[] GetAllGUI()
+    {
+        return GameObject.FindGameObjectsWithTag("GUI");
+    }
 }
