@@ -6,12 +6,12 @@ using UnityEngine.UI;
 // override ButtonDown() to customize click event
 public class ButtonDragDrop : MonoBehaviour {
 
-    protected static int correctCount = 0;
+    private static int correctCount = 0;
     protected Vector2 originalPosition;
     protected AudioSource buttonAudio;
     public Button dropContainer;
     Color oldColor;
-    const int CORRECT_AMOUNT = 3;
+    protected int CORRECT_AMOUNT = 3;
 
     protected virtual void Awake() {
         oldColor = dropContainer.image.color;
@@ -48,6 +48,7 @@ public class ButtonDragDrop : MonoBehaviour {
     }
 
     public virtual void SubmitAnswer() {
+        correctCount += 1;
         dropContainer.image.color = oldColor;
         if (correctCount == CORRECT_AMOUNT)
         {
@@ -73,9 +74,13 @@ public class ButtonDragDrop : MonoBehaviour {
 
     protected void NextGUI()
     {
+        correctCount = 0;
         string currentGUI = GUIDetect.GetCurrentGUIName();
         switch (currentGUI)
         {
+            case "TutorialCanvas":
+                NextGUI("TutorialCanvas", "EmotionsCanvas");
+                break;
             case "EmotionsCanvas":
                 NextGUI("EmotionsCanvas", "PhysicalCanvas");
                 break;
@@ -108,20 +113,4 @@ public class ButtonDragDrop : MonoBehaviour {
             }
         }
     }
-
-//    string findCurrentGUIName() {
-//        for (int ii = 0; ii < GUI.Length; ++ii) {
-//            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].name;
-//        }
-//        return null;
-//    }
-
-//    Canvas findCurrentGUI()
-//    {
-//        for (int ii = 0; ii < GUI.Length; ++ii)
-//        {
-//            if (GUI[ii].GetComponent<Canvas>().enabled) return GUI[ii].GetComponent<Canvas>();
-//        }
-//        return null;
-//    }
 }

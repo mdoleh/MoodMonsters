@@ -12,11 +12,6 @@ public abstract class ButtonSelect : ButtonDoubleClick
         instructions = GetComponent<AudioSource>();
     }
 
-    protected override void Update()
-    {
-        // disable flashing
-    }
-
     protected override void SingleClickAction()
     {
         Utilities.PlayAudio(instructions);

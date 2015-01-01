@@ -5,6 +5,11 @@ namespace EmotionsGUI
 {
     public class CorrectAnswer : ButtonDragDrop
     {
+        protected override void Awake()
+        {
+            base.Awake();
+            CORRECT_AMOUNT = 1;
+        }
 
         public override void ButtonDown()
         {
@@ -16,7 +21,6 @@ namespace EmotionsGUI
         {
             base.SubmitAnswer();
             Debug.Log("Correct answer submitted");
-            NextGUI();
         }
     }
 }

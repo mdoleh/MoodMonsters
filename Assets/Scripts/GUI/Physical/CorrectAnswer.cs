@@ -5,6 +5,12 @@ namespace PhysicalGUI
 {
     public class CorrectAnswer : ButtonDragDrop
     {
+        protected override void Awake()
+        {
+            base.Awake();
+            CORRECT_AMOUNT = 3;
+        }
+
         public override void ButtonDown()
         {
             base.ButtonDown();
@@ -15,7 +21,6 @@ namespace PhysicalGUI
         {
             Debug.Log("Correct answer submitted");
             GameObject.Destroy(gameObject);
-            correctCount += 1;
             base.SubmitAnswer();
         }
     }

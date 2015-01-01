@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace HelpGUI
 {
-    public class HelpButton : ButtonSelect
+    public class HelpButton : HelpBase
     {
 
         protected override void DoubleClickAction()
