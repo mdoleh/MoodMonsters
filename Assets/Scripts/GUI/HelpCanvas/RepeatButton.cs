@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RepeatButton : ButtonSelect {
+namespace HelpGUI
+{
+    public class RepeatButton : ButtonSelect {
 
-    protected override void DoubleClickAction()
-    {
-        Utilities.PlayAudio(GUIDetect.GetCurrentGUI().GetComponent<AudioSource>());
+        protected override void DoubleClickAction()
+        {
+            Utilities.PlayAudio(GUIDetect.GetCurrentGUI().GetComponent<AudioSource>());
+        }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HelpButton : ButtonSelect {
-
-	protected override void DoubleClickAction()
+namespace HelpGUI
+{
+    public class HelpButton : ButtonSelect
     {
-        Debug.Log("Help clicked.");
+
+        protected override void DoubleClickAction()
+        {
+            Debug.Log("Help clicked.");
+        }
     }
 }
