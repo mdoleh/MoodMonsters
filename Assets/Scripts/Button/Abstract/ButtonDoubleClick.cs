@@ -2,22 +2,18 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ButtonDoubleClick : MonoBehaviour
+public abstract class ButtonDoubleClick : MonoBehaviour
 {
-    public string sceneToLoad;
-
-    private AudioSource instructions;
     private int count = 0;
     private float timer = 0;
     private bool toggle = false;
     protected Color originalColor;
-    private Transform backgroundGlow;
+    protected Transform backgroundGlow;
 
     protected virtual void Awake()
     {
         originalColor = GetComponent<Image>().color;
         backgroundGlow = transform.parent.Find("BackgroundGlow");
-        instructions = GetComponent<AudioSource>();
     }
 
     public virtual void ButtonClicked()
@@ -31,14 +27,18 @@ public class ButtonDoubleClick : MonoBehaviour
         if (count > 1)
         {
             count = 0;
-            Utilities.LoadScene(sceneToLoad);
+            DoubleClickAction();
         }
         else
         {
-            Utilities.PlayAudio(instructions);
+            SingleClickAction();
         }
     }
 
+    protected abstract void DoubleClickAction();
+    protected abstract void SingleClickAction();
+
+    //override Update to prevent button flashing
     protected virtual void Update()
     {
         timer += Time.deltaTime;
@@ -66,5 +66,10 @@ public class ButtonDoubleClick : MonoBehaviour
             backgroundGlow.GetComponent<Image>().enabled = true;
             toggle = true;
         }
+    }
+
+    protected void ResetCount()
+    {
+        count = 0;
     }
 }
