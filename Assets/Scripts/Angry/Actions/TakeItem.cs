@@ -10,6 +10,7 @@ namespace AngryScene
         Animator anim;
         bool GUIon = false;
         public Animator other;
+        public RunTutorial runTutorial;
         float timer = 0.0f;
 
         public void Awake()
@@ -49,7 +50,8 @@ namespace AngryScene
                 if (GUI[ii].name == "TutorialCanvas")
                 {
                     GUI[ii].GetComponent<Canvas>().enabled = true;
-                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
+                    runTutorial.Initialize();
+//                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
                     return;
                 }
             }

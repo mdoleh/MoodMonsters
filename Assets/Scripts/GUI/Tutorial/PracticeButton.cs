@@ -3,10 +3,21 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class PracticeButton : ButtonDragDrop {
+    private AudioSource buttonDragAudio;
+    private AudioSource buttonPushAudio;
+    private AudioSource practiceButtonAudio;
+
+    private bool shouldPlayDragAudio = false;
+    private bool answerSubmitted = false;
+
     protected override void Awake()
     {
         base.Awake();
         CORRECT_AMOUNT = 1;
+
+        buttonPushAudio = transform.parent.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
+        buttonDragAudio = transform.parent.Find("ButtonDrag").gameObject.GetComponent<AudioSource>();
+        practiceButtonAudio = transform.parent.Find("PracticeButton").gameObject.GetComponent<AudioSource>();
     }
 
     public override void ButtonDown()
@@ -21,19 +32,34 @@ public class PracticeButton : ButtonDragDrop {
         ShowPushing();
     }
 
+    public override void SubmitAnswer()
+    {
+        base.SubmitAnswer();
+        answerSubmitted = true;
+    }
+
+    private void Update()
+    {
+        if (shouldPlayDragAudio && !practiceButtonAudio.isPlaying)
+        {
+            Utilities.PlayAudio(buttonDragAudio);
+            shouldPlayDragAudio = false;
+        }
+    }
+
     private void ShowDragging()
     {
-        transform.parent.Find("ButtonPush").GetComponent<RawImage>().enabled = false;
-        transform.parent.Find("ButtonPush").GetComponent<Animator>().enabled = false;
-        transform.parent.Find("ButtonDrag").GetComponent<RawImage>().enabled = true;
-        transform.parent.Find("ButtonDrag").GetComponent<Animator>().enabled = true;
+        Utilities.StopAudio(buttonPushAudio);
+        transform.parent.Find("ButtonPush").gameObject.SetActive(false);
+        transform.parent.Find("ButtonDrag").gameObject.SetActive(true);
+        shouldPlayDragAudio = true;
     }
 
     private void ShowPushing()
     {
-        transform.parent.Find("ButtonPush").GetComponent<RawImage>().enabled = true;
-        transform.parent.Find("ButtonPush").GetComponent<Animator>().enabled = true;
-        transform.parent.Find("ButtonDrag").GetComponent<RawImage>().enabled = false;
-        transform.parent.Find("ButtonDrag").GetComponent<Animator>().enabled = false;
+        Utilities.StopAudio(buttonDragAudio);
+        transform.parent.Find("ButtonPush").gameObject.SetActive(true);
+        transform.parent.Find("ButtonDrag").gameObject.SetActive(false);
+        if (!answerSubmitted) Utilities.PlayAudio(buttonPushAudio);
     }
 }
