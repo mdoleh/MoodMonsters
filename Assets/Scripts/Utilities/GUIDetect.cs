@@ -72,4 +72,21 @@ public class GUIDetect : MonoBehaviour {
         var GUI = GameObject.FindGameObjectsWithTag("GUI");
         return (from t in GUI where t.name == name select t.GetComponent<Canvas>()).FirstOrDefault();
     }
+
+    public static void NextGUI(string current, string next)
+    {
+        var GUI = GetAllGUI();
+        for (int ii = 0; ii < GUI.Length; ++ii)
+        {
+            if (GUI[ii].name == next)
+            {
+                GUI[ii].GetComponent<Canvas>().enabled = true;
+                Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
+            }
+            if (GUI[ii].name == current)
+            {
+                GUI[ii].GetComponent<Canvas>().enabled = false;
+            }
+        }
+    }
 }

@@ -79,13 +79,13 @@ public class ButtonDragDrop : MonoBehaviour {
         switch (currentGUI)
         {
             case "TutorialCanvas":
-                NextGUI("TutorialCanvas", "EmotionsCanvas");
+                GUIDetect.NextGUI("TutorialCanvas", "EmotionsCanvas");
                 break;
             case "EmotionsCanvas":
-                NextGUI("EmotionsCanvas", "PhysicalCanvas");
+                GUIDetect.NextGUI("EmotionsCanvas", "PhysicalCanvas");
                 break;
             case "PhysicalCanvas":
-                NextGUI("PhysicalCanvas", "ActionsCanvas");
+                GUIDetect.NextGUI("PhysicalCanvas", "ActionsCanvas");
                 break;
             case "ActionsCanvas":
                 // go to puzzle mini game
@@ -95,22 +95,5 @@ public class ButtonDragDrop : MonoBehaviour {
                 break;
         }
         
-    }
-
-    void NextGUI(string current, string next)
-    {
-        var GUI = GUIDetect.GetAllGUI();
-        for (int ii = 0; ii < GUI.Length; ++ii)
-        {
-            if (GUI[ii].name == next)
-            {
-                GUI[ii].GetComponent<Canvas>().enabled = true;
-                Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
-            }
-            if (GUI[ii].name == current)
-            {
-                GUI[ii].GetComponent<Canvas>().enabled = false;
-            }
-        }
     }
 }
