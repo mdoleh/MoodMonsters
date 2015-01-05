@@ -10,7 +10,7 @@ public class ButtonDragDrop : MonoBehaviour {
     protected Vector2 originalPosition;
     protected AudioSource buttonAudio;
     public Button dropContainer;
-    Color oldColor;
+    private Color oldColor;
     protected int CORRECT_AMOUNT = 3;
 
     protected virtual void Awake() {
@@ -42,6 +42,7 @@ public class ButtonDragDrop : MonoBehaviour {
     {
         if (RectsOverlap(dropContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
+            dropContainer.image.color = oldColor;
             SubmitAnswer();
         }
         transform.position = originalPosition;
@@ -49,7 +50,6 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void SubmitAnswer() {
         correctCount += 1;
-        dropContainer.image.color = oldColor;
         if (correctCount == CORRECT_AMOUNT)
         {
             NextGUI();
