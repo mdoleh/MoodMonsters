@@ -81,7 +81,10 @@ public class GUIDetect : MonoBehaviour {
             if (GUI[ii].name == next)
             {
                 GUI[ii].GetComponent<Canvas>().enabled = true;
-                Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
+                if (current != "TutorialCanvas")
+                {
+                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
+                }
             }
             if (GUI[ii].name == current)
             {
