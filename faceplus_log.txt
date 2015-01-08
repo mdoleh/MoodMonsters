@@ -1,0 +1,1459 @@
+3394	Info:	Faceplus 1.1.0.2
+3394	Info:	Running on Windows 6.2 (9200)	Service Pack 0.0
+3394	Info:	Client "unity"
+3394	Info:	Logging in
+5147	Info:	Authenticating...
+5147	Info:	Waiting for response...
+5500	Info:	Status 200
+5771	Info:	Login completed!
+15678	Info:	Client "unity"
+25868	Info:	PLATFORM_NAME: Intel(R) OpenCL
+VERSION: OpenCL 1.2 
+VENDOR: Intel(R) Corporation
+PROFILE: FULL_PROFILE
+	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.65545
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 	DEVICE:        Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+	TYPE: CPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 4
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 1024
+	MAX WORK ITEMS SIZES: 1024X1024X1024
+	DEVICE VERSION: OpenCL 1.2 (Build 75658)
+	DRIVER VERSION: 3.0.1.10123
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 3981 MB
+	GLOBAL MEM CACHE SIZE: 256 KB
+	CONSTANT BUFFER SIZE:128 KB
+	LOCAL MEM SIZE: 32 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 2500
+	TIMER RESOLUTION: 410
+	PERFORMANCE SCORE: 0.193695
+cl_ext_device_fission, cl_intel_dx9_media_sharing, cl_intel_exec_by_local_thread, cl_intel_printf, cl_khr_byte_addressable_store, cl_khr_d3d11_sharing, cl_khr_dx9_media_sharing, cl_khr_fp64, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+25868	Info:	Running on device 	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.65545
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+26826	Info:	Opening "USB Camera" at resolution 640X480
+26856	Info:	Online tracking
+32037	Info:	Face Not Detected
+33819	Info:	Face Not Detected
+35138	Info:	Face Detected @0.540266,0.571074
+35557	Info:	Face Detected @0.534548,0.566273
+35972	Info:	Face Detected @0.494936,0.543348
+36426	Info:	Face Detected @0.495455,0.544376
+36896	Info:	Face Detected @0.495691,0.543823
+37351	Info:	Face Detected @0.496518,0.542859
+37833	Info:	Face Detected @0.500337,0.540593
+38248	Info:	Face Detected @0.498928,0.543016
+38624	Info:	Face Detected @0.497753,0.544116
+39025	Info:	Face Detected @0.497626,0.544015
+39395	Info:	Face Detected @0.498702,0.542142
+39835	Info:	Face Detected @0.498986,0.543125
+41118	Info:	Face Detected @0.497178,0.543887
+41566	Info:	Face Detected @0.496745,0.54625
+42032	Info:	Face Detected @0.499237,0.540717
+42548	Info:	Face Detected @0.500613,0.525824
+43028	Info:	Face Detected @0.501111,0.517507
+43483	Info:	Face Detected @0.498473,0.517281
+43902	Info:	Face Detected @0.493446,0.521993
+44375	Info:	Face Detected @0.487427,0.526977
+44847	Info:	Face Detected @0.481652,0.544085
+45301	Info:	Face Detected @0.481036,0.546068
+45807	Info:	Face Detected @0.482066,0.548746
+46180	Info:	Face Detected @0.486141,0.555714
+46539	Info:	Face Detected @0.486404,0.556819
+46987	Info:	Face Detected @0.486252,0.554251
+47391	Info:	Face Detected @0.483251,0.554704
+47840	Info:	Face Detected @0.480872,0.557529
+48179	Info:	Face Detected @0.480318,0.560581
+48603	Info:	Face Detected @0.480769,0.561088
+49077	Info:	Face Detected @0.481398,0.560639
+49521	Info:	Face Detected @0.48302,0.560621
+49923	Info:	Face Detected @0.481888,0.563899
+50318	Info:	Face Detected @0.481338,0.564978
+50823	Info:	Face Detected @0.480215,0.564574
+51212	Info:	Face Detected @0.478792,0.566247
+51604	Info:	Face Detected @0.476534,0.552478
+52111	Info:	Face Detected @0.473275,0.53964
+52563	Info:	Face Detected @0.477198,0.535737
+53071	Info:	Face Detected @0.487602,0.560136
+53584	Info:	Face Detected @0.521652,0.553359
+54070	Info:	Face Detected @0.53691,0.552327
+54513	Info:	Face Detected @0.530133,0.54577
+55044	Info:	Face Detected @0.519821,0.545262
+55562	Info:	Face Detected @0.509792,0.533987
+56000	Info:	Face Detected @0.487801,0.523956
+56478	Info:	Face Detected @0.489183,0.526766
+57029	Info:	Face Detected @0.50451,0.527846
+57539	Info:	Face Detected @0.517017,0.5358
+58049	Info:	Face Detected @0.512343,0.548476
+58566	Info:	Face Detected @0.48337,0.584604
+58972	Info:	Face Detected @0.485248,0.593341
+59310	Info:	Face Detected @0.485553,0.59172
+59755	Info:	Face Detected @0.485736,0.588475
+60254	Info:	Face Detected @0.486994,0.584233
+60720	Info:	Face Detected @0.482706,0.580254
+61206	Info:	Face Detected @0.480923,0.576959
+61687	Info:	Face Detected @0.48935,0.489624
+62157	Info:	Face Detected @0.484941,0.465347
+62567	Info:	Face Detected @0.48487,0.467327
+63020	Info:	Face Detected @0.486663,0.476338
+63423	Info:	Face Detected @0.486447,0.480058
+63764	Info:	Face Detected @0.485908,0.482311
+64099	Info:	Face Detected @0.485754,0.484516
+64476	Info:	Face Detected @0.484604,0.48929
+64953	Info:	Face Detected @0.48342,0.505483
+65402	Info:	Face Detected @0.501023,0.522969
+65866	Info:	Face Detected @0.527236,0.547073
+66431	Info:	Face Detected @0.501902,0.571475
+66888	Info:	Face Detected @0.511145,0.600228
+67332	Info:	Face Detected @0.510143,0.630449
+67847	Info:	Face Detected @0.516039,0.623138
+68293	Info:	Face Detected @0.525281,0.59214
+68716	Info:	Face Detected @0.541232,0.598486
+69153	Info:	Face Detected @0.544644,0.594662
+69611	Info:	Face Detected @0.532851,0.589959
+70030	Info:	Face Detected @0.52717,0.584902
+70547	Info:	Face Detected @0.525579,0.588038
+71028	Info:	Face Detected @0.523655,0.590205
+71464	Info:	Face Detected @0.523946,0.588878
+71958	Info:	Face Detected @0.507772,0.588979
+72400	Info:	Face Detected @0.505361,0.591085
+72884	Info:	Face Detected @0.499482,0.595451
+73319	Info:	Face Detected @0.490096,0.595075
+73634	Info:	Face Detected @0.489293,0.594166
+73917	Info:	Face Detected @0.490239,0.591041
+74236	Info:	Face Detected @0.491455,0.59172
+74598	Info:	Face Detected @0.493937,0.590922
+74927	Info:	Face Detected @0.494597,0.591272
+75225	Info:	Face Detected @0.493264,0.590751
+75608	Info:	Face Detected @0.482338,0.581222
+75958	Info:	Face Detected @0.48167,0.578772
+76319	Info:	Face Detected @0.487613,0.567628
+76695	Info:	Face Detected @0.493996,0.560727
+77030	Info:	Face Detected @0.490711,0.56553
+77389	Info:	Face Detected @0.474712,0.568448
+77717	Info:	Face Detected @0.463098,0.587814
+78081	Info:	Face Detected @0.456901,0.591091
+78450	Info:	Face Detected @0.453761,0.590686
+78802	Info:	Face Detected @0.452027,0.591962
+79109	Info:	Face Detected @0.452263,0.592094
+79430	Info:	Face Detected @0.454997,0.58387
+79804	Info:	Face Detected @0.470446,0.587781
+80174	Info:	Face Detected @0.471989,0.583338
+80510	Info:	Face Detected @0.471984,0.583463
+80844	Info:	Face Detected @0.470204,0.587195
+81205	Info:	Face Detected @0.478158,0.58191
+81555	Info:	Face Detected @0.478733,0.580498
+81908	Info:	Face Detected @0.479069,0.579818
+82280	Info:	Face Detected @0.481549,0.580117
+82582	Info:	Face Detected @0.479654,0.578403
+82986	Info:	Face Detected @0.478583,0.5789
+83359	Info:	Face Detected @0.479257,0.579022
+83749	Info:	Face Detected @0.481559,0.577012
+84111	Info:	Face Detected @0.48446,0.576647
+84610	Info:	Face Detected @0.484603,0.572081
+85100	Info:	Face Detected @0.485021,0.571464
+85663	Info:	Face Detected @0.488761,0.576243
+86248	Info:	Face Detected @0.491289,0.56879
+86698	Info:	Face Detected @0.492462,0.568646
+87166	Info:	Face Detected @0.492511,0.566396
+87601	Info:	Face Detected @0.49716,0.571581
+88055	Info:	Face Detected @0.497313,0.573661
+88499	Info:	Face Detected @0.49697,0.57268
+88959	Info:	Face Detected @0.499313,0.568922
+89316	Info:	Face Detected @0.49585,0.567483
+89696	Info:	Face Detected @0.49494,0.570191
+90167	Info:	Face Detected @0.497177,0.572879
+90686	Info:	Face Detected @0.500563,0.578084
+91116	Info:	Face Detected @0.504937,0.581049
+91638	Info:	Face Detected @0.503773,0.581897
+91994	Info:	Face Detected @0.502521,0.580721
+92453	Info:	Face Detected @0.50054,0.581048
+92920	Info:	Face Detected @0.496683,0.584978
+93367	Info:	Face Detected @0.503523,0.584183
+93642	Info:	Face Detected @0.51013,0.584409
+93888	Info:	Face Detected @0.508588,0.583032
+94148	Info:	Face Detected @0.507413,0.581203
+94399	Info:	Face Detected @0.506746,0.579402
+94635	Info:	Face Detected @0.508052,0.579978
+94959	Info:	Face Detected @0.512264,0.584165
+95252	Info:	Face Detected @0.516848,0.582078
+95587	Info:	Face Detected @0.530558,0.582794
+95896	Info:	Face Detected @0.530152,0.582244
+96196	Info:	Face Detected @0.525921,0.580001
+96516	Info:	Face Detected @0.536988,0.585167
+96830	Info:	Face Detected @0.539647,0.592234
+97149	Info:	Face Detected @0.539867,0.59301
+97444	Info:	Face Detected @0.537369,0.597249
+97741	Info:	Face Detected @0.538129,0.590855
+98025	Info:	Face Detected @0.535346,0.594592
+98320	Info:	Face Detected @0.52547,0.592311
+98617	Info:	Face Detected @0.527258,0.596268
+98863	Info:	Face Detected @0.529896,0.597027
+99088	Info:	Face Detected @0.530085,0.597366
+99319	Info:	Face Detected @0.52977,0.597317
+99609	Info:	Face Detected @0.528646,0.596388
+99838	Info:	Face Detected @0.527472,0.595498
+100029	Info:	Face Detected @0.52661,0.595844
+100234	Info:	Face Detected @0.526646,0.595606
+100457	Info:	Face Detected @0.527334,0.595401
+100817	Info:	Face Detected @0.527262,0.595234
+101142	Info:	Face Detected @0.525597,0.592847
+101458	Info:	Face Detected @0.519754,0.59094
+101916	Info:	Face Detected @0.510477,0.589248
+102362	Info:	Face Detected @0.499725,0.588972
+102744	Info:	Face Detected @0.496789,0.591264
+103179	Info:	Face Detected @0.496121,0.590724
+103648	Info:	Face Detected @0.49379,0.590265
+104123	Info:	Face Detected @0.495843,0.5974
+104632	Info:	Face Detected @0.494114,0.597935
+105122	Info:	Face Detected @0.495524,0.599639
+105579	Info:	Face Detected @0.490775,0.595528
+105927	Info:	Face Detected @0.491303,0.599301
+106314	Info:	Face Detected @0.501173,0.598711
+106844	Info:	Face Detected @0.504337,0.598556
+107188	Info:	Face Detected @0.498732,0.599493
+107611	Info:	Face Detected @0.491482,0.599846
+108117	Info:	Face Detected @0.483618,0.60255
+108641	Info:	Face Detected @0.477879,0.597684
+109111	Info:	Face Detected @0.453423,0.549074
+109597	Info:	Face Detected @0.446557,0.552202
+110072	Info:	Face Detected @0.45029,0.548549
+110540	Info:	Face Detected @0.456025,0.549549
+111044	Info:	Face Detected @0.46748,0.552292
+111553	Info:	Face Detected @0.478659,0.554742
+112000	Info:	Face Detected @0.504711,0.564551
+112430	Info:	Face Detected @0.512311,0.570362
+112887	Info:	Face Detected @0.51429,0.56494
+113348	Info:	Face Detected @0.519077,0.576625
+113763	Info:	Face Detected @0.518951,0.57377
+114272	Info:	Face Detected @0.516552,0.569811
+114586	Info:	Face Detected @0.516846,0.569703
+114805	Info:	Face Detected @0.51755,0.569475
+115028	Info:	Face Detected @0.518704,0.569788
+115244	Info:	Face Detected @0.517519,0.570689
+115461	Info:	Face Detected @0.516526,0.570154
+115689	Info:	Face Detected @0.514741,0.571641
+115905	Info:	Face Detected @0.51332,0.573416
+116143	Info:	Face Detected @0.512394,0.573776
+116352	Info:	Face Detected @0.512861,0.573273
+116552	Info:	Face Detected @0.512862,0.573288
+116777	Info:	Face Detected @0.512549,0.572531
+117102	Info:	Face Detected @0.512698,0.57146
+117404	Info:	Face Detected @0.512676,0.573067
+117731	Info:	Face Detected @0.514425,0.571459
+118027	Info:	Face Detected @0.516884,0.571959
+118315	Info:	Face Detected @0.51586,0.572198
+118553	Info:	Face Detected @0.514196,0.572106
+118751	Info:	Face Detected @0.513161,0.573472
+118956	Info:	Face Detected @0.51332,0.574002
+119165	Info:	Face Detected @0.51361,0.574673
+119507	Info:	Face Detected @0.513517,0.573883
+119870	Info:	Face Detected @0.512863,0.571828
+120179	Info:	Face Detected @0.514483,0.572903
+120459	Info:	Face Detected @0.51565,0.57358
+120676	Info:	Face Detected @0.519016,0.578143
+120947	Info:	Face Detected @0.530793,0.58476
+121375	Info:	Face Detected @0.532755,0.589392
+121831	Info:	Face Detected @0.532168,0.590201
+122305	Info:	Face Detected @0.533828,0.580821
+122801	Info:	Face Detected @0.529803,0.574643
+123281	Info:	Face Detected @0.525885,0.574765
+123871	Info:	Face Detected @0.515621,0.591052
+124439	Info:	Face Detected @0.513344,0.595459
+124948	Info:	Face Detected @0.513722,0.593799
+125433	Info:	Face Detected @0.513892,0.590619
+125885	Info:	Face Detected @0.51379,0.589879
+126400	Info:	Face Detected @0.507192,0.590096
+126765	Info:	Face Detected @0.50187,0.592227
+127110	Info:	Face Detected @0.502036,0.596017
+127445	Info:	Face Detected @0.498945,0.598094
+127769	Info:	Face Detected @0.497957,0.599623
+128003	Info:	Face Detected @0.500256,0.601097
+128248	Info:	Face Detected @0.501736,0.600463
+128507	Info:	Face Detected @0.501733,0.59963
+128761	Info:	Face Detected @0.497525,0.599455
+129011	Info:	Face Detected @0.497201,0.599019
+129238	Info:	Face Detected @0.497247,0.599011
+129496	Info:	Face Detected @0.49591,0.599629
+129744	Info:	Face Detected @0.492774,0.60198
+129994	Info:	Face Detected @0.492247,0.602143
+130244	Info:	Face Detected @0.492552,0.603181
+130494	Info:	Face Detected @0.492259,0.602488
+130781	Info:	Face Detected @0.486161,0.601257
+131072	Info:	Face Detected @0.484264,0.600427
+131449	Info:	Face Detected @0.480691,0.599253
+131789	Info:	Face Detected @0.48409,0.595999
+132097	Info:	Face Detected @0.486435,0.596621
+132447	Info:	Face Detected @0.486267,0.596958
+132712	Info:	Face Detected @0.486213,0.598223
+132947	Info:	Face Detected @0.487772,0.598799
+133214	Info:	Face Detected @0.487861,0.598526
+133460	Info:	Face Detected @0.487763,0.600197
+133686	Info:	Face Detected @0.488646,0.601004
+133914	Info:	Face Detected @0.489013,0.601547
+134162	Info:	Face Detected @0.488047,0.601509
+134414	Info:	Face Detected @0.48669,0.601949
+134647	Info:	Face Detected @0.487971,0.600517
+134886	Info:	Face Detected @0.489623,0.599446
+135119	Info:	Face Detected @0.489605,0.599616
+135440	Info:	Face Detected @0.489503,0.600166
+135748	Info:	Face Detected @0.489734,0.601262
+136083	Info:	Face Detected @0.490609,0.600531
+136378	Info:	Face Detected @0.491961,0.600093
+136617	Info:	Face Detected @0.491153,0.601179
+136899	Info:	Face Detected @0.490436,0.60026
+137154	Info:	Face Detected @0.491691,0.601526
+137410	Info:	Face Detected @0.492545,0.601807
+137662	Info:	Face Detected @0.492453,0.601856
+137917	Info:	Face Detected @0.491394,0.602879
+138145	Info:	Face Detected @0.491359,0.602858
+138401	Info:	Face Detected @0.491327,0.60285
+138626	Info:	Face Detected @0.491265,0.604234
+138860	Info:	Face Detected @0.491274,0.604213
+139078	Info:	Face Detected @0.492239,0.603997
+139309	Info:	Face Detected @0.491346,0.604003
+139544	Info:	Face Detected @0.490335,0.604365
+139800	Info:	Face Detected @0.491184,0.603849
+140033	Info:	Face Detected @0.492745,0.603901
+140289	Info:	Face Detected @0.493629,0.603847
+140565	Info:	Face Detected @0.493629,0.603872
+140805	Info:	Face Detected @0.493059,0.604235
+141037	Info:	Face Detected @0.495043,0.604923
+141347	Info:	Face Detected @0.495892,0.604162
+141761	Info:	Face Detected @0.495663,0.60442
+142100	Info:	Face Detected @0.496126,0.604803
+142402	Info:	Face Detected @0.498269,0.603652
+142720	Info:	Face Detected @0.502436,0.596807
+143029	Info:	Face Detected @0.509184,0.595473
+143527	Info:	Face Detected @0.514245,0.588735
+144033	Info:	Face Detected @0.518185,0.58607
+144539	Info:	Face Detected @0.5227,0.588476
+144865	Info:	Face Detected @0.523502,0.585963
+145214	Info:	Face Detected @0.522936,0.584005
+145580	Info:	Face Detected @0.511,0.588592
+146059	Info:	Face Detected @0.501217,0.567772
+146539	Info:	Face Detected @0.489028,0.542377
+147057	Info:	Face Detected @0.48621,0.541865
+147563	Info:	Face Detected @0.482246,0.520685
+148044	Info:	Face Detected @0.498688,0.508004
+148511	Info:	Face Detected @0.505763,0.505306
+148878	Info:	Face Detected @0.498407,0.515761
+149285	Info:	Face Detected @0.470109,0.533591
+149654	Info:	Face Detected @0.420905,0.557317
+150007	Info:	Face Detected @0.412315,0.562994
+150356	Info:	Face Detected @0.404988,0.571072
+150789	Info:	Face Detected @0.432369,0.552748
+151955	Info:	Face Detected @0.432088,0.552559
+153115	Info:	Face Detected @0.450408,0.544381
+154246	Info:	Face Detected @0.457174,0.545856
+155389	Info:	Face Detected @0.453874,0.545539
+156625	Info:	Face Detected @0.447681,0.546675
+157811	Info:	Face Detected @0.449703,0.546434
+159033	Info:	Face Detected @0.441495,0.551405
+160240	Info:	Face Detected @0.410774,0.560787
+161511	Info:	Face Detected @0.391308,0.57985
+162750	Info:	Face Detected @0.394166,0.579144
+164100	Info:	Face Detected @0.395078,0.578562
+165320	Info:	Face Detected @0.396187,0.58109
+166526	Info:	Face Detected @0.388063,0.581975
+167699	Info:	Face Detected @0.389366,0.579392
+169031	Info:	Face Detected @0.389064,0.577223
+170360	Info:	Face Detected @0.399798,0.56583
+171621	Info:	Face Detected @0.404912,0.555809
+172837	Info:	Face Detected @0.404768,0.556834
+173938	Info:	Face Detected @0.405002,0.557569
+175001	Info:	Face Detected @0.405635,0.556634
+175001	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175169	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175184	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175201	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175218	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175233	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175251	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175266	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175283	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175300	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175317	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175333	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175348	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175365	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175386	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175402	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175419	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175436	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175453	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175468	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175485	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175501	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175518	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175535	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175550	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175567	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175585	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175600	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175617	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175634	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175651	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175666	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175684	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175701	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175718	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175735	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175751	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175766	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175783	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175800	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175817	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175833	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175850	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175867	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175884	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175899	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175916	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175932	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175949	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175966	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175981	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+175998	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176016	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176031	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176048	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176065	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176082	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176098	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176117	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176134	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176151	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176167	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176184	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176201	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176218	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176233	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176251	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176266	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176283	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176300	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176317	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176333	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176350	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176367	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176384	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176399	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176417	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176432	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176449	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176466	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176481	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176500	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176516	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176531	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176548	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176565	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176582	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176598	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176615	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176632	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176647	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176664	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176680	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176697	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176714	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176731	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176746	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176764	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176781	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176796	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176813	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176830	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176845	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176863	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176880	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176895	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176912	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176929	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176945	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176962	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176979	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+176996	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177011	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177027	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177044	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177061	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177078	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177095	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177111	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177128	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177145	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177160	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177177	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177195	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177212	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177229	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177246	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177261	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177277	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177294	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177311	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177326	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177343	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177360	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177378	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177393	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177410	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177427	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177442	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177460	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177477	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177514	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177531	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177546	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177563	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177580	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177597	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177613	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177630	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177645	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177662	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177679	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177695	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177712	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177729	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177744	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177761	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177779	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177796	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177811	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177828	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177845	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177860	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177882	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177897	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177914	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177932	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177949	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177964	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177981	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+177996	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+178014	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+178031	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+178046	Err:	faceplus_output_channels_count: catched exception: You tried to access a faceplus API function without logging-in first
+178059	Info:	Client "unity"
+178059	Info:	Logging in
+178063	Info:	Logging in
+178378	Info:	Authenticating...
+178378	Info:	Waiting for response...
+178395	Info:	Authenticating...
+178395	Info:	Waiting for response...
+178524	Info:	Status 401
+178524	Info:	Log In Message =  Incorrect email or password.
+178531	Info:	Status 401
+178531	Info:	Log In Message =  Incorrect email or password.
+178533	Err:	faceplus_output_channels_count: catched unknown exception
+180384	Info:	Logging in
+180906	Info:	Authenticating...
+180906	Info:	Waiting for response...
+181035	Info:	Status 401
+181037	Info:	Log In Message =  Incorrect email or password.
+181037	Err:	faceplus_output_channels_count: catched unknown exception
+181050	Info:	Logging in
+181315	Info:	Authenticating...
+181315	Info:	Waiting for response...
+181449	Info:	Status 401
+181449	Info:	Log In Message =  Incorrect email or password.
+181451	Err:	faceplus_output_channels_count: catched unknown exception
+181462	Info:	Logging in
+181947	Info:	Authenticating...
+181947	Info:	Waiting for response...
+182091	Info:	Status 401
+182091	Info:	Log In Message =  Incorrect email or password.
+182093	Err:	faceplus_output_channels_count: catched unknown exception
+182104	Info:	Logging in
+182358	Info:	Authenticating...
+182358	Info:	Waiting for response...
+182509	Info:	Status 401
+182509	Info:	Log In Message =  Incorrect email or password.
+182509	Err:	faceplus_output_channels_count: catched unknown exception
+182520	Info:	Logging in
+182766	Info:	Authenticating...
+182768	Info:	Waiting for response...
+182914	Info:	Status 401
+182914	Info:	Log In Message =  Incorrect email or password.
+182917	Err:	faceplus_output_channels_count: catched unknown exception
+182927	Info:	Logging in
+183151	Info:	Authenticating...
+183151	Info:	Waiting for response...
+183289	Info:	Status 401
+183289	Info:	Log In Message =  Incorrect email or password.
+183291	Err:	faceplus_output_channels_count: catched unknown exception
+183302	Info:	Logging in
+183522	Info:	Authenticating...
+183524	Info:	Waiting for response...
+183649	Info:	Status 401
+183649	Info:	Log In Message =  Incorrect email or password.
+183651	Err:	faceplus_output_channels_count: catched unknown exception
+183660	Info:	Logging in
+183884	Info:	Authenticating...
+183886	Info:	Waiting for response...
+184011	Info:	Status 401
+184011	Info:	Log In Message =  Incorrect email or password.
+184013	Err:	faceplus_output_channels_count: catched unknown exception
+184033	Info:	Logging in
+184264	Info:	Authenticating...
+184264	Info:	Waiting for response...
+184419	Info:	Status 401
+184419	Info:	Log In Message =  Incorrect email or password.
+184421	Err:	faceplus_output_channels_count: catched unknown exception
+184432	Info:	Logging in
+184660	Info:	Authenticating...
+184660	Info:	Waiting for response...
+184807	Info:	Status 401
+184807	Info:	Log In Message =  Incorrect email or password.
+184809	Err:	faceplus_output_channels_count: catched unknown exception
+184820	Info:	Logging in
+185044	Info:	Authenticating...
+185046	Info:	Waiting for response...
+185173	Info:	Status 401
+185175	Info:	Log In Message =  Incorrect email or password.
+185175	Err:	faceplus_output_channels_count: catched unknown exception
+185186	Info:	Logging in
+185401	Info:	Authenticating...
+185402	Info:	Waiting for response...
+185535	Info:	Status 401
+185535	Info:	Log In Message =  Incorrect email or password.
+185535	Err:	faceplus_output_channels_count: catched unknown exception
+185548	Info:	Logging in
+185779	Info:	Authenticating...
+185779	Info:	Waiting for response...
+185921	Info:	Status 401
+185921	Info:	Log In Message =  Incorrect email or password.
+185923	Err:	faceplus_output_channels_count: catched unknown exception
+185934	Info:	Logging in
+186173	Info:	Authenticating...
+186173	Info:	Waiting for response...
+186313	Info:	Status 401
+186313	Info:	Log In Message =  Incorrect email or password.
+186315	Err:	faceplus_output_channels_count: catched unknown exception
+186326	Info:	Logging in
+186546	Info:	Authenticating...
+186546	Info:	Waiting for response...
+186938	Info:	Status 401
+186940	Info:	Log In Message =  Incorrect email or password.
+186940	Err:	faceplus_output_channels_count: catched unknown exception
+186953	Info:	Logging in
+187179	Info:	Authenticating...
+187179	Info:	Waiting for response...
+187365	Info:	Status 401
+187365	Info:	Log In Message =  Incorrect email or password.
+187367	Err:	faceplus_output_channels_count: catched unknown exception
+187380	Info:	Logging in
+187617	Info:	Authenticating...
+187619	Info:	Waiting for response...
+187774	Info:	Status 401
+187774	Info:	Log In Message =  Incorrect email or password.
+187776	Err:	faceplus_output_channels_count: catched unknown exception
+187789	Info:	Logging in
+188039	Info:	Authenticating...
+188039	Info:	Waiting for response...
+188194	Info:	Status 401
+188194	Info:	Log In Message =  Incorrect email or password.
+188195	Err:	faceplus_output_channels_count: catched unknown exception
+188207	Info:	Logging in
+188451	Info:	Authenticating...
+188453	Info:	Waiting for response...
+188595	Info:	Status 401
+188595	Info:	Log In Message =  Incorrect email or password.
+188597	Err:	faceplus_output_channels_count: catched unknown exception
+188608	Info:	Logging in
+188835	Info:	Authenticating...
+188835	Info:	Waiting for response...
+189003	Info:	Status 401
+189003	Info:	Log In Message =  Incorrect email or password.
+189005	Err:	faceplus_output_channels_count: catched unknown exception
+189016	Info:	Logging in
+189259	Info:	Authenticating...
+189259	Info:	Waiting for response...
+189442	Info:	Status 401
+189442	Info:	Log In Message =  Incorrect email or password.
+189445	Err:	faceplus_output_channels_count: catched unknown exception
+189455	Info:	Logging in
+189697	Info:	Authenticating...
+189697	Info:	Waiting for response...
+189891	Info:	Status 401
+189891	Info:	Log In Message =  Incorrect email or password.
+189891	Err:	faceplus_output_channels_count: catched unknown exception
+189904	Info:	Logging in
+190141	Info:	Authenticating...
+190141	Info:	Waiting for response...
+190311	Info:	Status 401
+190311	Info:	Log In Message =  Incorrect email or password.
+190313	Err:	faceplus_output_channels_count: catched unknown exception
+190324	Info:	Logging in
+190852	Info:	Authenticating...
+190852	Info:	Waiting for response...
+191022	Info:	Status 401
+191022	Info:	Log In Message =  Incorrect email or password.
+191024	Err:	faceplus_output_channels_count: catched unknown exception
+191035	Info:	Logging in
+191274	Info:	Authenticating...
+191274	Info:	Waiting for response...
+191455	Info:	Status 401
+191455	Info:	Log In Message =  Incorrect email or password.
+191457	Err:	faceplus_output_channels_count: catched unknown exception
+191468	Info:	Logging in
+191688	Info:	Authenticating...
+191688	Info:	Waiting for response...
+191871	Info:	Status 401
+191871	Info:	Log In Message =  Incorrect email or password.
+191871	Err:	faceplus_output_channels_count: catched unknown exception
+191882	Info:	Logging in
+192111	Info:	Authenticating...
+192111	Info:	Waiting for response...
+192279	Info:	Status 401
+192279	Info:	Log In Message =  Incorrect email or password.
+192279	Err:	faceplus_output_channels_count: catched unknown exception
+192292	Info:	Logging in
+192539	Info:	Authenticating...
+192539	Info:	Waiting for response...
+192722	Info:	Status 401
+192722	Info:	Log In Message =  Incorrect email or password.
+192723	Err:	faceplus_output_channels_count: catched unknown exception
+192733	Info:	Logging in
+192970	Info:	Authenticating...
+192970	Info:	Waiting for response...
+193156	Info:	Status 401
+193156	Info:	Log In Message =  Incorrect email or password.
+193158	Err:	faceplus_output_channels_count: catched unknown exception
+193169	Info:	Logging in
+193412	Info:	Authenticating...
+193412	Info:	Waiting for response...
+193604	Info:	Status 401
+193604	Info:	Log In Message =  Incorrect email or password.
+193606	Err:	faceplus_output_channels_count: catched unknown exception
+193619	Info:	Logging in
+193841	Info:	Authenticating...
+193843	Info:	Waiting for response...
+194080	Info:	Status 401
+194080	Info:	Log In Message =  Incorrect email or password.
+194082	Err:	faceplus_output_channels_count: catched unknown exception
+194095	Info:	Logging in
+194324	Info:	Authenticating...
+194324	Info:	Waiting for response...
+194652	Info:	Status 401
+194652	Info:	Log In Message =  Incorrect email or password.
+194654	Err:	faceplus_output_channels_count: catched unknown exception
+194664	Info:	Logging in
+194891	Info:	Authenticating...
+194891	Info:	Waiting for response...
+195063	Info:	Status 401
+195063	Info:	Log In Message =  Incorrect email or password.
+195063	Err:	faceplus_output_channels_count: catched unknown exception
+195074	Info:	Client "unity"
+195076	Info:	Logging in
+195080	Info:	Logging in
+195304	Info:	Authenticating...
+195304	Info:	Waiting for response...
+195317	Info:	Authenticating...
+195317	Info:	Waiting for response...
+195470	Info:	Status 401
+195470	Info:	Log In Message =  Incorrect email or password.
+195488	Info:	Status 401
+195488	Info:	Log In Message =  Incorrect email or password.
+195490	Err:	faceplus_output_channels_count: catched unknown exception
+197518	Info:	Logging in
+197740	Info:	Authenticating...
+197740	Info:	Waiting for response...
+197912	Info:	Status 401
+197912	Info:	Log In Message =  Incorrect email or password.
+197914	Err:	faceplus_output_channels_count: catched unknown exception
+197925	Info:	Logging in
+198182	Info:	Authenticating...
+198182	Info:	Waiting for response...
+198358	Info:	Status 401
+198358	Info:	Log In Message =  Incorrect email or password.
+198360	Err:	faceplus_output_channels_count: catched unknown exception
+198369	Info:	Logging in
+198604	Info:	Authenticating...
+198606	Info:	Waiting for response...
+198792	Info:	Status 401
+198792	Info:	Log In Message =  Incorrect email or password.
+198792	Err:	faceplus_output_channels_count: catched unknown exception
+198805	Info:	Logging in
+199020	Info:	Authenticating...
+199022	Info:	Waiting for response...
+199145	Info:	Status 401
+199145	Info:	Log In Message =  Incorrect email or password.
+199147	Err:	faceplus_output_channels_count: catched unknown exception
+199158	Info:	Logging in
+199391	Info:	Authenticating...
+199391	Info:	Waiting for response...
+199529	Info:	Status 401
+199529	Info:	Log In Message =  Incorrect email or password.
+199531	Err:	faceplus_output_channels_count: catched unknown exception
+199554	Info:	Logging in
+199787	Info:	Authenticating...
+199787	Info:	Waiting for response...
+199912	Info:	Status 401
+199912	Info:	Log In Message =  Incorrect email or password.
+199914	Err:	faceplus_output_channels_count: catched unknown exception
+199927	Info:	Logging in
+200160	Info:	Authenticating...
+200162	Info:	Waiting for response...
+200302	Info:	Status 401
+200302	Info:	Log In Message =  Incorrect email or password.
+200304	Err:	faceplus_output_channels_count: catched unknown exception
+200320	Info:	Logging in
+200561	Info:	Authenticating...
+200563	Info:	Waiting for response...
+200694	Info:	Status 401
+200694	Info:	Log In Message =  Incorrect email or password.
+200695	Err:	faceplus_output_channels_count: catched unknown exception
+200707	Info:	Logging in
+200964	Info:	Authenticating...
+200964	Info:	Waiting for response...
+201095	Info:	Status 401
+201095	Info:	Log In Message =  Incorrect email or password.
+201095	Err:	faceplus_output_channels_count: catched unknown exception
+201106	Info:	Logging in
+201354	Info:	Authenticating...
+201354	Info:	Waiting for response...
+201503	Info:	Status 401
+201503	Info:	Log In Message =  Incorrect email or password.
+201505	Err:	faceplus_output_channels_count: catched unknown exception
+201516	Info:	Logging in
+201753	Info:	Authenticating...
+201753	Info:	Waiting for response...
+201889	Info:	Status 401
+201891	Info:	Log In Message =  Incorrect email or password.
+201891	Err:	faceplus_output_channels_count: catched unknown exception
+201917	Info:	Logging in
+202149	Info:	Authenticating...
+202149	Info:	Waiting for response...
+202283	Info:	Status 401
+202283	Info:	Log In Message =  Incorrect email or password.
+202285	Err:	faceplus_output_channels_count: catched unknown exception
+202309	Info:	Logging in
+202554	Info:	Authenticating...
+202554	Info:	Waiting for response...
+202684	Info:	Status 401
+202684	Info:	Log In Message =  Incorrect email or password.
+202686	Err:	faceplus_output_channels_count: catched unknown exception
+202712	Info:	Logging in
+202949	Info:	Authenticating...
+202951	Info:	Waiting for response...
+203365	Info:	Status 401
+203365	Info:	Log In Message =  Incorrect email or password.
+203367	Err:	faceplus_output_channels_count: catched unknown exception
+203386	Info:	Logging in
+203619	Info:	Authenticating...
+203619	Info:	Waiting for response...
+203792	Info:	Status 401
+203792	Info:	Log In Message =  Incorrect email or password.
+203794	Err:	faceplus_output_channels_count: catched unknown exception
+203809	Info:	Logging in
+204042	Info:	Authenticating...
+204044	Info:	Waiting for response...
+204218	Info:	Status 401
+204218	Info:	Log In Message =  Incorrect email or password.
+204220	Err:	faceplus_output_channels_count: catched unknown exception
+204235	Info:	Logging in
+204766	Info:	Authenticating...
+204766	Info:	Waiting for response...
+204949	Info:	Status 401
+204949	Info:	Log In Message =  Incorrect email or password.
+204949	Err:	faceplus_output_channels_count: catched unknown exception
+204964	Info:	Logging in
+205203	Info:	Authenticating...
+205203	Info:	Waiting for response...
+205393	Info:	Status 401
+205393	Info:	Log In Message =  Incorrect email or password.
+205395	Err:	faceplus_output_channels_count: catched unknown exception
+205410	Info:	Logging in
+205628	Info:	Authenticating...
+205628	Info:	Waiting for response...
+205794	Info:	Status 401
+205794	Info:	Log In Message =  Incorrect email or password.
+205796	Err:	faceplus_output_channels_count: catched unknown exception
+205807	Info:	Client "unity"
+205807	Info:	Logging in
+205811	Info:	Logging in
+206031	Info:	Authenticating...
+206031	Info:	Waiting for response...
+206033	Info:	Authenticating...
+206035	Info:	Waiting for response...
+206203	Info:	Status 401
+206203	Info:	Log In Message =  Incorrect email or password.
+206205	Err:	faceplus_output_channels_count: catched unknown exception
+206218	Info:	Logging in
+206223	Info:	Status 401
+206223	Info:	Log In Message =  Incorrect email or password.
+206449	Info:	Authenticating...
+206449	Info:	Waiting for response...
+206619	Info:	Status 401
+206619	Info:	Log In Message =  Incorrect email or password.
+206621	Err:	faceplus_output_channels_count: catched unknown exception
+208192	Info:	Logging in
+208417	Info:	Authenticating...
+208419	Info:	Waiting for response...
+208606	Info:	Status 401
+208606	Info:	Log In Message =  Incorrect email or password.
+208608	Err:	faceplus_output_channels_count: catched unknown exception
+208617	Info:	Logging in
+208847	Info:	Authenticating...
+208847	Info:	Waiting for response...
+209011	Info:	Status 401
+209011	Info:	Log In Message =  Incorrect email or password.
+209014	Err:	faceplus_output_channels_count: catched unknown exception
+209024	Info:	Logging in
+209253	Info:	Authenticating...
+209253	Info:	Waiting for response...
+209384	Info:	Status 401
+209384	Info:	Log In Message =  Incorrect email or password.
+209386	Err:	faceplus_output_channels_count: catched unknown exception
+209395	Info:	Logging in
+209625	Info:	Authenticating...
+209625	Info:	Waiting for response...
+209759	Info:	Status 401
+209759	Info:	Log In Message =  Incorrect email or password.
+209761	Err:	faceplus_output_channels_count: catched unknown exception
+209783	Info:	Logging in
+210011	Info:	Authenticating...
+210011	Info:	Waiting for response...
+210147	Info:	Status 401
+210147	Info:	Log In Message =  Incorrect email or password.
+210147	Err:	faceplus_output_channels_count: catched unknown exception
+210166	Info:	Logging in
+210416	Info:	Authenticating...
+210417	Info:	Waiting for response...
+210550	Info:	Status 401
+210550	Info:	Log In Message =  Incorrect email or password.
+210552	Err:	faceplus_output_channels_count: catched unknown exception
+210561	Info:	Logging in
+210798	Info:	Authenticating...
+210798	Info:	Waiting for response...
+210929	Info:	Status 401
+210929	Info:	Log In Message =  Incorrect email or password.
+210930	Err:	faceplus_output_channels_count: catched unknown exception
+210942	Info:	Logging in
+211184	Info:	Authenticating...
+211184	Info:	Waiting for response...
+211339	Info:	Status 401
+211339	Info:	Log In Message =  Incorrect email or password.
+211341	Err:	faceplus_output_channels_count: catched unknown exception
+211352	Info:	Logging in
+211580	Info:	Authenticating...
+211580	Info:	Waiting for response...
+211701	Info:	Status 401
+211701	Info:	Log In Message =  Incorrect email or password.
+211703	Err:	faceplus_output_channels_count: catched unknown exception
+211712	Info:	Logging in
+211947	Info:	Authenticating...
+211947	Info:	Waiting for response...
+212089	Info:	Status 401
+212089	Info:	Log In Message =  Incorrect email or password.
+212091	Err:	faceplus_output_channels_count: catched unknown exception
+212102	Info:	Logging in
+212322	Info:	Authenticating...
+212324	Info:	Waiting for response...
+212544	Info:	Status 401
+212544	Info:	Log In Message =  Incorrect email or password.
+212546	Err:	faceplus_output_channels_count: catched unknown exception
+212557	Info:	Logging in
+213111	Info:	Authenticating...
+213113	Info:	Waiting for response...
+213264	Info:	Status 401
+213264	Info:	Log In Message =  Incorrect email or password.
+213266	Err:	faceplus_output_channels_count: catched unknown exception
+213281	Info:	Logging in
+213514	Info:	Authenticating...
+213514	Info:	Waiting for response...
+213660	Info:	Status 401
+213660	Info:	Log In Message =  Incorrect email or password.
+213662	Err:	faceplus_output_channels_count: catched unknown exception
+213679	Info:	Logging in
+213917	Info:	Authenticating...
+213917	Info:	Waiting for response...
+214042	Info:	Status 401
+214042	Info:	Log In Message =  Incorrect email or password.
+214042	Err:	faceplus_output_channels_count: catched unknown exception
+214054	Info:	Logging in
+214281	Info:	Authenticating...
+214281	Info:	Waiting for response...
+214417	Info:	Status 401
+214417	Info:	Log In Message =  Incorrect email or password.
+214419	Err:	faceplus_output_channels_count: catched unknown exception
+214429	Info:	Logging in
+214675	Info:	Authenticating...
+214675	Info:	Waiting for response...
+214839	Info:	Status 401
+214839	Info:	Log In Message =  Incorrect email or password.
+214841	Err:	faceplus_output_channels_count: catched unknown exception
+214852	Info:	Logging in
+215076	Info:	Authenticating...
+215078	Info:	Waiting for response...
+215218	Info:	Status 401
+215218	Info:	Log In Message =  Incorrect email or password.
+215220	Err:	faceplus_output_channels_count: catched unknown exception
+215235	Info:	Logging in
+215468	Info:	Authenticating...
+215468	Info:	Waiting for response...
+215645	Info:	Status 401
+215645	Info:	Log In Message =  Incorrect email or password.
+215647	Err:	faceplus_output_channels_count: catched unknown exception
+215667	Info:	Logging in
+215902	Info:	Authenticating...
+215902	Info:	Waiting for response...
+216035	Info:	Status 401
+216035	Info:	Log In Message =  Incorrect email or password.
+216037	Err:	faceplus_output_channels_count: catched unknown exception
+216054	Info:	Logging in
+216292	Info:	Authenticating...
+216294	Info:	Waiting for response...
+216470	Info:	Status 401
+216470	Info:	Log In Message =  Incorrect email or password.
+216472	Err:	faceplus_output_channels_count: catched unknown exception
+216503	Info:	Logging in
+216742	Info:	Authenticating...
+216742	Info:	Waiting for response...
+216899	Info:	Status 401
+216899	Info:	Log In Message =  Incorrect email or password.
+216901	Err:	faceplus_output_channels_count: catched unknown exception
+216919	Info:	Logging in
+217145	Info:	Authenticating...
+217147	Info:	Waiting for response...
+217289	Info:	Status 401
+217289	Info:	Log In Message =  Incorrect email or password.
+217291	Err:	faceplus_output_channels_count: catched unknown exception
+217309	Info:	Logging in
+217542	Info:	Authenticating...
+217542	Info:	Waiting for response...
+217673	Info:	Status 401
+217673	Info:	Log In Message =  Incorrect email or password.
+217675	Err:	faceplus_output_channels_count: catched unknown exception
+217690	Info:	Logging in
+217932	Info:	Authenticating...
+217932	Info:	Waiting for response...
+218070	Info:	Status 401
+218070	Info:	Log In Message =  Incorrect email or password.
+218072	Err:	faceplus_output_channels_count: catched unknown exception
+218083	Info:	Logging in
+218326	Info:	Authenticating...
+218328	Info:	Waiting for response...
+218477	Info:	Status 401
+218477	Info:	Log In Message =  Incorrect email or password.
+218479	Err:	faceplus_output_channels_count: catched unknown exception
+218490	Info:	Logging in
+218740	Info:	Authenticating...
+218740	Info:	Waiting for response...
+218878	Info:	Status 401
+218878	Info:	Log In Message =  Incorrect email or password.
+218880	Err:	faceplus_output_channels_count: catched unknown exception
+218893	Info:	Client "unity"
+218893	Info:	Logging in
+218897	Info:	Logging in
+219121	Info:	Authenticating...
+219121	Info:	Waiting for response...
+219125	Info:	Authenticating...
+219125	Info:	Waiting for response...
+219270	Info:	Status 401
+219270	Info:	Log In Message =  Incorrect email or password.
+219270	Info:	Status 401
+219272	Info:	Log In Message =  Incorrect email or password.
+219272	Err:	faceplus_output_channels_count: catched unknown exception
+222292	Info:	Logging in
+222516	Info:	Authenticating...
+222516	Info:	Waiting for response...
+222667	Info:	Status 401
+222667	Info:	Log In Message =  Incorrect email or password.
+222669	Err:	faceplus_output_channels_count: catched unknown exception
+222680	Info:	Logging in
+222917	Info:	Authenticating...
+222919	Info:	Waiting for response...
+223050	Info:	Status 401
+223050	Info:	Log In Message =  Incorrect email or password.
+223050	Err:	faceplus_output_channels_count: catched unknown exception
+223061	Info:	Logging in
+223305	Info:	Authenticating...
+223307	Info:	Waiting for response...
+223442	Info:	Status 401
+223442	Info:	Log In Message =  Incorrect email or password.
+223444	Err:	faceplus_output_channels_count: catched unknown exception
+223455	Info:	Logging in
+223690	Info:	Authenticating...
+223692	Info:	Waiting for response...
+223820	Info:	Status 401
+223820	Info:	Log In Message =  Incorrect email or password.
+223822	Err:	faceplus_output_channels_count: catched unknown exception
+223833	Info:	Logging in
+224055	Info:	Authenticating...
+224057	Info:	Waiting for response...
+224179	Info:	Status 401
+224179	Info:	Log In Message =  Incorrect email or password.
+224182	Err:	faceplus_output_channels_count: catched unknown exception
+224192	Info:	Logging in
+224416	Info:	Authenticating...
+224416	Info:	Waiting for response...
+224567	Info:	Status 401
+224567	Info:	Log In Message =  Incorrect email or password.
+224570	Err:	faceplus_output_channels_count: catched unknown exception
+224582	Info:	Logging in
+224804	Info:	Authenticating...
+224804	Info:	Waiting for response...
+224930	Info:	Status 401
+224930	Info:	Log In Message =  Incorrect email or password.
+224932	Err:	faceplus_output_channels_count: catched unknown exception
+224944	Info:	Logging in
+225464	Info:	Authenticating...
+225464	Info:	Waiting for response...
+225606	Info:	Status 401
+225606	Info:	Log In Message =  Incorrect email or password.
+225606	Err:	faceplus_output_channels_count: catched unknown exception
+225623	Info:	Logging in
+225856	Info:	Authenticating...
+225856	Info:	Waiting for response...
+225990	Info:	Status 401
+225990	Info:	Log In Message =  Incorrect email or password.
+225992	Err:	faceplus_output_channels_count: catched unknown exception
+226003	Info:	Logging in
+226223	Info:	Authenticating...
+226223	Info:	Waiting for response...
+226389	Info:	Status 401
+226389	Info:	Log In Message =  Incorrect email or password.
+226391	Err:	faceplus_output_channels_count: catched unknown exception
+226401	Info:	Logging in
+226626	Info:	Authenticating...
+226626	Info:	Waiting for response...
+226757	Info:	Status 401
+226757	Info:	Log In Message =  Incorrect email or password.
+226759	Err:	faceplus_output_channels_count: catched unknown exception
+226766	Info:	Logging in
+227003	Info:	Authenticating...
+227003	Info:	Waiting for response...
+227130	Info:	Status 401
+227130	Info:	Log In Message =  Incorrect email or password.
+227130	Err:	faceplus_output_channels_count: catched unknown exception
+227141	Info:	Logging in
+227363	Info:	Authenticating...
+227363	Info:	Waiting for response...
+227511	Info:	Status 401
+227511	Info:	Log In Message =  Incorrect email or password.
+227513	Err:	faceplus_output_channels_count: catched unknown exception
+227522	Info:	Logging in
+227751	Info:	Authenticating...
+227751	Info:	Waiting for response...
+227884	Info:	Status 401
+227884	Info:	Log In Message =  Incorrect email or password.
+227886	Err:	faceplus_output_channels_count: catched unknown exception
+227895	Info:	Logging in
+228123	Info:	Authenticating...
+228123	Info:	Waiting for response...
+228248	Info:	Status 401
+228248	Info:	Log In Message =  Incorrect email or password.
+228250	Err:	faceplus_output_channels_count: catched unknown exception
+228261	Info:	Logging in
+228514	Info:	Authenticating...
+228514	Info:	Waiting for response...
+228675	Info:	Status 401
+228675	Info:	Log In Message =  Incorrect email or password.
+228677	Err:	faceplus_output_channels_count: catched unknown exception
+228690	Info:	Logging in
+228912	Info:	Authenticating...
+228912	Info:	Waiting for response...
+229054	Info:	Status 401
+229054	Info:	Log In Message =  Incorrect email or password.
+229055	Err:	faceplus_output_channels_count: catched unknown exception
+229069	Info:	Logging in
+229309	Info:	Authenticating...
+229309	Info:	Waiting for response...
+229552	Info:	Status 401
+229552	Info:	Log In Message =  Incorrect email or password.
+229554	Err:	faceplus_output_channels_count: catched unknown exception
+229570	Info:	Logging in
+229805	Info:	Authenticating...
+229805	Info:	Waiting for response...
+229934	Info:	Status 401
+229934	Info:	Log In Message =  Incorrect email or password.
+229936	Err:	faceplus_output_channels_count: catched unknown exception
+246524	Info:	Client "unity"
+246524	Info:	Logging in
+246848	Info:	Authenticating...
+246848	Info:	Waiting for response...
+247175	Info:	Status 200
+247339	Info:	Login completed!
+249802	Info:	PLATFORM_NAME: Intel(R) OpenCL
+VERSION: OpenCL 1.2 
+VENDOR: Intel(R) Corporation
+PROFILE: FULL_PROFILE
+	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.63319
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 	DEVICE:        Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+	TYPE: CPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 4
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 1024
+	MAX WORK ITEMS SIZES: 1024X1024X1024
+	DEVICE VERSION: OpenCL 1.2 (Build 75658)
+	DRIVER VERSION: 3.0.1.10123
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 3981 MB
+	GLOBAL MEM CACHE SIZE: 256 KB
+	CONSTANT BUFFER SIZE:128 KB
+	LOCAL MEM SIZE: 32 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 2500
+	TIMER RESOLUTION: 410
+	PERFORMANCE SCORE: 0.130146
+cl_ext_device_fission, cl_intel_dx9_media_sharing, cl_intel_exec_by_local_thread, cl_intel_printf, cl_khr_byte_addressable_store, cl_khr_d3d11_sharing, cl_khr_dx9_media_sharing, cl_khr_fp64, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+249802	Info:	Running on device 	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.63319
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+249815	Info:	Opening "USB Camera" at resolution 640X480
+249826	Info:	Online tracking
+255798	Info:	Face Not Detected
+257334	Info:	Face Not Detected
+258614	Info:	Face Detected @0.505884,0.549141
+259122	Info:	Face Detected @0.502911,0.54969
+259460	Info:	Face Detected @0.502763,0.549115
+259867	Info:	Face Detected @0.502564,0.549421
+260260	Info:	Face Detected @0.503757,0.545826
+260750	Info:	Face Detected @0.500902,0.536157
+262057	Info:	Face Detected @0.505024,0.470528
+263345	Info:	Face Detected @0.507451,0.4642
+264481	Info:	Face Detected @0.506742,0.463219
+265769	Info:	Face Detected @0.504414,0.465474
+266825	Info:	Face Detected @0.501765,0.467075
+267934	Info:	Face Detected @0.503246,0.472026
+269338	Info:	Face Detected @0.49194,0.501516
+269848	Info:	Face Detected @0.491068,0.505332
+270295	Info:	Face Detected @0.492172,0.507414
+270811	Info:	Face Detected @0.448151,0.49641
+272053	Info:	Face Detected @0.441957,0.497908
+273464	Info:	Face Detected @0.522457,0.530051
+273959	Info:	Face Detected @0.522629,0.531688
+274459	Info:	Face Detected @0.558233,0.543602
+274959	Info:	Face Detected @0.574579,0.551808
+275470	Info:	Face Detected @0.576605,0.556899
+275958	Info:	Face Detected @0.589982,0.563483
+276428	Info:	Face Detected @0.605637,0.568707
+276822	Info:	Face Detected @0.618455,0.574306
+277222	Info:	Face Detected @0.628284,0.576637
+277617	Info:	Face Detected @0.635925,0.575732
+277971	Info:	Face Detected @0.632799,0.567304
+279278	Info:	Face Detected @0.633287,0.578736
+279634	Info:	Face Detected @0.620131,0.578392
+279983	Info:	Face Detected @0.620423,0.577729
+280332	Info:	Face Detected @0.621816,0.578899
+280707	Info:	Face Detected @0.628381,0.583259
+281260	Info:	Face Detected @0.63298,0.586523
+281769	Info:	Face Detected @0.569097,0.595118
+282270	Info:	Face Detected @0.566514,0.599321
+282690	Info:	Face Detected @0.566644,0.596427
+283105	Info:	Face Detected @0.565154,0.592801
+283617	Info:	Face Detected @0.566587,0.601654
+284080	Info:	Face Detected @0.568093,0.602754
+284601	Info:	Face Detected @0.566848,0.605398
+285075	Info:	Face Detected @0.56575,0.602078
+285565	Info:	Face Detected @0.564115,0.605449
+286050	Info:	Face Detected @0.572061,0.604014
+286618	Info:	Face Detected @0.569901,0.604855
+287076	Info:	Face Detected @0.57811,0.602508
+287632	Info:	Face Detected @0.575022,0.606281
+288084	Info:	Face Detected @0.570503,0.607272
+288514	Info:	Face Detected @0.571686,0.600983
+289009	Info:	Face Detected @0.568826,0.600095
+289447	Info:	Face Detected @0.568526,0.602858
+289924	Info:	Face Detected @0.5709,0.596521
+290395	Info:	Face Detected @0.570604,0.59966
+290860	Info:	Face Detected @0.572452,0.601369
+291341	Info:	Face Detected @0.56627,0.598625
+291795	Info:	Face Detected @0.5679,0.593685
+292311	Info:	Face Detected @0.562086,0.595778
+292859	Info:	Face Detected @0.547876,0.594611
+293225	Info:	Face Detected @0.552442,0.596923
+293557	Info:	Face Detected @0.556288,0.598941
+293893	Info:	Face Detected @0.557106,0.599877
+294368	Info:	Face Detected @0.557868,0.596382
+294838	Info:	Face Detected @0.555644,0.595745
+295221	Info:	Face Detected @0.556194,0.595848
+295540	Info:	Face Detected @0.558851,0.597179
+295973	Info:	Face Detected @0.558968,0.597074
+296472	Info:	Face Detected @0.560227,0.596553
+296957	Info:	Face Detected @0.566765,0.593667
+297299	Info:	Face Detected @0.564166,0.596632
+297695	Info:	Face Detected @0.562601,0.597561
+298016	Info:	Face Detected @0.559048,0.59726
+298434	Info:	Face Detected @0.558457,0.595829
+298855	Info:	Face Detected @0.558761,0.595664
+299212	Info:	Face Detected @0.558224,0.591454
+299558	Info:	Face Detected @0.556638,0.591222
+299886	Info:	Face Detected @0.556625,0.590687
+300230	Info:	Face Detected @0.557823,0.589247
+300610	Info:	Face Detected @0.557835,0.589232
+300897	Info:	Face Detected @0.555549,0.585572
+301427	Info:	Face Detected @0.555208,0.579507
+301958	Info:	Face Detected @0.557903,0.575425
+302346	Info:	Face Detected @0.557646,0.57594
+302700	Info:	Face Detected @0.560631,0.573272
+303045	Info:	Face Detected @0.55733,0.573638
+303526	Info:	Face Detected @0.557085,0.575184
+303890	Info:	Face Detected @0.558836,0.577575
+304207	Info:	Face Detected @0.558902,0.577034
+304415	Info:	Face Detected @0.556871,0.575142
+304636	Info:	Face Detected @0.555641,0.573759
+304842	Info:	Face Detected @0.554346,0.574184
+305148	Info:	Face Detected @0.550794,0.574608
+305454	Info:	Face Detected @0.539101,0.575832
+305714	Info:	Face Detected @0.533007,0.576367
+305973	Info:	Face Detected @0.532938,0.576253
+312236	Info:	Client "unity"
+314394	Info:	PLATFORM_NAME: Intel(R) OpenCL
+VERSION: OpenCL 1.2 
+VENDOR: Intel(R) Corporation
+PROFILE: FULL_PROFILE
+	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.72162
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 	DEVICE:        Intel(R) Core(TM) i3-3120M CPU @ 2.50GHz
+	TYPE: CPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 4
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 1024
+	MAX WORK ITEMS SIZES: 1024X1024X1024
+	DEVICE VERSION: OpenCL 1.2 (Build 75658)
+	DRIVER VERSION: 3.0.1.10123
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 3981 MB
+	GLOBAL MEM CACHE SIZE: 256 KB
+	CONSTANT BUFFER SIZE:128 KB
+	LOCAL MEM SIZE: 32 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 2500
+	TIMER RESOLUTION: 410
+	PERFORMANCE SCORE: 0.182647
+cl_ext_device_fission, cl_intel_dx9_media_sharing, cl_intel_exec_by_local_thread, cl_intel_printf, cl_khr_byte_addressable_store, cl_khr_d3d11_sharing, cl_khr_dx9_media_sharing, cl_khr_fp64, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+314394	Info:	Running on device 	DEVICE: Intel(R) HD Graphics 4000
+	TYPE: GPU
+	VENDOR ID: 8086 ( Intel(R) Corporation )
+	IMAGE SUPPORT: yes
+	MAX COMPUTE UNITS: 16
+	MAX WORK ITEMS DIMENSIONS: 3
+	MAX WORK GROUP SIZE: 512
+	MAX WORK ITEMS SIZES: 512X512X512
+	DEVICE VERSION: OpenCL 1.2 
+	DRIVER VERSION: 10.18.10.3308
+	OPENCL VERSION: 1.2( OpenCL C 1.2  )
+	GLOBAL MEM SIZE: 1752 MB
+	GLOBAL MEM CACHE SIZE: 2048 KB
+	CONSTANT BUFFER SIZE:64 KB
+	LOCAL MEM SIZE: 64 KB
+	MEMORY ALIGNMENT: 128
+	MAX CLOCK FREQUENCY: 350
+	TIMER RESOLUTION: 80
+	PERFORMANCE SCORE: 3.72162
+cl_intel_accelerator, cl_intel_dx9_media_sharing, cl_intel_motion_estimation, cl_khr_3d_image_writes, cl_khr_byte_addressable_store, cl_khr_d3d10_sharing, cl_khr_d3d11_sharing, cl_khr_depth_images, cl_khr_dx9_media_sharing, cl_khr_gl_depth_images, cl_khr_gl_event, cl_khr_gl_msaa_sharing, cl_khr_gl_sharing, cl_khr_global_int32_base_atomics, cl_khr_global_int32_extended_atomics, cl_khr_icd, cl_khr_image2d_from_buffer, cl_khr_local_int32_base_atomics, cl_khr_local_int32_extended_atomics, 
+314404	Info:	Opening "USB Camera" at resolution 640X480
+314412	Info:	Online tracking
+319157	Info:	Face Not Detected
+322308	Info:	Face Detected @0.536198,0.537778
+322919	Info:	Face Detected @0.54686,0.545711
+324175	Info:	Face Detected @0.537654,0.543259
+324777	Info:	Face Detected @0.507049,0.548247
+325389	Info:	Face Detected @0.503846,0.560284
+325933	Info:	Face Detected @0.498035,0.567352
+326489	Info:	Face Detected @0.496072,0.572126
+327071	Info:	Face Detected @0.492599,0.577041
+327652	Info:	Face Detected @0.49251,0.578482
+328240	Info:	Face Detected @0.493742,0.581574
+328597	Info:	Logger suspended
