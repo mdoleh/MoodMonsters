@@ -56,6 +56,11 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
+    protected void ResetCorrectCount()
+    {
+        correctCount = 0;
+    }
+
     bool RectsOverlap(RectTransform r1, RectTransform r2)
     {
         bool widthOverlap = (r1.position.x >= r2.position.x && r1.position.x <= r2.position.x + r2.rect.width * 0.4) ||
