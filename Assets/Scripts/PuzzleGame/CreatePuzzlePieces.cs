@@ -45,6 +45,7 @@ public class CreatePuzzlePieces : MonoBehaviour
                 texture.Apply();
 
                 ((GameObject)piece).GetComponent<RawImage>().texture = texture;
+                ((GameObject)piece).GetComponent<RawImage>().SetNativeSize();
                 ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = GetGridPanelByName(gridPanels, PANEL_BASE + panelNumber++).transform;
                 pieces.Add(piece);
             }
