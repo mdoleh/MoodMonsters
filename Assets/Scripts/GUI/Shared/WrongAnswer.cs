@@ -19,8 +19,8 @@ public class WrongAnswer : ButtonDragDrop
 
     public override void SubmitAnswer()
     {
+        DecrementCorrectCount();
         base.SubmitAnswer();
-        ResetCorrectCount();
         Debug.Log("Wrong answer submitted");
         Utilities.PlayAudio(response);
     }

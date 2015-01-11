@@ -56,9 +56,9 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
-    protected void ResetCorrectCount()
+    protected void DecrementCorrectCount()
     {
-        correctCount = 0;
+        --correctCount;
     }
 
     bool RectsOverlap(RectTransform r1, RectTransform r2)
