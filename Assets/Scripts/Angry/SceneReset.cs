@@ -38,16 +38,6 @@ public class SceneReset : MonoBehaviour {
         sceneToLoad = sceneToLoadCorrect;
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.name == "Lily") {
-    //        audio.Play();
-    //        startedPlaying = true;
-    //        noSymbol.enabled = true;
-    //        noSymbolAnimator.SetTrigger("NotRight");
-    //    }
-    //}
-
     void Update() {
         if (startedPlaying && !incorrectAudio.isPlaying && !correctAudio.isPlaying) Utilities.LoadScene(sceneToLoad);
     }
