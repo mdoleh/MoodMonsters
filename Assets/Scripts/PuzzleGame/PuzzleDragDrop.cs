@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using UnityEditor;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PuzzleDragDrop : MonoBehaviour {
