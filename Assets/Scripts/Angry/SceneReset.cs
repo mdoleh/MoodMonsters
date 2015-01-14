@@ -6,39 +6,41 @@ public class SceneReset : MonoBehaviour {
     public string sceneToLoadCorrect;
     public Canvas noSymbol;
     public Canvas correctSymbol;
-    AudioSource incorrectAudio;
-    AudioSource correctAudio;
     bool startedPlaying = false;
     Animator noSymbolAnimator;
     Animator correctSymbolAnimator;
+    private AudioSource source;
     string sceneToLoad;
 
 
     void Awake() {
-        incorrectAudio = noSymbol.GetComponent<AudioSource>();
         noSymbolAnimator = noSymbol.GetComponent<Animator>();
-        correctAudio = correctSymbol.GetComponent<AudioSource>();
         correctSymbolAnimator = correctSymbol.GetComponent<Animator>();
     }
 
-    public void TriggerSceneReset()
+    public void TriggerSceneReset(AudioSource audioSource)
     {
-        incorrectAudio.Play();
-        startedPlaying = true;
+        playAudio(audioSource);
         noSymbol.enabled = true;
         noSymbolAnimator.SetTrigger("ShowCanvas");
         sceneToLoad = sceneToLoadIncorrect;
     }
 
-    public void TriggerCorrect() {
-        correctAudio.Play();
-        startedPlaying = true;
+    public void TriggerCorrect(AudioSource audioSource) {
+        playAudio(audioSource);
         correctSymbol.enabled = true;
         correctSymbolAnimator.SetTrigger("ShowCanvas");
         sceneToLoad = sceneToLoadCorrect;
     }
 
+    private void playAudio(AudioSource audioSource)
+    {
+        source = audioSource;
+        Utilities.PlayAudio(audioSource);
+        startedPlaying = true;
+    }
+
     void Update() {
-        if (startedPlaying && !incorrectAudio.isPlaying && !correctAudio.isPlaying) Utilities.LoadScene(sceneToLoad);
+        if (startedPlaying && source != null && !source.isPlaying) Utilities.LoadScene(sceneToLoad);
     }
 }

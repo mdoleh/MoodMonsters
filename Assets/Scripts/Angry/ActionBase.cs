@@ -10,6 +10,7 @@ namespace AngryScene
         protected bool isCorrect = false;
         protected float timer = 0.0f;
         public SceneReset sceneReset;
+        public AudioSource audioSource;
         bool sceneResetting = false;
 
         protected void Update()
@@ -22,9 +23,9 @@ namespace AngryScene
             if (eventTrigger && timer > 5.0f && !sceneResetting)
             {
                 if (isCorrect) {
-                    sceneReset.TriggerCorrect();
+                    sceneReset.TriggerCorrect(audioSource);
                 } else {
-                    sceneReset.TriggerSceneReset();
+                    sceneReset.TriggerSceneReset(audioSource);
                 }
                 sceneResetting = true;
             }
