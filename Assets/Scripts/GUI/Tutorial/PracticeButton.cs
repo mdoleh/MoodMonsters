@@ -13,7 +13,6 @@ public class PracticeButton : ButtonDragDrop {
     protected override void Awake()
     {
         base.Awake();
-        CORRECT_AMOUNT = 1;
 
         buttonPushAudio = transform.parent.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
         buttonDragAudio = transform.parent.Find("ButtonDrag").gameObject.GetComponent<AudioSource>();

@@ -11,12 +11,13 @@ public class ButtonDragDrop : MonoBehaviour {
     protected AudioSource buttonAudio;
     public Button dropContainer;
     private Color oldColor;
-    public int CORRECT_AMOUNT = 3;
+    private int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
 
     protected virtual void Awake() {
         oldColor = dropContainer.image.color;
         buttonAudio = GetComponent<AudioSource>();
+        initializeCorrectAmount();
     }
 
     public void MoveButton() {
@@ -102,5 +103,14 @@ public class ButtonDragDrop : MonoBehaviour {
                 break;
         }
         
+    }
+
+    private void initializeCorrectAmount()
+    {
+        var correctAmount = transform.parent.Find("CorrectAmount");
+        if (correctAmount != null)
+        {
+            CORRECT_AMOUNT = correctAmount.GetComponent<CorrectAmount>().CORRECT_AMOUNT;
+        }
     }
 }

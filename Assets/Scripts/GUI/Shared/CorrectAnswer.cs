@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -38,7 +39,7 @@ public class CorrectAnswer : ButtonDragDrop
 
     private void playRandomAudio()
     {
-        currentAudioPlaying = correctAudio[Random.Range(0, 1)];
+        currentAudioPlaying = correctAudio[(int)Math.Round(UnityEngine.Random.Range(0.0f, 1.0f))];
         Utilities.PlayAudio(currentAudioPlaying);
     }
 
