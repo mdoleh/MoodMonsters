@@ -77,6 +77,7 @@ public class ButtonDragDrop : MonoBehaviour {
 
     protected void HideGUI()
     {
+        GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = false;
         GUIDetect.GetCurrentGUI().enabled = false;
     }
 
