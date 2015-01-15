@@ -52,6 +52,7 @@ public class PracticeButton : ButtonDragDrop {
         Utilities.StopAudio(buttonPushAudio);
         transform.parent.Find("ButtonPush").gameObject.SetActive(false);
         transform.parent.Find("ButtonDrag").gameObject.SetActive(true);
+        transform.parent.Find("PracticeButtonDrag").gameObject.SetActive(true);
         shouldPlayDragAudio = true;
     }
 
@@ -61,6 +62,7 @@ public class PracticeButton : ButtonDragDrop {
         transform.parent.Find("ButtonDrag").gameObject.SetActive(false);
         transform.parent.Find("DropContainer").gameObject.SetActive(false);
         transform.parent.Find("PracticeButton").gameObject.SetActive(false);
+        transform.parent.Find("PracticeButtonDrag").gameObject.SetActive(false);
     }
 
     private void ShowPushing()
