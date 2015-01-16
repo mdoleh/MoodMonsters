@@ -74,7 +74,7 @@ public class RunTutorial : MonoBehaviour
     private void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
-        practiceAudio = GetComponent<AudioSource>();
+        practiceAudio = transform.Find("AdditionalInstructions").GetComponent<AudioSource>();
     }
 
     private void EnablePracticeUI()
