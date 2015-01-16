@@ -8,7 +8,6 @@ public class RunTutorial : MonoBehaviour
     private AudioSource helpAudio;
     private AudioSource quitAudio;
     private AudioSource repeatAudio;
-    private AudioSource practiceAudio;
 
     private GameObject practiceDropContainer;
     private GameObject practiceButton;
@@ -21,7 +20,6 @@ public class RunTutorial : MonoBehaviour
     private bool explainingHelpButton = false;
     private bool explainingQuitButton = false;
     private bool explainingRepeatButton = false;
-    private bool buttonPushAudioPlayed = false;
 
     public void Initialize()
     {
@@ -36,11 +34,6 @@ public class RunTutorial : MonoBehaviour
     private void Update()
     {
         if (initialAudioPlayed && !sceneAudio.isPlaying) EnablePracticeUI();
-        if (buttonPushAudioPlayed && !buttonPushAudio.isPlaying)
-        {
-            buttonPushAudioPlayed = false;
-            Utilities.PlayAudio(practiceAudio);
-        }
         if (explainingHelpButton && !helpAudio.isPlaying)
         {
             explainingHelpButton = false;
@@ -74,7 +67,6 @@ public class RunTutorial : MonoBehaviour
     private void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
-        practiceAudio = transform.Find("AdditionalInstructions").GetComponent<AudioSource>();
     }
 
     private void EnablePracticeUI()
@@ -85,7 +77,6 @@ public class RunTutorial : MonoBehaviour
         buttonPush.SetActive(true);
         initCanvas.SetActive(false);
         Utilities.PlayAudio(buttonPushAudio);
-        buttonPushAudioPlayed = true;
     }
 
     public void ExplainHelpUI()

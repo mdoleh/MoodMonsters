@@ -8,6 +8,7 @@ namespace HelpGUI
 
         protected override void DoubleClickAction()
         {
+            base.DoubleClickAction();
             Debug.Log("Help clicked.");
         }
     }
