@@ -22,6 +22,7 @@ public class CorrectAnswer : ButtonDragDrop
         if (parentElement == null) return;
         var childElement = parentElement.FindChild("Text");
         if (childElement != null) correctCountText = childElement.GetComponent<Text>();
+        if (correctCountText != null) correctCountText.text = CORRECT_AMOUNT.ToString();
     }
 
     public override void ButtonDown()

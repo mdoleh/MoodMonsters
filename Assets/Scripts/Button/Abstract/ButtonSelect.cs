@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public abstract class ButtonSelect : ButtonDoubleClick
 {
-    private AudioSource instructions;
+    protected AudioSource instructions;
 
     protected override void Awake()
     {
