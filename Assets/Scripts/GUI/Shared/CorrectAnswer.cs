@@ -7,11 +7,21 @@ public class CorrectAnswer : ButtonDragDrop
 {
     private AudioSource[] correctAudio;
     private AudioSource currentAudioPlaying;
+    private Text correctCountText;
 
     protected override void Awake()
     {
         base.Awake();
         correctAudio = transform.parent.Find("CorrectAnswerAudio").GetComponentsInChildren<AudioSource>();
+        initializeCorrectCountText();
+    }
+
+    private void initializeCorrectCountText()
+    {
+        var parentElement = transform.parent.Find("CorrectCount");
+        if (parentElement == null) return;
+        var childElement = parentElement.FindChild("Text");
+        if (childElement != null) correctCountText = childElement.GetComponent<Text>();
     }
 
     public override void ButtonDown()
@@ -26,6 +36,7 @@ public class CorrectAnswer : ButtonDragDrop
         base.SubmitAnswer();
         Debug.Log("Correct answer submitted");
         playRandomAudio();
+        updateCorrectCountText();
     }
 
     private void Update()
@@ -47,5 +58,10 @@ public class CorrectAnswer : ButtonDragDrop
     {
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponentInChildren<RawImage>().enabled = false;
+    }
+
+    private void updateCorrectCountText()
+    {
+        if (correctCountText != null) correctCountText.text = (CORRECT_AMOUNT - correctCount).ToString();
     }
 }

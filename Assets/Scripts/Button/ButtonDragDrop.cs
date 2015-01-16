@@ -6,12 +6,12 @@ using UnityEngine.UI;
 // override ButtonDown() to customize click event
 public class ButtonDragDrop : MonoBehaviour {
 
-    private static int correctCount = 0;
+    protected static int correctCount = 0;
     protected Vector2 originalPosition;
     protected AudioSource buttonAudio;
     public Button dropContainer;
     private Color oldColor;
-    private int CORRECT_AMOUNT;
+    protected int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
 
     protected virtual void Awake() {
