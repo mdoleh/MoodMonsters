@@ -70,12 +70,14 @@ public class GUIManager : MonoBehaviour
                 break;
 
             case "LevelSelect":
-                Application.LoadLevel(0);
+                Utilities.LoadScene("MainMenuScreen");
                 break;
 
             case "NextLevel":
-                if (Application.loadedLevel < 8)
+                if (Application.loadedLevel < 6)
                     Application.LoadLevel(Application.loadedLevel + 1);
+                if (Application.loadedLevel == 6)
+                    Utilities.LoadScene("MainMenuScreen");
                 break;
         }
 
