@@ -145,7 +145,8 @@ public class InputManager : MonoBehaviour
                     if (hasFeedback)
                         HideFeedback();
 
-                    GUIManager.Instance.ReceiveInput(hit.transform);
+                    if (GUIManager.Instance != null)
+                        GUIManager.Instance.ReceiveInput(hit.transform);
                 }
 
                 else if (hit.transform.tag == "Toolbox")
