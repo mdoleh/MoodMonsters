@@ -18,7 +18,7 @@ namespace PuzzleTutorial
         {
             yield return new WaitForSeconds(audio.clip.length);
             FeedbackManager.Instance.Disable(0.2f);
-            Destroy(practiceTool.gameObject);
+            practiceTool.gameObject.SetActive(false);
         }
     }
 }
