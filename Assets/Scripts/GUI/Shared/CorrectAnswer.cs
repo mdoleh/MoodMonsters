@@ -51,7 +51,7 @@ public class CorrectAnswer : ButtonDragDrop
 
     private void playRandomAudio()
     {
-        currentAudioPlaying = correctAudio[(int)Math.Round(UnityEngine.Random.Range(0.0f, 1.0f))];
+        currentAudioPlaying = correctAudio[UnityEngine.Random.Range(0, correctAudio.Length - 1)];
         Utilities.PlayAudio(currentAudioPlaying);
     }
 
