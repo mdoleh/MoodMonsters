@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using PuzzleTutorial;
 
 public class GUIManager : MonoBehaviour 
 {
@@ -32,7 +33,8 @@ public class GUIManager : MonoBehaviour
         myInstance = this;
         animations = new List<Transform>();
 
-        StartCoroutine(ShowMarkers(2));
+//        StartCoroutine(ShowMarkers());
+//        StartCoroutine(ShowMarkersExtra());
     }
 
     //Called from the input manager, when a button is pressed
@@ -250,23 +252,53 @@ public class GUIManager : MonoBehaviour
 
     
     //Show the markers at the start of the level
-    IEnumerator ShowMarkers(float showTime)
-    {
-        markersVisible = true;
-        yield return new WaitForSeconds(1);
+//    IEnumerator ShowMarkers()
+//    {
+//        markersVisible = true;
+//        yield return new WaitForSeconds(1);
+//
+//        //Scale up the markers
+//        StartCoroutine(ScaleObject(markers[0], Vector2.one, 0.25f, 0));
+//        StartCoroutine(ScaleObject(markers[1], Vector2.one, 0.25f, 0));
+//        Utilities.PlayAudio(audio);
+//
+//        yield return new WaitForSeconds(audio != null ? audio.clip.length : 2);
+//
+//        //Scale down the markers to zero
+//        markers[0].localScale = Vector2.zero;
+//        markers[1].localScale = Vector2.zero;
+//
+//        markersVisible = false;
+//    }
+//
+//    IEnumerator ShowMarkersExtra()
+//    {
+//        if (markers.Length > 3)
+//        {
+//            yield return new WaitForSeconds(2);
+//            
+//            markersVisible = true;
+//            for (int i = 3; i < markers.Length; ++i)
+//            {
+//                yield return new WaitForSeconds(1);
+//
+//                //Scale up the markers
+//                StartCoroutine(ScaleObject(markers[i], Vector2.one, 0.25f, 0));
+//                var markerAudio = markers[i].GetComponent<AudioSource>();
+//                var action = markers[i].GetComponent<TutorialAction>();
+//                if (action != null) action.DoAction();
+//                Utilities.PlayAudio(markerAudio);
+//
+//                yield return new WaitForSeconds(markerAudio.clip.length);
+//
+//                //Scale down the markers to zero
+//                markers[i].localScale = Vector2.zero;    
+//            }
+//
+//            markersVisible = false;
+//        }
+//    }
 
-        //Scale up the markers
-        StartCoroutine(ScaleObject(markers[0], Vector2.one, 0.25f, 0));
-        StartCoroutine(ScaleObject(markers[1], Vector2.one, 0.25f, 0));
-
-        yield return new WaitForSeconds(showTime);
-
-        //Scale down the markers to zero
-        markers[0].localScale = Vector2.zero;
-        markers[1].localScale = Vector2.zero;
-
-        markersVisible = false;
-    }
     //Shows the finish screen
     IEnumerator ShowFinishScreen()
     {
