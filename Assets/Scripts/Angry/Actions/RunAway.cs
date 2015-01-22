@@ -22,17 +22,6 @@ namespace AngryScene
                 float move = Time.deltaTime * 1.5f;
                 transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
             }
-            if (anim.GetBool("IsTurningSad") && Mathf.Abs(transform.rotation.eulerAngles.y - rotation) >= 180)
-            {
-                anim.SetBool("IsTurningSad", false);
-                StartRunningAway();
-            }
-        }
-
-        public void StartTurning()
-        {
-            rotation = transform.rotation.eulerAngles.y;
-            anim.SetBool("IsTurningSad", true);
         }
 
         public void StartRunningAway()
@@ -40,13 +29,14 @@ namespace AngryScene
             startTimer = true;
             eventTrigger = true;
             anim.SetTrigger("IsHiding");
-            run = true;
+            StartCoroutine(TriggerRun());
         }
 
-        public void UpdateRotationHide() {
-//            transform.rotation = Quaternion.Euler(new Vector3(0, -90.0f, 0));
-//            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y - 90.0f, 0));
-            transform.Rotate(new Vector3(0, -90.0f, 0));
+        private IEnumerator TriggerRun()
+        {
+            yield return new WaitForSeconds(1.5f);
+            transform.Rotate(new Vector3(0, 8f, 0));
+            run = true;
         }
     }
 }

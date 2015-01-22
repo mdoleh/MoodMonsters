@@ -19,7 +19,7 @@ namespace AngryScene
             {
                 base.SubmitAnswer();
                 Debug.Log("Hide submitted");
-                runAway.StartTurning();
+                runAway.StartRunningAway();
                 HideGUI();
             }
         }
