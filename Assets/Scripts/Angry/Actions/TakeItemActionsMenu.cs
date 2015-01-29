@@ -48,6 +48,7 @@ namespace AngryScene
             }
         }
 
+        // these are only here so the animation events don't complain
         public void MoveIpad() {}
         public void TiltIpadUp() {}
         public void ShiftToLeftHand() {}
