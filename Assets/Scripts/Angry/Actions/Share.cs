@@ -10,6 +10,7 @@ namespace AngryScene
         float rotation;
         bool listening = false;
         float turningTimer = 0.0f;
+        private bool sharingTriggered = false;
 
         public void Awake() {
             anim = GetComponent<Animator>();
@@ -17,6 +18,7 @@ namespace AngryScene
 
         public void StartTalking() {
             anim.SetTrigger("IsExpressing");
+            sharingTriggered = true;
         }
 
         public void TriggerListening() {
@@ -27,6 +29,7 @@ namespace AngryScene
 
         private void MoveIpad()
         {
+            if (!sharingTriggered) return;
             var ipad = GameObject.Find("iPad");
             var bench = GameObject.Find("Bench");
             ipad.transform.parent = bench.transform;
