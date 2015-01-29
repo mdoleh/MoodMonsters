@@ -202,15 +202,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .83061105
-        functionName: StartUsingIPad
+      - time: .333072484
+        functionName: MoveIpad
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .420131296
-        functionName: MoveIpad
+      - time: .83061105
+        functionName: StartUsingIPad
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

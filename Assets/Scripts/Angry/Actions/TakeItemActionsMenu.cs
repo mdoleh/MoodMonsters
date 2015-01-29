@@ -47,5 +47,9 @@ namespace AngryScene
                 }
             }
         }
+
+        public void MoveIpad() {}
+        public void TiltIpadUp() {}
+        public void ShiftToLeftHand() {}
     }
 }
