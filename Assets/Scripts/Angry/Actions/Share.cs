@@ -21,7 +21,18 @@ namespace AngryScene
 
         public void TriggerListening() {
             otherAnim.SetTrigger("IsListening");
+            MoveIpad();
             listening = true;
+        }
+
+        private void MoveIpad()
+        {
+            var ipad = GameObject.Find("iPad");
+            var bench = GameObject.Find("Bench");
+            ipad.transform.parent = bench.transform;
+            ipad.transform.localPosition = new Vector3(-0.48035f, 2.7818f, 2.3755f);
+            ipad.transform.localRotation = Quaternion.Euler(270f, 0f, 0f);
+            ipad.transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
         public void StartSitting() {
