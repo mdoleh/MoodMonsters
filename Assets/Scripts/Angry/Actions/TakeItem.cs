@@ -40,18 +40,32 @@ namespace AngryScene
             other.SetTrigger("IsAngry");
         }
 
+        public void MoveIpad()
+        {
+            var ipad = GameObject.Find("iPad");
+            var hand = GameObject.Find("Boy:RightHand");
+            ipad.transform.parent = hand.transform;
+        }
+
+        public void ShiftToLeftHand()
+        {
+            var ipad = GameObject.Find("iPad");
+            var hand = GameObject.Find("Boy:LeftHand");
+            ipad.transform.parent = hand.transform;
+            ipad.transform.localPosition = new Vector3(-0.15317f, -0.17448f, 0.1441f);
+            ipad.transform.localRotation = new Quaternion(334.0472f, 53.15136f, 93.76542f, 1.0f);
+        }
+
         void StartGUI()
         {
             if (GUIon) return; // don't want to execute multiple times
             GUIon = true;
             for (int ii = 0; ii < GUI.Length; ++ii)
             {
-//                if (GUI[ii].name == "EmotionsCanvas")
                 if (GUI[ii].name == "TutorialCanvas")
                 {
                     GUI[ii].GetComponent<Canvas>().enabled = true;
                     runTutorial.Initialize();
-//                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
                     return;
                 }
             }
