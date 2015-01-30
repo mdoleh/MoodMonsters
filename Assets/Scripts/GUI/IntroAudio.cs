@@ -4,15 +4,17 @@ using System.Collections;
 public class IntroAudio : MonoBehaviour
 {
     public int SecondsBetweenRepeat;
+    private bool screenClicked = false;
 
-    private void Awake()
+    public void ScreenClicked()
     {
+        screenClicked = true;
         StartCoroutine(StartAudio(SecondsBetweenRepeat));
     }
 
     IEnumerator StartAudio(int seconds)
     {
-        while (true)
+        while (screenClicked)
         {
             Utilities.PlayAudio(audio);
             yield return new WaitForSeconds(seconds);

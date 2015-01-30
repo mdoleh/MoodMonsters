@@ -9,6 +9,7 @@ public class PracticeButton : ButtonDragDrop {
 
     private bool shouldPlayDragAudio = false;
     private bool answerSubmitted = false;
+    private bool buttonPushed = false;
 
     protected override void Awake()
     {
@@ -22,7 +23,7 @@ public class PracticeButton : ButtonDragDrop {
     public override void ButtonDown()
     {
         base.ButtonDown();
-        ShowDragging();
+        if (!buttonPushed) ShowDragging();
     }
 
     public override void ButtonRelease()
@@ -54,6 +55,7 @@ public class PracticeButton : ButtonDragDrop {
         transform.parent.Find("ButtonDrag").gameObject.SetActive(true);
         transform.parent.Find("PracticeButtonDrag").gameObject.SetActive(true);
         shouldPlayDragAudio = true;
+        buttonPushed = true;
     }
 
     private void HidePracticeUI()
