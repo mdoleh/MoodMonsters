@@ -18,6 +18,11 @@ namespace Globals
         public static SceneState CurrentState;
 
         public static IList<string> CompletedScenes = new List<string>();
+
+        public static void ResetValues()
+        {
+            CompletedScenes = new List<string>();
+        }
     }
 }
 

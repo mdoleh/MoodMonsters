@@ -14,6 +14,16 @@ public class Utilities : MonoBehaviour {
         }
     }
 
+    public static void PlayAudio(AudioSource audioSource, bool shouldSetAsCurrent)
+    {
+        if (audioSource != null)
+        {
+            StopAudio(Sound.CurrentPlayingSound);
+            if (shouldSetAsCurrent) Sound.CurrentPlayingSound = audioSource;
+            audioSource.Play();
+        }
+    }
+
     public static void StopAudio(AudioSource audioSource)
     {
         if (audioSource != null && audioSource.isPlaying) audioSource.Stop();

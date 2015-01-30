@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 public class IntroAudio : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class IntroAudio : MonoBehaviour
 
     public void ScreenClicked()
     {
+        if (screenClicked) return;
         screenClicked = true;
         StartCoroutine(StartAudio(SecondsBetweenRepeat));
     }

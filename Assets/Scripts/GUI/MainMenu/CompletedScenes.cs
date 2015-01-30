@@ -8,6 +8,8 @@ public class CompletedScenes : MonoBehaviour {
     private void Awake()
     {
         ShowCompletedScenes();
+        Utilities.PlayAudio(GameObject.Find("IntroAudio").GetComponent<AudioSource>());
+        Timeout.StartTimers();
     }
 
     private void ShowCompletedScenes()
