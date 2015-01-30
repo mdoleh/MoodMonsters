@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Globals;
 using PuzzleTutorial;
 
 public class GUIManager : MonoBehaviour 
@@ -32,9 +33,6 @@ public class GUIManager : MonoBehaviour
     {
         myInstance = this;
         animations = new List<Transform>();
-
-//        StartCoroutine(ShowMarkers());
-//        StartCoroutine(ShowMarkersExtra());
     }
 
     //Called from the input manager, when a button is pressed
@@ -76,10 +74,7 @@ public class GUIManager : MonoBehaviour
                 break;
 
             case "NextLevel":
-                if (Application.loadedLevel < 6)
-                    Application.LoadLevel(Application.loadedLevel + 1);
-                if (Application.loadedLevel == 6)
-                    Utilities.LoadScene("MainMenuScreen");
+                Utilities.LoadScene("MainMenuScreen");
                 break;
         }
 
