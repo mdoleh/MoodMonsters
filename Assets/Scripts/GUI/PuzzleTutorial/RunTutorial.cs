@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace PuzzleTutorial
 {
     public class RunTutorial : MonoBehaviour
     {
-        public Transform[] markers; 
+        public Transform[] beginningMarkers;
+        public Transform[] markers;
+        public Transform[] endMarkers;
 
         // Use this for initialization
         private void Start()
@@ -13,7 +16,28 @@ namespace PuzzleTutorial
             GUIManager.Instance.enabled = false;
             GameObject.Find("Overlord").GetComponent<InputManager>().enabled = false;
             StartCoroutine(ShowMarkers());
-            StartCoroutine(ShowMarkersExtra());
+            StartCoroutine(ShowMarkersExtra(markers));
+        }
+
+        public void ExplainEndButtons()
+        {
+            if (!Tutorials.PuzzleTutorialHasRun)
+            {
+                StartCoroutine(ShowMarkersExtra(endMarkers));
+                Tutorials.PuzzleTutorialHasRun = true;
+            }
+            else
+            {
+                var finishRestart = transform.Find("Finish").FindChild("FinishRestart").gameObject;
+                if (finishRestart != null) finishRestart.SetActive(false);
+            }
+            GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
+        }
+
+        public void HideTutorialShelf()
+        {
+            var shelfTutorial = GameObject.Find("ShelfTutorial");
+            if (shelfTutorial != null) shelfTutorial.SetActive(false);
         }
 
         IEnumerator ShowMarkers()
@@ -21,42 +45,45 @@ namespace PuzzleTutorial
             yield return new WaitForSeconds(1);
 
             //Scale up the markers
-            StartCoroutine(ScaleObject(markers[0], Vector2.one, 0.25f, 0));
-            StartCoroutine(ScaleObject(markers[1], Vector2.one, 0.25f, 0));
+            StartCoroutine(ScaleObject(beginningMarkers[0], Vector2.one, 0.25f, 0));
+            StartCoroutine(ScaleObject(beginningMarkers[1], Vector2.one, 0.25f, 0));
             Utilities.PlayAudio(audio);
 
             yield return new WaitForSeconds(audio != null ? audio.clip.length : 2);
 
-            //Scale down the markers to zero
-            markers[0].localScale = Vector2.zero;
-            markers[1].localScale = Vector2.zero;
+            //Scale down the markersto zero
+            beginningMarkers[0].localScale = Vector2.zero;
+            beginningMarkers[1].localScale = Vector2.zero;
+
+            if (markers.Length == 0)
+            {
+                GUIManager.Instance.enabled = true;
+                GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
+            }
         }
 
-        IEnumerator ShowMarkersExtra()
+        IEnumerator ShowMarkersExtra(Transform[] markersToShow)
         {
-            if (markers.Length > 3)
+            yield return new WaitForSeconds(2);
+
+            foreach (Transform marker in markersToShow)
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
 
-                for (int i = 3; i < markers.Length; ++i)
-                {
-                    yield return new WaitForSeconds(1);
+                //Scale up the markers
+                StartCoroutine(ScaleObject(marker, Vector2.one, 0.25f, 0));
+                var markerAudio = marker.GetComponent<AudioSource>();
+                var action = marker.GetComponent<TutorialAction>();
+                if (action != null) action.DoAction();
+                Utilities.PlayAudio(markerAudio);
 
-                    //Scale up the markers
-                    StartCoroutine(ScaleObject(markers[i], Vector2.one, 0.25f, 0));
-                    var markerAudio = markers[i].GetComponent<AudioSource>();
-                    var action = markers[i].GetComponent<TutorialAction>();
-                    if (action != null) action.DoAction();
-                    Utilities.PlayAudio(markerAudio);
+                yield return new WaitForSeconds(markerAudio.clip.length);
 
-                    yield return new WaitForSeconds(markerAudio.clip.length);
-
-                    //Scale down the markers to zero
-                    markers[i].localScale = Vector2.zero;
-                }
+                //Scale down the markersToShow to zero
+                marker.localScale = Vector2.zero;
             }
-            GetComponent<GUIManager>().enabled = true;
-            enabled = false;
+            GUIManager.Instance.enabled = true;
+            if (endMarkers.Length == 0) GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
         }
 
         IEnumerator ScaleObject(Transform obj, Vector2 end, float time, float delay)

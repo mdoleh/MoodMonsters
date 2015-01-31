@@ -185,6 +185,7 @@ public class GUIManager : MonoBehaviour
         //Hide the finish menu and activate the play button
         finishMenu.gameObject.SetActive(false);
         playButton.gameObject.SetActive(true);
+        GetComponent<PuzzleTutorial.RunTutorial>().HideTutorialShelf();
 
         //Put the level into planning mode
         StopLevel();
@@ -264,7 +265,7 @@ public class GUIManager : MonoBehaviour
         //Scale up and show the check for 2 seconds
         StartCoroutine(ScaleObject(markers[2], new Vector2(0.5f, 0.5f), 0.2f, 0));
         if (!isTutorial) Utilities.PlayAudio(transform.FindChild("Camera").GetComponent<AudioSource>());
-        GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
+        GetComponent<PuzzleTutorial.RunTutorial>().ExplainEndButtons();
         yield return new WaitForSeconds(2);
         markers[2].transform.localScale = new Vector2(0, 0);
 
