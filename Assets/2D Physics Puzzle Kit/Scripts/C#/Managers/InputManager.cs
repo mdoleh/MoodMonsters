@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Globals;
 
 public class InputManager : MonoBehaviour 
 {
@@ -140,6 +141,7 @@ public class InputManager : MonoBehaviour
             //If the input was registered
             if (hit.collider != null)
             {
+                Timeout.StopTimers();
                 if (hit.transform.tag == "GUI")
                 {
                     if (hasFeedback)
@@ -157,6 +159,7 @@ public class InputManager : MonoBehaviour
 
                 else if (hit.transform.tag == "Feedback")
                     PrepareToRotate();
+                Timeout.StartTimers();
             }
             //If we have an active feedback, and the input was in an empty space, hide the feedback
             else if (hasFeedback)

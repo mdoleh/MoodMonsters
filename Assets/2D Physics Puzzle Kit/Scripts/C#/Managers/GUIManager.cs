@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using Globals;
 using PuzzleTutorial;
 
@@ -75,12 +76,14 @@ public class GUIManager : MonoBehaviour
                 break;
 
             case "NextLevel":
+                Timeout.StopTimers();
                 Utilities.LoadScene(isTutorial ? Scenes.GetNextPuzzle() : "MainMenuScreen");
                 break;
         }
 
         StartCoroutine(Animate(button, 0.1f, 0.15f));
     }
+
     //Called from the level manager, when the goal is reached
     public void GoalReached()
     {
