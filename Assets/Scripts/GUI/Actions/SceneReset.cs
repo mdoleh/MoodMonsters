@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SceneReset : MonoBehaviour {
     public string sceneToLoadIncorrect;
-    public string sceneToLoadCorrect;
     public Canvas noSymbol;
     public Canvas correctSymbol;
     bool startedPlaying = false;
@@ -26,7 +25,8 @@ public class SceneReset : MonoBehaviour {
         sceneToLoad = sceneToLoadIncorrect;
     }
 
-    public void TriggerCorrect(AudioSource audioSource) {
+    public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect)
+    {
         playAudio(audioSource);
         correctSymbol.enabled = true;
         correctSymbolAnimator.SetTrigger("ShowCanvas");

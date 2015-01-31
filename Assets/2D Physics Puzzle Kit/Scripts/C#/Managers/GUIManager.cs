@@ -27,6 +27,7 @@ public class GUIManager : MonoBehaviour
 
     float pauseMovement;                                //The movement ammount of the pause menu
     List<Transform> animations;
+    private bool isTutorial;
 
     //Called at the begining of the level
     void Start()
@@ -74,7 +75,7 @@ public class GUIManager : MonoBehaviour
                 break;
 
             case "NextLevel":
-                Utilities.LoadScene("MainMenuScreen");
+                Utilities.LoadScene(isTutorial ? Scenes.GetNextPuzzle() : "MainMenuScreen");
                 break;
         }
 
@@ -105,6 +106,12 @@ public class GUIManager : MonoBehaviour
         //Hide the pause menu and change the level state after it
         StartCoroutine(MoveMenuElementBy(pauseButton, -1.5f, 0.4f, 0));
         StartCoroutine(ChangeStateAfter(LevelState.inPlaying, 0.8f));
+    }
+
+    public void PlayLevel(bool isTutorial)
+    {
+        this.isTutorial = isTutorial;
+        PlayLevel();
     }
     //Puts the level into planning mode
     void StopLevel()
@@ -245,55 +252,6 @@ public class GUIManager : MonoBehaviour
         }
     }
 
-    
-    //Show the markers at the start of the level
-//    IEnumerator ShowMarkers()
-//    {
-//        markersVisible = true;
-//        yield return new WaitForSeconds(1);
-//
-//        //Scale up the markers
-//        StartCoroutine(ScaleObject(markers[0], Vector2.one, 0.25f, 0));
-//        StartCoroutine(ScaleObject(markers[1], Vector2.one, 0.25f, 0));
-//        Utilities.PlayAudio(audio);
-//
-//        yield return new WaitForSeconds(audio != null ? audio.clip.length : 2);
-//
-//        //Scale down the markers to zero
-//        markers[0].localScale = Vector2.zero;
-//        markers[1].localScale = Vector2.zero;
-//
-//        markersVisible = false;
-//    }
-//
-//    IEnumerator ShowMarkersExtra()
-//    {
-//        if (markers.Length > 3)
-//        {
-//            yield return new WaitForSeconds(2);
-//            
-//            markersVisible = true;
-//            for (int i = 3; i < markers.Length; ++i)
-//            {
-//                yield return new WaitForSeconds(1);
-//
-//                //Scale up the markers
-//                StartCoroutine(ScaleObject(markers[i], Vector2.one, 0.25f, 0));
-//                var markerAudio = markers[i].GetComponent<AudioSource>();
-//                var action = markers[i].GetComponent<TutorialAction>();
-//                if (action != null) action.DoAction();
-//                Utilities.PlayAudio(markerAudio);
-//
-//                yield return new WaitForSeconds(markerAudio.clip.length);
-//
-//                //Scale down the markers to zero
-//                markers[i].localScale = Vector2.zero;    
-//            }
-//
-//            markersVisible = false;
-//        }
-//    }
-
     //Shows the finish screen
     IEnumerator ShowFinishScreen()
     {
@@ -305,7 +263,7 @@ public class GUIManager : MonoBehaviour
 
         //Scale up and show the check for 2 seconds
         StartCoroutine(ScaleObject(markers[2], new Vector2(0.5f, 0.5f), 0.2f, 0));
-        Utilities.PlayAudio(transform.FindChild("Camera").GetComponent<AudioSource>());
+        if (!isTutorial) Utilities.PlayAudio(transform.FindChild("Camera").GetComponent<AudioSource>());
         yield return new WaitForSeconds(2);
         markers[2].transform.localScale = new Vector2(0, 0);
 

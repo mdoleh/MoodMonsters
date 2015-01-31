@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace AngryScene
 {
@@ -23,7 +24,7 @@ namespace AngryScene
             if (eventTrigger && timer > 5.0f && !sceneResetting)
             {
                 if (isCorrect) {
-                    sceneReset.TriggerCorrect(audioSource);
+                    sceneReset.TriggerCorrect(audioSource, Scenes.GetNextPuzzle());
                 } else {
                     sceneReset.TriggerSceneReset(audioSource);
                 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Globals
 {
-    public class Attempts : MonoBehaviour
+    public static class Attempts
     {
         public static int PuzzleAttemptCount = 0;
 
