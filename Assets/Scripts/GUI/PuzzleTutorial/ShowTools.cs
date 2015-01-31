@@ -5,12 +5,12 @@ namespace PuzzleTutorial
 {
     public class ShowTools : TutorialAction
     {
-        public Transform tool;
+        public ObjectBase practiceTool;
 
         public override void DoAction()
         {
             ToolboxManager.Instance.ButtonPressed();
-            transform.position = new Vector3(tool.position.x, tool.position.y + 1.5f);
+            GetComponent<Animator>().enabled = true;
             StartCoroutine(HideTools());
         }
 
@@ -18,6 +18,9 @@ namespace PuzzleTutorial
         {
             yield return new WaitForSeconds(audio.clip.length);
             ToolboxManager.Instance.ButtonPressed();
+            practiceTool.gameObject.SetActive(true);
+            practiceTool.transform.position = new Vector3(.93f, 2.65f, 0f);
+            GetComponent<Animator>().enabled = false;
         }
     }
 }
