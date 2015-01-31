@@ -23,8 +23,14 @@ namespace AngryScene
 
         public void TriggerListening() {
             otherAnim.SetTrigger("IsListening");
-            MoveIpad();
+            StartCoroutine(DelayMoveIpad());
             listening = true;
+        }
+
+        private IEnumerator DelayMoveIpad()
+        {
+            yield return new WaitForSeconds(0.5f);
+            MoveIpad();
         }
 
         private void MoveIpad()
