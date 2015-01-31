@@ -64,7 +64,6 @@ public class ButtonDragDrop : MonoBehaviour {
         if (correctCount == CORRECT_AMOUNT)
         {
             shouldShowNextGUI = true;
-            //NextGUI();
         }
     }
 

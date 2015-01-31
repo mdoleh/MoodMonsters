@@ -38,5 +38,11 @@ namespace AngryScene
             transform.Rotate(new Vector3(0, 8f, 0));
             run = true;
         }
+
+        public override void StartAction()
+        {
+            base.StartAction();
+            StartRunningAway();
+        }
     }
 }

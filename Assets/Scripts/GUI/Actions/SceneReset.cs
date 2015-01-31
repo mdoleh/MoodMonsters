@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 public class SceneReset : MonoBehaviour {
     public string sceneToLoadIncorrect;

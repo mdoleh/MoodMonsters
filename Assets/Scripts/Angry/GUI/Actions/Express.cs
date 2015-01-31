@@ -7,7 +7,7 @@ namespace AngryScene
     {
         public class Express : ButtonDragDrop
         {
-            public AngryScene.Share share;
+            public AngryScene.ActionBase share;
 
             public override void ButtonDown()
             {
@@ -19,9 +19,8 @@ namespace AngryScene
             {
                 base.SubmitAnswer();
                 Debug.Log("Express submitted");
-                share.StartTalking();
+                share.StartAction();
                 HideGUI();
-                //NextGUI();
             }
         }
     }

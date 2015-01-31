@@ -31,5 +31,10 @@ namespace AngryScene
                 sceneResetting = true;
             }
         }
+
+        public virtual void StartAction()
+        {
+            Timeout.StopTimers();
+        }
     }
 }

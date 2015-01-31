@@ -64,5 +64,11 @@ namespace AngryScene
                 }
             }
         }
+
+        public override void StartAction()
+        {
+            base.StartAction();
+            StartTalking();
+        }
     }
 }

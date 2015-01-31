@@ -48,5 +48,11 @@ namespace AngryScene
             startTimer = true;
             eventTrigger = true;
         }
+
+        public override void StartAction()
+        {
+            base.StartAction();
+            StartTaking();
+        }
     }
 }
