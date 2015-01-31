@@ -5,6 +5,9 @@ namespace Globals
 {
     public class Timeout : MonoBehaviour
     {
+        public float TimeUntilReset;
+        public float TimeUntilRepeat;
+
         public static float ResetTime;
         public static float RepeatTime;
         public static AudioSource WarningAudio;
@@ -16,13 +19,15 @@ namespace Globals
         private void Awake()
         {
             WarningAudio = transform.FindChild("WarningAudio").GetComponent<AudioSource>();
+            ResetTime = TimeUntilReset;
+            RepeatTime = TimeUntilRepeat;
         }
 
         private void Update()
         {
             if (!shouldRunTimers) return;
             repeatTimer += Time.deltaTime;
-            if (resetTimer >= ResetTime)
+            if (resetTimer >= ResetTime && !shouldReset)
             {
                 Utilities.PlayAudio(WarningAudio, false);
                 shouldReset = true;
@@ -45,6 +50,7 @@ namespace Globals
         public static void StopTimers()
         {
             shouldRunTimers = false;
+            shouldReset = false;
             repeatTimer = 0f;
             resetTimer = 0f;
         }

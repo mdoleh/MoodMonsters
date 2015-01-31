@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 using UnityEngine.UI;
 
 // this is the base class for all dragable buttons on the GUI
@@ -37,7 +38,16 @@ public class ButtonDragDrop : MonoBehaviour {
     public virtual void ButtonDown()
     {
         originalPosition = transform.position;
-        Utilities.PlayAudio(buttonAudio);
+        Utilities.PlayAudio(buttonAudio, Sound.CurrentPlayingSound);
+        Timeout.StopTimers();
+        StartCoroutine(DelayStartTimers());
+    }
+
+    private IEnumerator DelayStartTimers()
+    {
+        yield return new WaitForSeconds(buttonAudio.clip.length);
+        Sound.RestorePreviousSound();
+        Timeout.StartTimers();
     }
 
     public virtual void ButtonRelease()

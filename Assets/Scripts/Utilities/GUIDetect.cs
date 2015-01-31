@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Globals;
 
 public class GUIDetect : MonoBehaviour {
 
@@ -76,19 +77,20 @@ public class GUIDetect : MonoBehaviour {
     public static void NextGUI(string current, string next)
     {
         var GUI = GetAllGUI();
-        for (int ii = 0; ii < GUI.Length; ++ii)
+        foreach (var guiCanvas in GUI)
         {
-            if (GUI[ii].name == next)
+            if (guiCanvas.name == next)
             {
-                GUI[ii].GetComponent<Canvas>().enabled = true;
+                guiCanvas.GetComponent<Canvas>().enabled = true;
                 if (current != "TutorialCanvas")
                 {
-                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
+                    Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
                 }
+                Timeout.StartTimers();
             }
-            if (GUI[ii].name == current)
+            if (guiCanvas.name == current)
             {
-                GUI[ii].GetComponent<Canvas>().enabled = false;
+                guiCanvas.GetComponent<Canvas>().enabled = false;
             }
         }
     }

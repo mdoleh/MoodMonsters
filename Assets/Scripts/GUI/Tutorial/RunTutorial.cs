@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Globals;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RunTutorial : MonoBehaviour
@@ -50,7 +51,7 @@ public class RunTutorial : MonoBehaviour
         {
             explainingRepeatButton = false;
             ResetHighlight(helpCanvas.transform.Find("Repeat"));
-            string currentGUI = GUIDetect.GetCurrentGUIName();
+            var currentGUI = GUIDetect.GetCurrentGUIName();
             GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));
         }
     }
@@ -77,10 +78,12 @@ public class RunTutorial : MonoBehaviour
         buttonPush.SetActive(true);
         initCanvas.SetActive(false);
         Utilities.PlayAudio(buttonPushAudio);
+        Timeout.StartTimers();
     }
 
     public void ExplainHelpUI()
     {
+        Sound.CurrentPlayingSound = sceneAudio;
         ExplainButton(helpCanvas, "Help", ref explainingHelpButton, ref helpAudio);
     }
 
@@ -88,7 +91,7 @@ public class RunTutorial : MonoBehaviour
     {
         var buttonParent = helpCanvas.transform.Find(name).gameObject;
         audio = buttonParent.GetComponent<AudioSource>();
-        Utilities.PlayAudio(audio);
+        Utilities.PlayAudio(audio, false);
 
         originalColor = buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color;
         buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color = Color.yellow;

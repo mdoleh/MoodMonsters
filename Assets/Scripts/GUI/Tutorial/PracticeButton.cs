@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 using UnityEngine.UI;
 
 public class PracticeButton : ButtonDragDrop {
@@ -35,6 +36,7 @@ public class PracticeButton : ButtonDragDrop {
     public override void SubmitAnswer()
     {
         answerSubmitted = true;
+        Timeout.StopTimers();
         transform.parent.GetComponent<RunTutorial>().ExplainHelpUI();
         HidePracticeUI();
     }

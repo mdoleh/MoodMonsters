@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 public class ButtonSceneLoad : ButtonSelect {
 
@@ -7,6 +8,7 @@ public class ButtonSceneLoad : ButtonSelect {
 
     protected override void DoubleClickAction()
     {
+        Timeout.StopTimers();
         Utilities.LoadScene(sceneToLoad);
     }
 

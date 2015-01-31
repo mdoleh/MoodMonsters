@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 using UnityEngine.UI;
 
 public abstract class ButtonSelect : ButtonDoubleClick
@@ -14,7 +15,15 @@ public abstract class ButtonSelect : ButtonDoubleClick
 
     protected override void SingleClickAction()
     {
-        Utilities.PlayAudio(instructions);
+        Utilities.PlayAudio(instructions, false);
+        Timeout.StopTimers();
+        StartCoroutine(DelayStartTimers());
+    }
+
+    private IEnumerator DelayStartTimers()
+    {
+        yield return new WaitForSeconds(instructions.clip.length);
+        Timeout.StartTimers();
     }
 
     public void ClickedOff()
