@@ -10,6 +10,7 @@ public class CompletedScenes : MonoBehaviour {
         ShowCompletedScenes();
         Utilities.PlayAudio(GameObject.Find("IntroAudio").GetComponent<AudioSource>());
         Timeout.StartTimers();
+        Timeout.SetRepeatAudio(GameObject.Find("IntroAudio").GetComponent<AudioSource>());
     }
 
     private void ShowCompletedScenes()

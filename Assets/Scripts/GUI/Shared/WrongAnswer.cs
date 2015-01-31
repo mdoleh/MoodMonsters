@@ -22,6 +22,6 @@ public class WrongAnswer : ButtonDragDrop
         DecrementCorrectCount();
         base.SubmitAnswer();
         Debug.Log("Wrong answer submitted");
-        Utilities.PlayAudio(response, false);
+        Utilities.PlayAudio(response);
     }
 }

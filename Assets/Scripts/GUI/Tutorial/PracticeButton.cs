@@ -46,6 +46,7 @@ public class PracticeButton : ButtonDragDrop {
         if (shouldPlayDragAudio && !practiceButtonAudio.isPlaying)
         {
             Utilities.PlayAudio(buttonDragAudio);
+            Timeout.SetRepeatAudio(buttonDragAudio);
             shouldPlayDragAudio = false;
         }
     }

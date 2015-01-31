@@ -38,7 +38,7 @@ public class ButtonDragDrop : MonoBehaviour {
     public virtual void ButtonDown()
     {
         originalPosition = transform.position;
-        Utilities.PlayAudio(buttonAudio, Sound.CurrentPlayingSound);
+        Utilities.PlayAudio(buttonAudio);
         Timeout.StopTimers();
         StartCoroutine(DelayStartTimers());
     }
@@ -46,7 +46,6 @@ public class ButtonDragDrop : MonoBehaviour {
     private IEnumerator DelayStartTimers()
     {
         yield return new WaitForSeconds(buttonAudio.clip.length);
-        Sound.RestorePreviousSound();
         Timeout.StartTimers();
     }
 

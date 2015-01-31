@@ -87,6 +87,7 @@ public class GUIDetect : MonoBehaviour {
                     Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
                 }
                 Timeout.StartTimers();
+                Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
             }
             if (guiCanvas.name == current)
             {

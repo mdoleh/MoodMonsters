@@ -79,6 +79,7 @@ public class RunTutorial : MonoBehaviour
         initCanvas.SetActive(false);
         Utilities.PlayAudio(buttonPushAudio);
         Timeout.StartTimers();
+        Timeout.SetRepeatAudio(buttonPushAudio);
     }
 
     public void ExplainHelpUI()
@@ -91,7 +92,7 @@ public class RunTutorial : MonoBehaviour
     {
         var buttonParent = helpCanvas.transform.Find(name).gameObject;
         audio = buttonParent.GetComponent<AudioSource>();
-        Utilities.PlayAudio(audio, false);
+        Utilities.PlayAudio(audio);
 
         originalColor = buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color;
         buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color = Color.yellow;

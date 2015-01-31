@@ -52,12 +52,11 @@ public class CorrectAnswer : ButtonDragDrop
     private void playRandomAudio()
     {
         currentAudioPlaying = correctAudio[UnityEngine.Random.Range(0, correctAudio.Length - 1)];
-        Utilities.PlayAudio(currentAudioPlaying, false);
+        Utilities.PlayAudio(currentAudioPlaying);
     }
 
     private void hideButton()
     {
-        Sound.RestorePreviousSound();
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponentInChildren<RawImage>().enabled = false;
     }

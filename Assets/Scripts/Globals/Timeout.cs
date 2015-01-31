@@ -11,6 +11,7 @@ namespace Globals
         public static float ResetTime;
         public static float RepeatTime;
         public static AudioSource WarningAudio;
+        private static AudioSource RepeatAudio;
         private static float repeatTimer = 0f;
         private static float resetTimer = 0f;
         private static bool shouldRunTimers = false;
@@ -29,7 +30,7 @@ namespace Globals
             repeatTimer += Time.deltaTime;
             if (resetTimer >= ResetTime && !shouldReset)
             {
-                Utilities.PlayAudio(WarningAudio, false);
+                Utilities.PlayAudio(WarningAudio);
                 shouldReset = true;
                 resetTimer = 0f;
             }
@@ -38,7 +39,7 @@ namespace Globals
                 if (shouldReset) Application.LoadLevel("TitleScreen");
                 resetTimer += repeatTimer;
                 repeatTimer = 0f;
-                Utilities.PlayAudio(Sound.CurrentPlayingSound);
+                Utilities.PlayAudio(RepeatAudio);
             }
         }
 
@@ -60,6 +61,11 @@ namespace Globals
             RepeatTime = 15f;
             ResetTime = 60f;
             StopTimers();
+        }
+
+        public static void SetRepeatAudio(AudioSource audioToRepeat)
+        {
+            RepeatAudio = audioToRepeat;
         }
     }
 }

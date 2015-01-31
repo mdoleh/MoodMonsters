@@ -15,7 +15,7 @@ public abstract class ButtonSelect : ButtonDoubleClick
 
     protected override void SingleClickAction()
     {
-        Utilities.PlayAudio(instructions, false);
+        Utilities.PlayAudio(instructions);
         Timeout.StopTimers();
         StartCoroutine(DelayStartTimers());
     }
