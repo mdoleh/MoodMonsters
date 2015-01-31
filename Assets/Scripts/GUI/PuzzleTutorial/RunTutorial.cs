@@ -11,7 +11,7 @@ namespace PuzzleTutorial
         private void Start()
         {
             GUIManager.Instance.enabled = false;
-            InputManager.Instance.enabled = false;
+            GameObject.Find("Overlord").GetComponent<InputManager>().enabled = false;
             StartCoroutine(ShowMarkers());
             StartCoroutine(ShowMarkersExtra());
         }
