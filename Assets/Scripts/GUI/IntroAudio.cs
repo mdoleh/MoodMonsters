@@ -6,6 +6,7 @@ public class IntroAudio : MonoBehaviour
 {
     public int SecondsBetweenRepeat;
     private bool screenClicked = false;
+    private int counter = 0;
 
     public void ScreenClicked()
     {
@@ -18,8 +19,14 @@ public class IntroAudio : MonoBehaviour
     {
         while (screenClicked)
         {
+            if (counter >= 4)
+            {
+                screenClicked = false;
+                counter = 0;
+            }
             Utilities.PlayAudio(audio);
             yield return new WaitForSeconds(seconds);
+            ++counter;
         }
     }
 }
