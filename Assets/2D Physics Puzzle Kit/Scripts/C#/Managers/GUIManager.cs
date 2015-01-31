@@ -264,6 +264,7 @@ public class GUIManager : MonoBehaviour
         //Scale up and show the check for 2 seconds
         StartCoroutine(ScaleObject(markers[2], new Vector2(0.5f, 0.5f), 0.2f, 0));
         if (!isTutorial) Utilities.PlayAudio(transform.FindChild("Camera").GetComponent<AudioSource>());
+        InputManager.Instance.enabled = true;
         yield return new WaitForSeconds(2);
         markers[2].transform.localScale = new Vector2(0, 0);
 

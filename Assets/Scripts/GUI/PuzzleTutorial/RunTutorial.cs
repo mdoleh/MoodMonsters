@@ -10,8 +10,8 @@ namespace PuzzleTutorial
         // Use this for initialization
         private void Start()
         {
-            GetComponent<GUIManager>().enabled = false;
-            GameObject.Find("Overlord").GetComponent<InputManager>().enabled = false;
+            GUIManager.Instance.enabled = false;
+            InputManager.Instance.enabled = false;
             StartCoroutine(ShowMarkers());
             StartCoroutine(ShowMarkersExtra());
         }
@@ -56,7 +56,6 @@ namespace PuzzleTutorial
                 }
             }
             GetComponent<GUIManager>().enabled = true;
-            GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
             enabled = false;
         }
 
