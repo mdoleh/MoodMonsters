@@ -74,13 +74,11 @@ public class FeedbackManager : MonoBehaviour
         originalSpeed = rotationSpeed;
         rotationSpeed = 0; 
 
-//        feedback.transform.parent = item;
         shouldRotateWithObject = true;
     }
     //Makes the feedback to rotate on its own
     public void RotateAlone()
     {
-//        feedback.transform.parent = this.transform;
         shouldRotateWithObject = false;
         rotationSpeed = originalSpeed;
     }
