@@ -21,6 +21,8 @@ public class FeedbackManager : MonoBehaviour
     TargetState             targetState = TargetState.dragging;
     float                   originalSpeed;                  //The original rotation speed
 
+    private bool shouldRotateWithObject = false;
+
     //Returns the instance
     public static FeedbackManager Instance { get { return myInstance; } }
 
@@ -39,6 +41,10 @@ public class FeedbackManager : MonoBehaviour
             feedback.transform.position = target.GetFeedbackPos();
             feedback.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
+	    if (shouldRotateWithObject)
+	    {
+	        feedback.transform.rotation = target.transform.rotation;
+	    }
 	}
 
     //Set taget object and state, then scales the feedback to the target
@@ -68,12 +74,14 @@ public class FeedbackManager : MonoBehaviour
         originalSpeed = rotationSpeed;
         rotationSpeed = 0; 
 
-        feedback.transform.parent = item;
+//        feedback.transform.parent = item;
+        shouldRotateWithObject = true;
     }
     //Makes the feedback to rotate on its own
     public void RotateAlone()
     {
-        feedback.transform.parent = this.transform;
+//        feedback.transform.parent = this.transform;
+        shouldRotateWithObject = false;
         rotationSpeed = originalSpeed;
     }
 
