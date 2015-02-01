@@ -19,6 +19,7 @@ namespace PuzzleTutorial
             StartCoroutine(ShowMarkers());
             StartCoroutine(ShowMarkersExtra(markers));
             Timeout.SetRepeatAudio(repeatAudio);
+            Timeout.StopTimers();
         }
 
         public void ExplainEndButtons()
@@ -34,7 +35,7 @@ namespace PuzzleTutorial
                 if (finishRestart != null) finishRestart.SetActive(false);
             }
             GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
-            Timeout.StartTimers();
+            if (endMarkers.Length != 0) Timeout.StartTimers();
         }
 
         public void HideTutorialShelf()
@@ -58,7 +59,7 @@ namespace PuzzleTutorial
             beginningMarkers[0].localScale = Vector2.zero;
             beginningMarkers[1].localScale = Vector2.zero;
 
-            if (markers.Length == 0)
+            if (markers.Length == 0 && beginningMarkers.Length != 0)
             {
                 GUIManager.Instance.enabled = true;
                 GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
@@ -87,7 +88,7 @@ namespace PuzzleTutorial
                 marker.localScale = Vector2.zero;
             }
             GUIManager.Instance.enabled = true;
-            if (endMarkers.Length == 0)
+            if (endMarkers.Length == 0 && markers.Length != 0)
             {
                 GameObject.Find("Overlord").GetComponent<InputManager>().enabled = true;
                 Timeout.StartTimers();
