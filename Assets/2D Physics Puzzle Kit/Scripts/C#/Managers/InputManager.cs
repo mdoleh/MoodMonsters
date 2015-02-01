@@ -61,6 +61,7 @@ public class InputManager : MonoBehaviour
         }
         else if (inputState == InputState.scrolling)
         {
+            Timeout.StopTimers();
             ScrollToolbox();
 
             //If the input was released
@@ -70,21 +71,31 @@ public class InputManager : MonoBehaviour
                 itemSelectionValid = false;
                 ToolboxManager.Instance.FinaliseScrolling();
                 inputState = InputState.waitingForInput;
+                Timeout.StartTimers();
             }
         }
         else if (inputState == InputState.moving)
         {
+            Timeout.StopTimers();
             MoveItem();
 
             if (Input.GetMouseButtonUp(0))
+            {
                 DropItem();
+                Timeout.StartTimers();
+            }
+
         }
         else if (inputState == InputState.rotating)
         {
+            Timeout.StopTimers();
             RotateItem();
 
             if (Input.GetMouseButtonUp(0))
+            {
                 FinaliseRotation();
+                Timeout.StartTimers();
+            }
         }
     }
     //Touch controls
@@ -105,6 +116,7 @@ public class InputManager : MonoBehaviour
             }
             else if (inputState == InputState.scrolling)
             {
+                Timeout.StopTimers();
                 ScrollToolbox();
 
                 //If the input was released
@@ -114,21 +126,30 @@ public class InputManager : MonoBehaviour
                     itemSelectionValid = false;
                     ToolboxManager.Instance.FinaliseScrolling();
                     inputState = InputState.waitingForInput;
+                    Timeout.StartTimers();
                 }
             }
             else if (inputState == InputState.moving)
             {
+                Timeout.StopTimers();
                 MoveItem();
 
                 if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
                     DropItem();
+                    Timeout.StartTimers();
+                }
             }
             else if (inputState == InputState.rotating)
             {
+                Timeout.StopTimers();
                 RotateItem();
 
                 if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
                     FinaliseRotation();
+                    Timeout.StartTimers();
+                }
             }
         }
     }

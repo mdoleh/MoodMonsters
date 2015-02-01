@@ -9,7 +9,8 @@ namespace PuzzleTutorial
         public Transform[] beginningMarkers;
         public Transform[] markers;
         public Transform[] endMarkers;
-        public AudioSource repeatAudio;
+        public AudioSource repeatAudioGame;
+        public AudioSource repeatAudioMenu;
 
         // Use this for initialization
         private void Start()
@@ -18,12 +19,13 @@ namespace PuzzleTutorial
             GameObject.Find("Overlord").GetComponent<InputManager>().enabled = false;
             StartCoroutine(ShowMarkers());
             StartCoroutine(ShowMarkersExtra(markers));
-            Timeout.SetRepeatAudio(repeatAudio);
+            Timeout.SetRepeatAudio(repeatAudioGame);
             Timeout.StopTimers();
         }
 
         public void ExplainEndButtons()
         {
+            Timeout.SetRepeatAudio(repeatAudioMenu);
             if (!Tutorials.PuzzleTutorialHasRun)
             {
                 StartCoroutine(ShowMarkersExtra(endMarkers));
