@@ -40,6 +40,7 @@ public class ButtonDragDrop : MonoBehaviour {
         originalPosition = transform.position;
         Utilities.PlayAudio(buttonAudio);
         Timeout.StopTimers();
+        StopAllCoroutines();
         StartCoroutine(DelayStartTimers());
     }
 
