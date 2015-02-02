@@ -10,15 +10,13 @@ namespace PuzzleTutorial
         public override void DoAction()
         {
             FeedbackManager.Instance.Setup(practiceTool, FeedbackManager.TargetState.rotating);
-            StartCoroutine(PositionPracticeObject());
+            StartCoroutine(HideAnimation());
         }
 
-        private IEnumerator PositionPracticeObject()
+        private IEnumerator HideAnimation()
         {
             yield return new WaitForSeconds(audio.clip.length);
-            FeedbackManager.Instance.Disable(0.2f);
-            practiceTool.transform.rotation = Quaternion.Euler(0f, 0f, 17.24014f);
-            GetComponent<Animator>().enabled = false;
+            gameObject.SetActive(false);
         }
     }
 }
