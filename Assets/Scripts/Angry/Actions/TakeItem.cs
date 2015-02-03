@@ -67,7 +67,7 @@ namespace AngryScene
                 if (GUI[ii].name == "TutorialCanvas")
                 {
                     GUI[ii].GetComponent<Canvas>().enabled = true;
-                    runTutorial.Initialize();
+                    //runTutorial.Initialize();
                     return;
                 }
             }

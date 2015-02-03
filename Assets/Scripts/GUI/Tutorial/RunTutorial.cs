@@ -22,9 +22,9 @@ public class RunTutorial : MonoBehaviour
     private bool explainingQuitButton = false;
     private bool explainingRepeatButton = false;
 
-    public void Initialize()
+    public void Start()
     {
-        sceneAudio = GUIDetect.GetNextGUI(GUIDetect.GetCurrentGUIName()).GetComponent<AudioSource>();
+        sceneAudio = GUIDetect.GetCurrentGUI().GetComponent<AudioSource>();
         Utilities.PlayAudio(sceneAudio);
         initialAudioPlayed = true;
 
@@ -76,7 +76,7 @@ public class RunTutorial : MonoBehaviour
         practiceDropContainer.SetActive(true);
         practiceButton.SetActive(true);
         buttonPush.SetActive(true);
-        initCanvas.SetActive(false);
+//        initCanvas.SetActive(false);
         Utilities.PlayAudio(buttonPushAudio);
         Timeout.StartTimers();
         Timeout.SetRepeatAudio(buttonPushAudio);
@@ -84,6 +84,7 @@ public class RunTutorial : MonoBehaviour
 
     public void ExplainHelpUI()
     {
+        helpCanvas.GetComponent<Canvas>().enabled = true;
         Sound.CurrentPlayingSound = sceneAudio;
         ExplainButton(helpCanvas, "Help", ref explainingHelpButton, ref helpAudio);
     }
