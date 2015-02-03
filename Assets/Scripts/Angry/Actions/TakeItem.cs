@@ -5,17 +5,14 @@ namespace AngryScene
 {
     public class TakeItem : MonoBehaviour
     {
-
-        GameObject[] GUI;
-        Animator anim;
-        bool GUIon = false;
+        private GameObject emotionsGUI;
+        private Animator anim;
         public Animator other;
-        public RunTutorial runTutorial;
-        float timer = 0.0f;
+        private float timer = 0.0f;
 
         public void Awake()
         {
-            GUI = GameObject.FindGameObjectsWithTag("GUI");
+            emotionsGUI = GameObject.Find("EmotionsCanvas");
             anim = GetComponent<Animator>();
         }
 
@@ -60,17 +57,9 @@ namespace AngryScene
 
         void StartGUI()
         {
-            if (GUIon) return; // don't want to execute multiple times
-            GUIon = true;
-            for (int ii = 0; ii < GUI.Length; ++ii)
-            {
-                if (GUI[ii].name == "TutorialCanvas")
-                {
-                    GUI[ii].GetComponent<Canvas>().enabled = true;
-                    //runTutorial.Initialize();
-                    return;
-                }
-            }
+            emotionsGUI.GetComponent<Canvas>().enabled = true;
+            Utilities.PlayAudio(emotionsGUI.GetComponent<AudioSource>());
+            enabled = false;
         }
     }
 }

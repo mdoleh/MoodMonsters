@@ -51,8 +51,8 @@ public class RunTutorial : MonoBehaviour
         {
             explainingRepeatButton = false;
             ResetHighlight(helpCanvas.transform.Find("Repeat"));
-            var currentGUI = GUIDetect.GetCurrentGUIName();
-            GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));
+            Tutorials.MainTutorialHasRun = true;
+            Utilities.LoadScene(Scenes.NextSceneToLoad);
         }
     }
 
@@ -61,7 +61,6 @@ public class RunTutorial : MonoBehaviour
         practiceDropContainer = transform.Find("DropContainer").gameObject;
         practiceButton = transform.Find("PracticeButton").gameObject;
         buttonPush = transform.Find("ButtonPush").gameObject;
-        initCanvas = GameObject.Find("InitCanvas");
         helpCanvas = GameObject.Find("HelpCanvas");
     }
 
@@ -76,7 +75,6 @@ public class RunTutorial : MonoBehaviour
         practiceDropContainer.SetActive(true);
         practiceButton.SetActive(true);
         buttonPush.SetActive(true);
-//        initCanvas.SetActive(false);
         Utilities.PlayAudio(buttonPushAudio);
         Timeout.StartTimers();
         Timeout.SetRepeatAudio(buttonPushAudio);

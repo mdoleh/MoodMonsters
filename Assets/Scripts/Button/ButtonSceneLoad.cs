@@ -9,7 +9,16 @@ public class ButtonSceneLoad : ButtonSelect {
     protected override void DoubleClickAction()
     {
         Timeout.StopTimers();
-        Utilities.LoadScene(sceneToLoad);
+        if (Tutorials.MainTutorialHasRun)
+        {
+            Utilities.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Scenes.NextSceneToLoad = sceneToLoad;
+            Utilities.LoadScene("Tutorial");
+        }
+        
     }
 
     protected override void Update()
