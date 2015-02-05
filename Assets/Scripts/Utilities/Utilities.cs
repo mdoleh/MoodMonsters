@@ -23,7 +23,8 @@ public class Utilities : MonoBehaviour {
     {
         if (sceneToLoad.ToLower().Contains("puzzle"))
         {
-            if (!Scenes.CompletedScenes.Contains(Application.loadedLevelName)) Scenes.CompletedScenes.Add(Application.loadedLevelName);
+            var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
+            if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
     }
