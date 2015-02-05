@@ -16,20 +16,30 @@ namespace AngryScene
             anim = GetComponent<Animator>();
         }
 
-        void Update()
+        public void Start()
         {
-            timer += Time.deltaTime;
-            if (timer > 5.0f) // simulate dialogue
-            {
-                if (!anim.GetBool("IsUsingIPad"))
-                {
-                    anim.SetBool("IsIdle", false);
-                    anim.SetTrigger("IsTakingIPad");
-                    other.SetBool("IsUsingIPad", false);
-                    other.SetTrigger("IsLosingIPad");
-                }
-            }
-            if (anim.GetBool("IsUsingIPad")) StartGUI();
+            StartCoroutine(DelayAnimation());
+        }
+
+        private IEnumerator DelayAnimation()
+        {
+            yield return new WaitForSeconds(1f);
+            anim.SetBool("IsIdle", false);
+            anim.SetTrigger("IsTalking");
+        }
+
+        public void TakeIPad()
+        {
+            anim.SetTrigger("IsTakingIPad");
+            other.SetBool("IsUsingIPad", false);
+            other.SetTrigger("IsLosingIPad");
+            StartCoroutine(DelayGUI());
+        }
+
+        private IEnumerator DelayGUI()
+        {
+            yield return new WaitForSeconds(1f);
+            StartGUI();
         }
 
         public void StartUsingIPad() {
