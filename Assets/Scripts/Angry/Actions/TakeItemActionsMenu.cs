@@ -21,7 +21,7 @@ namespace AngryScene
         void Update()
         {
             timer += Time.deltaTime;
-            if (timer > 5.0f) // simulate dialogue
+            if (timer > 2.0f) // simulate dialogue
             {
                 StartUsingIPad();
                 if (anim.GetBool("IsUsingIPad")) StartGUI();
