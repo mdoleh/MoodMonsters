@@ -9,7 +9,7 @@ namespace HelpGUI
         protected override void DoubleClickAction()
         {
             base.DoubleClickAction();
-            Utilities.LoadScene("TitleScreen");
+            Utilities.LoadScene("MainMenuScreen");
         }
     }
 }
