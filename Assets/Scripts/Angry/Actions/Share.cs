@@ -51,7 +51,7 @@ namespace AngryScene
         }
 
         public void StartSitting() {
-            anim.SetTrigger("IsSharing");
+            anim.SetBool("IsWalking", true);
             otherAnim.SetTrigger("IsSharing");
             isCorrect = true;
             startTimer = true;
@@ -67,6 +67,16 @@ namespace AngryScene
                 if (timer >= 2.5f) {
                     StartSitting();
                     listening = false;
+                }
+            }
+            if (anim.GetBool("IsWalking"))
+            {
+                float move = Time.deltaTime * 0.5f;
+                transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
+                if (transform.position.x >= 204.15f)
+                {
+                    anim.SetBool("IsWalking", false);
+                    anim.SetTrigger("IsSharing");
                 }
             }
         }
