@@ -22,6 +22,7 @@ namespace AngryScene
         }
 
         public void TriggerListening() {
+            if (!sharingTriggered) return;
             otherAnim.SetTrigger("IsListening");
             StartCoroutine(DelayMoveIpad());
             listening = true;
@@ -30,18 +31,23 @@ namespace AngryScene
         private IEnumerator DelayMoveIpad()
         {
             yield return new WaitForSeconds(0.5f);
-            MoveIpad();
+            MoveIpadToUnderArm();
+            yield return new WaitForSeconds(3.5f);
+            MoveIpadToLap();
         }
 
-        private void MoveIpad()
+        private void MoveIpadToLap()
         {
-            if (!sharingTriggered) return;
             var ipad = GameObject.Find("iPad");
-            var bench = GameObject.Find("Bench");
-            ipad.transform.parent = bench.transform;
-            ipad.transform.localPosition = new Vector3(-0.48035f, 2.7818f, 2.3755f);
-            ipad.transform.localRotation = Quaternion.Euler(270f, 0f, 0f);
-            ipad.transform.localScale = new Vector3(1f, 1f, 1f);
+            ipad.transform.localPosition = new Vector3(0.02198f, -0.199f, 0.08892f);
+            ipad.transform.localRotation = Quaternion.Euler(292.6998f, 36.10002f, 33.00001f);
+        }
+
+        private void MoveIpadToUnderArm()
+        {
+            var ipad = GameObject.Find("iPad");
+            ipad.transform.localPosition = new Vector3(0.035966f, -0.059901f, 0.10305f);
+            ipad.transform.localRotation = Quaternion.Euler(76.59476f, 69.17188f, 104.7559f);
         }
 
         public void StartSitting() {
