@@ -54,11 +54,17 @@ public class PracticeButton : ButtonDragDrop {
     private void ShowDragging()
     {
         Utilities.StopAudio(buttonPushAudio);
+        buttonPushed = true;
+        StartCoroutine(DelayShowDragging());
+    }
+
+    private IEnumerator DelayShowDragging()
+    {
+        yield return new WaitForSeconds(audio.clip.length);
         transform.parent.Find("ButtonPush").gameObject.SetActive(false);
         transform.parent.Find("ButtonDrag").gameObject.SetActive(true);
         transform.parent.Find("PracticeButtonDrag").gameObject.SetActive(true);
         shouldPlayDragAudio = true;
-        buttonPushed = true;
     }
 
     private void HidePracticeUI()
