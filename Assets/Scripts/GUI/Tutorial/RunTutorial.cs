@@ -1,4 +1,6 @@
-﻿using Globals;
+﻿using System.Collections;
+using AngryScene;
+using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,7 @@ public class RunTutorial : MonoBehaviour
     private AudioSource quitAudio;
     private AudioSource repeatAudio;
 
+    public GameObject otherCharacter;
     private GameObject practiceDropContainer;
     private GameObject practiceButton;
     private GameObject buttonPush;
@@ -25,11 +28,17 @@ public class RunTutorial : MonoBehaviour
     public void Start()
     {
         sceneAudio = GUIDetect.GetCurrentGUI().GetComponent<AudioSource>();
-        Utilities.PlayAudio(sceneAudio);
-        initialAudioPlayed = true;
+        StartCoroutine(DelayPlayAudio());
 
         InitializeGameObjects();
         InitializeAudio();
+    }
+
+    private IEnumerator DelayPlayAudio()
+    {
+        yield return new WaitForSeconds(1f);
+        Utilities.PlayAudio(sceneAudio);
+        initialAudioPlayed = true;
     }
 
     private void Update()
@@ -51,9 +60,15 @@ public class RunTutorial : MonoBehaviour
         {
             explainingRepeatButton = false;
             ResetHighlight(helpCanvas.transform.Find("Repeat"));
-            Tutorials.MainTutorialHasRun = true;
-            Utilities.LoadScene(Scenes.NextSceneToLoad);
+            otherCharacter.SetActive(true);
+            otherCharacter.GetComponent<WalkForward>().StartWalking();
         }
+    }
+
+    public void LoadNextScene()
+    {
+        Tutorials.MainTutorialHasRun = true;
+        Utilities.LoadScene(Scenes.NextSceneToLoad);
     }
 
     private void InitializeGameObjects()

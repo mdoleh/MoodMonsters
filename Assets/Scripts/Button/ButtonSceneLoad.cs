@@ -17,7 +17,7 @@ public class ButtonSceneLoad : ButtonSelect {
         else
         {
             Scenes.NextSceneToLoad = sceneToLoad;
-            Utilities.LoadScene("Tutorial");
+            Utilities.LoadScene("TutorialWithLily");
         }
         
     }

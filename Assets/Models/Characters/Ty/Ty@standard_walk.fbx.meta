@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e75fc1196add6aa4c9709af27826d814
+guid: a0f5dbefae40c064f854250bdd26abae
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -131,7 +131,7 @@ ModelImporter:
     400122: Boy:Spine1
     400124: Boy:Spine2
     400126: //RootNode
-    7400000: walking
+    7400000: standard_walk
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -142,7 +142,7 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -150,10 +150,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: walking
+      name: standard_walk
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
