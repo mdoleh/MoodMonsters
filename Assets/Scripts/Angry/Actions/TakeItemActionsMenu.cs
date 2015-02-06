@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace AngryScene
 {
     public class TakeItemActionsMenu : MonoBehaviour
     {
 
-        GameObject[] GUI;
+        public GameObject GUI;
         Animator anim;
         bool GUIon = false;
         public Animator other;
@@ -14,8 +15,13 @@ namespace AngryScene
 
         public void Awake()
         {
-            GUI = GameObject.FindGameObjectsWithTag("GUI");
             anim = GetComponent<Animator>();
+        }
+
+        void Start()
+        {
+            Timeout.StopTimers();
+            Timeout.SetRepeatAudio(GUI.GetComponent<AudioSource>());
         }
 
         void Update()
@@ -37,15 +43,9 @@ namespace AngryScene
         {
             if (GUIon) return; // don't want to execute multiple times
             GUIon = true;
-            for (int ii = 0; ii < GUI.Length; ++ii)
-            {
-                if (GUI[ii].name == "ActionsCanvas")
-                {
-                    GUI[ii].GetComponent<Canvas>().enabled = true;
-                    Utilities.PlayAudio(GUI[ii].GetComponent<AudioSource>());
-                    return;
-                }
-            }
+            GUI.GetComponent<Canvas>().enabled = true;
+            Utilities.PlayAudio(GUI.GetComponent<AudioSource>());
+            Timeout.StartTimers();
         }
 
         // these are only here so the animation events don't complain

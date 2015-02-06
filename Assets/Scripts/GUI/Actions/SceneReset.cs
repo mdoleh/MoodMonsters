@@ -42,6 +42,10 @@ public class SceneReset : MonoBehaviour {
     }
 
     void Update() {
-        if (startedPlaying && source != null && !source.isPlaying) Utilities.LoadScene(sceneToLoad);
+        if (startedPlaying && source != null && !source.isPlaying)
+        {
+            Timeout.StopTimers();
+            Utilities.LoadScene(sceneToLoad);
+        }
     }
 }

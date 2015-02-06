@@ -15,7 +15,9 @@ public class ButtonDragDrop : MonoBehaviour {
     protected int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
 
-    protected virtual void Awake() {
+    protected virtual void Awake()
+    {
+        correctCount = 0;
         oldColor = dropContainer.image.color;
         buttonAudio = GetComponent<AudioSource>();
         initializeCorrectAmount();
