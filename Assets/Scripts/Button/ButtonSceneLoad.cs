@@ -11,7 +11,7 @@ public class ButtonSceneLoad : ButtonSelect {
     {
         Timeout.StopTimers();
         if (sceneToLoad == "") return;
-        if (Tutorials.MainTutorialHasRun || tutorialToLoad == "")
+        if (tutorialToLoad == "")
         {
             Utilities.LoadScene(sceneToLoad);
         }

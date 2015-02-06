@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace AngryScene
 {
@@ -67,6 +68,8 @@ namespace AngryScene
 
         void StartGUI()
         {
+            Timeout.StartTimers();
+            Timeout.SetRepeatAudio(emotionsGUI.GetComponent<AudioSource>());
             emotionsGUI.GetComponent<Canvas>().enabled = true;
             Utilities.PlayAudio(emotionsGUI.GetComponent<AudioSource>());
             enabled = false;
