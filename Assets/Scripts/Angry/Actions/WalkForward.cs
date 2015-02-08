@@ -19,7 +19,7 @@ namespace AngryScene
         {
             if (shouldStartWalking)
             {
-                float move = Time.deltaTime * 0.5f;
+                float move = Time.deltaTime * 1.0f;
                 transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
                 if (transform.position.x <= 204.48f)
                 {
