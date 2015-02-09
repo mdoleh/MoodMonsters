@@ -18,6 +18,7 @@ public class PuzzleDragDrop : MonoBehaviour {
     public void MovePanel()
     {
         if (disabled) return;
+        MoveToHierarchyBottom();
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
         // check if in range of container and highlight the container
@@ -69,5 +70,12 @@ public class PuzzleDragDrop : MonoBehaviour {
         {
             panel.GetComponent<Image>().color = color;
         }
+    }
+
+    private void MoveToHierarchyBottom()
+    {
+        var parent = transform.parent;
+        transform.parent = null;
+        transform.parent = parent;
     }
 }
