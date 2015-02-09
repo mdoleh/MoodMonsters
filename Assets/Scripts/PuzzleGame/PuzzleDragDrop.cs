@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +9,8 @@ public class PuzzleDragDrop : MonoBehaviour {
     public Transform correctContainer;
     Color oldColor;
     GameObject[] gridPanels;
-    private bool disabled = false;
+    public bool disabled = false;
+    private static List<GameObject> correctlyPlacedPieces = new List<GameObject>();
 
     public virtual void Awake()
     {
@@ -45,7 +48,14 @@ public class PuzzleDragDrop : MonoBehaviour {
     public virtual void SubmitAnswer() {
         correctContainer.GetComponent<Image>().color = oldColor;
         transform.position = correctContainer.transform.position;
-//        disabled = true;
+        if (!correctlyPlacedPieces.Contains(gameObject)) correctlyPlacedPieces.Add(gameObject);
+        if (correctlyPlacedPieces.Count == CreatePuzzlePieces.NUMBER_OF_PIECES)
+        {
+            var parent = transform.parent;
+            parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete);
+        }
+        MoveToHierarchyTop();
+        disabled = true;
     }
 
     bool RectsOverlap(RectTransform r1, RectTransform r2)
@@ -77,5 +87,17 @@ public class PuzzleDragDrop : MonoBehaviour {
         var parent = transform.parent;
         transform.parent = null;
         transform.parent = parent;
+    }
+
+    private void MoveToHierarchyTop()
+    {
+        var parent = transform.parent;
+        for (var ii = 0; ii < parent.childCount; ++ii)
+        {
+            var child = parent.GetChild(ii);
+            if (child == transform || child.GetComponent<PuzzleDragDrop>().disabled) continue;
+            child.parent = null;
+            child.parent = parent;
+        }
     }
 }

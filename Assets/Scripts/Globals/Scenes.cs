@@ -10,7 +10,7 @@ namespace Globals
 
         public static IList<string> Puzzles = new List<string>
         {
-            "PuzzleTutorial", "PuzzleLevel1", "PuzzleLevel2"
+            "PuzzleMiniGame"
         };
 
         public static string GetNextPuzzle()

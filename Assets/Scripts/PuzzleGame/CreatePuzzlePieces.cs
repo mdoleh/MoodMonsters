@@ -9,6 +9,9 @@ public class CreatePuzzlePieces : MonoBehaviour
 {
     public Texture2D photo;
     public GameObject piecePrefab;
+    public static int NUMBER_OF_PIECES;
+    public SceneReset sceneReset;
+    public string sceneToLoadOnComplete;
     private GameObject[] gridPanels;
 
     private const string PANEL_BASE = "GridPanel";
@@ -18,6 +21,7 @@ public class CreatePuzzlePieces : MonoBehaviour
     {
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
         List<Object> pieces = GeneratePuzzlePieces(photo);
+        NUMBER_OF_PIECES = pieces.Count;
         RandomizePiecePositions(pieces);
     }
 
