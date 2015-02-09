@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ public class PuzzleDragDrop : MonoBehaviour {
     public void MovePanel()
     {
         if (disabled) return;
+        Timeout.StopTimers();
         MoveToHierarchyBottom();
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
@@ -43,6 +45,7 @@ public class PuzzleDragDrop : MonoBehaviour {
         {
             SubmitAnswer();
         }
+        Timeout.StartTimers();
     }
 
     public virtual void SubmitAnswer() {

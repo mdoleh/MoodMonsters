@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
+using Globals;
 using UnityEngine.UI;
 
 public class CreatePuzzlePieces : MonoBehaviour
@@ -23,6 +24,20 @@ public class CreatePuzzlePieces : MonoBehaviour
         List<Object> pieces = GeneratePuzzlePieces(photo);
         NUMBER_OF_PIECES = pieces.Count;
         RandomizePiecePositions(pieces);
+    }
+
+    private void Start()
+    {
+        var parentAudio = transform.parent.GetComponent<AudioSource>();
+        StartCoroutine(DelayPlayAudio(parentAudio));
+    }
+
+    private IEnumerator DelayPlayAudio(AudioSource audioSource)
+    {
+        yield return new WaitForSeconds(1.0f);
+        Utilities.PlayAudio(audioSource);
+        Timeout.SetRepeatAudio(audioSource);
+        Timeout.StartTimers();
     }
 
     private List<Object> GeneratePuzzlePieces(Texture2D photo)
