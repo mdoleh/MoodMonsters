@@ -5,7 +5,7 @@ using System.Linq;
 using Globals;
 
 public class GUIDetect : MonoBehaviour {
-    private static IList<string> canvasList = new List<string>
+    private static readonly IList<string> CanvasList = new List<string>
     {
         "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
     };
@@ -24,8 +24,8 @@ public class GUIDetect : MonoBehaviour {
 
     public static string GetNextGUIName(string currentGUI)
     {
-        var currentIndex = canvasList.IndexOf(currentGUI);
-        return currentIndex + 1 >= canvasList.Count ? null : canvasList[currentIndex + 1];
+        var currentIndex = CanvasList.IndexOf(currentGUI);
+        return currentIndex + 1 >= CanvasList.Count ? null : CanvasList[currentIndex + 1];
     }
 
     public static Canvas GetNextGUI(string currentGUI)
