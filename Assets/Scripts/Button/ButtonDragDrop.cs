@@ -96,25 +96,7 @@ public class ButtonDragDrop : MonoBehaviour {
     {
         correctCount = 0;
         string currentGUI = GUIDetect.GetCurrentGUIName();
-        switch (currentGUI)
-        {
-            case "TutorialCanvas":
-                GUIDetect.NextGUI("TutorialCanvas", "EmotionsCanvas");
-                break;
-            case "EmotionsCanvas":
-                GUIDetect.NextGUI("EmotionsCanvas", "PhysicalCanvas");
-                break;
-            case "PhysicalCanvas":
-                GUIDetect.NextGUI("PhysicalCanvas", "ActionsCanvas");
-                break;
-            case "ActionsCanvas":
-                // go to puzzle mini game
-                break;
-            default:
-                // do nothing
-                break;
-        }
-        
+        GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));       
     }
 
     private void initializeCorrectAmount()

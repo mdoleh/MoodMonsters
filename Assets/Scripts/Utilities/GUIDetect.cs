@@ -7,7 +7,7 @@ using Globals;
 public class GUIDetect : MonoBehaviour {
     private static IList<string> canvasList = new List<string>
     {
-        "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas", "ActionsCanvas"
+        "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
     };
 
     public static string GetCurrentGUIName()
@@ -53,10 +53,7 @@ public class GUIDetect : MonoBehaviour {
             if (guiCanvas.name == next)
             {
                 guiCanvas.GetComponent<Canvas>().enabled = true;
-                if (current != "TutorialCanvas")
-                {
-                    Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
-                }
+                Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
                 Timeout.StartTimers();
                 Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
             }
