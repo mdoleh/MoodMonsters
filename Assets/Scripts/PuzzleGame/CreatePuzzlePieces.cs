@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
 using Globals;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CreatePuzzlePieces : MonoBehaviour
@@ -13,38 +12,21 @@ public class CreatePuzzlePieces : MonoBehaviour
     public static int NUMBER_OF_PIECES;
     public SceneReset sceneReset;
     public string sceneToLoadOnComplete;
-    private GameObject[] gridPanels;
+    public List<GameObject> gridPanels;
 
-    private const string PANEL_BASE = "GridPanel";
-    private const int DIMENSIONS = 3;
-
-    public virtual void Awake()
+    private void Awake()
     {
-        gridPanels = GameObject.FindGameObjectsWithTag("GUI");
-        List<Object> pieces = GeneratePuzzlePieces(photo);
-        NUMBER_OF_PIECES = pieces.Count;
-        RandomizePiecePositions(pieces);
+//        gridPanels = GameObject.FindGameObjectsWithTag("GUI");
+//        List<Object> pieces = GeneratePuzzlePieces(photo);
+//        NUMBER_OF_PIECES = pieces.Count;
+//        RandomizePiecePositions(pieces);
     }
 
-    private void Start()
+    public List<Object> GeneratePuzzlePieces(int dimensions, string panelBase)
     {
-        var parentAudio = transform.parent.GetComponent<AudioSource>();
-        StartCoroutine(DelayPlayAudio(parentAudio));
-    }
-
-    private IEnumerator DelayPlayAudio(AudioSource audioSource)
-    {
-        yield return new WaitForSeconds(1.0f);
-        Utilities.PlayAudio(audioSource);
-        Timeout.SetRepeatAudio(audioSource);
-        Timeout.StartTimers();
-    }
-
-    private List<Object> GeneratePuzzlePieces(Texture2D photo)
-    {
-        int width = (int)GetComponent<RectTransform>().rect.width / DIMENSIONS;
-        int height = (int)GetComponent<RectTransform>().rect.height / DIMENSIONS;
-        TextureScale.Bilinear(photo, width * DIMENSIONS, height * DIMENSIONS);
+        int width = (int)GetComponent<RectTransform>().rect.width / dimensions;
+        int height = (int)GetComponent<RectTransform>().rect.height / dimensions;
+        TextureScale.Bilinear(photo, width * dimensions, height * dimensions);
         photo.Apply();
 
         Color[] imageData;
@@ -52,9 +34,9 @@ public class CreatePuzzlePieces : MonoBehaviour
         Object piece;
         int panelNumber = 1;
 
-        for (int y = 0; y < DIMENSIONS; ++y)
+        for (int y = 0; y < dimensions; ++y)
         {
-            for (int x = 0; x < DIMENSIONS; ++x)
+            for (int x = 0; x < dimensions; ++x)
             {
                 piece = Instantiate(piecePrefab);
                 ((GameObject)piece).transform.parent = transform;
@@ -65,19 +47,19 @@ public class CreatePuzzlePieces : MonoBehaviour
 
                 ((GameObject)piece).GetComponent<RawImage>().texture = texture;
                 ((GameObject)piece).GetComponent<RawImage>().SetNativeSize();
-                ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = GetGridPanelByName(gridPanels, PANEL_BASE + panelNumber++).transform;
+                ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = GetGridPanelByName(gridPanels, panelBase + panelNumber++).transform;
                 pieces.Add(piece);
             }
         }
         return pieces;
     }
 
-    private GameObject GetGridPanelByName(GameObject[] gridPanels, string name)
+    private GameObject GetGridPanelByName(List<GameObject> gridPanels, string name)
     {
         return gridPanels.FirstOrDefault(gridPanel => gridPanel.name.Equals(name));
     }
 
-    private void RandomizePiecePositions(List<Object> pieces)
+    public void RandomizePiecePositions(List<Object> pieces)
     {
         float max = ((GameObject)pieces[0]).transform.parent.GetComponent<RectTransform>().rect.width - ((GameObject) pieces[0]).GetComponent<RectTransform>().rect.width;
         max /= 2;
