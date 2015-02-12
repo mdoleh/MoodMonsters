@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using Globals;
+﻿using Globals;
 
 public class ButtonSceneLoad : ButtonSelect {
 
