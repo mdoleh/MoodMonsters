@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Globals;
 
 public class GUIDetect : MonoBehaviour {
+    private static IList<string> canvasList = new List<string>
+    {
+        "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas", "ActionsCanvas"
+    };
 
     public static string GetCurrentGUIName()
     {
@@ -19,48 +24,14 @@ public class GUIDetect : MonoBehaviour {
 
     public static string GetNextGUIName(string currentGUI)
     {
-        switch (currentGUI)
-        {
-            case "TutorialCanvas":
-                return "EmotionsCanvas";
-                break;
-            case "EmotionsCanvas":
-                return "PhysicalCanvas";
-                break;
-            case "PhysicalCanvas":
-                return "ActionsCanvas";
-                break;
-            case "ActionsCanvas":
-                // do nothing
-                break;
-            default:
-                // do nothing
-                break;
-        }
-        return null;
+        var currentIndex = canvasList.IndexOf(currentGUI);
+        return currentIndex + 1 >= canvasList.Count ? null : canvasList[currentIndex + 1];
     }
 
     public static Canvas GetNextGUI(string currentGUI)
     {
-        switch (currentGUI)
-        {
-            case "TutorialCanvas":
-                return GetGUIByName("EmotionsCanvas");
-                break;
-            case "EmotionsCanvas":
-                return GetGUIByName("PhysicalCanvas");
-                break;
-            case "PhysicalCanvas":
-                return GetGUIByName("ActionsCanvas");
-                break;
-            case "ActionsCanvas":
-                // do nothing
-                break;
-            default:
-                // do nothing
-                break;
-        }
-        return null;
+        var nextGUI = GetNextGUIName(currentGUI);
+        return GetGUIByName(nextGUI);
     }
 
     public static GameObject[] GetAllGUI()
