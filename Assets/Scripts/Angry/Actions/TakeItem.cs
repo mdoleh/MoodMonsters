@@ -25,7 +25,6 @@ namespace AngryScene
         private IEnumerator DelayAnimation()
         {
             yield return new WaitForSeconds(1f);
-            anim.SetBool("IsIdle", false);
             anim.SetTrigger("IsTalking");
         }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class RunTutorial : MonoBehaviour
 {
-    private AudioSource sceneAudio;
     private AudioSource buttonPushAudio;
     private AudioSource helpAudio;
     private AudioSource quitAudio;
@@ -18,6 +17,7 @@ public class RunTutorial : MonoBehaviour
     private GameObject buttonPush;
     private GameObject initCanvas;
     private GameObject helpCanvas;
+    private GameObject disablePanel;
     private Color originalColor;
 
     private bool initialAudioPlayed = false;
@@ -27,7 +27,6 @@ public class RunTutorial : MonoBehaviour
 
     public void Start()
     {
-        sceneAudio = GUIDetect.GetCurrentGUI().GetComponent<AudioSource>();
         StartCoroutine(DelayPlayAudio());
 
         InitializeGameObjects();
@@ -37,13 +36,13 @@ public class RunTutorial : MonoBehaviour
     private IEnumerator DelayPlayAudio()
     {
         yield return new WaitForSeconds(1f);
-        Utilities.PlayAudio(sceneAudio);
+        Utilities.PlayAudio(audio);
         initialAudioPlayed = true;
     }
 
     private void Update()
     {
-        if (initialAudioPlayed && !sceneAudio.isPlaying) EnablePracticeUI();
+        if (initialAudioPlayed && !audio.isPlaying) EnablePracticeUI();
         if (explainingHelpButton && !helpAudio.isPlaying)
         {
             explainingHelpButton = false;
@@ -65,10 +64,11 @@ public class RunTutorial : MonoBehaviour
         }
     }
 
-    public void LoadNextScene()
+    public void EnableHelpGUI()
     {
         Tutorials.MainTutorialHasRun = true;
-        Utilities.LoadScene(Scenes.NextSceneToLoad);
+        disablePanel.SetActive(false);
+        GetComponent<Canvas>().enabled = false;
     }
 
     private void InitializeGameObjects()
@@ -77,6 +77,7 @@ public class RunTutorial : MonoBehaviour
         practiceButton = transform.Find("PracticeButton").gameObject;
         buttonPush = transform.Find("ButtonPush").gameObject;
         helpCanvas = GameObject.Find("HelpCanvas");
+        disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
     }
 
     private void InitializeAudio()
@@ -98,7 +99,6 @@ public class RunTutorial : MonoBehaviour
     public void ExplainHelpUI()
     {
         helpCanvas.GetComponent<Canvas>().enabled = true;
-        Sound.CurrentPlayingSound = sceneAudio;
         ExplainButton(helpCanvas, "Help", ref explainingHelpButton, ref helpAudio);
     }
 

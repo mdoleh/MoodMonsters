@@ -34,7 +34,7 @@ namespace AngryScene
             shouldStartWalking = false;
             anim.SetBool("IsWalking", false);
             anim.SetTrigger("IsIdle");
-            tutorial.LoadNextScene();
+            tutorial.EnableHelpGUI();
         }
     }
 }
