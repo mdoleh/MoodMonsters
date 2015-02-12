@@ -8,7 +8,7 @@ public class CreatePuzzleGrid : MonoBehaviour
     public GameObject gridPrefab;
     public CreatePuzzlePieces puzzlePieceGenerator;
     public const string PANEL_BASE = "GridPanel";
-    public const int DIMENSIONS = 3;
+    public const int DIMENSIONS = 4;
 
     private const int X_LOWER_BOUND = -124;
     private const int Y_LOWER_BOUND = -127;
@@ -49,11 +49,14 @@ public class CreatePuzzleGrid : MonoBehaviour
                 var gridPanel = (GameObject)Instantiate(gridPrefab);
                 gridPanel.transform.parent = transform;
                 gridPanel.name = panelBase + counter;
-                gridPanel.transform.localPosition = new Vector3(X_LOWER_BOUND + (130 * x), Y_LOWER_BOUND + (y * 130), 0);
 
-                var scale = new Vector3(gridPrefab.GetComponent<RectTransform>().rect.width*dimensions/MAX_WIDTH,
-                    gridPrefab.GetComponent<RectTransform>().rect.height*dimensions/MAX_HEIGHT);
+                var newWidth = MAX_WIDTH/dimensions;
+                var newHeight = MAX_HEIGHT/dimensions;
+                var scale = new Vector3(newWidth / MAX_WIDTH,
+                    newHeight / MAX_HEIGHT);
                 gridPanel.transform.localScale = scale;
+
+                gridPanel.transform.localPosition = new Vector3(X_LOWER_BOUND + ((newWidth - 3) * x), Y_LOWER_BOUND + (y * (newHeight - 3)), 0);
 
                 gridList.Add(gridPanel);
                 ++counter;
