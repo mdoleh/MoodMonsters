@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PuzzleDragDrop : MonoBehaviour {
 
     public Transform correctContainer;
-    Color oldColor;
+    GameObject highlight;
     GameObject[] gridPanels;
     public bool disabled = false;
     private static List<GameObject> correctlyPlacedPieces = new List<GameObject>();
@@ -16,7 +16,11 @@ public class PuzzleDragDrop : MonoBehaviour {
     public virtual void Awake()
     {
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
-        oldColor = gridPanels[0].GetComponent<Image>().color;
+    }
+
+    private void Start()
+    {
+        highlight = correctContainer.FindChild("Highlight").gameObject;
     }
 
     public void MovePanel()
@@ -30,17 +34,18 @@ public class PuzzleDragDrop : MonoBehaviour {
         GameObject intersectingPanel = FindIntersectingPanel(gridPanels, gameObject);
         if (intersectingPanel != null)
         {
-            ResetAllPanelColors(gridPanels, oldColor);
-            intersectingPanel.GetComponent<Image>().color = Color.red;
+            ResetAllPanelColors(gridPanels);
+            intersectingPanel.transform.FindChild("Highlight").gameObject.SetActive(true);
         }
         else
         {
-            ResetAllPanelColors(gridPanels, oldColor);
+            ResetAllPanelColors(gridPanels);
         }
     }
 
     public virtual void PanelRelease()
     {
+        if (disabled) return;
         if (RectsOverlap(correctContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
             SubmitAnswer();
@@ -49,7 +54,7 @@ public class PuzzleDragDrop : MonoBehaviour {
     }
 
     public virtual void SubmitAnswer() {
-        correctContainer.GetComponent<Image>().color = oldColor;
+        highlight.SetActive(false);
         transform.position = correctContainer.transform.position;
         if (!correctlyPlacedPieces.Contains(gameObject)) correctlyPlacedPieces.Add(gameObject);
         if (correctlyPlacedPieces.Count == CreatePuzzlePieces.NUMBER_OF_PIECES)
@@ -77,11 +82,11 @@ public class PuzzleDragDrop : MonoBehaviour {
         return panels.FirstOrDefault(panel => RectsOverlap(current.GetComponent<RectTransform>(), panel.GetComponent<RectTransform>()));
     }
 
-    private void ResetAllPanelColors(GameObject[] panels, Color color)
+    private void ResetAllPanelColors(GameObject[] panels)
     {
         foreach (var panel in panels)
         {
-            panel.GetComponent<Image>().color = color;
+            panel.transform.FindChild("Highlight").gameObject.SetActive(false);
         }
     }
 

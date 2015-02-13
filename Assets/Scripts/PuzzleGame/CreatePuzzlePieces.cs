@@ -14,14 +14,6 @@ public class CreatePuzzlePieces : MonoBehaviour
     public string sceneToLoadOnComplete;
     public List<GameObject> gridPanels;
 
-    private void Awake()
-    {
-//        gridPanels = GameObject.FindGameObjectsWithTag("GUI");
-//        List<Object> pieces = GeneratePuzzlePieces(photo);
-//        NUMBER_OF_PIECES = pieces.Count;
-//        RandomizePiecePositions(pieces);
-    }
-
     public List<Object> GeneratePuzzlePieces(int dimensions, string panelBase)
     {
         int width = (int)GetComponent<RectTransform>().rect.width / dimensions;
