@@ -47,7 +47,7 @@ public class PuzzleDragDrop : MonoBehaviour {
     public void PanelRelease()
     {
         if (disabled) return;
-        SubmitAnswer(intersectingPanel, intersectingPanel.transform == correctContainer);
+        SubmitAnswer(intersectingPanel, intersectingPanel == correctContainer.gameObject);
         Timeout.StartTimers();
     }
 
