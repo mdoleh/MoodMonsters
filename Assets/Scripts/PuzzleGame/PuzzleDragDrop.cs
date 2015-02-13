@@ -10,10 +10,11 @@ public class PuzzleDragDrop : MonoBehaviour {
     public Transform correctContainer;
     GameObject highlight;
     GameObject[] gridPanels;
+    private GameObject intersectingPanel;
     public bool disabled = false;
     private static List<GameObject> correctlyPlacedPieces = new List<GameObject>();
 
-    public virtual void Awake()
+    private void Awake()
     {
         gridPanels = GameObject.FindGameObjectsWithTag("GUI");
     }
@@ -31,7 +32,7 @@ public class PuzzleDragDrop : MonoBehaviour {
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
         // check if in range of container and highlight the container
-        GameObject intersectingPanel = FindIntersectingPanel(gridPanels, gameObject);
+        intersectingPanel = FindIntersectingPanel(gridPanels, gameObject);
         if (intersectingPanel != null)
         {
             ResetAllPanelColors(gridPanels);
@@ -43,30 +44,30 @@ public class PuzzleDragDrop : MonoBehaviour {
         }
     }
 
-    public virtual void PanelRelease()
+    public void PanelRelease()
     {
         if (disabled) return;
-        if (RectsOverlap(correctContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
-        {
-            SubmitAnswer();
-        }
+        SubmitAnswer(intersectingPanel, intersectingPanel.transform == correctContainer);
         Timeout.StartTimers();
     }
 
-    public virtual void SubmitAnswer() {
+    private void SubmitAnswer(GameObject intersectingPanel, bool isCorrectContainer)
+    {
+        if (intersectingPanel == null) return;
         highlight.SetActive(false);
-        transform.position = correctContainer.transform.position;
+        transform.position = intersectingPanel.transform.position;
+        MoveToHierarchyTop();
+        if (!isCorrectContainer) return;
         if (!correctlyPlacedPieces.Contains(gameObject)) correctlyPlacedPieces.Add(gameObject);
         if (correctlyPlacedPieces.Count == CreatePuzzlePieces.NUMBER_OF_PIECES)
         {
             var parent = transform.parent;
             parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete);
         }
-        MoveToHierarchyTop();
         disabled = true;
     }
 
-    bool RectsOverlap(RectTransform r1, RectTransform r2)
+    private bool RectsOverlap(RectTransform r1, RectTransform r2)
     {
         bool widthOverlap = (r1.position.x >= r2.position.x && r1.position.x <= r2.position.x + r2.rect.width * 0.4 * r2.localScale.x) ||
                             (r2.position.x >= r1.position.x && r2.position.x <= r1.position.x + r1.rect.width * 0.4 * r1.localScale.x);
