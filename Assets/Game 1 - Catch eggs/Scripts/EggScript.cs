@@ -16,7 +16,7 @@ public class EggScript : MonoBehaviour {
         if (transform.position.y < -1 || transform.position.y >= 20)
         {
             //Destroy this gameobject (and all attached components)
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 	}
 }

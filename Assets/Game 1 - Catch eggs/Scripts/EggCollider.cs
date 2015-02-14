@@ -16,7 +16,7 @@ public class EggCollider : MonoBehaviour {
     {
         //In this game we don't need to check *what* we hit; it must be the eggs
         GameObject collisionGO = theCollision.gameObject;
-        Destroy(collisionGO);
+        Destroy(collisionGO.transform.parent.gameObject);
 
         myPlayerScript.theScore++;
     }
