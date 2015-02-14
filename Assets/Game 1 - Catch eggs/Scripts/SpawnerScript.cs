@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnerScript : MonoBehaviour {
 
-    public Transform eggPrefab;
+    public Transform[] eggPrefabs;
 
     private float nextEggTime = 0.0f;
     private float spawnRate = 1.5f;
@@ -24,6 +24,7 @@ public class SpawnerScript : MonoBehaviour {
     {
         float addXPos = Random.Range(-1.6f, 1.6f);
         Vector3 spawnPos = transform.position + new Vector3(addXPos,0,0);
-        Instantiate(eggPrefab, spawnPos, Quaternion.identity);
+        int index = Random.Range(0, 3);
+        Instantiate(eggPrefabs[index], spawnPos, Quaternion.identity);
     }
 }
