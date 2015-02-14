@@ -19,18 +19,23 @@ public class EggCollider : MonoBehaviour {
 	void OnTriggerEnter(Collider theCollision)
     {
         //In this game we don't need to check *what* we hit; it must be the eggs
-        GameObject collisionGO = theCollision.gameObject;
-	    var emotion = collisionGO.transform.parent.gameObject.name.Replace(PREFAB_NAME_BASE, "");
-	    emotion = emotion.Replace("(Clone)", "");
-	    if (lastSceneCompleted.Contains(emotion))
-	    {
-	        ++myPlayerScript.theScore;
-	    }
-	    else
-	    {
+        Transform collisionGO = theCollision.transform;
+	    AdjustScore(collisionGO);
+        Destroy(collisionGO.parent.gameObject);
+    }
+
+    private void AdjustScore(Transform egg)
+    {
+        var emotion = egg.parent.gameObject.name.Replace(PREFAB_NAME_BASE, "");
+        emotion = emotion.Replace("(Clone)", "");
+        if (lastSceneCompleted.Contains(emotion))
+        {
+            ++myPlayerScript.theScore;
+        }
+        else
+        {
             --myPlayerScript.theScore;
-	    }
-	    if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;
-        Destroy(collisionGO.transform.parent.gameObject);
+        }
+        if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;
     }
 }
