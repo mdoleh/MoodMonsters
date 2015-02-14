@@ -1,15 +1,44 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Globals;
+using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
     
     public int theScore = 0;
+    public GameObject[] instructions;
+    private string lastSceneCompleted;
+    public static bool shouldDropEggs = false;
     private float lastInput;
 
     private void Awake()
     {
         Timeout.StopTimers();
+        lastSceneCompleted = Scenes.CompletedScenes.Last();
+        StartCoroutine(DelayedPlayAudio());
+    }
+
+    private IEnumerator DelayedPlayAudio()
+    {
+        yield return new WaitForSeconds(1.0f);
+        var instructions = GetAudioInstructions();
+        Utilities.PlayAudio(instructions);
+        yield return new WaitForSeconds(instructions.clip.length);
+        var avoidInstructions = GetAudioInstructions("avoid");
+        Utilities.PlayAudio(avoidInstructions);
+        yield return new WaitForSeconds(avoidInstructions.clip.length);
+        shouldDropEggs = true;
+    }
+
+    private AudioSource GetAudioInstructions()
+    {
+        return (from instruction in instructions where lastSceneCompleted.Contains(instruction.name) select instruction.GetComponent<AudioSource>()).FirstOrDefault();
+    }
+
+    private AudioSource GetAudioInstructions(string name)
+    {
+        return (from instruction in instructions where instruction.name.ToLower().Equals(name) select instruction.GetComponent<AudioSource>()).FirstOrDefault();
     }
 
     private void Start()
@@ -39,5 +68,6 @@ public class PlayerScript : MonoBehaviour {
         //We display the game GUI from the playerscript
         //It would be nicer to have a seperate script dedicated to the GUI though...
         GUILayout.Label("Score: " + theScore);
-    }    
+    }
+    
 }

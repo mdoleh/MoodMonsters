@@ -24,7 +24,7 @@ namespace AngryScene
             if (eventTrigger && timer > 5.0f && !sceneResetting)
             {
                 if (isCorrect) {
-                    sceneReset.TriggerCorrect(audioSource, Scenes.GetNextGame());
+                    sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame());
                 } else {
                     sceneReset.TriggerSceneReset(audioSource);
                 }

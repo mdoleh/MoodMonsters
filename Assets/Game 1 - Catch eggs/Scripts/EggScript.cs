@@ -9,7 +9,9 @@ public class EggScript : MonoBehaviour {
     }
 
     //Update is called by Unity every frame
-	void Update () {
+	void Update ()
+	{
+	    if (!PlayerScript.shouldDropEggs) return;
         float fallSpeed = 2 * Time.deltaTime;
         transform.position -= new Vector3(0, fallSpeed, 0);
 

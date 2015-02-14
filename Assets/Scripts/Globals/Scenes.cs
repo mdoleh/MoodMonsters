@@ -10,10 +10,10 @@ namespace Globals
 
         public static IList<string> MiniGames = new List<string>
         {
-            "EggDrop", "PuzzleMiniGame"
+            "EggDropMiniGame", "PuzzleMiniGame"
         };
 
-        public static string GetNextGame()
+        public static string GetNextMiniGame()
         {
             var puzzleToLoad = MiniGames[0];
             MiniGames.Remove(puzzleToLoad);

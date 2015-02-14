@@ -77,7 +77,7 @@ public class GUIManager : MonoBehaviour
 
             case "NextLevel":
                 Timeout.StopTimers();
-                Utilities.LoadScene(isTutorial ? Scenes.GetNextGame() : "MainMenuScreen");
+                Utilities.LoadScene(isTutorial ? Scenes.GetNextMiniGame() : "MainMenuScreen");
                 break;
         }
 

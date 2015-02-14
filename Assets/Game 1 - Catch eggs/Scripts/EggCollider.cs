@@ -24,7 +24,7 @@ public class EggCollider : MonoBehaviour {
         Transform collisionGO = theCollision.transform;
 	    AdjustScore(collisionGO);
         Destroy(collisionGO.parent.gameObject);
-        if (myPlayerScript.theScore >= 5) sceneReset.TriggerCorrect(audio, Scenes.GetNextGame());
+        if (myPlayerScript.theScore >= 5) sceneReset.TriggerCorrect(audio, Scenes.GetNextMiniGame());
     }
 
     private void AdjustScore(Transform egg)

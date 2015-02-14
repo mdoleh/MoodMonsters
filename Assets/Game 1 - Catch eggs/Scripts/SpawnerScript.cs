@@ -9,6 +9,7 @@ public class SpawnerScript : MonoBehaviour {
     private float spawnRate = 1.5f;
  	
 	void Update () {
+        if (!PlayerScript.shouldDropEggs) return;
         if (nextEggTime < Time.time)
         {
             SpawnEgg();

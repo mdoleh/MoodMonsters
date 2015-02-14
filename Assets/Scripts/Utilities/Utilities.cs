@@ -21,7 +21,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadScene(string sceneToLoad)
     {
-        if (sceneToLoad.ToLower().Contains("puzzle"))
+        if (sceneToLoad.ToLower().Contains("minigame"))
         {
             var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
