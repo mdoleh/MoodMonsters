@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Globals;
 
 public class EggCollider : MonoBehaviour {
 
     PlayerScript myPlayerScript;
+    public SceneReset sceneReset;
     private string lastSceneCompleted;
     private const string PREFAB_NAME_BASE = "EggPrefab";
 
@@ -12,7 +14,7 @@ public class EggCollider : MonoBehaviour {
     void Awake()
     {
         myPlayerScript = transform.parent.GetComponent<PlayerScript>();
-        lastSceneCompleted = Globals.Scenes.CompletedScenes.Last();
+        lastSceneCompleted = Scenes.CompletedScenes.Last();
     }
 
     //Triggered by Unity's Physics
@@ -22,6 +24,7 @@ public class EggCollider : MonoBehaviour {
         Transform collisionGO = theCollision.transform;
 	    AdjustScore(collisionGO);
         Destroy(collisionGO.parent.gameObject);
+        if (myPlayerScript.theScore >= 5) sceneReset.TriggerCorrect(audio, "MainMenuScreen");
     }
 
     private void AdjustScore(Transform egg)
