@@ -8,15 +8,15 @@ namespace Globals
 
         public static IList<string> CompletedScenes = new List<string>();
 
-        public static IList<string> Puzzles = new List<string>
+        public static IList<string> MiniGames = new List<string>
         {
-            "PuzzleMiniGame"
+            "EggDrop", "PuzzleMiniGame"
         };
 
-        public static string GetNextPuzzle()
+        public static string GetNextGame()
         {
-            var puzzleToLoad = Puzzles[0];
-            Puzzles.Remove(puzzleToLoad);
+            var puzzleToLoad = MiniGames[0];
+            MiniGames.Remove(puzzleToLoad);
             return puzzleToLoad;
         }
 
