@@ -15,8 +15,8 @@ public class SpawnerScript : MonoBehaviour {
             nextEggTime = Time.time + spawnRate;
 
             //Speed up the spawnrate for the next egg
-            spawnRate *= 0.98f;
-            spawnRate = Mathf.Clamp(spawnRate, 0.3f, 99f);
+//            spawnRate *= 0.98f;
+//            spawnRate = Mathf.Clamp(spawnRate, 0.3f, 99f);
         }
 	}
 
