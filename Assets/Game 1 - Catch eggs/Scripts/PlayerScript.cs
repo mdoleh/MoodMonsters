@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
         //These two lines are all there is to the actual movement..
-        float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 3; 
+        float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 0.25f; 
         if (moveInput == lastInput) Timeout.StartTimers();
         else Timeout.StopTimers();
         transform.position += new Vector3(moveInput, 0, 0);
