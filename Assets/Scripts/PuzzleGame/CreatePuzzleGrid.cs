@@ -7,20 +7,26 @@ public class CreatePuzzleGrid : MonoBehaviour
 {
     public GameObject gridPrefab;
     public CreatePuzzlePieces puzzlePieceGenerator;
+    public RectTransform puzzlePieceParent;
     public const string PANEL_BASE = "GridPanel";
     public int DIMENSIONS;
 
-    private const int X_LOWER_BOUND = -124;
-    private const int Y_LOWER_BOUND = -127;
-    private const float MAX_WIDTH = 399;
-    private const float MAX_HEIGHT = 399;
+    private float X_LOWER_BOUND;
+    private float Y_LOWER_BOUND;
+    private float MAX_WIDTH;
+    private float MAX_HEIGHT;
 
     void Awake()
     {
+        MAX_WIDTH =puzzlePieceParent.rect.height;
+        MAX_HEIGHT = puzzlePieceParent.rect.height;
+        X_LOWER_BOUND = puzzlePieceParent.rect.xMin;
+        Y_LOWER_BOUND = puzzlePieceParent.rect.yMin;
+
         var gridPanels = GenerateGridPanels(DIMENSIONS, PANEL_BASE);
         CreatePuzzlePieces.NUMBER_OF_PIECES = gridPanels.Count;
         puzzlePieceGenerator.gridPanels = gridPanels;
-        puzzlePieceGenerator.RandomizePiecePositions(puzzlePieceGenerator.GeneratePuzzlePieces(DIMENSIONS, PANEL_BASE));
+        puzzlePieceGenerator.RandomizePiecePositions(puzzlePieceGenerator.GeneratePuzzlePieces(DIMENSIONS, PANEL_BASE, (int)(MAX_WIDTH / DIMENSIONS), (int)(MAX_HEIGHT / DIMENSIONS)));
     }
 
     private void Start()
@@ -41,18 +47,18 @@ public class CreatePuzzleGrid : MonoBehaviour
     {
         var gridList = new List<GameObject>();
         int counter = 1;
+        var newWidth = MAX_WIDTH / dimensions;
+        var newHeight = MAX_HEIGHT / dimensions;
+        var scale = new Vector3(newWidth / gridPrefab.GetComponent<RectTransform>().rect.width, newHeight / gridPrefab.GetComponent<RectTransform>().rect.height);
 
-        for (int y = 0; y < dimensions; ++y)
+        for (int y = 1; y <= dimensions; ++y)
         {
-            for (int x = 0; x < dimensions; ++x)
+            for (int x = 1; x <= dimensions; ++x)
             {
                 var gridPanel = (GameObject)Instantiate(gridPrefab);
                 gridPanel.transform.parent = transform;
                 gridPanel.name = panelBase + counter;
 
-                var newWidth = MAX_WIDTH/dimensions;
-                var newHeight = MAX_HEIGHT/dimensions;
-                var scale = new Vector3(newWidth / MAX_WIDTH, newHeight / MAX_HEIGHT);
                 gridPanel.transform.localScale = scale;
 
                 gridPanel.transform.localPosition = new Vector3(X_LOWER_BOUND + ((newWidth - 3) * x), Y_LOWER_BOUND + (y * (newHeight - 3)), 0);

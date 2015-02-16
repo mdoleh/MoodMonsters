@@ -14,10 +14,8 @@ public class CreatePuzzlePieces : MonoBehaviour
     public string sceneToLoadOnComplete;
     public List<GameObject> gridPanels;
 
-    public List<Object> GeneratePuzzlePieces(int dimensions, string panelBase)
+    public List<Object> GeneratePuzzlePieces(int dimensions, string panelBase, int width, int height)
     {
-        int width = (int)GetComponent<RectTransform>().rect.width / dimensions;
-        int height = (int)GetComponent<RectTransform>().rect.height / dimensions;
         TextureScale.Bilinear(photo, width * dimensions, height * dimensions);
         photo.Apply();
 
@@ -53,7 +51,7 @@ public class CreatePuzzlePieces : MonoBehaviour
 
     public void RandomizePiecePositions(List<Object> pieces)
     {
-        float max = ((GameObject)pieces[0]).transform.parent.GetComponent<RectTransform>().rect.width - ((GameObject) pieces[0]).GetComponent<RectTransform>().rect.width;
+        float max = ((GameObject)pieces[0]).transform.parent.GetComponent<RectTransform>().rect.height - ((GameObject) pieces[0]).GetComponent<RectTransform>().rect.height;
         max /= 2;
         float min = max*-1;
         foreach (var piece in pieces)
