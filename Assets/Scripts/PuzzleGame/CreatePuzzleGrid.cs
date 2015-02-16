@@ -18,6 +18,7 @@ public class CreatePuzzleGrid : MonoBehaviour
 
     void Awake()
     {
+        // the game is only allowed in landscape mode so height < width always
         MAX_WIDTH =puzzlePieceParent.rect.height;
         MAX_HEIGHT = puzzlePieceParent.rect.height;
         X_LOWER_BOUND = puzzlePieceParent.rect.xMin;
