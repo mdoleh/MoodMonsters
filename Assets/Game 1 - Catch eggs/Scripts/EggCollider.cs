@@ -14,7 +14,7 @@ public class EggCollider : MonoBehaviour {
     void Awake()
     {
         myPlayerScript = transform.parent.GetComponent<PlayerScript>();
-        lastSceneCompleted = Scenes.CompletedScenes.Last();
+        lastSceneCompleted = Scenes.GetLastSceneCompleted();
     }
 
     //Triggered by Unity's Physics

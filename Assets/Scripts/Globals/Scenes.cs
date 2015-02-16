@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Globals
 {
     public static class Scenes
     {
         public static string NextSceneToLoad;
+        public static string SceneForTesting = "AngrySceneSmallCity";
 
         public static IList<string> CompletedScenes = new List<string>();
 
@@ -23,6 +25,11 @@ namespace Globals
         public static void ResetValues()
         {
             CompletedScenes = new List<string>();
+        }
+
+        public static string GetLastSceneCompleted()
+        {
+            return CompletedScenes.Count == 0 ? SceneForTesting : CompletedScenes.Last();
         }
     }
 }
