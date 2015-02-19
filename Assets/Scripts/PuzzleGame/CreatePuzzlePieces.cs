@@ -5,58 +5,99 @@ using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CreatePuzzlePieces : MonoBehaviour
+namespace PuzzleMiniGame
 {
-    public Texture2D photo;
-    public GameObject piecePrefab;
-    public static int NUMBER_OF_PIECES;
-    public SceneReset sceneReset;
-    public string sceneToLoadOnComplete;
-    public List<GameObject> gridPanels;
-
-    public List<Object> GeneratePuzzlePieces(int dimensions, string panelBase, int width, int height)
+    public class CreatePuzzlePieces : MonoBehaviour
     {
-        TextureScale.Bilinear(photo, width * dimensions, height * dimensions);
-        photo.Apply();
+        public Texture2D photo;
+        public GameObject piecePrefab;
+        public SceneReset sceneReset;
+        public string sceneToLoadOnComplete;
 
-        Color[] imageData;
-        List<Object> pieces = new List<Object>();
-        Object piece;
-        int panelNumber = 1;
-
-        for (int y = 0; y < dimensions; ++y)
+        public List<GameObject> GeneratePuzzlePieces(List<GameObject> gridPanels, int dimensions, string panelBase,
+            int width, int height)
         {
-            for (int x = 0; x < dimensions; ++x)
-            {
-                piece = Instantiate(piecePrefab);
-                ((GameObject)piece).transform.parent = transform;
-                imageData = photo.GetPixels(x * width, y * height, width, height);
-                var texture = new Texture2D(width, height);
-                texture.SetPixels(imageData);
-                texture.Apply();
+            TextureScale.Bilinear(photo, width*dimensions, height*dimensions);
+            photo.Apply();
 
-                ((GameObject)piece).GetComponent<RawImage>().texture = texture;
-                ((GameObject)piece).GetComponent<RawImage>().SetNativeSize();
-                ((GameObject)piece).GetComponent<PuzzleDragDrop>().correctContainer = GetGridPanelByName(gridPanels, panelBase + panelNumber++).transform;
-                pieces.Add(piece);
+            Color[] imageData;
+            List<GameObject> pieces = new List<GameObject>();
+            GameObject piece;
+            int panelNumber = 1;
+
+            for (int y = 0; y < dimensions; ++y)
+            {
+                for (int x = 0; x < dimensions; ++x)
+                {
+                    piece = (GameObject) Instantiate(piecePrefab);
+                    piece.transform.parent = transform;
+                    imageData = photo.GetPixels(x*width, y*height, width, height);
+                    var texture = new Texture2D(width, height);
+                    texture.SetPixels(imageData);
+                    texture.Apply();
+
+                    piece.GetComponent<RawImage>().texture = texture;
+                    piece.GetComponent<RawImage>().SetNativeSize();
+                    piece.GetComponent<PuzzleDragDrop>().correctContainer =
+                        GetGridPanelByName(gridPanels, panelBase + panelNumber++).transform;
+                    pieces.Add(piece);
+                }
+            }
+            return pieces;
+        }
+
+        private GameObject GetGridPanelByName(List<GameObject> gridPanels, string name)
+        {
+            return gridPanels.FirstOrDefault(gridPanel => gridPanel.name.Equals(name));
+        }
+
+        private void ArrangePiecesWithGrids(List<GameObject> pieces)
+        {
+            foreach (var piece in pieces)
+            {
+                piece.transform.localPosition = piece.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
             }
         }
-        return pieces;
-    }
 
-    private GameObject GetGridPanelByName(List<GameObject> gridPanels, string name)
-    {
-        return gridPanels.FirstOrDefault(gridPanel => gridPanel.name.Equals(name));
-    }
-
-    public void RandomizePiecePositions(List<Object> pieces)
-    {
-        float max = ((GameObject)pieces[0]).transform.parent.GetComponent<RectTransform>().rect.height - ((GameObject) pieces[0]).GetComponent<RectTransform>().rect.height;
-        max /= 2;
-        float min = max*-1;
-        foreach (var piece in pieces)
+        public void RandomizePiecePositions(List<GameObject> pieces)
         {
-            ((GameObject)piece).transform.localPosition = new Vector3(Random.Range(min, max), Random.Range(min, max), 0f);
+            ArrangePiecesWithGrids(pieces);
+            StartCoroutine(ShufflePositions(pieces));
+        }
+
+        private IEnumerator ShufflePositions(List<GameObject> pieces)
+        {
+            yield return new WaitForSeconds(3.0f);
+            var piecesMutable = new List<GameObject>(pieces);
+            while (piecesMutable.Count > 0)
+            {
+                yield return new WaitForSeconds(0.5f);
+                var first = piecesMutable[Random.Range(0, piecesMutable.Count - 1)];
+                piecesMutable.Remove(first);
+                if (piecesMutable.Count == 0)
+                {
+                    first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
+                    first.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+                    continue;
+                };
+                var second = piecesMutable[Random.Range(0, piecesMutable.Count - 1)];
+                piecesMutable.Remove(second);
+
+                first.transform.localPosition = second.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+                second.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+                first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = second;
+                second.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
+            }
+
+            DisableCorrectlyPlacedPieces(pieces);
+        }
+
+        private void DisableCorrectlyPlacedPieces(List<GameObject> pieces)
+        {
+            foreach (var piece in pieces)
+            {
+                piece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
+            }
         }
     }
 }
