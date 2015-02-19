@@ -58,15 +58,20 @@ namespace PuzzleMiniGame
         {
             if (disabled) return;
             highlight.SetActive(false);
-            if (intersectingPanel == null || intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().disabled)
+            if (intersectingPanel == null)
             {
-                transform.localPosition = originalPosition;
+                ReturnToOriginalPosition();
             }
             else
             {
                 SubmitAnswer(intersectingPanel, intersectingPanel == correctContainer.gameObject);
             }
             Timeout.StartTimers();
+        }
+
+        private void ReturnToOriginalPosition()
+        {
+            transform.localPosition = originalPosition;
         }
 
         public void CheckPieceCorrect()
@@ -76,16 +81,17 @@ namespace PuzzleMiniGame
                 correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
                 disabled = true;
             }
+            else
+            {
+                var panel = FindIntersectingPanel(gridPanels, gameObject);
+                panel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
+            }
         }
 
         private void SubmitAnswer(GameObject intersectingPanel, bool isCorrectContainer)
         {
             if (intersectingPanel == null) return;
-            transform.localPosition = intersectingPanel.transform.localPosition;
-            if (intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece == gameObject) return;
-            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
-            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
-            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
+            SwapPieces(intersectingPanel);
             if (!isCorrectContainer) return;
             disabled = true;
             if (AllPiecesInCorrectPlaces())
@@ -93,6 +99,19 @@ namespace PuzzleMiniGame
                 var parent = transform.parent;
                 parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete);
             }
+        }
+
+        private void SwapPieces(GameObject intersectingPanel)
+        {
+            transform.localPosition = intersectingPanel.transform.localPosition;
+            if (intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().disabled)
+            {
+                ReturnToOriginalPosition();
+                return;
+            }
+            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
+            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
+            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
         }
 
         private bool AllPiecesInCorrectPlaces()

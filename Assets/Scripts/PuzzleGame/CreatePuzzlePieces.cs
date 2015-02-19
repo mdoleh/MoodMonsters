@@ -72,7 +72,7 @@ namespace PuzzleMiniGame
             while (piecesMutable.Count > 0)
             {
                 yield return new WaitForSeconds(0.5f);
-                var first = piecesMutable[Random.Range(0, piecesMutable.Count - 1)];
+                var first = piecesMutable[Random.Range(0, piecesMutable.Count)];
                 piecesMutable.Remove(first);
                 if (piecesMutable.Count == 0)
                 {
@@ -80,7 +80,7 @@ namespace PuzzleMiniGame
                     first.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
                     continue;
                 };
-                var second = piecesMutable[Random.Range(0, piecesMutable.Count - 1)];
+                var second = piecesMutable[Random.Range(0, piecesMutable.Count)];
                 piecesMutable.Remove(second);
 
                 first.transform.localPosition = second.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
