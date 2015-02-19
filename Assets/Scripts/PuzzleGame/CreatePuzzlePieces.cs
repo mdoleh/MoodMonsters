@@ -90,6 +90,7 @@ namespace PuzzleMiniGame
             }
 
             DisableCorrectlyPlacedPieces(pieces);
+            GameObject.Find("DisablePanel").SetActive(false);
         }
 
         private void DisableCorrectlyPlacedPieces(List<GameObject> pieces)
