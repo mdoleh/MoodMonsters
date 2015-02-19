@@ -84,7 +84,7 @@ namespace PuzzleMiniGame
             else
             {
                 var panel = FindIntersectingPanel(gridPanels, gameObject);
-                panel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
+                if (panel != null) panel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
             }
         }
 

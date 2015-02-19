@@ -31,20 +31,6 @@ namespace PuzzleMiniGame
                 DIMENSIONS, PANEL_BASE, (int) (MAX_WIDTH/DIMENSIONS), (int) (MAX_HEIGHT/DIMENSIONS)));
         }
 
-        private void Start()
-        {
-            var parentAudio = transform.parent.GetComponent<AudioSource>();
-            StartCoroutine(DelayPlayAudio(parentAudio));
-        }
-
-        private IEnumerator DelayPlayAudio(AudioSource audioSource)
-        {
-            yield return new WaitForSeconds(1.0f);
-            Utilities.PlayAudio(audioSource);
-            Timeout.SetRepeatAudio(audioSource);
-            Timeout.StartTimers();
-        }
-
         private List<GameObject> GenerateGridPanels(int dimensions, string panelBase)
         {
             var gridList = new List<GameObject>();

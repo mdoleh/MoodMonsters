@@ -13,6 +13,7 @@ namespace PuzzleMiniGame
         public GameObject piecePrefab;
         public SceneReset sceneReset;
         public string sceneToLoadOnComplete;
+        public RunTutorial tutorialCanvas;
 
         public List<GameObject> GeneratePuzzlePieces(List<GameObject> gridPanels, int dimensions, string panelBase,
             int width, int height)
@@ -91,6 +92,10 @@ namespace PuzzleMiniGame
 
             DisableCorrectlyPlacedPieces(pieces);
             GameObject.Find("DisablePanel").SetActive(false);
+            Utilities.PlayAudio(transform.parent.audio);
+            Timeout.SetRepeatAudio(transform.parent.audio);
+            yield return new WaitForSeconds(transform.parent.audio.clip.length);
+            tutorialCanvas.PlayTutorial();
         }
 
         private void DisableCorrectlyPlacedPieces(List<GameObject> pieces)
