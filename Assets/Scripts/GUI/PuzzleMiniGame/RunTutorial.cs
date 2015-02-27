@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using Globals;
 using System.Collections;
-using Globals;
-using UnityEditorInternal;
+using UnityEngine;
 
 namespace PuzzleMiniGame
 {
