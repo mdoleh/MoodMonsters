@@ -7,6 +7,8 @@ public class EggCollider : MonoBehaviour {
 
     PlayerScript myPlayerScript;
     public SceneReset sceneReset;
+    public AudioSource goodSound;
+    public AudioSource badSound;
     private string lastSceneCompleted;
     private const string PREFAB_NAME_BASE = "EggPrefab";
 
@@ -34,10 +36,12 @@ public class EggCollider : MonoBehaviour {
         if (lastSceneCompleted.Contains(emotion))
         {
             ++myPlayerScript.theScore;
+            Utilities.PlayAudio(goodSound);
         }
         else
         {
             --myPlayerScript.theScore;
+            Utilities.PlayAudio(badSound);
         }
         if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;
     }
