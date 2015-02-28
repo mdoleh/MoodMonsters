@@ -60,13 +60,13 @@ namespace PuzzleMiniGame
             }
         }
 
-        public void RandomizePiecePositions(List<GameObject> pieces)
+        public void RandomizePiecePositions(List<GameObject> pieces, AudioSource shuffleSound)
         {
             ArrangePiecesWithGrids(pieces);
-            StartCoroutine(ShufflePositions(pieces));
+            StartCoroutine(ShufflePositions(pieces, shuffleSound));
         }
 
-        private IEnumerator ShufflePositions(List<GameObject> pieces)
+        private IEnumerator ShufflePositions(List<GameObject> pieces, AudioSource shuffleSound)
         {
             yield return new WaitForSeconds(3.0f);
             var piecesMutable = new List<GameObject>(pieces);
@@ -88,8 +88,10 @@ namespace PuzzleMiniGame
                 second.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
                 first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = second;
                 second.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
+                Utilities.PlayAudio(shuffleSound);
             }
 
+            yield return new WaitForSeconds(shuffleSound.clip.length);
             DisableCorrectlyPlacedPieces(pieces);
             GameObject.Find("DisablePanel").SetActive(false);
             Utilities.PlayAudio(transform.parent.audio);

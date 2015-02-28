@@ -28,7 +28,7 @@ namespace PuzzleMiniGame
 
             var gridPanels = GenerateGridPanels(DIMENSIONS, PANEL_BASE);
             puzzlePieceGenerator.RandomizePiecePositions(puzzlePieceGenerator.GeneratePuzzlePieces(gridPanels,
-                DIMENSIONS, PANEL_BASE, (int) (MAX_WIDTH/DIMENSIONS), (int) (MAX_HEIGHT/DIMENSIONS)));
+                DIMENSIONS, PANEL_BASE, (int) (MAX_WIDTH/DIMENSIONS), (int) (MAX_HEIGHT/DIMENSIONS)), audio);
         }
 
         private List<GameObject> GenerateGridPanels(int dimensions, string panelBase)

@@ -64,7 +64,7 @@ namespace PuzzleMiniGame
             }
             else
             {
-                SubmitAnswer(intersectingPanel, intersectingPanel == correctContainer.gameObject);
+                StartCoroutine(SubmitAnswer(intersectingPanel, intersectingPanel == correctContainer.gameObject));
             }
             Timeout.StartTimers();
         }
@@ -88,11 +88,12 @@ namespace PuzzleMiniGame
             }
         }
 
-        private void SubmitAnswer(GameObject intersectingPanel, bool isCorrectContainer)
+        private IEnumerator SubmitAnswer(GameObject intersectingPanel, bool isCorrectContainer)
         {
-            if (intersectingPanel == null) return;
+            if (intersectingPanel == null) yield break;
             SwapPieces(intersectingPanel);
-            if (!isCorrectContainer) return;
+            yield return new WaitForSeconds(audio.clip.length);
+            if (!isCorrectContainer) yield break;
             disabled = true;
             if (AllPiecesInCorrectPlaces())
             {
@@ -112,6 +113,7 @@ namespace PuzzleMiniGame
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
+            Utilities.PlayAudio(audio);
         }
 
         private bool AllPiecesInCorrectPlaces()
