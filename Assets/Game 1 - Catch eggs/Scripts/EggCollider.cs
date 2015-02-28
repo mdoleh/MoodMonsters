@@ -24,9 +24,18 @@ public class EggCollider : MonoBehaviour {
     {
         //In this game we don't need to check *what* we hit; it must be the eggs
         Transform collisionGO = theCollision.transform;
-	    AdjustScore(collisionGO);
-        Destroy(collisionGO.parent.gameObject);
-        if (myPlayerScript.theScore >= 5) sceneReset.TriggerCorrect(audio, Scenes.GetNextMiniGame());
+	    StartCoroutine(HandleCollision(collisionGO));
+    }
+
+    private IEnumerator HandleCollision(Transform egg)
+    {
+        AdjustScore(egg);
+        Destroy(egg.parent.gameObject);
+        if (myPlayerScript.theScore >= 5)
+        {
+            yield return new WaitForSeconds(goodSound.clip.length);
+            sceneReset.TriggerCorrect(audio, Scenes.GetNextMiniGame());
+        }
     }
 
     private void AdjustScore(Transform egg)
@@ -35,12 +44,12 @@ public class EggCollider : MonoBehaviour {
         emotion = emotion.Replace("(Clone)", "");
         if (lastSceneCompleted.Contains(emotion))
         {
-            ++myPlayerScript.theScore;
+            myPlayerScript.UpdateScore(1);
             Utilities.PlayAudio(goodSound);
         }
         else
         {
-            --myPlayerScript.theScore;
+            myPlayerScript.UpdateScore(-1);
             Utilities.PlayAudio(badSound);
         }
         if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;

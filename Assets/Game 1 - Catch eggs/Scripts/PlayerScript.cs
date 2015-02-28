@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
     
     public int theScore = 0;
     public GameObject[] instructions;
+    public GameObject[] stars;
     private string lastSceneCompleted;
     public static bool shouldDropEggs = false;
     private float lastInput;
@@ -85,12 +86,26 @@ public class PlayerScript : MonoBehaviour {
 	    lastInput = moveInput;
 	}
 
-    //OnGUI is called multiple times per frame. Use this for GUI stuff only!
-    void OnGUI()
+    public void UpdateScore(int value)
     {
-        //We display the game GUI from the playerscript
-        //It would be nicer to have a seperate script dedicated to the GUI though...
-        GUILayout.Label("Score: " + theScore);
+        theScore += value;
+        HideAllStars();
+        ShowStars();
     }
-    
+
+    private void HideAllStars()
+    {
+        foreach (var star in stars)
+        {
+            star.SetActive(false);
+        }
+    }
+
+    private void ShowStars()
+    {
+        for (var i = 0; i < theScore; ++i)
+        {
+            stars[i].SetActive(true);
+        }
+    }
 }

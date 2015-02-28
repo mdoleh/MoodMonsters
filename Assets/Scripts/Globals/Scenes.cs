@@ -17,9 +17,9 @@ namespace Globals
 
         public static string GetNextMiniGame()
         {
-            var puzzleToLoad = MiniGames[0];
-            MiniGames.Remove(puzzleToLoad);
-            return puzzleToLoad;
+            var gameToLoad = MiniGames[0];
+            MiniGames.Remove(gameToLoad);
+            return gameToLoad;
         }
 
         public static void ResetValues()
