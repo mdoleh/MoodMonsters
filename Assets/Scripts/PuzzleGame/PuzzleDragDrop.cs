@@ -13,7 +13,7 @@ namespace PuzzleMiniGame
         public Transform correctContainer;
         GameObject highlight;
         GameObject[] gridPanels;
-        private Vector3 originalPosition;
+        public Vector3 originalPosition;
         private GameObject intersectingPanel;
         public bool disabled = false;
 
@@ -114,7 +114,7 @@ namespace PuzzleMiniGame
             }
         }
 
-        private void SwapPieces(GameObject intersectingPanel)
+        public void SwapPieces(GameObject intersectingPanel)
         {
             transform.localPosition = intersectingPanel.transform.localPosition;
             if (intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().disabled)
