@@ -66,9 +66,21 @@ namespace PuzzleMiniGame
             StartCoroutine(ShufflePositions(pieces, shuffleSound));
         }
 
+        private void PieceAnimation(List<GameObject> pieces, bool playAnimation)
+        {
+            foreach (var piece in pieces)
+            {
+                piece.GetComponent<Animator>().enabled = playAnimation;
+                if (!playAnimation) piece.transform.localScale = new Vector3(0.95f, 0.95f, 1f);
+            }
+        }
+
         private IEnumerator ShufflePositions(List<GameObject> pieces, AudioSource shuffleSound)
         {
             yield return new WaitForSeconds(3.0f);
+            PieceAnimation(pieces, true);
+            yield return new WaitForSeconds(1.0f);
+            PieceAnimation(pieces, false);
             var piecesMutable = new List<GameObject>(pieces);
             while (piecesMutable.Count > 0)
             {
@@ -93,7 +105,6 @@ namespace PuzzleMiniGame
 
             yield return new WaitForSeconds(shuffleSound.clip.length);
             DisableCorrectlyPlacedPieces(pieces);
-            GameObject.Find("DisablePanel").SetActive(false);
             Utilities.PlayAudio(transform.parent.audio);
             Timeout.SetRepeatAudio(transform.parent.audio);
             yield return new WaitForSeconds(transform.parent.audio.clip.length);

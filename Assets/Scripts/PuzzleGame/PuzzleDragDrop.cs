@@ -97,8 +97,20 @@ namespace PuzzleMiniGame
             disabled = true;
             if (AllPiecesInCorrectPlaces())
             {
+                GrowPieces();
+                yield return new WaitForSeconds(1.0f);
                 var parent = transform.parent;
                 parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete);
+            }
+        }
+
+        private void GrowPieces()
+        {
+            foreach (var gridPanel in gridPanels)
+            {
+                var anim = gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<Animator>();
+                anim.enabled = true;
+                gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<Animator>().SetTrigger("GrowPuzzle");
             }
         }
 

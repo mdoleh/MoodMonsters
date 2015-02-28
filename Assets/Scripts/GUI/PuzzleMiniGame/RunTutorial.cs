@@ -19,6 +19,7 @@ namespace PuzzleMiniGame
             Utilities.PlayAudio(audio);
             yield return new WaitForSeconds(audio.clip.length);
             buttonDrag.parent = transform;
+            GameObject.Find("DisablePanel").SetActive(false);
             gameObject.SetActive(false);
             Timeout.StartTimers();
         }
