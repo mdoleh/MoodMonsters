@@ -18,9 +18,9 @@ namespace PuzzleMiniGame
             var puzzlePieces = GameObject.Find("PuzzlePieces");
             var gridPanels = GameObject.Find("GridPanels");
 
-            var piece = gridPanels.transform.GetChild(1).GetComponent<GridPanel>().CurrentPuzzlePiece.transform;
+            var piece = gridPanels.transform.GetChild(0).GetComponent<GridPanel>().CurrentPuzzlePiece.transform;
             piece.GetComponent<PuzzleDragDrop>().originalPosition = piece.localPosition;
-            var gridPanel = gridPanels.transform.GetChild(2);
+            var gridPanel = gridPanels.transform.GetChild(1);
 
             piece.parent = buttonDrag.parent;
             // force buttonDrag to be on top of the puzzle piece
