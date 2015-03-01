@@ -26,7 +26,6 @@ namespace PuzzleMiniGame
             // force buttonDrag to be on top of the puzzle piece
             buttonDrag.parent = null;
             buttonDrag.parent = piece.parent;
-//            buttonDrag.localPosition = piece.localPosition;
             buttonDrag.parent.gameObject.SetActive(true);
 
             Utilities.PlayAudio(audio);
