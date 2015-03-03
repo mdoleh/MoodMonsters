@@ -70,6 +70,7 @@ namespace PuzzleMiniGame
         {
             foreach (var piece in pieces)
             {
+                if (playAnimation) piece.GetComponent<Animator>().SetTrigger("ShrinkPuzzle");
                 piece.GetComponent<Animator>().enabled = playAnimation;
                 if (!playAnimation) piece.transform.localScale = new Vector3(0.95f, 0.95f, 1f);
             }
