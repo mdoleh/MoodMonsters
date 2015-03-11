@@ -14,7 +14,7 @@ namespace AngryScene
         public AudioSource audioSource;
         bool sceneResetting = false;
 
-        protected void Update()
+        protected virtual void Update()
         {
             if (startTimer)
             {

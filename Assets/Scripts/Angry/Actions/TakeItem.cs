@@ -9,7 +9,6 @@ namespace AngryScene
         private GameObject emotionsGUI;
         private Animator anim;
         public Animator other;
-        private float timer = 0.0f;
 
         public void Awake()
         {

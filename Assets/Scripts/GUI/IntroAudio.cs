@@ -24,7 +24,7 @@ public class IntroAudio : MonoBehaviour
                 screenClicked = false;
                 counter = 0;
             }
-            Utilities.PlayAudio(audio);
+            Utilities.PlayAudio(GetComponent<AudioSource>());
             yield return new WaitForSeconds(seconds);
             ++counter;
         }

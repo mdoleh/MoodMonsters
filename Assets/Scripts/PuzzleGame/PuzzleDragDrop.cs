@@ -92,7 +92,7 @@ namespace PuzzleMiniGame
         {
             if (intersectingPanel == null) yield break;
             SwapPieces(intersectingPanel);
-            yield return new WaitForSeconds(audio.clip.length);
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             if (!isCorrectContainer) yield break;
             disabled = true;
             if (AllPiecesInCorrectPlaces())
@@ -106,11 +106,10 @@ namespace PuzzleMiniGame
 
         private void GrowPieces()
         {
-            foreach (var gridPanel in gridPanels)
+            foreach (var anim in gridPanels.Select(gridPanel => gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<Animator>()))
             {
-                var anim = gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<Animator>();
                 anim.enabled = true;
-                gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<Animator>().SetTrigger("GrowPuzzle");
+                anim.SetTrigger("GrowPuzzle");
             }
         }
 
@@ -125,7 +124,7 @@ namespace PuzzleMiniGame
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
-            Utilities.PlayAudio(audio);
+            Utilities.PlayAudio(GetComponent<AudioSource>());
         }
 
         private bool AllPiecesInCorrectPlaces()
@@ -160,8 +159,8 @@ namespace PuzzleMiniGame
         private void MoveToHierarchyBottom()
         {
             var parent = transform.parent;
-            transform.parent = null;
-            transform.parent = parent;
+            transform.SetParent(null);
+            transform.SetParent(parent);
         }
     }
 }

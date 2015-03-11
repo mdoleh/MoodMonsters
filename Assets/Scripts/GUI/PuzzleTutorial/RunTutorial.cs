@@ -53,9 +53,9 @@ namespace PuzzleTutorial
             //Scale up the markers
             StartCoroutine(ScaleObject(beginningMarkers[0], Vector2.one, 0.25f, 0));
             StartCoroutine(ScaleObject(beginningMarkers[1], Vector2.one, 0.25f, 0));
-            Utilities.PlayAudio(audio);
+            Utilities.PlayAudio(GetComponent<AudioSource>());
 
-            yield return new WaitForSeconds(audio != null ? audio.clip.length : 2);
+            yield return new WaitForSeconds(GetComponent<AudioSource>() != null ? GetComponent<AudioSource>().clip.length : 2);
 
             //Scale down the markersto zero
             beginningMarkers[0].localScale = Vector2.zero;

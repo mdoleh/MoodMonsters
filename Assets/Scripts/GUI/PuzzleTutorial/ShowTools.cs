@@ -16,7 +16,7 @@ namespace PuzzleTutorial
 
         private IEnumerator HideTools()
         {
-            yield return new WaitForSeconds(audio.clip.length);
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             ToolboxManager.Instance.ButtonPressed();
             practiceTool.gameObject.SetActive(true);
             practiceTool.transform.position = new Vector3(.93f, 2.65f, 0f);

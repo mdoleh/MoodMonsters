@@ -15,7 +15,7 @@ namespace PuzzleTutorial
 
         private IEnumerator HideAnimation()
         {
-            yield return new WaitForSeconds(audio.clip.length);
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             gameObject.SetActive(false);
         }
     }

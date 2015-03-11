@@ -15,7 +15,7 @@ namespace AngryScene
             anim = GetComponent<Animator>();
         }
 
-        void Update() {
+        protected override void Update() {
             base.Update();
             if (run)
             {

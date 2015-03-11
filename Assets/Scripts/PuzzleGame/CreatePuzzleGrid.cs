@@ -18,7 +18,7 @@ namespace PuzzleMiniGame
         private float MAX_WIDTH;
         private float MAX_HEIGHT;
 
-        private void Awake()
+        private void Start()
         {
             // the game is only allowed in landscape mode so height < width always
             MAX_WIDTH = puzzlePieceParent.rect.height;
@@ -28,7 +28,7 @@ namespace PuzzleMiniGame
 
             var gridPanels = GenerateGridPanels(DIMENSIONS, PANEL_BASE);
             puzzlePieceGenerator.RandomizePiecePositions(puzzlePieceGenerator.GeneratePuzzlePieces(gridPanels,
-                DIMENSIONS, PANEL_BASE, (int) (MAX_WIDTH/DIMENSIONS), (int) (MAX_HEIGHT/DIMENSIONS)), audio);
+                DIMENSIONS, PANEL_BASE, (int)(MAX_WIDTH / DIMENSIONS), (int)(MAX_HEIGHT / DIMENSIONS)), GetComponent<AudioSource>());
         }
 
         private List<GameObject> GenerateGridPanels(int dimensions, string panelBase)
@@ -45,7 +45,7 @@ namespace PuzzleMiniGame
                 for (int x = 1; x <= dimensions; ++x)
                 {
                     var gridPanel = (GameObject) Instantiate(gridPrefab);
-                    gridPanel.transform.parent = transform;
+                    gridPanel.transform.SetParent(transform);
                     gridPanel.name = panelBase + counter;
 
                     gridPanel.transform.localScale = scale;

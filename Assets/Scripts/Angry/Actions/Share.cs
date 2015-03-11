@@ -9,19 +9,21 @@ namespace AngryScene
         Animator anim;
         float rotation;
         bool listening = false;
-        float turningTimer = 0.0f;
         private bool sharingTriggered = false;
 
-        public void Awake() {
+        public void Awake()
+        {
             anim = GetComponent<Animator>();
         }
 
-        public void StartTalking() {
+        public void StartTalking()
+        {
             anim.SetTrigger("IsExpressing");
             sharingTriggered = true;
         }
 
-        public void TriggerListening() {
+        public void TriggerListening()
+        {
             if (!sharingTriggered) return;
             otherAnim.SetTrigger("IsListening");
             StartCoroutine(DelayMoveIpad());
@@ -50,7 +52,8 @@ namespace AngryScene
             ipad.transform.localRotation = Quaternion.Euler(76.59476f, 69.17188f, 104.7559f);
         }
 
-        public void StartSitting() {
+        public void StartSitting()
+        {
             anim.SetBool("IsWalking", true);
             otherAnim.SetTrigger("IsSharing");
             isCorrect = true;
@@ -59,12 +62,14 @@ namespace AngryScene
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
             base.Update();
-            if (listening) {
+            if (listening)
+            {
                 timer += Time.deltaTime;
-                if (timer >= 2.5f) {
+                if (timer >= 2.5f)
+                {
                     StartSitting();
                     listening = false;
                 }

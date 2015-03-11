@@ -17,7 +17,7 @@ namespace PuzzleTutorial
 
         private IEnumerator PositionPracticeObject()
         {
-            yield return new WaitForSeconds(audio.clip.length);
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             FeedbackManager.Instance.Disable(0.2f);
             practiceTool.transform.rotation = Quaternion.Euler(0f, 0f, 17.24014f);
         }

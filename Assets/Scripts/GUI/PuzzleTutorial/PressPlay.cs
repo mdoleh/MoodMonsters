@@ -13,7 +13,7 @@ namespace PuzzleTutorial
 
         private IEnumerator DelayPressPlay()
         {
-            yield return new WaitForSeconds(audio.clip.length);
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             GUIManager.Instance.PlayLevel(true);
         }
     }

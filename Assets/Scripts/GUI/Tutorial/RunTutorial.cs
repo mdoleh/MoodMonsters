@@ -36,13 +36,13 @@ public class RunTutorial : MonoBehaviour
     private IEnumerator DelayPlayAudio()
     {
         yield return new WaitForSeconds(1f);
-        Utilities.PlayAudio(audio);
+        Utilities.PlayAudio(GetComponent<AudioSource>());
         initialAudioPlayed = true;
     }
 
     private void Update()
     {
-        if (initialAudioPlayed && !audio.isPlaying) EnablePracticeUI();
+        if (initialAudioPlayed && !GetComponent<AudioSource>().isPlaying) EnablePracticeUI();
         if (explainingHelpButton && !helpAudio.isPlaying)
         {
             explainingHelpButton = false;

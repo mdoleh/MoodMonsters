@@ -16,7 +16,7 @@ class AnimateTiledTexture : MonoBehaviour
  
         //set the tile size of the texture (in UV units), based on the rows and columns
         Vector2 size = new Vector2(1f / columns, 1f / rows);
-        renderer.sharedMaterial.SetTextureScale("_MainTex", size);
+        GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", size);
     }
  
     private IEnumerator updateTiling()
@@ -32,7 +32,7 @@ class AnimateTiledTexture : MonoBehaviour
             Vector2 offset = new Vector2((float)index / columns - (index / columns), //x index
                                           (index / columns) / (float)rows);          //y index
  
-            renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
+            GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", offset);
  
             yield return new WaitForSeconds(1f / framesPerSecond);
         }

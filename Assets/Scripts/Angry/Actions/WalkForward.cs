@@ -12,7 +12,7 @@ namespace AngryScene
         public void StartWalking()
         {
             shouldStartWalking = true;
-            Utilities.PlayAudio(audio);
+            Utilities.PlayAudio(GetComponent<AudioSource>());
         }
 
         private void Update()

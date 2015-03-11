@@ -31,7 +31,7 @@ namespace PuzzleMiniGame
                 for (int x = 0; x < dimensions; ++x)
                 {
                     piece = (GameObject) Instantiate(piecePrefab);
-                    piece.transform.parent = transform;
+                    piece.transform.SetParent(transform);
                     imageData = photo.GetPixels(x*width, y*height, width, height);
                     var texture = new Texture2D(width, height);
                     texture.SetPixels(imageData);
@@ -105,14 +105,13 @@ namespace PuzzleMiniGame
             }
 
             yield return new WaitForSeconds(shuffleSound.clip.length);
-            DisableCorrectlyPlacedPieces(pieces);
-            Utilities.PlayAudio(transform.parent.audio);
-            Timeout.SetRepeatAudio(transform.parent.audio);
-            yield return new WaitForSeconds(transform.parent.audio.clip.length);
-            tutorialCanvas.PlayTutorial();
+            Utilities.PlayAudio(transform.parent.GetComponent<AudioSource>());
+            Timeout.SetRepeatAudio(transform.parent.GetComponent<AudioSource>());
+            yield return new WaitForSeconds(transform.parent.GetComponent<AudioSource>().clip.length);
+            tutorialCanvas.PlayTutorial(pieces);
         }
 
-        private void DisableCorrectlyPlacedPieces(List<GameObject> pieces)
+        public void DisableCorrectlyPlacedPieces(List<GameObject> pieces)
         {
             foreach (var piece in pieces)
             {

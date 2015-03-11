@@ -34,7 +34,7 @@ public class EggCollider : MonoBehaviour {
         if (myPlayerScript.theScore >= 5)
         {
             yield return new WaitForSeconds(goodSound.clip.length);
-            sceneReset.TriggerCorrect(audio, Scenes.GetNextMiniGame());
+            sceneReset.TriggerCorrect(GetComponent<AudioSource>(), Scenes.GetNextMiniGame());
         }
     }
 

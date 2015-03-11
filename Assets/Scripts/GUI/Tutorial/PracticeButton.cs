@@ -60,7 +60,7 @@ public class PracticeButton : ButtonDragDrop {
 
     private IEnumerator DelayShowDragging()
     {
-        yield return new WaitForSeconds(audio.clip.length);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
         transform.parent.Find("ButtonPush").gameObject.SetActive(false);
         transform.parent.Find("ButtonDrag").gameObject.SetActive(true);
         transform.parent.Find("PracticeButtonDrag").gameObject.SetActive(true);

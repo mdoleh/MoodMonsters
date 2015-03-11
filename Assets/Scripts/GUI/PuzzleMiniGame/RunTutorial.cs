@@ -1,5 +1,6 @@
 ﻿using Globals;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PuzzleMiniGame
@@ -13,7 +14,7 @@ namespace PuzzleMiniGame
         private GameObject puzzlePieces;
         private GameObject gridPanels;
 
-        public void PlayTutorial()
+        public void PlayTutorial(List<GameObject> pieces)
         {
             puzzlePieces = GameObject.Find("PuzzlePieces");
             gridPanels = GameObject.Find("GridPanels");
@@ -22,27 +23,27 @@ namespace PuzzleMiniGame
             piece.GetComponent<PuzzleDragDrop>().originalPosition = piece.localPosition;
             gridPanel = gridPanels.transform.GetChild(1);
 
-            StartCoroutine(ShowDragging());
+            StartCoroutine(ShowDragging(pieces));
         }
 
-        private IEnumerator ShowDragging()
+        private IEnumerator ShowDragging(List<GameObject> pieces)
         {
-            piece.parent = buttonDrag.parent;
+            piece.SetParent(buttonDrag.parent);
             // force buttonDrag to be on top of the puzzle piece
-            buttonDrag.parent = null;
-            buttonDrag.parent = piece.parent;
+            buttonDrag.SetParent(null);
+            buttonDrag.SetParent(piece.parent);
             buttonDrag.localPosition = new Vector3(piece.localPosition.x, buttonDrag.localPosition.y);
             buttonDrag.gameObject.SetActive(true);
 
             showDragging = true;
-            Utilities.PlayAudio(audio);
-            yield return new WaitForSeconds(audio.clip.length);
+            Utilities.PlayAudio(GetComponent<AudioSource>());
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             showDragging = false;
 
-            piece.parent = puzzlePieces.transform;
+            piece.SetParent(puzzlePieces.transform);
             piece.localPosition = gridPanel.localPosition;
             piece.GetComponent<PuzzleDragDrop>().SwapPieces(gridPanel.gameObject);
-            piece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
+            puzzlePieces.GetComponent<CreatePuzzlePieces>().DisableCorrectlyPlacedPieces(pieces);
 
             GameObject.Find("DisablePanel").SetActive(false);
             gameObject.SetActive(false);
