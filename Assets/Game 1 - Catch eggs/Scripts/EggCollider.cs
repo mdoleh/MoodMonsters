@@ -53,5 +53,8 @@ public class EggCollider : MonoBehaviour {
             Utilities.PlayAudio(badSound);
         }
         if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;
+        // should only be false on the Angry Scene
+        // want the other sounds to play over this one
+        if (!myPlayerScript.shouldKeepScore) goodSound.Play();
     }
 }

@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject[] stars;
     private string lastSceneCompleted;
     public static bool shouldDropEggs = false;
+    public bool shouldKeepScore = true;
     private float lastInput;
 
     private void Awake()
@@ -23,19 +24,22 @@ public class PlayerScript : MonoBehaviour {
     private IEnumerator DelayedPlayAudio()
     {
         yield return new WaitForSeconds(1.0f);
-        var instructions = GetAudioInstructions();
-        Utilities.PlayAudio(instructions);
-        yield return new WaitForSeconds(instructions.clip.length);
+        if (shouldKeepScore)
+        {
+            var instructions = GetAudioInstructions();
+            Utilities.PlayAudio(instructions);
+            yield return new WaitForSeconds(instructions.clip.length);
 
-        var avoidInstructions = GetAudioInstructions("avoid");
-        Utilities.PlayAudio(avoidInstructions);
-        yield return new WaitForSeconds(avoidInstructions.clip.length);
+            var avoidInstructions = GetAudioInstructions("avoid");
+            Utilities.PlayAudio(avoidInstructions);
+            yield return new WaitForSeconds(avoidInstructions.clip.length);
 
-        var controlInstructions = GetControlInstructions();
-        ShowDraggingAnimation();
-        Utilities.PlayAudio(controlInstructions);
-        yield return new WaitForSeconds(controlInstructions.clip.length);
-        HideDraggingAnimation();
+            var controlInstructions = GetControlInstructions();
+            ShowDraggingAnimation();
+            Utilities.PlayAudio(controlInstructions);
+            yield return new WaitForSeconds(controlInstructions.clip.length);
+            HideDraggingAnimation();
+        }
 
         shouldDropEggs = true;
     }
@@ -88,6 +92,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void UpdateScore(int value)
     {
+        if (!shouldKeepScore) return;
         theScore += value;
         HideAllStars();
         ShowStars();

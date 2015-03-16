@@ -25,7 +25,7 @@ public class SpawnerScript : MonoBehaviour {
     {
         float addXPos = Random.Range(-1.6f, 1.6f);
         Vector3 spawnPos = transform.position + new Vector3(addXPos,0,0);
-        int index = Random.Range(0, 3);
+        int index = Random.Range(0, eggPrefabs.Length);
         Instantiate(eggPrefabs[index], spawnPos, Quaternion.identity);
     }
 }
