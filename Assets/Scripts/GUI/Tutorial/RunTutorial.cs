@@ -10,6 +10,7 @@ public class RunTutorial : MonoBehaviour
     private AudioSource helpAudio;
     private AudioSource quitAudio;
     private AudioSource repeatAudio;
+    private AudioSource helpLilyPlayAudio;
 
     public GameObject otherCharacter;
     private GameObject practiceDropContainer;
@@ -18,6 +19,7 @@ public class RunTutorial : MonoBehaviour
     private GameObject initCanvas;
     private GameObject helpCanvas;
     private GameObject disablePanel;
+    private GameObject fingerDrag;
     private Color originalColor;
 
     private bool initialAudioPlayed = false;
@@ -59,9 +61,18 @@ public class RunTutorial : MonoBehaviour
         {
             explainingRepeatButton = false;
             ResetHighlight(helpCanvas.transform.Find("Repeat"));
-            otherCharacter.SetActive(true);
-            otherCharacter.GetComponent<WalkForward>().StartWalking();
+            StartCoroutine(PlayHelpLilyPlayAudio());
         }
+    }
+
+    private IEnumerator PlayHelpLilyPlayAudio()
+    {
+        Utilities.PlayAudio(helpLilyPlayAudio);
+        fingerDrag.SetActive(true);
+        yield return new WaitForSeconds(helpLilyPlayAudio.clip.length);
+        fingerDrag.SetActive(false);
+        otherCharacter.SetActive(true);
+        otherCharacter.GetComponent<WalkForward>().StartWalking();
     }
 
     public void EnableHelpGUI()
@@ -78,11 +89,13 @@ public class RunTutorial : MonoBehaviour
         buttonPush = transform.Find("ButtonPush").gameObject;
         helpCanvas = GameObject.Find("HelpCanvas");
         disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
+        fingerDrag = transform.Find("FingerDrag").gameObject;
     }
 
     private void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
+        helpLilyPlayAudio = transform.Find("HelpLilyPlay").gameObject.GetComponent<AudioSource>();
     }
 
     private void EnablePracticeUI()

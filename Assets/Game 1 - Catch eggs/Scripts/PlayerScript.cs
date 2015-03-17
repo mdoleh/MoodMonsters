@@ -12,7 +12,9 @@ public class PlayerScript : MonoBehaviour {
     private string lastSceneCompleted;
     public static bool shouldDropEggs = false;
     public bool shouldKeepScore = true;
+    public Animator Lily;
     private float lastInput;
+    private float animationDelay = 0.0f;
 
     private void Awake()
     {
@@ -76,9 +78,22 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
         //These two lines are all there is to the actual movement..
-        float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 0.25f; 
-        if (moveInput == lastInput) Timeout.StartTimers();
-        else Timeout.StopTimers();
+        float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 0.25f;
+	    if (shouldKeepScore)
+	    {
+	        if (moveInput == lastInput) Timeout.StartTimers();
+            else Timeout.StopTimers();
+	    }
+	    else
+	    {
+	        animationDelay += Time.deltaTime;
+	        if (animationDelay >= 1)
+	        {
+	            Lily.SetTrigger(moveInput < 0 ? "SwipeRight" : "SwipeLeft");
+	            animationDelay = 0.0f;
+	        }
+	    }
+        
         transform.position += new Vector3(moveInput, 0, 0);
 
         //Restrict movement between two values

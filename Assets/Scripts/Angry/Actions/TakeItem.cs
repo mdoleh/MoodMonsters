@@ -7,12 +7,16 @@ namespace AngryScene
     public class TakeItem : MonoBehaviour
     {
         private GameObject emotionsGUI;
+        private GameObject ipadCamera;
+        private GameObject miniGame;
         private Animator anim;
         public Animator other;
 
         public void Awake()
         {
             emotionsGUI = GameObject.Find("EmotionsCanvas");
+            ipadCamera = GameObject.Find("iPadCamera");
+            miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
         }
 
@@ -29,6 +33,9 @@ namespace AngryScene
 
         public void TakeIPad()
         {
+            ipadCamera.SetActive(false);
+            miniGame.SetActive(false);
+
             anim.SetTrigger("IsTakingIPad");
             other.SetBool("IsUsingIPad", false);
             other.SetTrigger("IsLosingIPad");
