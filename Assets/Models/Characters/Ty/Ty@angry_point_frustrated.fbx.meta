@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 942c4500515a1b646ac751ea5e62ac95
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: Boy:Head
     100002: Boy:HeadTop_End
@@ -173,7 +173,7 @@ ModelImporter:
       curves: []
       events:
       - time: .922518373
-        functionName: TakeIPad
+        functionName: StepForward
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -321,11 +321,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -348,3 +350,5 @@ ModelImporter:
   animationType: 2
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

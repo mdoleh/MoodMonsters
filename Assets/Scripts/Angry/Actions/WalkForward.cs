@@ -8,6 +8,7 @@ namespace AngryScene
         public Animator anim;
         public RunTutorial tutorial;
         private bool shouldStartWalking = false;
+        private bool stepForward = false;
 
         public void StartWalking()
         {
@@ -19,14 +20,41 @@ namespace AngryScene
         {
             if (shouldStartWalking)
             {
-                float move = Time.deltaTime * 1.0f;
-                transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
+                ChangePosition(1.0f);
                 if (transform.position.x <= 204.639f)
                 {
                     StopWalking();
                     transform.position = new Vector3(204.639f, transform.position.y, transform.position.z);
                 }
             }
+            if (stepForward)
+            {
+                ChangePosition(1.0f);
+                if (transform.position.x <= 204.43f)
+                {
+                    TakeItem();
+                    transform.position = new Vector3(204.43f, transform.position.y, transform.position.z);
+                }
+            }
+        }
+
+        public void StepForward()
+        {
+            stepForward = true;
+            anim.SetBool("IsWalking", true);
+        }
+
+        private void ChangePosition(float speed)
+        {
+            float move = Time.deltaTime * speed;
+            transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
+        }
+
+        private void TakeItem()
+        {
+            stepForward = false;
+            anim.SetBool("IsWalking", false);
+            gameObject.GetComponent<TakeItem>().TakeIPad();
         }
 
         private void StopWalking()
