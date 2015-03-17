@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class EggScript : MonoBehaviour {
-
+public class EggScript : MonoBehaviour
+{
     void Awake()
     {
         //rigidbody.AddForce(new Vector3(0, -100, 0), ForceMode.Force);
@@ -11,7 +11,6 @@ public class EggScript : MonoBehaviour {
     //Update is called by Unity every frame
 	void Update ()
 	{
-	    if (!PlayerScript.shouldDropEggs) return;
         float fallSpeed = 2 * Time.deltaTime;
         transform.position -= new Vector3(0, fallSpeed, 0);
 

@@ -4,12 +4,13 @@ using System.Collections;
 public class SpawnerScript : MonoBehaviour {
 
     public Transform[] eggPrefabs;
+    public PlayerScript playerScript;
 
     private float nextEggTime = 0.0f;
     private float spawnRate = 1.5f;
  	
 	void Update () {
-        if (!PlayerScript.shouldDropEggs) return;
+        if (!playerScript.shouldDropEggs) return;
         if (nextEggTime < Time.time)
         {
             SpawnEgg();

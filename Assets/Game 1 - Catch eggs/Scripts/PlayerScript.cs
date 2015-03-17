@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject[] instructions;
     public GameObject[] stars;
     private string lastSceneCompleted;
-    public static bool shouldDropEggs = false;
+    public bool shouldDropEggs = false;
     public bool shouldKeepScore = true;
     public Animator Lily;
     private float lastInput;
@@ -89,7 +89,7 @@ public class PlayerScript : MonoBehaviour {
 	        animationDelay += Time.deltaTime;
 	        if (animationDelay >= 1)
 	        {
-	            Lily.SetTrigger(moveInput < 0 ? "SwipeRight" : "SwipeLeft");
+	            Lily.SetTrigger(moveInput > 0 ? "SwipeRight" : "SwipeLeft");
 	            animationDelay = 0.0f;
 	        }
 	    }
