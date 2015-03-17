@@ -21,10 +21,10 @@ namespace AngryScene
             {
                 float move = Time.deltaTime * 1.0f;
                 transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
-                if (transform.position.x <= 204.48f)
+                if (transform.position.x <= 204.639f)
                 {
                     StopWalking();
-                    transform.position = new Vector3(204.48f, transform.position.y, transform.position.z);
+                    transform.position = new Vector3(204.639f, transform.position.y, transform.position.z);
                 }
             }
         }
