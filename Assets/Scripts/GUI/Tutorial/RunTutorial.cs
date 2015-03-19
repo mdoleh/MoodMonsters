@@ -11,6 +11,7 @@ public class RunTutorial : MonoBehaviour
     private AudioSource quitAudio;
     private AudioSource repeatAudio;
     private AudioSource helpLilyPlayAudio;
+    private AudioSource whatLilyIsPlayingAudio;
 
     public GameObject otherCharacter;
     private GameObject practiceDropContainer;
@@ -20,6 +21,8 @@ public class RunTutorial : MonoBehaviour
     private GameObject helpCanvas;
     private GameObject disablePanel;
     private GameObject fingerDrag;
+    private GameObject ipadCamera;
+    public GameObject miniGame;
     private Color originalColor;
 
     private bool initialAudioPlayed = false;
@@ -61,12 +64,17 @@ public class RunTutorial : MonoBehaviour
         {
             explainingRepeatButton = false;
             ResetHighlight(helpCanvas.transform.Find("Repeat"));
-            StartCoroutine(PlayHelpLilyPlayAudio());
+            StartCoroutine(HelpLilyPlayAudio());
         }
     }
 
-    private IEnumerator PlayHelpLilyPlayAudio()
+    private IEnumerator HelpLilyPlayAudio()
     {
+        ipadCamera.GetComponent<Camera>().enabled = true;
+        miniGame.SetActive(true);
+        Utilities.PlayAudio(whatLilyIsPlayingAudio);
+        yield return new WaitForSeconds(whatLilyIsPlayingAudio.clip.length);
+
         Utilities.PlayAudio(helpLilyPlayAudio);
         fingerDrag.SetActive(true);
         yield return new WaitForSeconds(helpLilyPlayAudio.clip.length);
@@ -90,12 +98,14 @@ public class RunTutorial : MonoBehaviour
         helpCanvas = GameObject.Find("HelpCanvas");
         disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
         fingerDrag = transform.Find("FingerDrag").gameObject;
+        ipadCamera = GameObject.Find("iPadCamera");
     }
 
     private void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
         helpLilyPlayAudio = transform.Find("HelpLilyPlay").gameObject.GetComponent<AudioSource>();
+        whatLilyIsPlayingAudio = transform.Find("WhatLilyIsPlaying").gameObject.GetComponent<AudioSource>();
     }
 
     private void EnablePracticeUI()
