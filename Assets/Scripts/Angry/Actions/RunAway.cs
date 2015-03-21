@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
-    public class RunAway : ActionBase
+    public class RunAway : HideAction
     {
 
         Animator anim;
