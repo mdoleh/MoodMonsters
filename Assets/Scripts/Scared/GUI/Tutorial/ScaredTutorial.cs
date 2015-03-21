@@ -5,5 +5,8 @@ using UnityEngine.UI;
 
 public class ScaredTutorial : TutorialBase
 {
-
+    protected override void HelpExplanationComplete()
+    {
+        
+    }
 }
