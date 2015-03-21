@@ -6,7 +6,7 @@ namespace AngryScene
     public class WalkForward : MonoBehaviour
     {
         public Animator anim;
-        public RunTutorial tutorial;
+        public TutorialBase tutorial;
         private bool shouldStartWalking = false;
         private bool stepForward = false;
 
