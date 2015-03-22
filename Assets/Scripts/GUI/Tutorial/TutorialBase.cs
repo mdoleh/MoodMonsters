@@ -57,6 +57,7 @@ public class TutorialBase : MonoBehaviour
         ResetHighlight(helpCanvas.transform.Find("Quit"));
         ExplainButton(helpCanvas, "Repeat", ref explainingRepeatButton, ref repeatAudio);
         yield return new WaitForSeconds(repeatAudio.clip.length);
+        ResetHighlight(helpCanvas.transform.Find("Repeat"));
 
         HelpExplanationComplete();
     }

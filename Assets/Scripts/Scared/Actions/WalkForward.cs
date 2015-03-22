@@ -22,7 +22,6 @@ namespace ScaredScene
 
         public void StartWalking()
         {
-            transform.Rotate(new Vector3(0f, 180f));
             anim.SetTrigger("Walking");
             other.SetTrigger("Walking");
         }
