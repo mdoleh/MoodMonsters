@@ -10,6 +10,6 @@ public class ScaredTutorial : TutorialBase
 
     protected override void HelpExplanationComplete()
     {
-        scarlet.GetComponent<WalkForward>().StartTurning();
+        scarlet.GetComponent<CharacterMovement>().StartTurning();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ScaredScene
 {
-    public class WalkForward : MonoBehaviour
+    public class CharacterMovement : MonoBehaviour
     {
         private Animator anim;
         private Animator other;
