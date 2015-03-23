@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2a58bfdca787f174b9b8f05517bb03dc
-timeCreated: 1427039726
+guid: 35f22280e30ba314a82a1a5f2b607f0f
+timeCreated: 1427070657
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -107,7 +107,7 @@ ModelImporter:
     400096: Bip01 Spine
     400098: Bip01 Spine1
     400100: //RootNode
-    7400000: 180_left_turn
+    7400000: less_cautious_walking
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -126,16 +126,16 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: 180_left_turn
+      name: less_cautious_walking
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 74
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -147,14 +147,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: StartWalking
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1
