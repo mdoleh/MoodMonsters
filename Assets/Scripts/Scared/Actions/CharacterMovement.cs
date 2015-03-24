@@ -56,7 +56,7 @@ namespace ScaredScene
             if (transform.position.x > 201.5f)
             {
                 multiplier = 0f;
-                anim.SetTrigger("Run");
+                anim.SetTrigger("TurnAround");
             }
         }
 
