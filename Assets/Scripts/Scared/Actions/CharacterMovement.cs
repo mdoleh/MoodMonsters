@@ -44,25 +44,42 @@ namespace ScaredScene
 
         private void CheckPosition()
         {
-            if (transform.position.x > 197f)
+            if (transform.position.x > 197f && transform.position.x < 198f)
             {
                 anim.SetTrigger("Run");
-                multiplier = 2.5f;
+                multiplier = 3f;
             }
-            if (transform.position.x > 198f && transform.position.x < 198.5f)
+            if (!anim.GetBool("RunJump") && transform.position.x > 198.5f && transform.position.x < 198.6f)
             {
-                anim.SetTrigger("RunJump");
+                anim.SetBool("Run", false);
+                anim.SetBool("RunJump", true);
             }
-            if (transform.position.x > 201.5f)
+            if (!anim.GetBool("Run") && transform.position.x > 201f && transform.position.x < 201.1f)
+            {
+                anim.SetBool("RunJump", false);
+                anim.SetBool("Run", true);
+            }
+            if (transform.position.x > 201.5f && transform.position.x < 202.5f)
+            {
+                multiplier = 2.5f;
+                anim.SetBool("Run", false);
+                anim.SetTrigger("Walking");
+            }
+            if (transform.position.x > 202.5f && transform.position.x < 202.8f)
+            {
+                multiplier = 1f;
+            }
+            if (transform.position.x > 204.5f)
             {
                 multiplier = 0f;
                 anim.SetTrigger("TurnAround");
             }
         }
 
-        public void StartRunning()
+        public void ShiftIdle()
         {
-            anim.SetTrigger("Run");
+            anim.SetBool("IsIdle", true);
+            anim.SetTrigger("Idle");
         }
     }
 }
