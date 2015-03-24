@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Runtime.Remoting.Channels;
 
 namespace ScaredScene
 {
@@ -9,6 +10,7 @@ namespace ScaredScene
         private Animator otherAnim;
         private GameObject otherCharacter;
         private bool isWalking = false;
+        private float multiplier = 0.5f;
 
         private void Start()
         {
@@ -34,9 +36,33 @@ namespace ScaredScene
         {
             if (isWalking)
             {
-                float move = Time.deltaTime * 0.5f;
+                float move = Time.deltaTime * multiplier;
                 transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
+                CheckPosition();
             }
+        }
+
+        private void CheckPosition()
+        {
+            if (transform.position.x > 197f)
+            {
+                anim.SetTrigger("Run");
+                multiplier = 2.5f;
+            }
+            if (transform.position.x > 198f && transform.position.x < 198.5f)
+            {
+                anim.SetTrigger("RunJump");
+            }
+            if (transform.position.x > 201.5f)
+            {
+                multiplier = 0f;
+                anim.SetTrigger("Run");
+            }
+        }
+
+        public void StartRunning()
+        {
+            anim.SetTrigger("Run");
         }
     }
 }
