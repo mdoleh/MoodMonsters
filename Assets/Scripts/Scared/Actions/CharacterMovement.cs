@@ -10,7 +10,7 @@ namespace ScaredScene
         private Animator otherAnim;
         private GameObject otherCharacter;
         private bool isWalking = false;
-        private float multiplier = 0.5f;
+        private float multiplier = 1f;
 
         private void Start()
         {
