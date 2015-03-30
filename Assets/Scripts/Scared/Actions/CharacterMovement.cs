@@ -38,14 +38,18 @@ namespace ScaredScene
             {
                 float move = Time.deltaTime * multiplier;
                 transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
-                CheckPosition();
+                CheckPosition(transform, anim);
+                if (!otherAnim.GetBool("IsIdle"))
+                    CheckPosition(otherCharacter.GetComponent<Transform>(), otherAnim);
             }
         }
 
-        private void CheckPosition()
+        private void CheckPosition(Transform transform, Animator anim)
         {
             if (transform.position.x > 197f && transform.position.x < 198f)
             {
+                otherAnim.SetBool("IsIdle", true);
+                otherAnim.SetTrigger("Idle");
                 anim.SetTrigger("Run");
                 multiplier = 3f;
             }

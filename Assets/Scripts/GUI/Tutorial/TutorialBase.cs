@@ -9,6 +9,7 @@ public class TutorialBase : MonoBehaviour
     protected AudioSource helpAudio;
     protected AudioSource quitAudio;
     protected AudioSource repeatAudio;
+    protected AudioSource questionAudio;
 
     protected GameObject practiceDropContainer;
     protected GameObject practiceButton;
@@ -36,7 +37,13 @@ public class TutorialBase : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Utilities.PlayAudio(GetComponent<AudioSource>());
         yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
-        EnablePracticeUI();
+        if (Tutorials.MainTutorialHasRun) HelpExplanationComplete();
+        else
+        {
+            Utilities.PlayAudio(questionAudio);
+            yield return new WaitForSeconds(questionAudio.clip.length);
+            EnablePracticeUI();
+        }
     }
 
     public void ExplainHelpUI()
@@ -115,5 +122,6 @@ public class TutorialBase : MonoBehaviour
     protected virtual void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
+        questionAudio = transform.Find("TutorialQuestion").gameObject.GetComponent<AudioSource>();
     }
 }
