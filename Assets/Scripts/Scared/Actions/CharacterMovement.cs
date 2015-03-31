@@ -6,29 +6,23 @@ namespace ScaredScene
 {
     public class CharacterMovement : MonoBehaviour
     {
-        private Animator anim;
-        private Animator otherAnim;
-        private GameObject otherCharacter;
-        private bool isWalking = false;
-        private float multiplier = 1f;
+        protected Animator anim;
+        protected bool isWalking = false;
+        protected float multiplier = 1f;
 
-        private void Start()
+        protected virtual void Start()
         {
             anim = GetComponent<Animator>();
-            otherCharacter = GameObject.Find("Aj");
-            otherAnim = otherCharacter.GetComponent<Animator>();
         }
 
-        public void StartTurning()
+        public virtual void StartSequence()
         {
             anim.SetTrigger("TurnAround");
-            otherAnim.SetTrigger("Idle");
         }
 
-        public void StartWalking()
+        public virtual void StartWalking()
         {
             anim.SetTrigger("Walking");
-            otherAnim.SetTrigger("Walking");
             isWalking = true;
         }
 

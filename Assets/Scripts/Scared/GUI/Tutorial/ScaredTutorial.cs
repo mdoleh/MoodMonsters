@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class ScaredTutorial : TutorialBase
 {
     public GameObject scarlet;
+    public GameObject aj;
 
     protected override void HelpExplanationComplete()
     {
-        scarlet.GetComponent<CharacterMovement>().StartTurning();
+        scarlet.GetComponent<CharacterMovement>().StartSequence();
+        aj.GetComponent<CharacterMovement>().StartSequence();
     }
 }
