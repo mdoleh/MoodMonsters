@@ -23,7 +23,7 @@ namespace ScaredScene
 
         public virtual void StartWalking()
         {
-            anim.SetTrigger("Walking");
+            anim.SetBool("Walking", true);
             isWalking = true;
         }
 
@@ -38,6 +38,7 @@ namespace ScaredScene
 
         public virtual void Run()
         {
+            anim.SetBool("Walking", false);
             anim.SetTrigger("Run");
             multiplier = 3f;
         }
@@ -46,6 +47,7 @@ namespace ScaredScene
         {
             if (!anim.GetBool("RunJump"))
             {
+                transform.position = new Vector3(transform.position.x, 5.427f, transform.position.z);
                 anim.SetBool("Run", false);
                 anim.SetBool("RunJump", true);
             }
@@ -55,6 +57,7 @@ namespace ScaredScene
         {
             if (!anim.GetBool("Run"))
             {
+                transform.position = new Vector3(transform.position.x, 5.445f, transform.position.z);
                 anim.SetBool("RunJump", false);
                 anim.SetBool("Run", true);
             }
@@ -64,7 +67,7 @@ namespace ScaredScene
         {
             multiplier = 2.5f;
             anim.SetBool("Run", false);
-            anim.SetTrigger("Walking");
+            anim.SetBool("Walking", true);
         }
 
         public virtual void Walk()
@@ -75,6 +78,7 @@ namespace ScaredScene
         public virtual void TurnAround()
         {
             isWalking = false;
+            anim.SetBool("Walking", false);
             anim.SetTrigger("TurnAround");
         }
 

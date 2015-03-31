@@ -23,4 +23,10 @@ public class FearlessMovement : CharacterMovement
         base.TurnAround();
         otherCharacter.GetComponent<CharacterMovement>().Run();
     }
+
+    public override void Run()
+    {
+        base.Run();
+        otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+    }
 }

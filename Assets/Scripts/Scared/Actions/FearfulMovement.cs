@@ -35,6 +35,7 @@ public class FearfulMovement : CharacterMovement
     private void StopWalking(bool waitForScarlet)
     {
         anim.SetTrigger("Idle");
+        anim.SetBool("Walking", false);
         isWalking = false;
         waitingForScarlet = waitForScarlet;
     }
@@ -43,6 +44,11 @@ public class FearfulMovement : CharacterMovement
     {
         base.JumpToRun();
         otherCharacter.GetComponent<CharacterMovement>().StartSequence();
+    }
+
+    public override void TurnAround()
+    {
+        // do nothing
     }
 
     protected override void Update()
