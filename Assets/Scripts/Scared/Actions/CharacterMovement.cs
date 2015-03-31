@@ -35,7 +35,7 @@ namespace ScaredScene
             }
         }
 
-        public void Run()
+        public virtual void Run()
         {
             anim.SetTrigger("Run");
             multiplier = 3f;
@@ -66,14 +66,14 @@ namespace ScaredScene
             anim.SetTrigger("Walking");
         }
 
-        public void Walk()
+        public virtual void Walk()
         {
             multiplier = 1f;
         }
 
-        public void TurnAround()
+        public virtual void TurnAround()
         {
-            multiplier = 0f;
+            isWalking = false;
             anim.SetTrigger("TurnAround");
         }
 

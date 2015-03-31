@@ -9,12 +9,18 @@ public class FearlessMovement : CharacterMovement
     protected override void Start()
     {
         base.Start();
-        otherCharacter = GameObject.Find("AJ");
+        otherCharacter = GameObject.Find("Aj");
     }
 
     public override void StartWalking()
     {
         base.StartWalking();
         otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+    }
+
+    public override void TurnAround()
+    {
+        base.TurnAround();
+        otherCharacter.GetComponent<CharacterMovement>().Run();
     }
 }
