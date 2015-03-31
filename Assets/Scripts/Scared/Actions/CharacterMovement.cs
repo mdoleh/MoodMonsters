@@ -38,46 +38,49 @@ namespace ScaredScene
             {
                 float move = Time.deltaTime * multiplier;
                 transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
-                CheckPosition(transform, anim);
-                if (!otherAnim.GetBool("IsIdle"))
-                    CheckPosition(otherCharacter.GetComponent<Transform>(), otherAnim);
             }
         }
 
-        private void CheckPosition(Transform transform, Animator anim)
+        public void Run()
         {
-            if (transform.position.x > 197f && transform.position.x < 198f)
-            {
-                otherAnim.SetBool("IsIdle", true);
-                otherAnim.SetTrigger("Idle");
-                anim.SetTrigger("Run");
-                multiplier = 3f;
-            }
-            if (!anim.GetBool("RunJump") && transform.position.x > 198.5f && transform.position.x < 198.6f)
+            anim.SetTrigger("Run");
+            multiplier = 3f;
+        }
+
+        public void RunJump()
+        {
+            if (!anim.GetBool("RunJump"))
             {
                 anim.SetBool("Run", false);
                 anim.SetBool("RunJump", true);
             }
-            if (!anim.GetBool("Run") && transform.position.x > 201f && transform.position.x < 201.1f)
+        }
+
+        public void JumpToRun()
+        {
+            if (!anim.GetBool("Run"))
             {
                 anim.SetBool("RunJump", false);
                 anim.SetBool("Run", true);
             }
-            if (transform.position.x > 201.5f && transform.position.x < 202.5f)
-            {
-                multiplier = 2.5f;
-                anim.SetBool("Run", false);
-                anim.SetTrigger("Walking");
-            }
-            if (transform.position.x > 202.5f && transform.position.x < 202.8f)
-            {
-                multiplier = 1f;
-            }
-            if (transform.position.x > 204.5f)
-            {
-                multiplier = 0f;
-                anim.SetTrigger("TurnAround");
-            }
+        }
+
+        public void RunToWalk()
+        {
+            multiplier = 2.5f;
+            anim.SetBool("Run", false);
+            anim.SetTrigger("Walking");
+        }
+
+        public void Walk()
+        {
+            multiplier = 1f;
+        }
+
+        public void TurnAround()
+        {
+            multiplier = 0f;
+            anim.SetTrigger("TurnAround");
         }
 
         public void ShiftIdle()
