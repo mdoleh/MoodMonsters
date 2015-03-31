@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using ScaredScene;
 
 public class FearfulMovement : CharacterMovement
 {
-    public bool shouldRun = false;
+    public bool waitingForScarlet = true;
     private GameObject otherCharacter;
 
     protected override void Start()
@@ -20,16 +21,36 @@ public class FearfulMovement : CharacterMovement
 
     public override void Run()
     {
-        if (shouldRun)
+        if (!waitingForScarlet)
         {
             isWalking = true;
             base.Run();
         }
         else
         {
-            anim.SetTrigger("Idle");
-            isWalking = false;
-            shouldRun = true;
+            StopWalking(false);
+        }
+    }
+
+    private void StopWalking(bool waitForScarlet)
+    {
+        anim.SetTrigger("Idle");
+        isWalking = false;
+        waitingForScarlet = waitForScarlet;
+    }
+
+    public override void JumpToRun()
+    {
+        base.JumpToRun();
+        otherCharacter.GetComponent<CharacterMovement>().StartSequence();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (Math.Abs(transform.position.x - otherCharacter.transform.position.x) <= 1f)
+        {
+            StopWalking(true);
         }
     }
 }

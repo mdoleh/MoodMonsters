@@ -17,6 +17,7 @@ namespace ScaredScene
 
         public virtual void StartSequence()
         {
+            anim.SetBool("IsIdle", false);
             anim.SetTrigger("TurnAround");
         }
 
@@ -26,7 +27,7 @@ namespace ScaredScene
             isWalking = true;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (isWalking)
             {
@@ -50,7 +51,7 @@ namespace ScaredScene
             }
         }
 
-        public void JumpToRun()
+        public virtual void JumpToRun()
         {
             if (!anim.GetBool("Run"))
             {
@@ -59,7 +60,7 @@ namespace ScaredScene
             }
         }
 
-        public void RunToWalk()
+        public virtual void RunToWalk()
         {
             multiplier = 2.5f;
             anim.SetBool("Run", false);
