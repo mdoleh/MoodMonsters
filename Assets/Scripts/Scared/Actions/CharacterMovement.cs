@@ -84,8 +84,24 @@ namespace ScaredScene
 
         public void ShiftIdle()
         {
-            anim.SetBool("IsIdle", true);
-            anim.SetTrigger("Idle");
+            if (!anim.GetBool("IsIdle"))
+            {
+                anim.SetBool("IsIdle", true);
+                anim.SetTrigger("Idle");
+            }
+            else
+            {
+                anim.SetBool("IsIdle", false);
+                anim.SetTrigger("Idle1");
+            }
+            
+        }
+
+        public void EdgeSlip()
+        {
+            anim.SetBool("Run", false);
+            anim.SetTrigger("Stumble");
+            isWalking = false;
         }
     }
 }
