@@ -84,23 +84,16 @@ namespace ScaredScene
 
         public void ShiftIdle()
         {
-            if (!anim.GetBool("IsIdle"))
-            {
-                anim.SetBool("IsIdle", true);
-                anim.SetTrigger("Idle");
-            }
-            else
-            {
-                anim.SetBool("IsIdle", false);
-                anim.SetTrigger("Idle1");
-            }
-            
+            anim.SetTrigger("Idle");
         }
 
         public void EdgeSlip()
         {
             anim.SetBool("Run", false);
             anim.SetTrigger("Stumble");
+            var center = GetComponent<BoxCollider>().center;
+            GetComponent<BoxCollider>().center = new Vector3(center.x, 1.5f, center.z);
+            transform.position = new Vector3(transform.position.x, 4.87f, transform.position.z);
             isWalking = false;
         }
     }

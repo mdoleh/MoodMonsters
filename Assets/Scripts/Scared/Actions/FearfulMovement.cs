@@ -65,6 +65,7 @@ public class FearfulMovement : CharacterMovement
     public void ShiftScared()
     {
         anim.SetTrigger("Scared");
+        tutorial.EnableHelpGUI();
         GUIDetect.NextGUI();
     }
 }

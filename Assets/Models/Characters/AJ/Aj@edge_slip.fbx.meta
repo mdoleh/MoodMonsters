@@ -196,7 +196,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .921904802
+      - time: .581134021
         functionName: ShiftScared
         data: 
         objectReferenceParameter: {instanceID: 0}
