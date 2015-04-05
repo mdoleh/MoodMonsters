@@ -65,7 +65,15 @@ public class FearfulMovement : CharacterMovement
     public void ShiftScared()
     {
         anim.SetTrigger("Scared");
+        RevertPositionForEdgeSlip();
         tutorial.EnableHelpGUI();
         GUIDetect.NextGUI();
+    }
+
+    private void RevertPositionForEdgeSlip()
+    {
+        var center = GetComponent<BoxCollider>().center;
+        GetComponent<BoxCollider>().center = new Vector3(center.x, 0.9f, center.z);
+        transform.position = new Vector3(transform.position.x, 5.48f, transform.position.z);
     }
 }
