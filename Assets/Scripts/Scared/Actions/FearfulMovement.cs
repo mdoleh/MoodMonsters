@@ -65,7 +65,6 @@ public class FearfulMovement : CharacterMovement
     public void ShiftScared()
     {
         anim.SetTrigger("Scared");
-        var currentGUI = GUIDetect.GetCurrentGUIName();
-        GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));
+        GUIDetect.NextGUI();
     }
 }

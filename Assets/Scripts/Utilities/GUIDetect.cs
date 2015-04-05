@@ -45,7 +45,13 @@ public class GUIDetect : MonoBehaviour {
         return (from t in GUI where t.name == name select t.GetComponent<Canvas>()).FirstOrDefault();
     }
 
-    public static void NextGUI(string current, string next)
+    public static void NextGUI()
+    {
+        var currentGUI = GetCurrentGUIName();
+        NextGUI(currentGUI, GetNextGUIName(currentGUI));
+    }
+
+    private static void NextGUI(string current, string next)
     {
         var GUI = GetAllGUI();
         foreach (var guiCanvas in GUI)

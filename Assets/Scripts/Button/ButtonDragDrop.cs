@@ -95,8 +95,7 @@ public class ButtonDragDrop : MonoBehaviour {
     protected void NextGUI()
     {
         correctCount = 0;
-        string currentGUI = GUIDetect.GetCurrentGUIName();
-        GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));       
+        GUIDetect.NextGUI();       
     }
 
     private void initializeCorrectAmount()

@@ -72,8 +72,7 @@ namespace AngryScene
         void StartGUI()
         {
             Timeout.StartTimers();
-            var currentGUI = GUIDetect.GetCurrentGUIName();
-            GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));
+            GUIDetect.NextGUI();
             enabled = false;
         }
     }
