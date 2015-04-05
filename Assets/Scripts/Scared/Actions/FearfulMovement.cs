@@ -59,4 +59,13 @@ public class FearfulMovement : CharacterMovement
             StopWalking(true);
         }
     }
+
+    public void ShiftScared()
+    {
+        if (!anim.GetBool("IsScared"))
+        {
+            anim.SetBool("IsScared", true);
+            anim.SetTrigger("Scared1");
+        }
+    }
 }

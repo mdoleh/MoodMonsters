@@ -6,7 +6,7 @@ namespace AngryScene
 {
     public class TakeItem : MonoBehaviour
     {
-        private GameObject emotionsGUI;
+        public GameObject nextGUI;
         private GameObject ipadCamera;
         private GameObject miniGame;
         private Animator anim;
@@ -14,7 +14,6 @@ namespace AngryScene
 
         public void Awake()
         {
-            emotionsGUI = GameObject.Find("EmotionsCanvas");
             ipadCamera = GameObject.Find("iPadCamera");
             miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
@@ -74,9 +73,9 @@ namespace AngryScene
         void StartGUI()
         {
             Timeout.StartTimers();
-            Timeout.SetRepeatAudio(emotionsGUI.GetComponent<AudioSource>());
-            emotionsGUI.GetComponent<Canvas>().enabled = true;
-            Utilities.PlayAudio(emotionsGUI.GetComponent<AudioSource>());
+            Timeout.SetRepeatAudio(nextGUI.GetComponent<AudioSource>());
+            nextGUI.GetComponent<Canvas>().enabled = true;
+            Utilities.PlayAudio(nextGUI.GetComponent<AudioSource>());
             enabled = false;
         }
     }
