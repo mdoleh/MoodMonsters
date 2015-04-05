@@ -7,6 +7,7 @@ public class FearfulMovement : CharacterMovement
 {
     public bool waitingForScarlet = true;
     private GameObject otherCharacter;
+    private GameObject nextGUI;
 
     protected override void Start()
     {
@@ -62,10 +63,7 @@ public class FearfulMovement : CharacterMovement
 
     public void ShiftScared()
     {
-        if (!anim.GetBool("IsScared"))
-        {
-            anim.SetBool("IsScared", true);
-            anim.SetTrigger("Scared1");
-        }
+        anim.SetTrigger("Scared");
+        
     }
 }

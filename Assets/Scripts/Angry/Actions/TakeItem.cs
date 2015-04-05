@@ -6,7 +6,7 @@ namespace AngryScene
 {
     public class TakeItem : MonoBehaviour
     {
-        public GameObject nextGUI;
+        public string lastGUI;
         private GameObject ipadCamera;
         private GameObject miniGame;
         private Animator anim;
@@ -73,9 +73,7 @@ namespace AngryScene
         void StartGUI()
         {
             Timeout.StartTimers();
-            Timeout.SetRepeatAudio(nextGUI.GetComponent<AudioSource>());
-            nextGUI.GetComponent<Canvas>().enabled = true;
-            Utilities.PlayAudio(nextGUI.GetComponent<AudioSource>());
+            GUIDetect.NextGUI(lastGUI, GUIDetect.GetNextGUIName(lastGUI));
             enabled = false;
         }
     }
