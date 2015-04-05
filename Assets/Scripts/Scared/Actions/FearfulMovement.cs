@@ -5,7 +5,8 @@ using ScaredScene;
 
 public class FearfulMovement : CharacterMovement
 {
-    public bool waitingForScarlet = true;
+    public TutorialBase tutorial;
+    private bool waitingForScarlet = true;
     private GameObject otherCharacter;
     private GameObject nextGUI;
 
@@ -64,6 +65,7 @@ public class FearfulMovement : CharacterMovement
     public void ShiftScared()
     {
         anim.SetTrigger("Scared");
-        
+        var currentGUI = GUIDetect.GetCurrentGUIName();
+        GUIDetect.NextGUI(currentGUI, GUIDetect.GetNextGUIName(currentGUI));
     }
 }

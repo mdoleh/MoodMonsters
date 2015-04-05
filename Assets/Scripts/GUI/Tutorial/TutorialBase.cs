@@ -90,7 +90,6 @@ public class TutorialBase : MonoBehaviour
     {
         Tutorials.MainTutorialHasRun = true;
         disablePanel.SetActive(false);
-        GetComponent<Canvas>().enabled = false;
     }
 
     protected void EnablePracticeUI()

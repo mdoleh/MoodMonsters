@@ -62,7 +62,6 @@ namespace AngryScene
             shouldStartWalking = false;
             anim.SetBool("IsWalking", false);
             anim.SetTrigger("IsIdle");
-            GetComponent<TakeItem>().lastGUI = GUIDetect.GetCurrentGUIName();
             tutorial.EnableHelpGUI();
         }
     }
