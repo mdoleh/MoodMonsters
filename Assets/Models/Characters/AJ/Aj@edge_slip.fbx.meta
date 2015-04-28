@@ -197,7 +197,7 @@ ModelImporter:
       curves: []
       events:
       - time: .581134021
-        functionName: ShiftScared
+        functionName: ShiftIdle
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

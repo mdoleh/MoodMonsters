@@ -62,9 +62,9 @@ public class FearfulMovement : CharacterMovement
         }
     }
 
-    public void ShiftScared()
+    public override void ShiftIdle()
     {
-        anim.SetTrigger("Scared");
+        base.ShiftIdle();
         RevertPositionForEdgeSlip();
         tutorial.EnableHelpGUI();
         GUIDetect.NextGUI();

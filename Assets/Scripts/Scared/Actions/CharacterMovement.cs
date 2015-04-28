@@ -82,7 +82,7 @@ namespace ScaredScene
             anim.SetTrigger("TurnAround");
         }
 
-        public void ShiftIdle()
+        public virtual void ShiftIdle()
         {
             anim.SetTrigger("Idle");
         }
