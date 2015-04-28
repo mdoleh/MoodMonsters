@@ -64,10 +64,18 @@ public class FearfulMovement : CharacterMovement
 
     public override void ShiftIdle()
     {
+        StopWalking(false);
         base.ShiftIdle();
-        RevertPositionForEdgeSlip();
         tutorial.EnableHelpGUI();
         GUIDetect.NextGUI();
+    }
+
+    public void BackAway()
+    {
+        RevertPositionForEdgeSlip();
+        anim.SetTrigger("BackAway");
+        multiplier = (float)-0.2;
+        StartWalking();
     }
 
     private void RevertPositionForEdgeSlip()
