@@ -36,7 +36,7 @@ public class CorrectAnswer : ButtonDragDrop
         hideButton();
         base.SubmitAnswer();
         Debug.Log("Correct answer submitted");
-        playRandomAudio();
+        currentAudioPlaying = Utilities.PlayRandomAudio(correctAudio);
         updateCorrectCountText();
     }
 
@@ -47,12 +47,6 @@ public class CorrectAnswer : ButtonDragDrop
             shouldShowNextGUI = false;
             NextGUI();
         }
-    }
-
-    private void playRandomAudio()
-    {
-        currentAudioPlaying = correctAudio[UnityEngine.Random.Range(0, correctAudio.Length)];
-        Utilities.PlayAudio(currentAudioPlaying);
     }
 
     private void hideButton()

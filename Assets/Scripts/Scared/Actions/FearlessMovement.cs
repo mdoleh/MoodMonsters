@@ -46,7 +46,7 @@ public class FearlessMovement : CharacterMovement
     private void resetCamera()
     {
         cameraFollow.enabled = true;
-        joystick.GetComponent<Canvas>().enabled = true;
+        joystick.GetComponent<Canvas>().enabled = false;
         mainCamera.transform.position = new Vector3(cameraFollow.gameObject.transform.position.x, 6.95f, 163.25f);
         mainCamera.transform.localRotation = Quaternion.Euler(4.587073f, 1.254006f, 0.08177387f);
     }

@@ -3,12 +3,12 @@ using System.Collections;
 
 public class WrongAnswer : ButtonDragDrop
 {
-    private AudioSource response;
+    private AudioSource[] wrongAudio;
 
     protected override void Awake()
     {
         base.Awake();
-        response = transform.parent.Find("WrongAnswerAudio").GetComponent<AudioSource>();
+        wrongAudio = transform.parent.Find("WrongAnswerAudio").GetComponentsInChildren<AudioSource>();
     }
 
     public override void ButtonDown()
@@ -22,6 +22,6 @@ public class WrongAnswer : ButtonDragDrop
         DecrementCorrectCount();
         base.SubmitAnswer();
         Debug.Log("Wrong answer submitted");
-        Utilities.PlayAudio(response);
+        Utilities.PlayRandomAudio(wrongAudio);
     }
 }

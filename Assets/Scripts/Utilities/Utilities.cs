@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Globals;
 
 public class Utilities : MonoBehaviour {
@@ -27,5 +29,12 @@ public class Utilities : MonoBehaviour {
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
+    }
+
+    public static AudioSource PlayRandomAudio(IList<AudioSource> audioSources)
+    {
+        var audioToPlay = audioSources[Random.Range(0, audioSources.Count())];
+        PlayAudio(audioToPlay);
+        return audioToPlay;
     }
 }
