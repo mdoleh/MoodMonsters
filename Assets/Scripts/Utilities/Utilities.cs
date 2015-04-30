@@ -16,6 +16,22 @@ public class Utilities : MonoBehaviour {
         }
     }
 
+    public static void PauseAudio(AudioSource audioSource)
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Pause();
+        }
+    }
+
+    public static void UnPauseAudio(AudioSource audioSource)
+    {
+        if (audioSource != null && Sound.CurrentPlayingSound == audioSource && !audioSource.isPlaying)
+        {
+            audioSource.UnPause();
+        }
+    }
+
     public static void StopAudio(AudioSource audioSource)
     {
         if (audioSource != null && audioSource.isPlaying) audioSource.Stop();
