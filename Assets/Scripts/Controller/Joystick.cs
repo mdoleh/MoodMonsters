@@ -9,18 +9,21 @@ public class Joystick : MonoBehaviour
     private float yMin;
     private float yMax;
     private Vector3 originalPosition;
+    private bool initialized = false;
 
-	void Start () 
+	private void Initialize() 
     {
         var parent = transform.parent.GetComponent<RectTransform>().rect;
         xMin = transform.TransformPoint(new Vector3(parent.xMin, 0f, 0f)).x;
         xMax = transform.TransformPoint(new Vector3(parent.xMax, 0f, 0f)).x;
         yMin = transform.TransformPoint(new Vector3(0f, parent.yMin, 0f)).y;
         yMax = transform.TransformPoint(new Vector3(0f, parent.yMax, 0f)).y;
-	}
+	    initialized = true;
+    }
 
     public virtual void ButtonDown()
     {
+        if (!initialized) Initialize();
         originalPosition = transform.position;
         Timeout.StopTimers();
         StopAllCoroutines();

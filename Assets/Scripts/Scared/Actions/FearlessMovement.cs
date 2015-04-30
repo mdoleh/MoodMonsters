@@ -6,7 +6,7 @@ public class FearlessMovement : CharacterMovement
 {
     public Camera mainCamera;
     public CameraFollow cameraFollow;
-    public Canvas joystick;
+    public GameObject joystick;
     private GameObject otherCharacter;
 
     protected override void Start()
