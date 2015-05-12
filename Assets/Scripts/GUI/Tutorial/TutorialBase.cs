@@ -92,6 +92,11 @@ public class TutorialBase : MonoBehaviour
         disablePanel.SetActive(false);
     }
 
+    public void DisableHelpUI()
+    {
+        disablePanel.SetActive(true);
+    }
+
     protected void EnablePracticeUI()
     {
         initialAudioPlayed = false;

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Globals;
 using ScaredScene;
 
 public class FearfulMovement : CharacterMovement
@@ -13,7 +14,7 @@ public class FearfulMovement : CharacterMovement
     public TutorialBase tutorial;
     private bool waitingForScarlet = true;
     private GameObject otherCharacter;
-    private IList<AudioSource> joystickInstructions;
+    private AudioSource joystickInstructions;
     private GameObject disablePanel;
     private Joystick joystickScript;
     private bool trackJoystick = false;
@@ -25,7 +26,7 @@ public class FearfulMovement : CharacterMovement
     {
         base.Start();
         otherCharacter = GameObject.Find("Scarlet");
-        joystickInstructions = GameObject.Find("ControllerCanvas").transform.FindChild("Instructions").GetComponentsInChildren<AudioSource>().ToList();
+        joystickInstructions = GameObject.Find("ControllerCanvas").transform.FindChild("Instructions").GetComponent<AudioSource>();
         disablePanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.GetComponentInChildren<Joystick>();
         runSpeedAudio = GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
@@ -60,7 +61,8 @@ public class FearfulMovement : CharacterMovement
         else
         {
             multiplier = 3f;
-            base.RunJump();    
+            base.RunJump();
+            tutorial.DisableHelpUI();
         }
     }
 
@@ -131,6 +133,8 @@ public class FearfulMovement : CharacterMovement
     public override void EdgeSlip()
     {
         resetCamera();
+        runSpeedFailure = false;
+        trackJoystick = false;
         base.EdgeSlip();
     }
 
@@ -161,11 +165,8 @@ public class FearfulMovement : CharacterMovement
     {
         if (!joystickInstructionsAlreadyPlayed)
         {
-            foreach (var instruction in joystickInstructions)
-            {
-                Utilities.PlayAudio(instruction);
-                yield return new WaitForSeconds(instruction.clip.length);
-            }
+            Utilities.PlayAudio(joystickInstructions);
+            yield return new WaitForSeconds(joystickInstructions.clip.length);
             joystickInstructionsAlreadyPlayed = true;
         }
         if (runSpeedFailure)
@@ -175,6 +176,8 @@ public class FearfulMovement : CharacterMovement
         }
         disablePanel.SetActive(false);
         trackJoystick = true;
+        tutorial.EnableHelpGUI();
+        Timeout.SetRepeatAudio(joystickInstructions);
         multiplier = 0f;
         isWalking = true;
     }
