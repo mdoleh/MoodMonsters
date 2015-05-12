@@ -43,7 +43,7 @@ namespace ScaredScene
             multiplier = 3f;
         }
 
-        public void RunJump()
+        public virtual void RunJump()
         {
             if (!anim.GetBool("RunJump"))
             {
@@ -87,11 +87,11 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
         }
 
-        public void EdgeSlip()
+        public virtual void EdgeSlip()
         {
             anim.SetBool("Run", false);
             anim.SetTrigger("Stumble");
-            AdjustPositionForEdgeSlip();
+            //AdjustPositionForEdgeSlip();
             isWalking = false;
         }
 

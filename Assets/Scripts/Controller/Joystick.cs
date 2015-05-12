@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Globals;
 
 public class Joystick : MonoBehaviour
 {
+    public Vector2 CurrentSpeedAndDirection; 
     private float xMin;
     private float xMax;
     private float yMin;
@@ -32,22 +35,41 @@ public class Joystick : MonoBehaviour
     public virtual void ButtonRelease()
     {
         transform.position = originalPosition;
+        computeSpeedAndDirection(0f, 0f);
+        Timeout.StartTimers();
     }
 
     public void Drag()
     {
+        float x = 0f;
+        float y = 0f;
         if (isInRange(transform.position) && isInRange(Input.mousePosition))
         {
-            transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            x = Input.mousePosition.x;
+            y = Input.mousePosition.y;
         }
         else if (isInRangeX(transform.position) && isInRangeX(Input.mousePosition))
         {
-            transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y > yMax ? yMax : yMin);
+            x = Input.mousePosition.x;
+            y = Input.mousePosition.y > yMax ? yMax : yMin;
         }
         else if (isInRangeY(transform.position) && isInRangeY(Input.mousePosition))
         {
-            transform.position = new Vector2(Input.mousePosition.x > xMax ? xMax : xMin, Input.mousePosition.y);
+            x = Input.mousePosition.x > xMax ? xMax : xMin;
+            y = Input.mousePosition.y;
         }
+        else
+        {
+            x = Input.mousePosition.x > xMax ? xMax : xMin;
+            y = Input.mousePosition.y > yMax ? yMax : yMin;
+        }
+        transform.position = new Vector2(x, y);
+        computeSpeedAndDirection(x, y);
+    }
+
+    private void computeSpeedAndDirection(float x, float y)
+    {
+        CurrentSpeedAndDirection = new Vector2((x / xMax) * 1f, (y / yMax) * 3f);
     }
 
     private bool isInRange(Vector3 position)
