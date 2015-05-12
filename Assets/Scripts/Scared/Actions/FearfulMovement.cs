@@ -18,6 +18,7 @@ public class FearfulMovement : CharacterMovement
     private Joystick joystickScript;
     private bool trackJoystick = false;
     private bool joystickInstructionsAlreadyPlayed = false;
+    private bool runSpeedFailure = false;
     private AudioSource runSpeedAudio;
 
     protected override void Start()
@@ -66,14 +67,13 @@ public class FearfulMovement : CharacterMovement
     private void ResetPosition()
     {
         base.EdgeSlip();
-        multiplier = -1f;
-        anim.speed = -1f;
+        runSpeedFailure = true;
         Utilities.PlayAudio(runSpeedAudio);
     }
 
     private void StartJoystickTutorial()
     {
-        adjustCamera();
+        if (!runSpeedFailure) adjustCamera();
         StartCoroutine(PlayJoystickInstructions());
     }
 
@@ -106,12 +106,14 @@ public class FearfulMovement : CharacterMovement
         }
         if (trackJoystick)
         {
+            if (joystickScript.CurrentSpeedAndDirection.y > 0) base.Run();
             multiplier = joystickScript.CurrentSpeedAndDirection.y;
         }
     }
 
     public override void ShiftIdle()
     {
+        if (runSpeedFailure) return;
         StopWalking(false);
         base.ShiftIdle();
         tutorial.EnableHelpGUI();
@@ -166,9 +168,14 @@ public class FearfulMovement : CharacterMovement
             }
             joystickInstructionsAlreadyPlayed = true;
         }
+        if (runSpeedFailure)
+        {
+            StopWalking(false);
+            runSpeedFailure = false;
+        }
         disablePanel.SetActive(false);
         trackJoystick = true;
+        multiplier = 0f;
         isWalking = true;
-        base.Run();
     }
 }
