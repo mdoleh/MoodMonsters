@@ -26,7 +26,7 @@ public class FearfulMovement : CharacterMovement
     {
         base.Start();
         otherCharacter = GameObject.Find("Scarlet");
-        joystickInstructions = GameObject.Find("ControllerCanvas").transform.FindChild("Instructions").GetComponent<AudioSource>();
+        joystickInstructions = GameObject.Find("ControllerCanvas").GetComponent<AudioSource>();
         disablePanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.GetComponentInChildren<Joystick>();
         runSpeedAudio = GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
@@ -41,7 +41,6 @@ public class FearfulMovement : CharacterMovement
     {
         if (!waitingForScarlet)
         {
-            anim.speed = 1f;
             StartJoystickTutorial();
         }
         else
@@ -53,14 +52,16 @@ public class FearfulMovement : CharacterMovement
     public override void RunJump()
     {
         trackJoystick = false;
+        joystickScript.ButtonRelease();
         disablePanel.SetActive(true);
-        if (multiplier < 3f)
+        multiplierDirection = 0f;
+        if (multiplierSpeed < 3f)
         {
             ResetPosition();
         }
         else
         {
-            multiplier = 3f;
+            multiplierSpeed = 3f;
             base.RunJump();
             tutorial.DisableHelpUI();
         }
@@ -109,7 +110,17 @@ public class FearfulMovement : CharacterMovement
         if (trackJoystick)
         {
             if (joystickScript.CurrentSpeedAndDirection.y > 0) base.Run();
-            multiplier = joystickScript.CurrentSpeedAndDirection.y;
+            multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
+            multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
+            if (transform.position.z > 167.374f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 167.374f);
+            } 
+            else if (transform.position.z < 166.987f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 166.987f);
+            }
+//            else if (transform.position.x < )
         }
     }
 
@@ -118,6 +129,7 @@ public class FearfulMovement : CharacterMovement
         if (runSpeedFailure) return;
         StopWalking(false);
         base.ShiftIdle();
+        joystickCanvas.GetComponent<Canvas>().enabled = true;
         tutorial.EnableHelpGUI();
         GUIDetect.NextGUI();
     }
@@ -126,7 +138,7 @@ public class FearfulMovement : CharacterMovement
     {
         //RevertPositionForEdgeSlip();
         anim.SetTrigger("BackAway");
-        multiplier = (float)-0.2;
+        multiplierSpeed = (float)-0.2;
         StartWalking();
     }
 
@@ -135,6 +147,7 @@ public class FearfulMovement : CharacterMovement
         resetCamera();
         runSpeedFailure = false;
         trackJoystick = false;
+        multiplierDirection = 0f;
         base.EdgeSlip();
     }
 
@@ -148,7 +161,14 @@ public class FearfulMovement : CharacterMovement
     private void adjustCamera()
     {
         cameraFollow.enabled = false;
-        joystickCanvas.GetComponent<Canvas>().enabled = true;
+        if (GUIDetect.GetGUIByName(GUIDetect.CanvasList[0]).enabled)
+        {
+            GUIDetect.NextGUI();
+        }
+        else
+        {
+            joystickCanvas.GetComponent<Canvas>().enabled = true;
+        }
         mainCamera.transform.position = new Vector3(transform.position.x - 1.5f, transform.position.y + 3.5f, transform.position.z + 0.3f);
         mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
     }
@@ -157,6 +177,7 @@ public class FearfulMovement : CharacterMovement
     {
         cameraFollow.enabled = true;
         joystickCanvas.GetComponent<Canvas>().enabled = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 167.147f);
         mainCamera.transform.position = new Vector3(cameraFollow.gameObject.transform.position.x, 6.95f, 163.25f);
         mainCamera.transform.localRotation = Quaternion.Euler(4.587073f, 1.254006f, 0.08177387f);
     }
@@ -178,7 +199,8 @@ public class FearfulMovement : CharacterMovement
         trackJoystick = true;
         tutorial.EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
-        multiplier = 0f;
+        multiplierSpeed = 0f;
+        multiplierDirection = 0f;
         isWalking = true;
     }
 }

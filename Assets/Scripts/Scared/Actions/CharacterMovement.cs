@@ -8,7 +8,8 @@ namespace ScaredScene
     {
         protected Animator anim;
         protected bool isWalking = false;
-        protected float multiplier = 1f;
+        protected float multiplierSpeed = 1f;
+        protected float multiplierDirection = 0f;
 
         protected virtual void Start()
         {
@@ -31,8 +32,9 @@ namespace ScaredScene
         {
             if (isWalking)
             {
-                float move = Time.deltaTime * multiplier;
-                transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
+                float moveSpeed = Time.deltaTime * multiplierSpeed;
+                float moveDirection = Time.deltaTime * multiplierDirection;
+                transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
             }
         }
 
@@ -40,7 +42,7 @@ namespace ScaredScene
         {
             anim.SetBool("Walking", false);
             anim.SetTrigger("Run");
-            multiplier = 3f;
+            multiplierSpeed = 3f;
         }
 
         public virtual void RunJump()
@@ -65,14 +67,14 @@ namespace ScaredScene
 
         public virtual void RunToWalk()
         {
-            multiplier = 2.5f;
+            multiplierSpeed = 2.5f;
             anim.SetBool("Run", false);
             anim.SetBool("Walking", true);
         }
 
         public virtual void Walk()
         {
-            multiplier = 1f;
+            multiplierSpeed = 1f;
         }
 
         public virtual void TurnAround()

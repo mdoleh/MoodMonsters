@@ -29,13 +29,14 @@ public class Joystick : MonoBehaviour
         if (!initialized) Initialize();
         originalPosition = transform.position;
         Timeout.StopTimers();
+        Utilities.StopAudio(Sound.CurrentPlayingSound);
         StopAllCoroutines();
     }
 
     public virtual void ButtonRelease()
     {
         transform.position = originalPosition;
-        computeSpeedAndDirection(0f, 0f);
+        resetSpeedAndDirection();
         Timeout.StartTimers();
     }
 
@@ -67,9 +68,18 @@ public class Joystick : MonoBehaviour
         computeSpeedAndDirection(x, y);
     }
 
+    private void resetSpeedAndDirection()
+    {
+        CurrentSpeedAndDirection = new Vector2(0f, 0f);
+    }
+
     private void computeSpeedAndDirection(float x, float y)
     {
-        CurrentSpeedAndDirection = new Vector2((x / xMax) * 1f, (y / yMax) * 3f);
+        var baseX = x - originalPosition.x;
+        var baseY = y - originalPosition.y;
+        var baseXMax = xMax - originalPosition.x;
+        var baseYMax = yMax - originalPosition.y;
+        CurrentSpeedAndDirection = new Vector2((baseX / baseXMax) * 1f, (baseY / baseYMax) * 3f);
     }
 
     private bool isInRange(Vector3 position)

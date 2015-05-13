@@ -5,7 +5,7 @@ using System.Linq;
 using Globals;
 
 public class GUIDetect : MonoBehaviour {
-    private static readonly IList<string> CanvasList = new List<string>
+    public static IList<string> CanvasList = new List<string>
     {
         "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
     };

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Globals;
 using ScaredScene;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class ScaredTutorial : TutorialBase
 
     protected override void HelpExplanationComplete()
     {
+        GUIDetect.CanvasList = new List<string>
+        {
+            "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
+        };
+
         scarlet.GetComponent<CharacterMovement>().StartSequence();
         aj.GetComponent<CharacterMovement>().StartSequence();
     }
