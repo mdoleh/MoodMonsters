@@ -12,6 +12,7 @@ public class FearfulMovement : CharacterMovement
     public CameraFollow cameraFollow;
     public GameObject joystickCanvas;
     public TutorialBase tutorial;
+    public GameObject[] joystickAnimations;
     private bool waitingForScarlet = true;
     private GameObject otherCharacter;
     private AudioSource joystickInstructions;
@@ -186,8 +187,14 @@ public class FearfulMovement : CharacterMovement
     {
         if (!joystickInstructionsAlreadyPlayed)
         {
-            Utilities.PlayAudio(joystickInstructions);
-            yield return new WaitForSeconds(joystickInstructions.clip.length);
+            foreach (var joystickAnimation in joystickAnimations)
+            {
+                joystickAnimation.SetActive(true);
+                var audio = joystickAnimation.GetComponent<AudioSource>();
+                Utilities.PlayAudio(audio);
+                yield return new WaitForSeconds(audio.clip.length);
+                joystickAnimation.SetActive(false);
+            }
             joystickInstructionsAlreadyPlayed = true;
         }
         if (runSpeedFailure)
