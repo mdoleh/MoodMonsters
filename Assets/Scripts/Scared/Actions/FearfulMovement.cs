@@ -40,8 +40,10 @@ public class FearfulMovement : CharacterMovement
 
     public override void Run()
     {
+        if (trackJoystick) return;
         if (!waitingForScarlet)
         {
+            if (anim.GetBool("WalkBackwards")) StopWalking(false);
             StartJoystickTutorial();
         }
         else
@@ -86,6 +88,7 @@ public class FearfulMovement : CharacterMovement
         if (waitForScarlet) resetCamera();
         anim.SetTrigger("Idle");
         anim.SetBool("Walking", false);
+        anim.SetBool("WalkBackwards", false);
         isWalking = false;
         waitingForScarlet = waitForScarlet;
     }
@@ -121,8 +124,19 @@ public class FearfulMovement : CharacterMovement
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, 166.987f);
             }
-//            else if (transform.position.x < )
+            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.5f)
+            {
+                transform.position = new Vector3(mainCamera.transform.position.x + 1.5f, transform.position.y, transform.position.z);
+            }
         }
+    }
+
+    public void WalkBackwards()
+    {
+        multiplierSpeed = -1f;
+        multiplierDirection = 0f;
+        anim.SetBool("WalkBackwards", true);
+        isWalking = true;
     }
 
     public override void ShiftIdle()

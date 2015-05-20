@@ -34,7 +34,7 @@ namespace ScaredScene
             {
                 float moveSpeed = Time.deltaTime * multiplierSpeed;
                 float moveDirection = Time.deltaTime * multiplierDirection;
-                transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
+                transform.position = new Vector3(transform.position.x + moveSpeed, 5.479576f, transform.position.z - moveDirection);
             }
         }
 

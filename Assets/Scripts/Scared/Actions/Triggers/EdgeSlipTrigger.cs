@@ -1,14 +1,20 @@
-﻿using UnityEngine;
-using System.Collections;
-using ScaredScene;
+﻿using ScaredScene;
+using UnityEngine;
 
-public class EdgeSlipTrigger : MonoBehaviour {
+public class EdgeSlipTrigger : MonoBehaviour
+{
+    private bool toggle = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.ToLower().Contains("scarlet"))
+        if (!toggle)
+        {
             other.gameObject.GetComponent<CharacterMovement>().RunJump();
+        }
         else
+        {
             other.gameObject.GetComponent<CharacterMovement>().EdgeSlip();
+        }
+        toggle = !toggle;
     }
 }
