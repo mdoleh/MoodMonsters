@@ -180,7 +180,7 @@ ModelImporter:
       lastFrame: 74
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: .600000024
       cycleOffset: 0
       loop: 0
       loopTime: 0
@@ -380,7 +380,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     human: []
     skeleton: []
@@ -391,8 +391,9 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+    rootMotionBoneName: Hips
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d9d645105ef8a8845b3ee7dd43f579a4,
+    type: 3}
   animationType: 2
   additionalBone: 0
   userData: 

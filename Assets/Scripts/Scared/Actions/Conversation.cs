@@ -20,6 +20,7 @@ public class Conversation : MonoBehaviour
 
     public void StartJumpSequence()
     {
+        anim.SetTrigger("Idle");
         other.gameObject.GetComponent<ExplainFear>().StartJumpSequence();
     }
 }

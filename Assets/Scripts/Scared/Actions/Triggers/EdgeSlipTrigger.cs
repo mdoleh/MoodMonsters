@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class EdgeSlipTrigger : MonoBehaviour
 {
-    private bool toggle = false;
+    private bool shouldJump = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (!toggle)
+        if (!shouldJump && other.gameObject.GetComponent<FearfulMovement>() != null)
         {
-            other.gameObject.GetComponent<CharacterMovement>().RunJump();
+            other.gameObject.GetComponent<CharacterMovement>().EdgeSlip();
+            shouldJump = true;
         }
         else
         {
-            other.gameObject.GetComponent<CharacterMovement>().EdgeSlip();
+            other.gameObject.GetComponent<CharacterMovement>().RunJump();
         }
-        toggle = !toggle;
     }
 }
