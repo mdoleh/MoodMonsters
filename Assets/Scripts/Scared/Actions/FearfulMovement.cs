@@ -19,7 +19,7 @@ public class FearfulMovement : CharacterMovement
     private GameObject disablePanel;
     private Joystick joystickScript;
     private bool trackJoystick = false;
-    private bool joystickInstructionsAlreadyPlayed = false;
+    private bool joystickInstructionsAlreadyPlayed = true;
     private bool runSpeedFailure = false;
     private AudioSource runSpeedAudio;
 

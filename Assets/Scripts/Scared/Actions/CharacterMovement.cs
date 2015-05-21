@@ -16,6 +16,35 @@ namespace ScaredScene
             anim = GetComponent<Animator>();
         }
 
+        public void StepForward()
+        {
+            multiplierDirection = 1f;
+            multiplierSpeed = 0f;
+            StartWalking();
+        }
+
+        public virtual void TurnRight()
+        {
+            anim.SetTrigger("TurnRight");
+        }
+
+        public void JumpDown()
+        {
+            multiplierDirection = 0f;
+            isWalking = false;
+
+            anim.SetBool("Walking", false);
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            anim.SetTrigger("JumpDown");
+        }
+
+        public void FreezeMovement()
+        {
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            anim.SetTrigger("Idle");
+        }
+
         public virtual void StartSequence()
         {
             anim.SetBool("IsIdle", false);

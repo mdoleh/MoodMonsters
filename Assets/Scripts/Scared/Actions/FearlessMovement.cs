@@ -12,6 +12,12 @@ public class FearlessMovement : CharacterMovement
         otherCharacter = GameObject.Find("Aj");
     }
 
+    public override void TurnRight()
+    {
+        otherCharacter.GetComponent<CharacterMovement>().JumpToRun();
+        base.TurnRight();
+    }
+
     public override void StartWalking()
     {
         base.StartWalking();
@@ -28,5 +34,17 @@ public class FearlessMovement : CharacterMovement
     {
         base.Run();
         otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (isWalking)
+        {
+            if (transform.position.z < 166.6f)
+            {
+                JumpDown();
+            }
+        }
     }
 }
