@@ -124,9 +124,9 @@ public class FearfulMovement : CharacterMovement
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, 166.987f);
             }
-            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.5f)
+            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.0f)
             {
-                transform.position = new Vector3(mainCamera.transform.position.x + 1.5f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(mainCamera.transform.position.x + 1.0f, transform.position.y, transform.position.z);
             }
         }
     }
@@ -184,7 +184,7 @@ public class FearfulMovement : CharacterMovement
         {
             joystickCanvas.GetComponent<Canvas>().enabled = true;
         }
-        mainCamera.transform.position = new Vector3(transform.position.x - 1.5f, transform.position.y + 3.5f, transform.position.z + 0.3f);
+        mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
         mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
     }
 
