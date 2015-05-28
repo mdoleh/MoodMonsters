@@ -16,6 +16,7 @@ public class Conversation : MonoBehaviour
     public void StartTalking()
     {
         anim.SetTrigger("Talking");
+        Utilities.PlayAudio(GetComponent<AudioSource>());
     }
 
     public void StartJumpSequence()

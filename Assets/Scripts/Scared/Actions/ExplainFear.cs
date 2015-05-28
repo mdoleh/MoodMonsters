@@ -16,12 +16,13 @@ namespace ScaredScene
         private void StartTalking()
         {
             anim.SetTrigger("Talking");
+            Utilities.PlayAudio(GetComponent<AudioSource>());
         }
 
         public void StartListening()
         {
             anim.SetTrigger("Idle");
-            otherAnim.SetTrigger("Listening");
+            otherAnim.GetComponent<Conversation>().StartTalking();
         }
 
         public void StartJumpSequence()
