@@ -12,7 +12,6 @@ public class SceneReset : MonoBehaviour {
     private AudioSource source;
     string sceneToLoad;
 
-
     void Awake() {
         if (noSymbol != null) noSymbolAnimator = noSymbol.GetComponent<Animator>();
         if (correctSymbol != null) correctSymbolAnimator = correctSymbol.GetComponent<Animator>();
