@@ -7,10 +7,16 @@ namespace ScaredScene
     {
         public Animator otherAnim;
         private Animator anim;
+        private AudioSource correctAudio;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            correctAudio =
+                GameObject.Find("ActionsCanvas")
+                    .transform.FindChild("Express")
+                    .FindChild("Text")
+                    .GetComponent<AudioSource>();
         }
 
         private void StartTalking()
@@ -33,6 +39,15 @@ namespace ScaredScene
         public override void StartAction()
         {
             base.StartAction();
+            ShowCorrect(true);
+            StartCoroutine(Explain());
+        }
+
+        private IEnumerator Explain()
+        {
+            Utilities.PlayAudio(correctAudio);
+            yield return new WaitForSeconds(correctAudio.clip.length);
+            ShowCorrect(false);
             StartTalking();
         }
     }

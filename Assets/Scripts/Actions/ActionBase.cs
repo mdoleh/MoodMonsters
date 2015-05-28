@@ -34,4 +34,24 @@ public class ActionBase : MonoBehaviour
     {
         Timeout.StopTimers();
     }
+
+    protected void TriggerCorrect()
+    {
+        sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame());
+    }
+
+    protected void TriggerIncorrect()
+    {
+        sceneReset.TriggerSceneReset(audioSource);
+    }
+
+    protected void ShowCorrect(bool show)
+    {
+        sceneReset.ShowCorrectSymbol(show);
+    }
+
+    protected void ShowIncorrect(bool show)
+    {
+        sceneReset.ShowIncorrectSymbol(show);
+    }
 }

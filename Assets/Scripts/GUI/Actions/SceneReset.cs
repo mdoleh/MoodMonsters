@@ -21,17 +21,31 @@ public class SceneReset : MonoBehaviour {
     public void TriggerSceneReset(AudioSource audioSource)
     {
         playAudio(audioSource);
-        noSymbol.enabled = true;
-        noSymbolAnimator.SetTrigger("ShowCanvas");
+        ShowIncorrectSymbol(true);
         sceneToLoad = sceneToLoadIncorrect;
     }
 
     public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect)
     {
         playAudio(audioSource);
-        correctSymbol.enabled = true;
-        correctSymbolAnimator.SetTrigger("ShowCanvas");
+        ShowCorrectSymbol(true);
         sceneToLoad = sceneToLoadCorrect;
+    }
+
+    public void ShowCorrectSymbol(bool show)
+    {
+        showSymbol(correctSymbol, correctSymbolAnimator, show);
+    }
+
+    public void ShowIncorrectSymbol(bool show)
+    {
+        showSymbol(noSymbol, noSymbolAnimator, show);
+    }
+
+    private void showSymbol(Canvas symbol, Animator animator, bool show)
+    {
+        symbol.enabled = show;
+        if (show) animator.SetTrigger("ShowCanvas");
     }
 
     private void playAudio(AudioSource audioSource)

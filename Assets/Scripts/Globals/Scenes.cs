@@ -5,6 +5,7 @@ namespace Globals
 {
     public static class Scenes
     {
+        public static int CurrentMiniGameIndex = 0;
         public static string NextSceneToLoad;
         public static string SceneForTesting = "AngrySceneSmallCity";
 
@@ -17,8 +18,8 @@ namespace Globals
 
         public static string GetNextMiniGame()
         {
-            var gameToLoad = MiniGames[0];
-            MiniGames.Remove(gameToLoad);
+            if (MiniGames.Count <= CurrentMiniGameIndex) return string.Empty;
+            var gameToLoad = MiniGames[CurrentMiniGameIndex++];
             return gameToLoad;
         }
 
