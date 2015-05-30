@@ -38,6 +38,7 @@ namespace AngryScene
         private IEnumerator TriggerSitting()
         {
             yield return new WaitForSeconds(2.5f);
+            Timeout.StopTimers();
             StartSitting();
         }
 
