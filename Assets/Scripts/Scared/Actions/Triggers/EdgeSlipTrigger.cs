@@ -6,7 +6,7 @@ using UnityEngine;
 public class EdgeSlipTrigger : MonoBehaviour
 {
     public bool AlwaysStumble = false;
-    private bool shouldJump = false;
+    public bool shouldJump = false;
 
     void OnTriggerEnter(Collider other)
     {

@@ -2,10 +2,19 @@
 using System.Collections;
 using ScaredScene;
 
-public class TurnAroundTrigger : MonoBehaviour {
+public class TurnAroundTrigger : MonoBehaviour
+{
+    public bool shouldTurnAround = true;
 
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<CharacterMovement>().TurnAround();
+        if (shouldTurnAround)
+        {
+            other.gameObject.GetComponent<CharacterMovement>().TurnAround();
+        }
+        else
+        {
+            shouldTurnAround = true;
+        }
     }
 }

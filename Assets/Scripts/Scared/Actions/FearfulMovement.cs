@@ -11,15 +11,14 @@ public class FearfulMovement : CharacterMovement
     public Camera mainCamera;
     public CameraFollow cameraFollow;
     public GameObject joystickCanvas;
-    public TutorialBase tutorial;
     public GameObject[] joystickAnimations;
-    private bool waitingForScarlet = true;
+    protected bool waitingForScarlet = true;
     private GameObject otherCharacter;
     private AudioSource joystickInstructions;
     private GameObject disablePanel;
     private Joystick joystickScript;
     private bool trackJoystick = false;
-    private bool joystickInstructionsAlreadyPlayed = false;
+    protected bool joystickInstructionsAlreadyPlayed = false;
     private bool runSpeedFailure = false;
     private AudioSource runSpeedAudio;
 
@@ -79,7 +78,7 @@ public class FearfulMovement : CharacterMovement
         {
             multiplierSpeed = 3f;
             base.RunJump();
-            tutorial.DisableHelpUI();
+            DisableHelpUI();
         }
     }
 
@@ -177,7 +176,7 @@ public class FearfulMovement : CharacterMovement
         StopWalking(false);
         base.ShiftIdle();
         joystickCanvas.GetComponent<Canvas>().enabled = true;
-        tutorial.EnableHelpGUI();
+        EnableHelpUI();
         GUIDetect.NextGUI();
     }
 
@@ -209,7 +208,7 @@ public class FearfulMovement : CharacterMovement
         gameObject.GetComponent<ExplainFear>().GoToMiniGame();
     }
 
-    private void adjustCamera()
+    protected virtual void adjustCamera()
     {
         cameraFollow.enabled = false;
         if (GUIDetect.GetGUIByName(GUIDetect.CanvasList[0]).enabled)
@@ -238,7 +237,7 @@ public class FearfulMovement : CharacterMovement
         handleRunSpeedFailure();
         disablePanel.SetActive(false);
         trackJoystick = true;
-        tutorial.EnableHelpGUI();
+        EnableHelpUI();
         Timeout.SetRepeatAudio(joystickInstructions);
         multiplierSpeed = 0f;
         multiplierDirection = 0f;
@@ -269,5 +268,15 @@ public class FearfulMovement : CharacterMovement
             joystickInstructionsAlreadyPlayed = true;
         }
         enableJoystick();
+    }
+
+    private void EnableHelpUI()
+    {
+        disablePanel.SetActive(false);
+    }
+
+    public void DisableHelpUI()
+    {
+        disablePanel.SetActive(true);
     }
 }
