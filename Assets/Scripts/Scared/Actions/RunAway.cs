@@ -35,7 +35,7 @@ namespace ScaredScene
         private IEnumerator ResetScene()
         {
             yield return new WaitForSeconds(1.5f);
-            sceneReset.TriggerSceneReset(audioSource, true);
+            sceneReset.TriggerSceneReset(actionExplanation, true);
             gameObject.SetActive(false);
         }
     }

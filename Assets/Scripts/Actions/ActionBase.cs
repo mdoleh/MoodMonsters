@@ -9,7 +9,7 @@ public class ActionBase : MonoBehaviour
     protected bool isCorrect = false;
     protected float timer = 0.0f;
     public SceneReset sceneReset;
-    public AudioSource audioSource;
+    public AudioSource actionExplanation;
     bool sceneResetting = false;
 
     protected virtual void Update()
@@ -22,9 +22,9 @@ public class ActionBase : MonoBehaviour
         if (eventTrigger && timer > 5.0f && !sceneResetting)
         {
             if (isCorrect) {
-                sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame(), true);
+                sceneReset.TriggerCorrect(actionExplanation, Scenes.GetNextMiniGame(), true);
             } else {
-                sceneReset.TriggerSceneReset(audioSource, true);
+                sceneReset.TriggerSceneReset(actionExplanation, true);
             }
             sceneResetting = true;
         }
@@ -37,12 +37,12 @@ public class ActionBase : MonoBehaviour
 
     protected void TriggerCorrect()
     {
-        sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame(), true);
+        sceneReset.TriggerCorrect(actionExplanation, Scenes.GetNextMiniGame(), true);
     }
 
     protected void TriggerIncorrect()
     {
-        sceneReset.TriggerSceneReset(audioSource, true);
+        sceneReset.TriggerSceneReset(actionExplanation, true);
     }
 
     protected void ShowCorrect(bool show)

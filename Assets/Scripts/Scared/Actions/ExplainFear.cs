@@ -41,8 +41,8 @@ namespace ScaredScene
 
         private IEnumerator Explain()
         {
-            Utilities.PlayAudio(audioSource);
-            yield return new WaitForSeconds(audioSource.clip.length);
+            Utilities.PlayAudio(actionExplanation);
+            yield return new WaitForSeconds(actionExplanation.clip.length);
             ShowCorrect(false);
             VoiceFear();
         }
