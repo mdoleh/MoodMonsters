@@ -20,9 +20,6 @@ public class TutorialBase : MonoBehaviour
     protected Color originalColor;
 
     protected bool initialAudioPlayed = false;
-    protected bool explainingHelpButton = false;
-    protected bool explainingQuitButton = false;
-    protected bool explainingRepeatButton = false;
 
     protected virtual void Start()
     {
@@ -54,15 +51,15 @@ public class TutorialBase : MonoBehaviour
 
     private IEnumerator ExplainHelpButtons()
     {
-        ExplainButton(helpCanvas, "Help", ref explainingHelpButton, ref helpAudio);
+        ExplainButton(helpCanvas, "Help", ref helpAudio);
         yield return new WaitForSeconds(helpAudio.clip.length);
 
         ResetHighlight(helpCanvas.transform.Find("Help"));
-        ExplainButton(helpCanvas, "Quit", ref explainingQuitButton, ref quitAudio);
+        ExplainButton(helpCanvas, "Quit", ref quitAudio);
         yield return new WaitForSeconds(quitAudio.clip.length);
 
         ResetHighlight(helpCanvas.transform.Find("Quit"));
-        ExplainButton(helpCanvas, "Repeat", ref explainingRepeatButton, ref repeatAudio);
+        ExplainButton(helpCanvas, "Repeat", ref repeatAudio);
         yield return new WaitForSeconds(repeatAudio.clip.length);
         ResetHighlight(helpCanvas.transform.Find("Repeat"));
 
@@ -73,17 +70,17 @@ public class TutorialBase : MonoBehaviour
     {
     }
 
-    protected void ExplainButton(GameObject helpCanvas, string name, ref bool explaining, ref AudioSource audio)
+    protected void ExplainButton(GameObject helpCanvas, string name, ref AudioSource audio)
     {
         var buttonParent = helpCanvas.transform.Find(name).gameObject;
+        var button = buttonParent.transform.Find(buttonParent.name + "Button");
         audio = buttonParent.GetComponent<AudioSource>();
         Utilities.PlayAudio(audio);
 
-        originalColor = buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color;
-        buttonParent.transform.Find(buttonParent.name + "Button").GetComponent<Image>().color = Color.yellow;
+        originalColor = button.GetComponent<Image>().color;
+        button.GetComponent<Animator>().SetTrigger("Grow");
+        button.GetComponent<Image>().color = Color.yellow;
         buttonParent.transform.Find("BackgroundGlow").GetComponent<Image>().enabled = true;
-
-        explaining = true;
     }
 
     public void EnableHelpGUI()
@@ -110,6 +107,7 @@ public class TutorialBase : MonoBehaviour
 
     protected void ResetHighlight(Transform button)
     {
+        button.transform.Find(button.name + "Button").gameObject.GetComponent<Animator>().SetTrigger("Normal");
         button.Find(button.gameObject.name + "Button").GetComponent<Image>().color = originalColor;
         button.Find("BackgroundGlow").GetComponent<Image>().enabled = false;
     }
