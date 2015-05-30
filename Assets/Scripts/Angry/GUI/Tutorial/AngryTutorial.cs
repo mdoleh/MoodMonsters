@@ -16,6 +16,7 @@ public class AngryTutorial : TutorialBase
 
     protected override void HelpExplanationComplete()
     {
+        base.HelpExplanationComplete();
         StartCoroutine(HelpLilyPlayAudio());
     }
 

@@ -68,6 +68,7 @@ public class TutorialBase : MonoBehaviour
 
     protected virtual void HelpExplanationComplete()
     {
+        Tutorials.MainTutorialHasRun = true;
     }
 
     protected void ExplainButton(GameObject helpCanvas, string name, ref AudioSource audio)
@@ -85,7 +86,6 @@ public class TutorialBase : MonoBehaviour
 
     public void EnableHelpGUI()
     {
-        Tutorials.MainTutorialHasRun = true;
         disablePanel.SetActive(false);
     }
 

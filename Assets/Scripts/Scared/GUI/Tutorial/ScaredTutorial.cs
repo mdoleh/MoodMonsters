@@ -12,6 +12,7 @@ public class ScaredTutorial : TutorialBase
 
     protected override void HelpExplanationComplete()
     {
+        base.HelpExplanationComplete();
         GUIDetect.CanvasList = new List<string>
         {
             "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
