@@ -22,9 +22,9 @@ public class ActionBase : MonoBehaviour
         if (eventTrigger && timer > 5.0f && !sceneResetting)
         {
             if (isCorrect) {
-                sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame());
+                sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame(), true);
             } else {
-                sceneReset.TriggerSceneReset(audioSource);
+                sceneReset.TriggerSceneReset(audioSource, true);
             }
             sceneResetting = true;
         }
@@ -37,12 +37,12 @@ public class ActionBase : MonoBehaviour
 
     protected void TriggerCorrect()
     {
-        sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame());
+        sceneReset.TriggerCorrect(audioSource, Scenes.GetNextMiniGame(), true);
     }
 
     protected void TriggerIncorrect()
     {
-        sceneReset.TriggerSceneReset(audioSource);
+        sceneReset.TriggerSceneReset(audioSource, true);
     }
 
     protected void ShowCorrect(bool show)

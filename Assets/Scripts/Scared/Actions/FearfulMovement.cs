@@ -52,6 +52,18 @@ public class FearfulMovement : CharacterMovement
         }
     }
 
+    public override void StartWalking()
+    {
+        if (anim.GetBool("TurnRight")) return;
+        base.StartWalking();
+    }
+
+    public override void StepForward()
+    {
+        anim.SetBool("TurnRight", false);
+        base.StepForward();
+    }
+
     public override void RunJump()
     {
         trackJoystick = false;
@@ -104,6 +116,12 @@ public class FearfulMovement : CharacterMovement
         // do nothing
     }
 
+    public override void TurnRight()
+    {
+        cameraFollow.enabled = false;
+        anim.SetBool("TurnRight", true);
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -151,9 +169,8 @@ public class FearfulMovement : CharacterMovement
 
     public void BackAway()
     {
-        //RevertPositionForEdgeSlip();
         anim.SetTrigger("BackAway");
-        multiplierSpeed = (float)-0.2;
+        multiplierSpeed = -0.2f;
         StartWalking();
     }
 
@@ -164,13 +181,6 @@ public class FearfulMovement : CharacterMovement
         trackJoystick = false;
         multiplierDirection = 0f;
         base.EdgeSlip();
-    }
-
-    private void RevertPositionForEdgeSlip()
-    {
-        var center = GetComponent<BoxCollider>().center;
-        GetComponent<BoxCollider>().center = new Vector3(center.x, 0.9f, center.z);
-        transform.position = new Vector3(transform.position.x, 5.48f, transform.position.z);
     }
 
     private void adjustCamera()

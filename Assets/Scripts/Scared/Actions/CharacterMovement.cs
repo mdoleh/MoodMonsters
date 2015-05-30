@@ -16,7 +16,7 @@ namespace ScaredScene
             anim = GetComponent<Animator>();
         }
 
-        public void StepForward()
+        public virtual void StepForward()
         {
             multiplierDirection = 1f;
             multiplierSpeed = 0f;
@@ -122,15 +122,7 @@ namespace ScaredScene
         {
             anim.SetBool("Run", false);
             anim.SetTrigger("Stumble");
-            //AdjustPositionForEdgeSlip();
             isWalking = false;
-        }
-
-        private void AdjustPositionForEdgeSlip()
-        {
-            var center = GetComponent<BoxCollider>().center;
-            GetComponent<BoxCollider>().center = new Vector3(center.x, 1.5f, center.z);
-            transform.position = new Vector3(transform.position.x, 4.87f, transform.position.z);
         }
     }
 }

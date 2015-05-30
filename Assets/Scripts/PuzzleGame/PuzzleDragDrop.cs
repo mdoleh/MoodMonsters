@@ -100,7 +100,7 @@ namespace PuzzleMiniGame
                 GrowPieces();
                 yield return new WaitForSeconds(1.0f);
                 var parent = transform.parent;
-                parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete);
+                parent.GetComponent<CreatePuzzlePieces>().sceneReset.TriggerCorrect(parent.GetComponent<AudioSource>(), parent.GetComponent<CreatePuzzlePieces>().sceneToLoadOnComplete, true);
             }
         }
 

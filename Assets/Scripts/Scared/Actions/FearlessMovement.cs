@@ -14,8 +14,14 @@ public class FearlessMovement : CharacterMovement
 
     public override void TurnRight()
     {
-        otherCharacter.GetComponent<CharacterMovement>().JumpToRun();
+        StartCoroutine(DelayTurnRight());
         base.TurnRight();
+    }
+
+    private IEnumerator DelayTurnRight()
+    {
+        yield return new WaitForSeconds(0.5f);
+        otherCharacter.GetComponent<CharacterMovement>().TurnRight();
     }
 
     public override void StartWalking()
@@ -34,17 +40,5 @@ public class FearlessMovement : CharacterMovement
     {
         base.Run();
         otherCharacter.GetComponent<CharacterMovement>().StartWalking();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (isWalking)
-        {
-            if (transform.position.z < 166.6f)
-            {
-                JumpDown();
-            }
-        }
     }
 }

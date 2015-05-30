@@ -9,26 +9,20 @@ public class SceneReset : MonoBehaviour {
     bool startedPlaying = false;
     Animator noSymbolAnimator;
     Animator correctSymbolAnimator;
-    private AudioSource source;
-    string sceneToLoad;
 
     void Awake() {
         if (noSymbol != null) noSymbolAnimator = noSymbol.GetComponent<Animator>();
         if (correctSymbol != null) correctSymbolAnimator = correctSymbol.GetComponent<Animator>();
     }
 
-    public void TriggerSceneReset(AudioSource audioSource)
+    public void TriggerSceneReset(AudioSource audioSource, bool showSymbol)
     {
-        playAudio(audioSource);
-        ShowIncorrectSymbol(true);
-        sceneToLoad = sceneToLoadIncorrect;
+        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadIncorrect, showSymbol));
     }
 
-    public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect)
+    public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect, bool showSymbol)
     {
-        playAudio(audioSource);
-        ShowCorrectSymbol(true);
-        sceneToLoad = sceneToLoadCorrect;
+        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadCorrect, showSymbol));
     }
 
     public void ShowCorrectSymbol(bool show)
@@ -47,18 +41,12 @@ public class SceneReset : MonoBehaviour {
         if (show) animator.SetTrigger("ShowCanvas");
     }
 
-    private void playAudio(AudioSource audioSource)
+    private IEnumerator DelayLoadingScene(AudioSource audioSource, string sceneToLoad, bool showSymbol)
     {
-        source = audioSource;
         Utilities.PlayAudio(audioSource);
-        startedPlaying = true;
-    }
-
-    void Update() {
-        if (startedPlaying && source != null && !source.isPlaying)
-        {
-            Timeout.StopTimers();
-            Utilities.LoadScene(sceneToLoad);
-        }
+        ShowCorrectSymbol(showSymbol);
+        if (audioSource != null) yield return new WaitForSeconds(audioSource.clip.length);
+        Timeout.StopTimers();
+        Utilities.LoadScene(sceneToLoad);
     }
 }

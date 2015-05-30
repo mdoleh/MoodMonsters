@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace ScaredScene
 {
@@ -49,6 +50,11 @@ namespace ScaredScene
             yield return new WaitForSeconds(correctAudio.clip.length);
             ShowCorrect(false);
             StartTalking();
+        }
+
+        public void GoToMiniGame()
+        {
+            sceneReset.TriggerCorrect(null, Scenes.GetNextMiniGame(), false);
         }
     }
 }
