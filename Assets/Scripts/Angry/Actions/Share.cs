@@ -20,6 +20,8 @@ namespace AngryScene
         public void StartTalking()
         {
             anim.SetTrigger("IsExpressing");
+            var maybeShare = transform.FindChild("Dialogue").FindChild("Share").GetComponent<AudioSource>();
+            Utilities.PlayAudio(maybeShare);
             sharingTriggered = true;
         }
 
@@ -27,6 +29,8 @@ namespace AngryScene
         {
             if (!sharingTriggered) return;
             otherAnim.SetTrigger("IsListening");
+            var okay = otherAnim.transform.FindChild("Dialogue").FindChild("Okay").GetComponent<AudioSource>();
+            Utilities.PlayAudio(okay);
             StartCoroutine(DelayMoveIpad());
             StartCoroutine(TriggerSitting());
         }

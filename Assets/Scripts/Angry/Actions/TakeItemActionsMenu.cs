@@ -4,39 +4,24 @@ using Globals;
 
 namespace AngryScene
 {
-    public class TakeItemActionsMenu : MonoBehaviour
+    public class TakeItemActionsMenu : TakeItem
     {
-
         public GameObject GUI;
-        Animator anim;
         bool GUIon = false;
-        public Animator other;
-        float timer = 0.0f;
-
-        public void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
 
         void Start()
         {
             Timeout.StopTimers();
             Timeout.SetRepeatAudio(GUI.GetComponent<AudioSource>());
+            StartCoroutine(StartUsingIPad());
         }
 
-        void Update()
+        public IEnumerator StartUsingIPad()
         {
-            timer += Time.deltaTime;
-            if (timer > 2.0f) // simulate dialogue
-            {
-                StartUsingIPad();
-                if (anim.GetBool("IsUsingIPad")) StartGUI();
-            }
-        }
-
-        public void StartUsingIPad() {
+            yield return new WaitForSeconds(2f);
             anim.SetBool("IsUsingIPad", true);
             other.SetTrigger("IsAngry");
+            if (anim.GetBool("IsUsingIPad")) StartGUI();
         }
 
         void StartGUI()
@@ -49,8 +34,7 @@ namespace AngryScene
         }
 
         // these are only here so the animation events don't complain
-        public void MoveIpad() {}
-        public void TiltIpadUp() {}
-        public void ShiftToLeftHand() {}
+        public override void MoveIpad() {}
+        public override void ShiftToLeftHand() { }
     }
 }

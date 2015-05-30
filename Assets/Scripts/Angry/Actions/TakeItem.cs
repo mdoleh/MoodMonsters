@@ -6,27 +6,29 @@ namespace AngryScene
 {
     public class TakeItem : MonoBehaviour
     {
+        private GameObject dialogue;
         private GameObject ipadCamera;
         private GameObject miniGame;
-        private Animator anim;
+        protected Animator anim;
         public Animator other;
 
         public void Awake()
         {
+            dialogue = transform.FindChild("Dialogue").gameObject;
             ipadCamera = GameObject.Find("iPadCamera");
             miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
         }
 
-        public void Start()
-        {
-            StartCoroutine(DelayAnimation());
-        }
-
-        private IEnumerator DelayAnimation()
+        public IEnumerator StartTalking()
         {
             yield return new WaitForSeconds(1f);
             anim.SetTrigger("IsTalking");
+            var letMePlay = dialogue.transform.FindChild("LetMePlay").GetComponent<AudioSource>();
+            Utilities.PlayAudio(letMePlay);
+            yield return new WaitForSeconds(letMePlay.clip.length + 2f);
+            var comeOn = dialogue.transform.FindChild("ComeOn").GetComponent<AudioSource>();
+            Utilities.PlayAudio(comeOn);
         }
 
         public void TakeIPad()
@@ -51,7 +53,7 @@ namespace AngryScene
             other.SetTrigger("IsAngry");
         }
 
-        public void MoveIpad()
+        public virtual void MoveIpad()
         {
             var ipad = GameObject.Find("iPad");
             var hand = GameObject.Find("Boy:RightHand");
@@ -60,7 +62,7 @@ namespace AngryScene
             ipad.transform.localRotation = Quaternion.Euler(0.5527962f, 278.4825f, 301.6339f);
         }
 
-        public void ShiftToLeftHand()
+        public virtual void ShiftToLeftHand()
         {
             var ipad = GameObject.Find("iPad");
             var hand = GameObject.Find("Boy:LeftHand");

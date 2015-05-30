@@ -63,6 +63,7 @@ namespace AngryScene
             anim.SetBool("IsWalking", false);
             anim.SetTrigger("IsIdle");
             tutorial.EnableHelpGUI();
+            StartCoroutine(GetComponent<TakeItem>().StartTalking());
         }
     }
 }
