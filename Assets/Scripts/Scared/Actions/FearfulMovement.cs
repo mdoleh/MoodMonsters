@@ -92,7 +92,7 @@ public class FearfulMovement : CharacterMovement
     private void StartJoystickTutorial()
     {
         if (!runSpeedFailure) adjustCamera();
-        StartCoroutine(PlayJoystickInstructions());
+        StartCoroutine(playJoystickInstructions());
     }
 
     private void StopWalking(bool waitForScarlet)
@@ -129,19 +129,26 @@ public class FearfulMovement : CharacterMovement
         {
             StopWalking(true);
         }
+        trackJoystickMovement();
+    }
+
+    private void trackJoystickMovement()
+    {
         if (trackJoystick)
         {
             if (joystickScript.CurrentSpeedAndDirection.y > 0) base.Run();
             multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
             multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
+            // limit character's position laterally (z-direction)
             if (transform.position.z > 167.374f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, 167.374f);
-            } 
+            }
             else if (transform.position.z < 166.987f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, 166.987f);
             }
+            // limit character's position so it can't move behind the camera
             if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.0f)
             {
                 transform.position = new Vector3(mainCamera.transform.position.x + 1.0f, transform.position.y, transform.position.z);
@@ -207,7 +214,28 @@ public class FearfulMovement : CharacterMovement
         mainCamera.transform.localRotation = Quaternion.Euler(4.587073f, 1.254006f, 0.08177387f);
     }
 
-    private IEnumerator PlayJoystickInstructions()
+    private void enableJoystick()
+    {
+        handleRunSpeedFailure();
+        disablePanel.SetActive(false);
+        trackJoystick = true;
+        tutorial.EnableHelpGUI();
+        Timeout.SetRepeatAudio(joystickInstructions);
+        multiplierSpeed = 0f;
+        multiplierDirection = 0f;
+        isWalking = true;
+    }
+
+    private void handleRunSpeedFailure()
+    {
+        if (runSpeedFailure)
+        {
+            StopWalking(false);
+            runSpeedFailure = false;
+        }
+    }
+
+    private IEnumerator playJoystickInstructions()
     {
         if (!joystickInstructionsAlreadyPlayed)
         {
@@ -221,17 +249,6 @@ public class FearfulMovement : CharacterMovement
             }
             joystickInstructionsAlreadyPlayed = true;
         }
-        if (runSpeedFailure)
-        {
-            StopWalking(false);
-            runSpeedFailure = false;
-        }
-        disablePanel.SetActive(false);
-        trackJoystick = true;
-        tutorial.EnableHelpGUI();
-        Timeout.SetRepeatAudio(joystickInstructions);
-        multiplierSpeed = 0f;
-        multiplierDirection = 0f;
-        isWalking = true;
+        enableJoystick();
     }
 }
