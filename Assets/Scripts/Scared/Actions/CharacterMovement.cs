@@ -28,7 +28,7 @@ namespace ScaredScene
             anim.SetTrigger("TurnRight");
         }
 
-        public void JumpDown()
+        public virtual void JumpDown()
         {
             multiplierDirection = 0f;
             isWalking = false;

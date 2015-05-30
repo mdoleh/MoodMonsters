@@ -20,13 +20,13 @@ namespace ScaredScene
                     .GetComponent<AudioSource>();
         }
 
-        private void StartTalking()
+        private void VoiceFear()
         {
             anim.SetTrigger("Talking");
             Utilities.PlayAudio(GetComponent<AudioSource>());
         }
 
-        public void StartListening()
+        public void GetComfort()
         {
             anim.SetTrigger("Idle");
             otherAnim.GetComponent<Conversation>().StartTalking();
@@ -49,7 +49,7 @@ namespace ScaredScene
             Utilities.PlayAudio(correctAudio);
             yield return new WaitForSeconds(correctAudio.clip.length);
             ShowCorrect(false);
-            StartTalking();
+            VoiceFear();
         }
 
         public void GoToMiniGame()

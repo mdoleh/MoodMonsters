@@ -197,7 +197,7 @@ ModelImporter:
       curves: []
       events:
       - time: .920086205
-        functionName: StartListening
+        functionName: GetComfort
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

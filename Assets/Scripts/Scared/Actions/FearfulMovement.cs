@@ -190,6 +190,18 @@ public class FearfulMovement : CharacterMovement
         base.EdgeSlip();
     }
 
+    public override void JumpDown()
+    {
+        base.JumpDown();
+        StartCoroutine(loadMiniGame());
+    }
+
+    private IEnumerator loadMiniGame()
+    {
+        yield return new WaitForSeconds(3f);
+        gameObject.GetComponent<ExplainFear>().GoToMiniGame();
+    }
+
     private void adjustCamera()
     {
         cameraFollow.enabled = false;
