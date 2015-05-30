@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
-    public class TakeItBack : ActoutAction
+    public class TakeItBack : ActionBase
     {
         public Animator other;
         Animator anim;

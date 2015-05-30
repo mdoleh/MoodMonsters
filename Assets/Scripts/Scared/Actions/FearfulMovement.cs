@@ -40,6 +40,7 @@ public class FearfulMovement : CharacterMovement
 
     public override void Run()
     {
+        if (anim.GetBool("RunAway")) return;
         if (trackJoystick) return;
         if (!waitingForScarlet)
         {
@@ -120,6 +121,12 @@ public class FearfulMovement : CharacterMovement
     {
         cameraFollow.enabled = false;
         anim.SetBool("TurnRight", true);
+    }
+
+    public void RunReverse()
+    {
+        multiplierSpeed = -3f;
+        StartWalking();
     }
 
     protected override void Update()

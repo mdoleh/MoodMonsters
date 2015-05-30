@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
-    public class Share : ExpressAction
+    public class Share : ActionBase
     {
         public Animator otherAnim;
         Animator anim;

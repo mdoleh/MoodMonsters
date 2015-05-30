@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using Globals;
 
@@ -17,12 +18,12 @@ public class SceneReset : MonoBehaviour {
 
     public void TriggerSceneReset(AudioSource audioSource, bool showSymbol)
     {
-        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadIncorrect, showSymbol));
+        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadIncorrect, () => { ShowIncorrectSymbol(showSymbol);}));
     }
 
     public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect, bool showSymbol)
     {
-        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadCorrect, showSymbol));
+        StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadCorrect, () => { ShowCorrectSymbol(showSymbol); }));
     }
 
     public void ShowCorrectSymbol(bool show)
@@ -41,10 +42,10 @@ public class SceneReset : MonoBehaviour {
         if (show) animator.SetTrigger("ShowCanvas");
     }
 
-    private IEnumerator DelayLoadingScene(AudioSource audioSource, string sceneToLoad, bool showSymbol)
+    private IEnumerator DelayLoadingScene(AudioSource audioSource, string sceneToLoad, Action displaySymbol)
     {
         Utilities.PlayAudio(audioSource);
-        ShowCorrectSymbol(showSymbol);
+        displaySymbol();
         if (audioSource != null) yield return new WaitForSeconds(audioSource.clip.length);
         Timeout.StopTimers();
         Utilities.LoadScene(sceneToLoad);

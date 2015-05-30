@@ -4,26 +4,21 @@ using Globals;
 
 namespace ScaredScene
 {
-    public class ExplainFear : ExpressAction
+    public class ExplainFear : ActionBase
     {
         public Animator otherAnim;
+        public AudioSource scaredDialogue;
         private Animator anim;
-        private AudioSource correctAudio;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
-            correctAudio =
-                GameObject.Find("ActionsCanvas")
-                    .transform.FindChild("Express")
-                    .FindChild("Text")
-                    .GetComponent<AudioSource>();
         }
 
         private void VoiceFear()
         {
             anim.SetTrigger("Talking");
-            Utilities.PlayAudio(GetComponent<AudioSource>());
+            Utilities.PlayAudio(scaredDialogue);
         }
 
         public void GetComfort()
@@ -46,8 +41,8 @@ namespace ScaredScene
 
         private IEnumerator Explain()
         {
-            Utilities.PlayAudio(correctAudio);
-            yield return new WaitForSeconds(correctAudio.clip.length);
+            Utilities.PlayAudio(audioSource);
+            yield return new WaitForSeconds(audioSource.clip.length);
             ShowCorrect(false);
             VoiceFear();
         }

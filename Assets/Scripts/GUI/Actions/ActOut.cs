@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActOut : ButtonDragDrop
 {
-    public ActoutAction actOutAction;
+    public ActionBase actOutAction;
 
     public override void ButtonDown()
     {

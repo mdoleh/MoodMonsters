@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Hide : ButtonDragDrop
 {
-    public HideAction hideAction;
+    public ActionBase hideAction;
 
     public override void ButtonDown()
     {

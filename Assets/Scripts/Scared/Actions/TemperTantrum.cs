@@ -3,19 +3,14 @@ using System.Collections;
 
 namespace ScaredScene
 {
-    public class TemperTantrum : ActoutAction
+    public class TemperTantrum : ActionBase
     {
+        public AudioSource tantrumDialogue;
+        private Animator anim;
 
-        // Use this for initialization
-        private void Start()
+        private void Awake()
         {
-
-        }
-
-        // Update is called once per frame
-        private void Update()
-        {
-
+            anim = GetComponent<Animator>();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Express : ButtonDragDrop
 {
-    public ExpressAction expressAction;
+    public ActionBase expressAction;
 
     public override void ButtonDown()
     {
