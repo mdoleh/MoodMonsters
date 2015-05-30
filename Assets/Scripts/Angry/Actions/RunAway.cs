@@ -15,8 +15,7 @@ namespace AngryScene
             anim = GetComponent<Animator>();
         }
 
-        protected override void Update() {
-            base.Update();
+        protected void Update() {
             if (run)
             {
                 float move = Time.deltaTime * 1.5f;
@@ -37,6 +36,8 @@ namespace AngryScene
             yield return new WaitForSeconds(1.5f);
             transform.Rotate(new Vector3(0, 8f, 0));
             run = true;
+            yield return new WaitForSeconds(4f);
+            sceneReset.TriggerSceneReset(actionExplanation, true);
         }
 
         public override void StartAction()

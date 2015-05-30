@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace AngryScene
 {
@@ -27,7 +28,13 @@ namespace AngryScene
             if (!sharingTriggered) return;
             otherAnim.SetTrigger("IsListening");
             StartCoroutine(DelayMoveIpad());
-            listening = true;
+            StartCoroutine(TriggerSitting());
+        }
+
+        private IEnumerator TriggerSitting()
+        {
+            yield return new WaitForSeconds(2.5f);
+            StartSitting();
         }
 
         private IEnumerator DelayMoveIpad()
@@ -56,24 +63,17 @@ namespace AngryScene
         {
             anim.SetBool("IsWalking", true);
             otherAnim.SetTrigger("IsSharing");
-            isCorrect = true;
-            startTimer = true;
-            eventTrigger = true;
+            StartCoroutine(LoadMiniGame());
         }
 
-        // Update is called once per frame
-        protected override void Update()
+        private IEnumerator LoadMiniGame()
         {
-            base.Update();
-            if (listening)
-            {
-                timer += Time.deltaTime;
-                if (timer >= 2.5f)
-                {
-                    StartSitting();
-                    listening = false;
-                }
-            }
+            yield return new WaitForSeconds(4f);
+            sceneReset.TriggerCorrect(actionExplanation, Scenes.GetNextMiniGame(), true);
+        }
+
+        protected void Update()
+        {
             if (anim.GetBool("IsWalking"))
             {
                 float move = Time.deltaTime * 0.5f;

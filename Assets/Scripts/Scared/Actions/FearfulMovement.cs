@@ -15,7 +15,8 @@ public class FearfulMovement : CharacterMovement
     protected bool waitingForScarlet = true;
     private GameObject otherCharacter;
     private AudioSource joystickInstructions;
-    private GameObject disablePanel;
+    private GameObject disableJoystickPanel;
+    private GameObject disableHelpPanel;
     private Joystick joystickScript;
     private bool trackJoystick = false;
     protected bool joystickInstructionsAlreadyPlayed = false;
@@ -27,7 +28,8 @@ public class FearfulMovement : CharacterMovement
         base.Start();
         otherCharacter = GameObject.Find("Scarlet");
         joystickInstructions = GameObject.Find("ControllerCanvas").GetComponent<AudioSource>();
-        disablePanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
+        disableJoystickPanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
+        disableHelpPanel = GameObject.Find("HelpCanvas").transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.GetComponentInChildren<Joystick>();
         runSpeedAudio = GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
     }
@@ -68,7 +70,7 @@ public class FearfulMovement : CharacterMovement
     {
         trackJoystick = false;
         joystickScript.ButtonRelease();
-        disablePanel.SetActive(true);
+        disableJoystickPanel.SetActive(true);
         multiplierDirection = 0f;
         if (multiplierSpeed < 3f)
         {
@@ -235,7 +237,7 @@ public class FearfulMovement : CharacterMovement
     private void enableJoystick()
     {
         handleRunSpeedFailure();
-        disablePanel.SetActive(false);
+        disableJoystickPanel.SetActive(false);
         trackJoystick = true;
         EnableHelpUI();
         Timeout.SetRepeatAudio(joystickInstructions);
@@ -270,13 +272,13 @@ public class FearfulMovement : CharacterMovement
         enableJoystick();
     }
 
-    private void EnableHelpUI()
+    protected void EnableHelpUI()
     {
-        disablePanel.SetActive(false);
+        disableHelpPanel.SetActive(false);
     }
 
-    public void DisableHelpUI()
+    protected void DisableHelpUI()
     {
-        disablePanel.SetActive(true);
+        disableHelpPanel.SetActive(true);
     }
 }

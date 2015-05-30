@@ -22,5 +22,6 @@ public class FearfulMovementActionsMenu : FearfulMovement
         var actionsCanvas = GameObject.Find("ActionsCanvas");
         actionsCanvas.GetComponent<Canvas>().enabled = true;
         Utilities.PlayAudio(actionsCanvas.GetComponent<AudioSource>());
+        EnableHelpUI();
     }
 }

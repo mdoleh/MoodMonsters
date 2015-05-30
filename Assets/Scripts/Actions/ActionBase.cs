@@ -12,24 +12,6 @@ public class ActionBase : MonoBehaviour
     public AudioSource actionExplanation;
     bool sceneResetting = false;
 
-    protected virtual void Update()
-    {
-        if (startTimer)
-        {
-            timer += Time.deltaTime;
-        }
-
-        if (eventTrigger && timer > 5.0f && !sceneResetting)
-        {
-            if (isCorrect) {
-                sceneReset.TriggerCorrect(actionExplanation, Scenes.GetNextMiniGame(), true);
-            } else {
-                sceneReset.TriggerSceneReset(actionExplanation, true);
-            }
-            sceneResetting = true;
-        }
-    }
-
     public virtual void StartAction()
     {
         Timeout.StopTimers();

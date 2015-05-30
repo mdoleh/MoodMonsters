@@ -19,6 +19,13 @@ namespace AngryScene
             takingTriggered = true;
             anim.SetTrigger("IsActingOut");
             other.SetTrigger("IsLosingIPad");
+            StartCoroutine(ResetScene());
+        }
+
+        private IEnumerator ResetScene()
+        {
+            yield return new WaitForSeconds(4f);
+            sceneReset.TriggerSceneReset(actionExplanation, true);
         }
 
         public void MoveIpad()
