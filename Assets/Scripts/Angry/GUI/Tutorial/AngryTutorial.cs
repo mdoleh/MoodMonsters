@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using AngryScene;
 using Globals;
 using UnityEngine;
@@ -17,6 +18,10 @@ public class AngryTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
+        GUIDetect.CanvasList = new List<string>
+        {
+            "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
+        };
         StartCoroutine(HelpLilyPlayAudio());
     }
 
