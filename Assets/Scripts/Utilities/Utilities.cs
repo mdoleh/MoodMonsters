@@ -6,11 +6,11 @@ using Globals;
 
 public class Utilities : MonoBehaviour {
 
-    public static void PlayAudio(AudioSource audioSource)
+    public static void PlayAudio(AudioSource audioSource, bool stopCurrentAudio = true)
     {
         if (audioSource != null)
         {
-            StopAudio(Sound.CurrentPlayingSound);
+            if (stopCurrentAudio) StopAudio(Sound.CurrentPlayingSound);
             Sound.CurrentPlayingSound = audioSource;
             audioSource.Play();
         }
@@ -39,7 +39,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadScene(string sceneToLoad)
     {
-        if (sceneToLoad.ToLower().Contains("minigame"))
+        if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);

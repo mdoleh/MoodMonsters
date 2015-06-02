@@ -29,6 +29,7 @@ namespace AngryScene
             yield return new WaitForSeconds(letMePlay.clip.length + 2f);
             var comeOn = dialogue.transform.FindChild("ComeOn").GetComponent<AudioSource>();
             Utilities.PlayAudio(comeOn);
+            yield return new WaitForSeconds(comeOn.clip.length);
         }
 
         public void TakeIPad()
@@ -75,6 +76,7 @@ namespace AngryScene
         {
             Timeout.StartTimers();
             GUIDetect.NextGUI();
+            GetComponent<WalkForward>().tutorial.EnableHelpGUI();
             enabled = false;
         }
     }

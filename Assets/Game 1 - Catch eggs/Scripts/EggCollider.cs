@@ -40,6 +40,14 @@ public class EggCollider : MonoBehaviour {
 
     private void AdjustScore(Transform egg)
     {
+        // should only be false on the Angry Scene
+        // want the other sounds to play over this one
+        if (!myPlayerScript.shouldKeepScore)
+        {
+            Utilities.PlayAudio(goodSound, false);
+            return;
+        }
+
         var emotion = egg.parent.gameObject.name.Replace(PREFAB_NAME_BASE, "");
         emotion = emotion.Replace("(Clone)", "");
         if (lastSceneCompleted.Contains(emotion))
@@ -53,8 +61,5 @@ public class EggCollider : MonoBehaviour {
             Utilities.PlayAudio(badSound);
         }
         if (myPlayerScript.theScore < 0) myPlayerScript.theScore = 0;
-        // should only be false on the Angry Scene
-        // want the other sounds to play over this one
-        if (!myPlayerScript.shouldKeepScore) goodSound.Play();
     }
 }

@@ -89,7 +89,7 @@ public class TutorialBase : MonoBehaviour
         disablePanel.SetActive(false);
     }
 
-    public void DisableHelpUI()
+    public void DisableHelpGUI()
     {
         disablePanel.SetActive(true);
     }

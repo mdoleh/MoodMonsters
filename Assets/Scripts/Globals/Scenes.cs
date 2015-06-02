@@ -20,6 +20,7 @@ namespace Globals
         {
             if (MiniGames.Count <= CurrentMiniGameIndex) return string.Empty;
             var gameToLoad = MiniGames[CurrentMiniGameIndex++];
+            if (CurrentMiniGameIndex == MiniGames.Count) CurrentMiniGameIndex = 0;
             return gameToLoad;
         }
 

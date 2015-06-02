@@ -12,6 +12,7 @@ namespace AngryScene
 
         public void StartWalking()
         {
+            tutorial.DisableHelpGUI();
             shouldStartWalking = true;
             Utilities.PlayAudio(GetComponent<AudioSource>());
         }
@@ -62,7 +63,6 @@ namespace AngryScene
             shouldStartWalking = false;
             anim.SetBool("IsWalking", false);
             anim.SetTrigger("IsIdle");
-            tutorial.EnableHelpGUI();
             StartCoroutine(GetComponent<TakeItem>().StartTalking());
         }
     }
