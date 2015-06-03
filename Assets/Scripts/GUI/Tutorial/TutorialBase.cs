@@ -79,6 +79,7 @@ public class TutorialBase : MonoBehaviour
         Utilities.PlayAudio(audio);
 
         originalColor = button.GetComponent<Image>().color;
+        button.GetComponent<Animator>().ResetTrigger("Normal");
         button.GetComponent<Animator>().SetTrigger("Grow");
         button.GetComponent<Image>().color = Color.yellow;
         buttonParent.transform.Find("BackgroundGlow").GetComponent<Image>().enabled = true;
