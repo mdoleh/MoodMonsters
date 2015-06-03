@@ -78,7 +78,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Update () {
         //These two lines are all there is to the actual movement..
-        float moveInput = Input.GetAxis("Horizontal") * Time.deltaTime * 0.1f;
+        float moveInput = Input.GetAxis("Mouse X") * Time.deltaTime * 0.1f;
 	    if (shouldKeepScore)
 	    {
 	        if (moveInput == lastInput) Timeout.StartTimers();
