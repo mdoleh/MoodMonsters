@@ -48,6 +48,7 @@ namespace PuzzleMiniGame
             GameObject.Find("DisablePanel").SetActive(false);
             gameObject.SetActive(false);
             Timeout.StartTimers();
+            Tutorials.PuzzleTutorialHasRun = true;
         }
 
         private void Update()

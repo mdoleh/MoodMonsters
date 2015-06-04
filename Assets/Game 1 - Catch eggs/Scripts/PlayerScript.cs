@@ -36,11 +36,15 @@ public class PlayerScript : MonoBehaviour {
             Utilities.PlayAudio(avoidInstructions);
             yield return new WaitForSeconds(avoidInstructions.clip.length);
 
-            var controlInstructions = GetControlInstructions();
-            ShowDraggingAnimation();
-            Utilities.PlayAudio(controlInstructions);
-            yield return new WaitForSeconds(controlInstructions.clip.length);
-            HideDraggingAnimation();
+            if (!Tutorials.BucketTutorialHasRun)
+            {
+                var controlInstructions = GetControlInstructions();
+                ShowDraggingAnimation();
+                Utilities.PlayAudio(controlInstructions);
+                yield return new WaitForSeconds(controlInstructions.clip.length);
+                HideDraggingAnimation();
+                Tutorials.BucketTutorialHasRun = true;
+            }
         }
 
         shouldDropEggs = true;
