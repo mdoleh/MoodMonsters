@@ -11,7 +11,7 @@ public class EggScript : MonoBehaviour
     //Update is called by Unity every frame
 	void Update ()
 	{
-        float fallSpeed = 2 * Time.deltaTime;
+        float fallSpeed = 1.5f * Time.deltaTime;
         transform.position -= new Vector3(0, fallSpeed, 0);
 
         if (transform.position.y < -1 || transform.position.y >= 20)
