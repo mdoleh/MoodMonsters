@@ -149,7 +149,7 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 199
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -90
       level: 0
       cycleOffset: 0
       loop: 0
@@ -361,7 +361,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .250474364
+        functionName: ShiftIdle
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -534,7 +541,7 @@ ModelImporter:
       firstFrame: 145
       lastFrame: 199
       wrapMode: 0
-      orientationOffsetY: 90
+      orientationOffsetY: -90
       level: 0
       cycleOffset: 0
       loop: 0
@@ -727,7 +734,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 1
+  copyAvatar: 0
   humanDescription:
     human: []
     skeleton: []
@@ -738,7 +745,7 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: Bip01
+    rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ac73f2569f3b52645aa2343d32504260,
     type: 3}
   animationType: 2

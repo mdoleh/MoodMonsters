@@ -35,10 +35,10 @@ namespace ScaredScene
             anim.SetTrigger("TurnAround");
             anim.SetTrigger("Clap");
 
-            StartCoroutine(ResetClap());
+            StartCoroutine(ResetTriggers());
         }
 
-        private IEnumerator ResetClap()
+        private IEnumerator ResetTriggers()
         {
             yield return new WaitForSeconds(0.5f);
             anim.ResetTrigger("Clap");

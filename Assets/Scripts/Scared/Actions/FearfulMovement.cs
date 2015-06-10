@@ -54,12 +54,6 @@ public class FearfulMovement : CharacterMovement
         }
     }
 
-    public override void StartWalking()
-    {
-        if (anim.GetBool("TurnRight")) return;
-        base.StartWalking();
-    }
-
     public override void StepForward()
     {
         anim.SetBool("TurnRight", false);

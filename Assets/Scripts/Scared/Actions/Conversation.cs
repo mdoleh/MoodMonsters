@@ -22,12 +22,14 @@ public class Conversation : MonoBehaviour
 
     public void GiveComfort()
     {
+        anim.SetBool("IsIdle", false);
         anim.SetTrigger("Talking");
         Utilities.PlayAudio(comfortDialogue);
     }
 
     public void GiveAccolade()
     {
+        anim.SetBool("IsIdle", false);
         if (accoladeTriggered) return;
         accoladeTriggered = true;
         Utilities.PlayAudio(successDialogue);
@@ -44,13 +46,13 @@ public class Conversation : MonoBehaviour
 
     public void AfraidToFall()
     {
-        anim.SetTrigger("Idle");
+        anim.SetBool("IsIdle", true);
         other.gameObject.GetComponent<ExplainFear>().AfraidToFall();
     }
 
     public void StartJumpSequence()
     {
-        anim.SetTrigger("Idle");
+        anim.SetBool("IsIdle", true);
         other.gameObject.GetComponent<ExplainFear>().StartJumpSequence();
     }
 }
