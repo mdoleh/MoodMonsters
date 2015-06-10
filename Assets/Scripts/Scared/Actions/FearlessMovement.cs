@@ -12,17 +12,17 @@ public class FearlessMovement : CharacterMovement
         otherCharacter = GameObject.Find("Aj");
     }
 
-    public override void TurnRight()
-    {
-        StartCoroutine(DelayTurnRight());
-        base.TurnRight();
-    }
+//    public override void TurnRight()
+//    {
+//        StartCoroutine(DelayTurnRight());
+//        base.TurnRight();
+//    }
 
-    private IEnumerator DelayTurnRight()
-    {
-        yield return new WaitForSeconds(0.5f);
-        otherCharacter.GetComponent<CharacterMovement>().TurnRight();
-    }
+//    private IEnumerator DelayTurnRight()
+//    {
+//        yield return new WaitForSeconds(0.5f);
+//        otherCharacter.GetComponent<CharacterMovement>().TurnRight();
+//    }
 
     public override void StartWalking()
     {

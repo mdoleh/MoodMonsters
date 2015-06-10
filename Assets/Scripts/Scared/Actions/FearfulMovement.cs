@@ -118,12 +118,6 @@ public class FearfulMovement : CharacterMovement
         // do nothing
     }
 
-    public override void TurnRight()
-    {
-        cameraFollow.enabled = false;
-        anim.SetBool("TurnRight", true);
-    }
-
     public void RunReverse()
     {
         multiplierSpeed = -3f;
@@ -196,18 +190,6 @@ public class FearfulMovement : CharacterMovement
         trackJoystick = false;
         multiplierDirection = 0f;
         base.EdgeSlip();
-    }
-
-    public override void JumpDown()
-    {
-        base.JumpDown();
-        StartCoroutine(loadMiniGame());
-    }
-
-    private IEnumerator loadMiniGame()
-    {
-        yield return new WaitForSeconds(3f);
-        gameObject.GetComponent<ExplainFear>().GoToMiniGame();
     }
 
     protected virtual void adjustCamera()

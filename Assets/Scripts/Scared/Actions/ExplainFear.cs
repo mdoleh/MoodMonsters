@@ -8,6 +8,7 @@ namespace ScaredScene
     {
         public Animator otherAnim;
         public AudioSource scaredDialogue;
+        public AudioSource afraidToFallDialogue;
         private Animator anim;
 
         private void Awake()
@@ -21,15 +22,27 @@ namespace ScaredScene
             Utilities.PlayAudio(scaredDialogue);
         }
 
-        public void GetComfort()
+        public void GetEncouragement()
         {
             anim.SetTrigger("Idle");
-            otherAnim.GetComponent<Conversation>().StartTalking();
+            otherAnim.GetComponent<Conversation>().GiveEncouragement();
         }
 
         public void StartJumpSequence()
         {
             gameObject.GetComponent<FearfulMovement>().WalkBackwards();
+        }
+
+        public void AfraidToFall()
+        {
+            anim.SetTrigger("ScaredToFall");
+            Utilities.PlayAudio(afraidToFallDialogue);
+        }
+
+        public void GetComfort()
+        {
+            anim.SetTrigger("Idle");
+            otherAnim.GetComponent<Conversation>().GiveComfort();
         }
 
         public override void StartAction()

@@ -23,22 +23,6 @@ namespace ScaredScene
             StartWalking();
         }
 
-        public virtual void TurnRight()
-        {
-            anim.SetTrigger("TurnRight");
-        }
-
-        public virtual void JumpDown()
-        {
-            multiplierDirection = 0f;
-            isWalking = false;
-
-            anim.SetBool("Walking", false);
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            anim.SetTrigger("JumpDown");
-        }
-
         public void FreezeMovement()
         {
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -49,6 +33,15 @@ namespace ScaredScene
         {
             anim.SetBool("IsIdle", false);
             anim.SetTrigger("TurnAround");
+            anim.SetTrigger("Clap");
+
+            StartCoroutine(ResetClap());
+        }
+
+        private IEnumerator ResetClap()
+        {
+            yield return new WaitForSeconds(0.5f);
+            anim.ResetTrigger("Clap");
         }
 
         public virtual void StartWalking()

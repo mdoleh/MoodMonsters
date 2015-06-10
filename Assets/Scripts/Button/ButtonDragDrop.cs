@@ -63,6 +63,7 @@ public class ButtonDragDrop : MonoBehaviour {
     }
 
     public virtual void SubmitAnswer() {
+        StopAllCoroutines();
         correctCount += 1;
         if (correctCount == CORRECT_AMOUNT)
         {
