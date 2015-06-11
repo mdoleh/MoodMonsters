@@ -25,7 +25,7 @@ public class WebCamPhotoCamera : MonoBehaviour
         photo.SetPixels(webCamTexture.GetPixels());
         photo.Apply();
 
-        takenRawImage.texture = photo;
-        takenPhotoTexture2D.TakenPicture = photo;
+        if (takenRawImage != null) takenRawImage.texture = photo;
+        if (takenPhotoTexture2D != null) takenPhotoTexture2D.TakenPicture = photo;
     }
 }
