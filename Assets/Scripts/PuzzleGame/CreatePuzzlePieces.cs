@@ -9,7 +9,7 @@ namespace PuzzleMiniGame
 {
     public class CreatePuzzlePieces : MonoBehaviour
     {
-        public Texture2D photo;
+        public TakenImage image;
         public GameObject piecePrefab;
         public SceneReset sceneReset;
         public string sceneToLoadOnComplete;
@@ -18,6 +18,7 @@ namespace PuzzleMiniGame
         public List<GameObject> GeneratePuzzlePieces(List<GameObject> gridPanels, int dimensions, string panelBase,
             int width, int height)
         {
+            var photo = image.TakenPicture;
             TextureScale.Bilinear(photo, width*dimensions, height*dimensions);
             photo.Apply();
 
@@ -32,7 +33,7 @@ namespace PuzzleMiniGame
                 {
                     piece = (GameObject) Instantiate(piecePrefab);
                     piece.transform.SetParent(transform);
-                    imageData = photo.GetPixels(x*width, y*height, width, height);
+                    imageData = photo.GetPixels(x * width, y * height, width, height);
                     var texture = new Texture2D(width, height);
                     texture.SetPixels(imageData);
                     texture.Apply();
