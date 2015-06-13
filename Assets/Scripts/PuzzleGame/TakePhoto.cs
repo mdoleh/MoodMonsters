@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using Globals;
-using UnityEditor;
+using UnityEngine;
 
 public class TakePhoto : MonoBehaviour
 {
