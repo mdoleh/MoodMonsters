@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Globals;
@@ -10,6 +11,7 @@ namespace PuzzleMiniGame
         public GameObject gridPrefab;
         public CreatePuzzlePieces puzzlePieceGenerator;
         public RectTransform puzzlePieceParent;
+        public GameObject disablePanel;
         public const string PANEL_BASE = "GridPanel";
         public int DIMENSIONS;
 
@@ -18,11 +20,13 @@ namespace PuzzleMiniGame
         private float MAX_WIDTH;
         private float MAX_HEIGHT;
 
-        private void Start()
+        public void StartGeneratingGrid()
         {
+            disablePanel.SetActive(true);
+
             // the game is only allowed in landscape mode so height < width always
-            MAX_WIDTH = puzzlePieceParent.rect.height;
-            MAX_HEIGHT = puzzlePieceParent.rect.height;
+            MAX_WIDTH = Math.Abs(puzzlePieceParent.rect.height);
+            MAX_HEIGHT = Math.Abs(puzzlePieceParent.rect.height);
             X_LOWER_BOUND = puzzlePieceParent.rect.xMin;
             Y_LOWER_BOUND = puzzlePieceParent.rect.yMin;
 
