@@ -1,11 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WebCamPhotoCamera : MonoBehaviour
 {
-    WebCamTexture webCamTexture;
-    public RawImage takenRawImage;
+    private WebCamTexture webCamTexture;
+    private IList<WebCamDevice> webCamDevices;
     public TakenImage takenPhotoTexture2D;
     public AudioSource pictureCountDownAudio;
     public AudioSource cameraShutterAudio;
@@ -13,8 +15,8 @@ public class WebCamPhotoCamera : MonoBehaviour
 
     void Start()
     {
-        webCamTexture = new WebCamTexture();
-        webCamTexture.Play();
+        webCamDevices = WebCamTexture.devices;
+        TurnOnCamera();
     }
 
     void Update()
@@ -28,7 +30,19 @@ public class WebCamPhotoCamera : MonoBehaviour
     public void TurnOnCamera()
     {
         webCamTexture = new WebCamTexture();
+        var lastDevice = WebCamTexture.devices[WebCamTexture.devices.Length - 1].name;
+        webCamTexture.deviceName = lastDevice;
         webCamTexture.Play();
+    }
+
+    public void CycleToNextDevice()
+    {
+        var currentIndex = webCamDevices.IndexOf(webCamDevices.First(x => x.name.Equals(webCamTexture.deviceName)));
+        if (currentIndex == webCamDevices.Count)
+        {
+            currentIndex = 0;
+        }
+        webCamTexture.deviceName = webCamDevices[currentIndex].name;
     }
 
     public void TurnOffCamera()
@@ -53,7 +67,6 @@ public class WebCamPhotoCamera : MonoBehaviour
         photo.SetPixels(webCamTexture.GetPixels());
         photo.Apply();
 
-        if (takenRawImage != null) takenRawImage.texture = photo;
         if (takenPhotoTexture2D != null) takenPhotoTexture2D.TakenPicture = photo;
         cameraActions.RunPostPictureActions();
     }
