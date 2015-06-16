@@ -16,11 +16,12 @@ public class BeginInstructions : MonoBehaviour
 
 	void Start ()
 	{
+        StartCoroutine(faceInstructions());
 	    if (Tutorials.CameraTutorialHasRun) return;
-        StartCoroutine(playInstructions());
+        StartCoroutine(positionInstructions());
 	}
 
-    private IEnumerator playInstructions()
+    private IEnumerator faceInstructions()
     {
         var makeFaceInstruction =
             emotionInstructions.First(
@@ -28,7 +29,10 @@ public class BeginInstructions : MonoBehaviour
 
         Utilities.PlayAudio(makeFaceInstruction);
         yield return new WaitForSeconds(makeFaceInstruction.clip.length);
+    }
 
+    private IEnumerator positionInstructions()
+    {
         Utilities.PlayAudio(getFaceIntoOvalAudio);
         yield return new WaitForSeconds(getFaceIntoOvalAudio.clip.length);
 
