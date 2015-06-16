@@ -16,6 +16,7 @@ public class BeginInstructions : MonoBehaviour
 
 	void Start ()
 	{
+        Timeout.StopTimers();
         StartCoroutine(faceInstructions());
 	    if (Tutorials.CameraTutorialHasRun) return;
         StartCoroutine(positionInstructions());
@@ -48,5 +49,7 @@ public class BeginInstructions : MonoBehaviour
 
         disablePanel.SetActive(false);
         Tutorials.CameraTutorialHasRun = true;
+        Timeout.SetRepeatAudio(rightButtonAudio);
+        Timeout.StartTimers();
     }
 }

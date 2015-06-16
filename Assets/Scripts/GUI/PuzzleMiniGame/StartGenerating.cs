@@ -1,4 +1,5 @@
-﻿using PuzzleMiniGame;
+﻿using Globals;
+using PuzzleMiniGame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,7 @@ public class StartGenerating : CameraActions
 
     public override void RunPrePictureActions()
     {
+        Timeout.StopTimers();
         GetComponent<Button>().interactable = false;
     }
 }
