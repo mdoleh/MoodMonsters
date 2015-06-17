@@ -37,6 +37,12 @@ public class Utilities : MonoBehaviour {
         if (audioSource != null && audioSource.isPlaying) audioSource.Stop();
     }
 
+    public static void LoadScene(AsyncOperation asyncLoad, string sceneToLoad)
+    {
+        asyncLoad.allowSceneActivation = true;
+        Scenes.NextSceneToLoad = sceneToLoad;
+    }
+
     public static void LoadScene(string sceneToLoad)
     {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))

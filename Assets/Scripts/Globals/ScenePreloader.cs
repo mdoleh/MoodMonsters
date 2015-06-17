@@ -4,9 +4,12 @@ namespace Globals
 {
     public class ScenePreloader : MonoBehaviour
     {
-        void Start ()
+        public static AsyncOperation CityLoad;
+
+        private void Start ()
 	    {
-	        Application.LoadLevelAsync(Scenes.NextSceneToLoad);
+            CityLoad = Application.LoadLevelAsync("SmallCity");
+            CityLoad.allowSceneActivation = false;
 	    }
     }
 }
