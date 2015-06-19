@@ -13,11 +13,5 @@ public class EggScript : MonoBehaviour
 	{
         float fallSpeed = 1.5f * Time.deltaTime;
         transform.position -= new Vector3(0, fallSpeed, 0);
-
-        if (transform.position.y < -1 || transform.position.y >= 20)
-        {
-            //Destroy this gameobject (and all attached components)
-            Destroy(transform.parent.gameObject);
-        }
 	}
 }

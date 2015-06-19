@@ -18,8 +18,6 @@ public class BeginInstructions : MonoBehaviour
 	{
         Timeout.StopTimers();
         StartCoroutine(faceInstructions());
-	    if (Tutorials.CameraTutorialHasRun) return;
-        StartCoroutine(positionInstructions());
 	}
 
     private IEnumerator faceInstructions()
@@ -30,23 +28,26 @@ public class BeginInstructions : MonoBehaviour
 
         Utilities.PlayAudio(makeFaceInstruction);
         yield return new WaitForSeconds(makeFaceInstruction.clip.length);
+        StartCoroutine(positionInstructions());
     }
 
     private IEnumerator positionInstructions()
     {
-        Utilities.PlayAudio(getFaceIntoOvalAudio);
-        yield return new WaitForSeconds(getFaceIntoOvalAudio.clip.length);
+        if (!Tutorials.CameraTutorialHasRun)
+        {
+            Utilities.PlayAudio(getFaceIntoOvalAudio);
+            yield return new WaitForSeconds(getFaceIntoOvalAudio.clip.length);
 
-        Utilities.PlayAudio(rightButtonAudio);
-        rightButtonArrow.SetActive(true);
-        yield return new WaitForSeconds(rightButtonAudio.clip.length);
-        rightButtonArrow.SetActive(false);
+            Utilities.PlayAudio(rightButtonAudio);
+            rightButtonArrow.SetActive(true);
+            yield return new WaitForSeconds(rightButtonAudio.clip.length);
+            rightButtonArrow.SetActive(false);
 
-        leftButtonArrow.SetActive(true);
-        Utilities.PlayAudio(leftButtonAudio);
-        yield return new WaitForSeconds(leftButtonAudio.clip.length);
-        leftButtonArrow.SetActive(false);
-
+            leftButtonArrow.SetActive(true);
+            Utilities.PlayAudio(leftButtonAudio);
+            yield return new WaitForSeconds(leftButtonAudio.clip.length);
+            leftButtonArrow.SetActive(false);
+        }
         disablePanel.SetActive(false);
         Tutorials.CameraTutorialHasRun = true;
         Timeout.SetRepeatAudio(rightButtonAudio);
