@@ -43,17 +43,11 @@ public class ButtonDragDrop : MonoBehaviour {
         Utilities.PlayAudio(buttonAudio);
         Timeout.StopTimers();
         StopAllCoroutines();
-        StartCoroutine(DelayStartTimers());
-    }
-
-    private IEnumerator DelayStartTimers()
-    {
-        yield return new WaitForSeconds(buttonAudio.clip.length);
-        Timeout.StartTimers();
     }
 
     public virtual void ButtonRelease()
     {
+        Timeout.StartTimers();
         if (RectsOverlap(dropContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
             dropContainer.image.color = oldColor;

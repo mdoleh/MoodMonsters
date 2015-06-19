@@ -40,6 +40,7 @@ public class Utilities : MonoBehaviour {
     public static void LoadScene(AsyncOperation asyncLoad, string sceneToLoad)
     {
         asyncLoad.allowSceneActivation = true;
+        if (ScenePreloader.City != null) ScenePreloader.City.SetActive(true);
         Scenes.NextSceneToLoad = sceneToLoad;
     }
 
@@ -47,7 +48,8 @@ public class Utilities : MonoBehaviour {
     {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
-            var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
+            ScenePreloader.City.SetActive(false);
+            var sceneName = Scenes.NextSceneToLoad.Replace("ActionsMenu", "");
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);

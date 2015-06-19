@@ -69,6 +69,8 @@ public class TutorialBase : MonoBehaviour
     protected virtual void HelpExplanationComplete()
     {
         Tutorials.MainTutorialHasRun = true;
+        Timeout.StopTimers();
+        Timeout.SetRepeatAudio(null);
     }
 
     protected void ExplainButton(GameObject helpCanvas, string name, ref AudioSource audio)

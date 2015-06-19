@@ -74,7 +74,6 @@ namespace AngryScene
 
         void StartGUI()
         {
-            Timeout.StartTimers();
             GUIDetect.NextGUI();
             GetComponent<WalkForward>().tutorial.EnableHelpGUI();
             enabled = false;
