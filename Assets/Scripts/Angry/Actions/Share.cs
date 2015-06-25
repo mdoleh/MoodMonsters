@@ -39,7 +39,7 @@ namespace AngryScene
         {
             yield return new WaitForSeconds(2.5f);
             Timeout.StopTimers();
-            StartSitting();
+            StartWalking();
         }
 
         private IEnumerator DelayMoveIpad()
@@ -64,11 +64,21 @@ namespace AngryScene
             ipad.transform.localRotation = Quaternion.Euler(76.59476f, 69.17188f, 104.7559f);
         }
 
-        public void StartSitting()
+        public void StartWalking()
         {
             anim.SetBool("IsWalking", true);
             otherAnim.SetTrigger("IsSharing");
             StartCoroutine(LoadMiniGame());
+        }
+
+        public void StartSitting()
+        {
+            anim.SetTrigger("IsSharing");
+        }
+
+        public void FreezeAllMovement()
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
 
         private IEnumerator LoadMiniGame()
@@ -87,8 +97,17 @@ namespace AngryScene
                 {
                     anim.SetBool("IsWalking", false);
                     anim.SetTrigger("IsSharing");
+                    StartCoroutine(SitDown());
                 }
             }
+        }
+
+        private IEnumerator SitDown()
+        {
+            yield return new WaitForSeconds(1.4f);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            StartSitting();
         }
 
         public override void StartAction()

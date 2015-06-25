@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c571bfc08e428fb428d0b89e363fb858
-timeCreated: 1435188129
+guid: ab28735c25bee034e9fcaf0c3c223cce
+timeCreated: 1435196305
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine1
     400132: mixamorig:Spine2
     400134: //RootNode
-    7400000: stand_to_sit
+    7400000: sitting_idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -160,42 +160,28 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: stand_to_sit
+      name: sitting_idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 67
+      lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -.300000012
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: .993814409
-        functionName: FreezeAllMovement
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .998193383
-        functionName: StartSitting
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1

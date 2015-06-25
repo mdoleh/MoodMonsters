@@ -170,7 +170,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -345,7 +345,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     human: []
     skeleton: []
@@ -356,8 +356,9 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+    rootMotionBoneName: mixamorig:Hips
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2087af16190ec6a4eb9a1b217e126367,
+    type: 3}
   animationType: 2
   additionalBone: 0
   userData: 
