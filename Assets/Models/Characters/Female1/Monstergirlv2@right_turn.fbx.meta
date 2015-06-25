@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f271f43f15a66ea44abff4a621cc0937
-timeCreated: 1435187771
+guid: 70bb376d32303a948a689129b7b566eb
+timeCreated: 1435191485
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine1
     400132: mixamorig:Spine2
     400134: //RootNode
-    7400000: run_forward_inPlace
+    7400000: right_turn
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -160,10 +160,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run_forward_inPlace
+      name: right_turn
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

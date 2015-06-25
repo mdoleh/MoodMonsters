@@ -34,7 +34,8 @@ namespace AngryScene
         private IEnumerator TriggerRun()
         {
             yield return new WaitForSeconds(1.5f);
-            transform.Rotate(new Vector3(0, 8f, 0));
+//            transform.Rotate(new Vector3(0, 8f, 0));
+            anim.SetTrigger("IsHiding");
             run = true;
             yield return new WaitForSeconds(4f);
             sceneReset.TriggerSceneReset(actionExplanation, true);
