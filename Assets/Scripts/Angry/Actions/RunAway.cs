@@ -33,11 +33,12 @@ namespace AngryScene
 
         private IEnumerator TriggerRun()
         {
-            yield return new WaitForSeconds(1.5f);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            yield return new WaitForSeconds(2.0f);
 //            transform.Rotate(new Vector3(0, 8f, 0));
             anim.SetTrigger("IsHiding");
             run = true;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3.5f);
             sceneReset.TriggerSceneReset(actionExplanation, true);
         }
 

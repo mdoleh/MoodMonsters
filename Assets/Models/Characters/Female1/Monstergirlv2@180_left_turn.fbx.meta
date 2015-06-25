@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3d99f3ef619d0ec488095ce548016b2e
-timeCreated: 1435194222
+guid: 64479aeba2a01e347b74d1104ebd5970
+timeCreated: 1435199513
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine1
     400132: mixamorig:Spine2
     400134: //RootNode
-    7400000: sad_right_turn
+    7400000: 180_left_turn
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -160,17 +160,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sad_right_turn
+      name: 180_left_turn
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 36
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
