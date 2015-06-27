@@ -39,7 +39,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadScene(AsyncOperation asyncLoad, string sceneToLoad)
     {
-        asyncLoad.allowSceneActivation = true;
+        if (asyncLoad != null) asyncLoad.allowSceneActivation = true;
         if (ScenePreloader.City != null) ScenePreloader.City.SetActive(true);
         Scenes.NextSceneToLoad = sceneToLoad;
     }

@@ -11,6 +11,6 @@ public class SceneLoader : MonoBehaviour {
 
 	void Start () 
     {
-        Application.LoadLevelAdditive(Scenes.NextSceneToLoad);
+        if (!string.IsNullOrEmpty(Scenes.NextSceneToLoad)) Application.LoadLevelAdditive(Scenes.NextSceneToLoad);
 	}
 }

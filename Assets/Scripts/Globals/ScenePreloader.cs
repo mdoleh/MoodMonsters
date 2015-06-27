@@ -9,7 +9,8 @@ namespace Globals
 
         private void Start ()
         {
-            CityLoad = Application.LoadLevelAsync(City == null ? "SmallCity" : "Empty");
+            if (City != null) return;
+            CityLoad = Application.LoadLevelAsync("SmallCity");
             CityLoad.allowSceneActivation = false;
 	    }
     }
