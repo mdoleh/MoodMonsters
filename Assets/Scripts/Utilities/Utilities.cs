@@ -48,7 +48,7 @@ public class Utilities : MonoBehaviour {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
-            var sceneName = Scenes.NextSceneToLoad.Replace("ActionsMenu", "");
+            var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
