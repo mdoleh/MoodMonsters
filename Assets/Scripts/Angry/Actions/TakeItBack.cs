@@ -32,8 +32,8 @@ namespace AngryScene
         {
             if (!takingTriggered) return; 
             var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("mixamorig:RightHand");
-            ipad.transform.parent = hand.transform;
+            var hand = GameObject.Find("Girl:RightHand");
+            ipad.transform.parent = hand.transform.parent.FindChild("mixamorig:RightHand");
             ipad.transform.localPosition = new Vector3(-0.104f, 0.122f, 0.114f);
             ipad.transform.localRotation = Quaternion.Euler(26.3481f, 234.883f, 349.391f);
         }
@@ -42,8 +42,8 @@ namespace AngryScene
         {
             if (!takingTriggered) return; 
             var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("mixamorig:LeftHand");
-            ipad.transform.parent = hand.transform;
+            var hand = GameObject.Find("Girl:LeftHand");
+            ipad.transform.parent = hand.transform.parent.FindChild("mixamorig:LeftHand");
             ipad.transform.localPosition = new Vector3(0.055f, 0.114f, 0.139f);
             ipad.transform.localRotation = Quaternion.Euler(26.44561f, 105.5384f, 11.9465f);
         }
