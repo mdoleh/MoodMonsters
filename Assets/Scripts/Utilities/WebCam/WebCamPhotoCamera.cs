@@ -11,7 +11,10 @@ public class WebCamPhotoCamera : MonoBehaviour
     public TakenImage takenPhotoTexture2D;
     public AudioSource pictureCountDownAudio;
     public AudioSource cameraShutterAudio;
+    public AudioSource keepPictureAudio;
     public CameraActions cameraActions;
+    public GameObject[] buttonsToDisable;
+    public GameObject[] buttonsToEnable;
 
     void Start()
     {
@@ -24,6 +27,8 @@ public class WebCamPhotoCamera : MonoBehaviour
         if (webCamTexture != null)
         {
             GetComponent<RawImage>().texture = webCamTexture;
+            if (!webCamTexture.videoVerticallyMirrored) 
+                GetComponent<RawImage>().transform.localScale = new Vector3(-1, 1);
         }
     }
 
@@ -53,6 +58,9 @@ public class WebCamPhotoCamera : MonoBehaviour
 
     public void TakePhoto()
     {
+        if (!webCamTexture.isPlaying) TurnOnCamera();
+        Utilities.StopAudio(Sound.CurrentPlayingSound);
+        setInteractable(buttonsToEnable, false);
         StopAllCoroutines();
         StartCoroutine(StartTakingPhoto());
     }
@@ -69,6 +77,41 @@ public class WebCamPhotoCamera : MonoBehaviour
         photo.Apply();
 
         if (takenPhotoTexture2D != null) takenPhotoTexture2D.TakenPicture = photo;
+        
+        showYesNoButtons();
+        TurnOffCamera();
+        GetComponent<RawImage>().texture = photo;
+        Utilities.PlayAudio(keepPictureAudio);
+    }
+
+    public void KeepPhoto()
+    {
+        StopAllCoroutines();
+        Utilities.StopAudio(Sound.CurrentPlayingSound);
+        setAllButtons(buttonsToEnable, false);
         cameraActions.RunPostPictureActions();
+    }
+
+    private void setAllButtons(GameObject[] buttons, bool setActive)
+    {
+        foreach (var button in buttons)
+        {
+            button.SetActive(setActive);
+        }
+    }
+
+    private void setInteractable(GameObject[] buttons, bool interactable)
+    {
+        foreach (var button in buttons)
+        {
+            button.GetComponent<Button>().interactable = interactable;
+        }
+    }
+
+    private void showYesNoButtons()
+    {
+        setAllButtons(buttonsToDisable, false);
+        setAllButtons(buttonsToEnable, true);
+        setInteractable(buttonsToEnable, true);
     }
 }

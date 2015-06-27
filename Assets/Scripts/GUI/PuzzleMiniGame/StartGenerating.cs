@@ -22,5 +22,6 @@ public class StartGenerating : CameraActions
     {
         Timeout.StopTimers();
         GetComponent<Button>().interactable = false;
+        changeDeviceButton.GetComponent<Button>().interactable = false;
     }
 }
