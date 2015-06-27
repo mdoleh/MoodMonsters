@@ -34,8 +34,8 @@ namespace AngryScene
             var ipad = GameObject.Find("iPad");
             var hand = GameObject.Find("mixamorig:RightHand");
             ipad.transform.parent = hand.transform;
-            ipad.transform.localPosition = new Vector3(-0.057f, 0.148f, 0.146f);
-            ipad.transform.localRotation = Quaternion.Euler(1.644903f, 239.36f, 350.5f);
+            ipad.transform.localPosition = new Vector3(-0.104f, 0.122f, 0.114f);
+            ipad.transform.localRotation = Quaternion.Euler(26.3481f, 234.883f, 349.391f);
         }
 
         public void ShiftToLeftHand()

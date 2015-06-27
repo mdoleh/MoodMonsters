@@ -26,10 +26,20 @@ namespace AngryScene
             anim.SetTrigger("IsTalking");
             var letMePlay = dialogue.transform.FindChild("LetMePlay").GetComponent<AudioSource>();
             Utilities.PlayAudio(letMePlay);
-            yield return new WaitForSeconds(letMePlay.clip.length + 2f);
+            yield return new WaitForSeconds(letMePlay.clip.length);
+        }
+
+        public void TriggerFootStamp()
+        {
+            anim.SetTrigger("IsTalking");
+            StartCoroutine(PlayComeOnDialogue());
+        }
+
+        private IEnumerator PlayComeOnDialogue()
+        {
+            yield return new WaitForSeconds(1.5f);
             var comeOn = dialogue.transform.FindChild("ComeOn").GetComponent<AudioSource>();
             Utilities.PlayAudio(comeOn);
-            yield return new WaitForSeconds(comeOn.clip.length);
         }
 
         public void TakeIPad()
@@ -57,19 +67,19 @@ namespace AngryScene
         public virtual void MoveIpad()
         {
             var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("Boy:RightHand");
-            ipad.transform.parent = hand.transform;
-            ipad.transform.localPosition = new Vector3(0.16965f, -0.18118f, 0.20516f);
-            ipad.transform.localRotation = Quaternion.Euler(0.5527962f, 278.4825f, 301.6339f);
+            var arm = GameObject.Find("Boy:RightHand").transform.parent.gameObject;
+            ipad.transform.parent = arm.transform.FindChild("mixamorig:RightHand");
+            ipad.transform.localPosition = new Vector3(-0.133f, 0.094f, 0.085f);
+            ipad.transform.localRotation = Quaternion.Euler(90f, 235.7971f, 0f);
         }
 
         public virtual void ShiftToLeftHand()
         {
             var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("Boy:LeftHand");
-            ipad.transform.parent = hand.transform;
-            ipad.transform.localPosition = new Vector3(-0.15317f, -0.17448f, 0.1441f);
-            ipad.transform.localRotation = Quaternion.Euler(334.0472f, 53.15136f, 93.76542f);
+            var arm = GameObject.Find("Boy:LeftHand").transform.parent.gameObject;
+            ipad.transform.parent = arm.transform.FindChild("mixamorig:LeftHand");
+            ipad.transform.localPosition = new Vector3(0.093f, 0.137f, 0.136f);
+            ipad.transform.localRotation = Quaternion.Euler(66.94399f, 118.2474f, 34.07929f);
         }
 
         void StartGUI()

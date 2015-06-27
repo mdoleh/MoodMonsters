@@ -53,15 +53,19 @@ namespace AngryScene
         private void MoveIpadToLap()
         {
             var ipad = GameObject.Find("iPad");
-            ipad.transform.localPosition = new Vector3(0.02198f, -0.199f, 0.08892f);
-            ipad.transform.localRotation = Quaternion.Euler(292.6998f, 36.10002f, 33.00001f);
+            ipad.transform.localPosition = new Vector3(0.224f, 0.145f, 0.043f);
+//            ipad.transform.localPosition = new Vector3(0.02198f, -0.199f, 0.08892f);
+//            ipad.transform.localRotation = Quaternion.Euler(292.6998f, 36.10002f, 33.00001f);
+            ipad.transform.localRotation = Quaternion.Euler(15.41914f, 158.8406f, 1.443392f);
         }
 
         private void MoveIpadToUnderArm()
         {
             var ipad = GameObject.Find("iPad");
-            ipad.transform.localPosition = new Vector3(0.035966f, -0.059901f, 0.10305f);
-            ipad.transform.localRotation = Quaternion.Euler(76.59476f, 69.17188f, 104.7559f);
+            ipad.transform.localPosition = new Vector3(0.04f, -0.073f, 0.049f);
+//            ipad.transform.localPosition = new Vector3(0.035966f, -0.059901f, 0.10305f);
+            ipad.transform.localRotation = Quaternion.Euler(352.4399f, 357.2535f, 10.56083f);
+//            ipad.transform.localRotation = Quaternion.Euler(76.59476f, 69.17188f, 104.7559f);
         }
 
         public void StartWalking()
@@ -73,6 +77,8 @@ namespace AngryScene
 
         public void StartSitting()
         {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             anim.SetTrigger("IsSharing");
         }
 
@@ -93,21 +99,12 @@ namespace AngryScene
             {
                 float move = Time.deltaTime * 0.5f;
                 transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
-                if (transform.position.x >= 204.15f)
+                if (transform.position.x >= 204.037f)
                 {
                     anim.SetBool("IsWalking", false);
                     anim.SetTrigger("IsSharing");
-                    StartCoroutine(SitDown());
                 }
             }
-        }
-
-        private IEnumerator SitDown()
-        {
-            yield return new WaitForSeconds(1.4f);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            StartSitting();
         }
 
         public override void StartAction()

@@ -65,5 +65,23 @@ namespace AngryScene
             anim.SetTrigger("IsIdle");
             StartCoroutine(GetComponent<TakeItem>().StartTalking());
         }
+
+        public void TriggerStandToSit()
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            anim.SetTrigger("IsSharing");
+        }
+
+        public void TriggerSitIdle()
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            anim.SetTrigger("IsSharing");
+        }
+
+        public void TriggerSadIdle()
+        {
+            anim.SetTrigger("IsSad");
+        }
     }
 }
