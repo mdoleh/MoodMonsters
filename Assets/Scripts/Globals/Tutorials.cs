@@ -6,9 +6,9 @@ namespace Globals
     public static class Tutorials
     {
         public static bool MainTutorialHasRun = true;
-        public static bool BucketTutorialHasRun = false;
-        public static bool PuzzleTutorialHasRun = false;
-        public static bool CameraTutorialHasRun = false;
+        public static bool BucketTutorialHasRun = true;
+        public static bool PuzzleTutorialHasRun = true;
+        public static bool CameraTutorialHasRun = true;
 
         public static void ResetValues()
         {
