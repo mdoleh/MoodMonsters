@@ -11,7 +11,7 @@ public class ButtonSceneLoad : ButtonSelect {
         if (sceneToLoad == "") return;
         if (tutorialToLoad == "")
         {
-            Utilities.LoadScene(ScenePreloader.CityLoad, sceneToLoad);
+            Utilities.LoadEmotionScene(sceneToLoad);
         }
         else
         {

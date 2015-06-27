@@ -37,18 +37,17 @@ public class Utilities : MonoBehaviour {
         if (audioSource != null && audioSource.isPlaying) audioSource.Stop();
     }
 
-    public static void LoadScene(AsyncOperation asyncLoad, string sceneToLoad)
+    public static void LoadEmotionScene(string sceneToLoad)
     {
-        if (asyncLoad != null) asyncLoad.allowSceneActivation = true;
-        if (ScenePreloader.City != null) ScenePreloader.City.SetActive(true);
-        Scenes.NextSceneToLoad = sceneToLoad;
+        if (CityInitializer.City != null) CityInitializer.City.SetActive(true);
+        Application.LoadLevel(sceneToLoad);
     }
 
     public static void LoadScene(string sceneToLoad)
     {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
-            ScenePreloader.City.SetActive(false);
+            CityInitializer.City.SetActive(false);
             var sceneName = Scenes.NextSceneToLoad.Replace("ActionsMenu", "");
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
