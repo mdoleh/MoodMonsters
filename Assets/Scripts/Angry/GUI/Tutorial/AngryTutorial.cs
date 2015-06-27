@@ -14,6 +14,7 @@ public class AngryTutorial : TutorialBase
     private GameObject fingerDrag;
     private GameObject ipadCamera;
     public GameObject miniGame;
+    private GameObject ipadCameraFrame;
 
     protected override void HelpExplanationComplete()
     {
@@ -28,6 +29,7 @@ public class AngryTutorial : TutorialBase
     private IEnumerator HelpLilyPlayAudio()
     {
         ipadCamera.GetComponent<Camera>().enabled = true;
+        ipadCameraFrame.GetComponent<Image>().enabled = true;
         miniGame.SetActive(true);
         Utilities.PlayAudio(whatLilyIsPlayingAudio);
         yield return new WaitForSeconds(whatLilyIsPlayingAudio.clip.length);
@@ -45,6 +47,7 @@ public class AngryTutorial : TutorialBase
         base.InitializeGameObjects();
         fingerDrag = transform.Find("FingerDrag").gameObject;
         ipadCamera = GameObject.Find("iPadCamera");
+        ipadCameraFrame = GameObject.Find("iPadCameraFrame");
     }
 
     protected override void InitializeAudio()

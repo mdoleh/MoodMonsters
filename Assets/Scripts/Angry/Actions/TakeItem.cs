@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Globals;
+using UnityEngine.UI;
 
 namespace AngryScene
 {
@@ -11,11 +12,13 @@ namespace AngryScene
         private GameObject miniGame;
         protected Animator anim;
         public Animator other;
+        private GameObject ipadCameraFrame;
 
         public void Awake()
         {
             dialogue = transform.FindChild("Dialogue").gameObject;
             ipadCamera = GameObject.Find("iPadCamera");
+            ipadCameraFrame = GameObject.Find("iPadCameraFrame");
             miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
         }
@@ -44,6 +47,7 @@ namespace AngryScene
 
         public void TakeIPad()
         {
+            ipadCameraFrame.GetComponent<Image>().enabled = false;
             ipadCamera.SetActive(false);
             miniGame.SetActive(false);
 
