@@ -42,6 +42,7 @@ public class WebCamPhotoCamera : MonoBehaviour
 
     public void CycleToNextDevice()
     {
+        webCamTexture.Stop();
         var currentIndex = webCamDevices.IndexOf(webCamDevices.First(x => x.name.Equals(webCamTexture.deviceName)));
         ++currentIndex;
         if (currentIndex >= webCamDevices.Count)
@@ -49,6 +50,7 @@ public class WebCamPhotoCamera : MonoBehaviour
             currentIndex = 0;
         }
         webCamTexture.deviceName = webCamDevices[currentIndex].name;
+        webCamTexture.Play();
     }
 
     public void TurnOffCamera()
