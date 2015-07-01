@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Globals
 {
@@ -7,11 +8,17 @@ namespace Globals
         private void Start()
         {
             if (CityInitializer.City == null)
-                Application.LoadLevelAdditiveAsync("SmallCity");
+                StartCoroutine(LoadCity());
             else
             {
                 CityInitializer.City.SetActive(false);
             }
+        }
+
+        private IEnumerator LoadCity()
+        {
+            yield return new WaitForSeconds(5f);
+            Application.LoadLevelAdditiveAsync("SmallCity");
         }
     }
 }
