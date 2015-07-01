@@ -7,7 +7,7 @@ namespace Globals
         private void Start()
         {
             if (CityInitializer.City == null)
-                Application.LoadLevelAdditive("SmallCity");
+                Application.LoadLevelAdditiveAsync("SmallCity");
             else
             {
                 CityInitializer.City.SetActive(false);
