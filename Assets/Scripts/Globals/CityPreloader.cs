@@ -8,17 +8,11 @@ namespace Globals
         private void Start()
         {
             if (CityInitializer.City == null)
-                StartCoroutine(LoadCity());
+                Application.LoadLevelAdditiveAsync("SmallCity");
             else
             {
                 CityInitializer.City.SetActive(false);
             }
-        }
-
-        private IEnumerator LoadCity()
-        {
-            yield return new WaitForSeconds(5f);
-            Application.LoadLevelAdditiveAsync("SmallCity");
         }
     }
 }
