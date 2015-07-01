@@ -22,12 +22,18 @@ namespace ScaredScene
         {
             transform.Find("CameraFollow").gameObject.SetActive(false);
             anim.SetTrigger("SadTurn");
+            StartCoroutine(SadRunAway());
         }
 
-        public void SadRunAway()
+        public IEnumerator SadRunAway()
         {
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            yield return new WaitForSeconds(2.5f);
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             anim.SetBool("RunAway", true);
+        }
+
+        public void TriggerRunningMovement()
+        {
             GetComponent<FearfulMovement>().RunReverse();
             StartCoroutine(ResetScene());
         }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3faa8cf4209edc9479751464a2d14330
-timeCreated: 1435704410
+guid: 4a1aef9343aa5dd42a6124b953460002
+timeCreated: 1435705757
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine
     400132: mixamorig:Spine1
     400134: mixamorig:Spine2
-    7400000: edge_slip
+    7400000: standard_run_inPlace
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -164,35 +164,28 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: edge_slip
+      name: standard_run_inPlace
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 74
+      lastFrame: 22
       wrapMode: 0
       orientationOffsetY: 0
-      level: -.800000012
-      cycleOffset: 0
+      level: 0
+      cycleOffset: .5
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: .582375467
-        functionName: BackAway
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1

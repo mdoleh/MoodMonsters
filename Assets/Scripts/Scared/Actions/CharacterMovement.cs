@@ -56,7 +56,7 @@ namespace ScaredScene
             {
                 float moveSpeed = Time.deltaTime * multiplierSpeed;
                 float moveDirection = Time.deltaTime * multiplierDirection;
-                transform.position = new Vector3(transform.position.x + moveSpeed, 5.479576f, transform.position.z - moveDirection);
+                transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
             }
         }
 
@@ -71,7 +71,7 @@ namespace ScaredScene
         {
             if (!anim.GetBool("RunJump"))
             {
-                transform.position = new Vector3(transform.position.x, 5.427f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 anim.SetBool("Run", false);
                 anim.SetBool("RunJump", true);
             }
@@ -81,7 +81,7 @@ namespace ScaredScene
         {
             if (!anim.GetBool("Run"))
             {
-                transform.position = new Vector3(transform.position.x, 5.445f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 anim.SetBool("RunJump", false);
                 anim.SetBool("Run", true);
             }
