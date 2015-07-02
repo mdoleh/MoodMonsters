@@ -9,7 +9,6 @@ public class BeginInstructions : MonoBehaviour
     public AudioSource pictureCountDownAudio;
     public AudioSource leftButtonAudio;
     public AudioSource rightButtonAudio;
-    public AudioSource[] emotionInstructions;
     public GameObject disablePanel;
     public GameObject rightButtonArrow;
     public GameObject leftButtonArrow;
@@ -22,6 +21,9 @@ public class BeginInstructions : MonoBehaviour
 
     private IEnumerator faceInstructions()
     {
+        var emotionInstructions = transform.FindChild("Audio")
+            .FindChild("Emotions")
+            .GetComponentsInChildren<AudioSource>().ToList();
         var makeFaceInstruction =
             emotionInstructions.First(
                 x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
