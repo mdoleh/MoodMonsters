@@ -170,13 +170,13 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 49
       wrapMode: 0
-      orientationOffsetY: -60
-      level: -1
+      orientationOffsetY: 180
+      level: -.949999988
       cycleOffset: 0
       loop: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
@@ -187,7 +187,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
+      - time: 1
         functionName: StartWalking
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -357,7 +357,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     human: []
     skeleton: []
@@ -368,7 +368,7 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: mixamorig:Hips
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 27215b5fe46d30742b68dd7887fa633b,
     type: 3}
   animationType: 2
