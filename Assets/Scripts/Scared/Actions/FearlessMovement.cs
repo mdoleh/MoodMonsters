@@ -8,6 +8,7 @@ public class FearlessMovement : CharacterMovement
 
     protected override void Start()
     {
+        shouldRunBase = false;
         base.Start();
         otherCharacter = GameObject.Find("Aj");
     }

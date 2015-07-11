@@ -42,7 +42,7 @@ public class AngryTutorial : TutorialBase
         otherCharacter.GetComponent<WalkForward>().StartWalking();
     }
 
-    protected override void InitializeGameObjects()
+    public override void InitializeGameObjects()
     {
         base.InitializeGameObjects();
         fingerDrag = transform.Find("FingerDrag").gameObject;

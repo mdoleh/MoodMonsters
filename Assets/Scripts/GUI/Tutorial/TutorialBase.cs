@@ -115,7 +115,7 @@ public class TutorialBase : MonoBehaviour
         button.Find("BackgroundGlow").GetComponent<Image>().enabled = false;
     }
 
-    protected virtual void InitializeGameObjects()
+    public virtual void InitializeGameObjects()
     {
         practiceDropContainer = transform.Find("DropContainer").gameObject;
         practiceButton = transform.Find("PracticeButton").gameObject;

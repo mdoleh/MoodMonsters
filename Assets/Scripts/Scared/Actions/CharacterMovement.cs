@@ -1,18 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace ScaredScene
 {
-    public class CharacterMovement : MonoBehaviour
+    public class CharacterMovement : ControllerMovement
     {
         protected Animator anim;
-        protected bool isWalking = false;
-        protected float multiplierSpeed = 1f;
-        protected float multiplierDirection = 0f;
+        protected bool shouldRunBase = true;
 
-        protected virtual void Start()
+        protected override void Start()
         {
+            if (shouldRunBase) base.Start();
             anim = GetComponent<Animator>();
         }
 
@@ -48,16 +46,6 @@ namespace ScaredScene
         {
             anim.SetBool("Walking", true);
             isWalking = true;
-        }
-
-        protected virtual void Update()
-        {
-            if (isWalking)
-            {
-                float moveSpeed = Time.deltaTime * multiplierSpeed;
-                float moveDirection = Time.deltaTime * multiplierDirection;
-                transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
-            }
         }
 
         public virtual void Run()
@@ -111,10 +99,10 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
         }
 
-        public virtual void EdgeSlip()
+        public virtual void EdgeSlip(string stumbleTrigger)
         {
             anim.SetBool("Run", false);
-            anim.SetTrigger("Stumble");
+            anim.SetTrigger(stumbleTrigger);
             isWalking = false;
         }
     }

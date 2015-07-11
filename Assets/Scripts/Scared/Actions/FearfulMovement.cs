@@ -1,25 +1,14 @@
 ﻿using System;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Globals;
 using ScaredScene;
+using UnityEngine;
 
 public class FearfulMovement : CharacterMovement
 {
-    public Camera mainCamera;
     public CameraFollow cameraFollow;
-    public GameObject joystickCanvas;
-    public GameObject[] joystickAnimations;
+
     protected bool waitingForScarlet = true;
+
     private GameObject otherCharacter;
-    private AudioSource joystickInstructions;
-    private GameObject disableJoystickPanel;
-    private GameObject disableHelpPanel;
-    private Joystick joystickScript;
-    private bool trackJoystick = false;
-    protected bool joystickInstructionsAlreadyPlayed = false;
     private bool runSpeedFailure = false;
     private AudioSource runSpeedAudio;
 
@@ -27,11 +16,12 @@ public class FearfulMovement : CharacterMovement
     {
         base.Start();
         otherCharacter = GameObject.Find("Scarlet");
-        joystickInstructions = GameObject.Find("ControllerCanvas").GetComponent<AudioSource>();
-        disableJoystickPanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
-        disableHelpPanel = GameObject.Find("HelpCanvas").transform.FindChild("DisablePanel").gameObject;
-        joystickScript = joystickCanvas.GetComponentInChildren<Joystick>();
         runSpeedAudio = GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
+    }
+
+    protected override void StartRunningAnimation()
+    {
+        base.Run();
     }
 
     public override void StartSequence()
@@ -62,9 +52,7 @@ public class FearfulMovement : CharacterMovement
 
     public override void RunJump()
     {
-        trackJoystick = false;
-        joystickScript.ButtonRelease();
-        disableJoystickPanel.SetActive(true);
+        ResetAndDisableJoystick();
         multiplierDirection = 0f;
         if (multiplierSpeed < 3f)
         {
@@ -74,21 +62,22 @@ public class FearfulMovement : CharacterMovement
         {
             multiplierSpeed = 3f;
             base.RunJump();
-            DisableHelpUI();
+            DisableHelpGUI();
         }
     }
 
     private void ResetPosition()
     {
-        base.EdgeSlip();
+        if (runSpeedFailure) return;
+        base.EdgeSlip("StumbleWalkAway");
         runSpeedFailure = true;
         Utilities.PlayAudio(runSpeedAudio);
     }
 
-    private void StartJoystickTutorial()
+    protected override void StartJoystickTutorial()
     {
-        if (!runSpeedFailure) adjustCamera();
-        StartCoroutine(playJoystickInstructions());
+        if (!runSpeedFailure) AdjustCamera();
+        base.StartJoystickTutorial();
     }
 
     private void StopWalking(bool waitForScarlet)
@@ -125,31 +114,6 @@ public class FearfulMovement : CharacterMovement
         {
             StopWalking(true);
         }
-        trackJoystickMovement();
-    }
-
-    private void trackJoystickMovement()
-    {
-        if (trackJoystick)
-        {
-            if (joystickScript.CurrentSpeedAndDirection.y > 0) base.Run();
-            multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
-            multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
-            // limit character's position laterally (z-direction)
-            if (transform.position.z > 167.374f)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, 167.374f);
-            }
-            else if (transform.position.z < 166.987f)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, 166.987f);
-            }
-            // limit character's position so it can't move behind the camera
-            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.0f)
-            {
-                transform.position = new Vector3(mainCamera.transform.position.x + 1.0f, transform.position.y, transform.position.z);
-            }
-        }
     }
 
     public void WalkBackwards()
@@ -166,7 +130,7 @@ public class FearfulMovement : CharacterMovement
         StopWalking(false);
         base.ShiftIdle();
         joystickCanvas.GetComponent<Canvas>().enabled = true;
-        EnableHelpUI();
+        EnableHelpGUI();
         GUIDetect.NextGUI();
     }
 
@@ -177,49 +141,34 @@ public class FearfulMovement : CharacterMovement
         StartWalking();
     }
 
-    public override void EdgeSlip()
+    public override void EdgeSlip(string stumbleTrigger)
     {
         resetCamera();
         runSpeedFailure = false;
         trackJoystick = false;
         multiplierDirection = 0f;
-        base.EdgeSlip();
+        base.EdgeSlip(stumbleTrigger);
     }
 
-    protected virtual void adjustCamera()
+    protected override void AdjustCamera()
     {
         cameraFollow.enabled = false;
-        if (GUIDetect.GetGUIByName(GUIDetect.CanvasList[0]).enabled)
-        {
-            GUIDetect.NextGUI();
-        }
-        else
-        {
-            joystickCanvas.GetComponent<Canvas>().enabled = true;
-        }
-        mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
-        mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
+        base.AdjustCamera();
     }
 
     private void resetCamera()
     {
         cameraFollow.enabled = true;
-        joystickCanvas.GetComponent<Canvas>().enabled = false;
+        HideJoystick();
         transform.position = new Vector3(transform.position.x, transform.position.y, 167.147f);
         mainCamera.transform.position = new Vector3(cameraFollow.gameObject.transform.position.x, 6.95f, 163.25f);
         mainCamera.transform.localRotation = Quaternion.Euler(4.587073f, 1.254006f, 0.08177387f);
     }
 
-    private void enableJoystick()
+    protected override void EnableJoystick()
     {
         handleRunSpeedFailure();
-        disableJoystickPanel.SetActive(false);
-        trackJoystick = true;
-        EnableHelpUI();
-        Timeout.SetRepeatAudio(joystickInstructions);
-        multiplierSpeed = 0f;
-        multiplierDirection = 0f;
-        isWalking = true;
+        base.EnableJoystick();
     }
 
     private void handleRunSpeedFailure()
@@ -229,32 +178,5 @@ public class FearfulMovement : CharacterMovement
             StopWalking(false);
             runSpeedFailure = false;
         }
-    }
-
-    private IEnumerator playJoystickInstructions()
-    {
-        if (!joystickInstructionsAlreadyPlayed)
-        {
-            foreach (var joystickAnimation in joystickAnimations)
-            {
-                joystickAnimation.SetActive(true);
-                var audio = joystickAnimation.GetComponent<AudioSource>();
-                Utilities.PlayAudio(audio);
-                yield return new WaitForSeconds(audio.clip.length);
-                joystickAnimation.SetActive(false);
-            }
-            joystickInstructionsAlreadyPlayed = true;
-        }
-        enableJoystick();
-    }
-
-    protected void EnableHelpUI()
-    {
-        disableHelpPanel.SetActive(false);
-    }
-
-    protected void DisableHelpUI()
-    {
-        disableHelpPanel.SetActive(true);
     }
 }

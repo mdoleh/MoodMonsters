@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using Globals;
-using ScaredScene;
+﻿using ScaredScene;
 using UnityEngine;
 
 public class EdgeSlipTrigger : MonoBehaviour
@@ -12,7 +10,7 @@ public class EdgeSlipTrigger : MonoBehaviour
     {
         if (!shouldJump && other.gameObject.GetComponent<FearfulMovement>() != null)
         {
-            other.gameObject.GetComponent<CharacterMovement>().EdgeSlip();
+            other.gameObject.GetComponent<CharacterMovement>().EdgeSlip("Stumble");
             shouldJump = true;
         }
         else
