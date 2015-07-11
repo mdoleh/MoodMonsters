@@ -10,6 +10,8 @@ public class GUIDetect : MonoBehaviour {
         "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
     };
 
+    public static IList<string> AudioIgnoreList = new List<string>();
+
     public static string GetCurrentGUIName()
     {
         var GUI = GameObject.FindGameObjectsWithTag("GUI");
@@ -59,7 +61,8 @@ public class GUIDetect : MonoBehaviour {
             if (guiCanvas.name == next)
             {
                 guiCanvas.GetComponent<Canvas>().enabled = true;
-                Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
+                if (!AudioIgnoreList.Contains(guiCanvas.name)) 
+                    Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
                 Timeout.StartTimers();
                 Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
             }

@@ -17,6 +17,7 @@ public class ScaredTutorial : TutorialBase
         {
             "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
         };
+        GUIDetect.AudioIgnoreList = new List<string>{ "ControllerCanvas" };
 
         scarlet.GetComponent<CharacterMovement>().StartSequence();
         aj.GetComponent<CharacterMovement>().StartSequence();
