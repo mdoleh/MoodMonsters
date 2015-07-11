@@ -5,18 +5,31 @@ namespace SadScene
 {
     public class SoccerBallMovement : MonoBehaviour
     {
+        private Rigidbody rigidBody;
+
+        private void Start()
+        {
+            rigidBody = GetComponent<Rigidbody>();
+        }
+
+        private void neutralizeForce()
+        {
+            rigidBody.velocity = Vector3.zero;   
+        }
+
         public void KickBallUp()
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().AddForce(0f, 180f, 0f);
-            GetComponent<Rigidbody>().AddTorque(0f, 0f, 100f);
+            neutralizeForce();
+            rigidBody.AddForce(0f, 180f, 0f);
+            rigidBody.AddTorque(0f, 0f, 100f);
         }
 
         public void KickBallForward()
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().AddForce(100f, 0f, 0f);
-            GetComponent<Rigidbody>().AddTorque(0f, 0f, -100f);
+            neutralizeForce();
+            rigidBody.constraints = RigidbodyConstraints.None;
+            rigidBody.AddForce(300f, 180f, 0f);
+            rigidBody.AddTorque(0f, 0f, -100f);
         }
     }
 }

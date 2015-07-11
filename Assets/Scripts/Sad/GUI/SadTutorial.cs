@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using SadScene;
+using UnityEngine;
 
 public class SadTutorial : TutorialBase
 {
+    public GameObject luis;
+
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
@@ -10,15 +14,6 @@ public class SadTutorial : TutorialBase
             "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
         };
         GUIDetect.AudioIgnoreList = new List<string> { "ControllerCanvas" };
-    }
-
-    protected override void InitializeGameObjects()
-    {
-        base.InitializeGameObjects();
-    }
-
-    protected override void InitializeAudio()
-    {
-        base.InitializeAudio();
+        luis.GetComponent<SoccerAnimation>().KickForward();
     }
 }
