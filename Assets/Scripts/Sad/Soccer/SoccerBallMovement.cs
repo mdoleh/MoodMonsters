@@ -30,6 +30,16 @@ namespace SadScene
             rigidBody.constraints = RigidbodyConstraints.None;
             rigidBody.AddForce(300f, 180f, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
+            rigidBody.angularDrag = 20f;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<SoccerAnimation>() != null)
+            {
+                other.GetComponent<CapsuleCollider>().enabled = false;
+                other.GetComponent<SoccerAnimation>().KickForward();
+            }
         }
     }
 }

@@ -6,7 +6,10 @@ using Globals;
 
 public class Joystick : MonoBehaviour
 {
-    public Vector2 CurrentSpeedAndDirection; 
+    public Vector2 CurrentSpeedAndDirection;
+    public float MaxSpeed = 3f;
+    public float MaxDirection = 1f;
+
     private float xMin;
     private float xMax;
     private float yMin;
@@ -79,7 +82,7 @@ public class Joystick : MonoBehaviour
         var baseY = y - originalPosition.y;
         var baseXMax = xMax - originalPosition.x;
         var baseYMax = yMax - originalPosition.y;
-        CurrentSpeedAndDirection = new Vector2((baseX / baseXMax) * 1f, (baseY / baseYMax) * 3f);
+        CurrentSpeedAndDirection = new Vector2((baseX / baseXMax) * MaxDirection, (baseY / baseYMax) * MaxSpeed);
     }
 
     private bool isInRange(Vector3 position)

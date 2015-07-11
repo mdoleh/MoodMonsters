@@ -175,10 +175,10 @@ ModelImporter:
       loop: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -186,15 +186,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: .91570884
-        functionName: ShiftIdle
+      - time: .312260538
+        functionName: KickForwardEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .312260538
-        functionName: KickForwardEvent
+      - time: .91570884
+        functionName: ShiftIdle
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
