@@ -35,10 +35,10 @@ namespace SadScene
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<SoccerAnimation>() != null)
+            if (other.GetComponent<OutsideGroupSoccerAnimation>() != null)
             {
                 other.GetComponent<CapsuleCollider>().enabled = false;
-                other.GetComponent<SoccerAnimation>().KickForward();
+                other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
             }
         }
     }

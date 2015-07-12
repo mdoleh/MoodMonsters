@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace SadScene
 {
-    public class SoccerAnimation : ControllerMovement
+    public class OutsideGroupSoccerAnimation : ControllerMovement
     {
         public OutsideGroupSoccerBallMovement soccerBall;
         
