@@ -7,6 +7,7 @@ namespace SadScene
     public class GroupSoccerAnimation : MonoBehaviour
     {
         public GroupSoccerBallMovement soccerBall;
+        public Transform head;
 
         private Animator anim;
         private Action<Animator> animationTrigger;
@@ -32,21 +33,15 @@ namespace SadScene
             stopBallAnimation(animator => { anim.SetTrigger("KickLeft"); });
         }
 
-        public void KickLeftEvent()
+        public void KickLateralEvent()
         {
-            soccerBall.KickBallLeft();
+            soccerBall.KickBallLateral(head.forward);
             StartCoroutine(RestoreCollider());
         }
 
         public void KickRight()
         {
             stopBallAnimation(animator => { animator.SetTrigger("KickRight"); });
-        }
-
-        public void KickRightEvent()
-        {
-            soccerBall.KickBallRight();
-            StartCoroutine(RestoreCollider());
         }
 
         public void StopBallEvent()

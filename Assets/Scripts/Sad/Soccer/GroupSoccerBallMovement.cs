@@ -27,10 +27,10 @@ namespace SadScene
             rigidBody.AddForce(direction * 100f);
         }
 
-        public void KickBallLeft()
+        public void KickBallLateral(Vector3 direction)
         {
             NeutralizeForce();
-            rigidBody.AddForce(50f, 0f, 0f);
+            rigidBody.AddForce(direction * 100f);
         }
 
         public void KickBallRight()
@@ -51,7 +51,6 @@ namespace SadScene
         private void kickInRandomDirection(GroupSoccerAnimation other)
         {
             var direction = Random.Range(0, 2);
-            direction = 0;
             var method = other.GetType().GetMethod(kickDirections[direction]);
             method.Invoke(other, null);
         }
