@@ -6,7 +6,7 @@ namespace SadScene
 {
     public class SoccerAnimation : ControllerMovement
     {
-        public SoccerBallMovement soccerBall;
+        public OutsideGroupSoccerBallMovement soccerBall;
         
         private Animator anim;
 

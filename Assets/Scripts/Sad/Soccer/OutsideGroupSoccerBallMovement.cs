@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
-    public class SoccerBallMovement : MonoBehaviour
+    public class OutsideGroupSoccerBallMovement : MonoBehaviour
     {
         private Rigidbody rigidBody;
 
