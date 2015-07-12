@@ -28,7 +28,7 @@ namespace SadScene
         {
             neutralizeForce();
             rigidBody.constraints = RigidbodyConstraints.None;
-            rigidBody.AddForce(300f, 180f, 0f);
+            rigidBody.AddForce(250f, 180f, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
             rigidBody.angularDrag = 20f;
         }

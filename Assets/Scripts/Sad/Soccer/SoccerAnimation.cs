@@ -19,6 +19,8 @@ namespace SadScene
         public void ShiftIdle()
         {
             anim.SetTrigger("Idle");
+            AdjustCamera();
+            StartJoystickTutorial();
         }
 
         public void KickBallUp()
@@ -44,8 +46,6 @@ namespace SadScene
             anim.SetTrigger("KickForward");
             yield return new WaitForSeconds(1f);
             GetComponent<CapsuleCollider>().enabled = true;
-            AdjustCamera();
-            StartJoystickTutorial();
         }
 
         protected override void StartRunningAnimation()
