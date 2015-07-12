@@ -33,12 +33,6 @@ namespace SadScene
             rigidBody.AddForce(direction * 100f);
         }
 
-        public void KickBallRight()
-        {
-            NeutralizeForce();
-            rigidBody.AddForce(50f, 0f, 0f);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<GroupSoccerAnimation>() != null)
