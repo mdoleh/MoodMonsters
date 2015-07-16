@@ -114,9 +114,10 @@ public class ControllerMovement : MonoBehaviour {
         isWalking = true;
     }
 
-    protected void HideJoystick()
+    protected void HideJoystick(bool shouldStartTimers)
     {
         joystickCanvas.GetComponent<Canvas>().enabled = false;
+        joystickScript.shouldStartTimers = shouldStartTimers;
     }
 
     protected void DisableHelpGUI()

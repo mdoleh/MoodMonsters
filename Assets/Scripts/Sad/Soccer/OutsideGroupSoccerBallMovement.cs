@@ -5,6 +5,7 @@ namespace SadScene
     public class OutsideGroupSoccerBallMovement : MonoBehaviour
     {
         private Rigidbody rigidBody;
+        private bool shouldStartDialogue = false;
 
         private void Start()
         {
@@ -32,12 +33,20 @@ namespace SadScene
             rigidBody.angularDrag = 20f;
         }
 
+        public void SetDialogueFlag(bool value)
+        {
+            shouldStartDialogue = value;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<OutsideGroupSoccerAnimation>() != null)
             {
                 other.GetComponent<CapsuleCollider>().enabled = false;
-                other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
+                if (shouldStartDialogue)
+                    other.GetComponent<OutsideGroupSoccerAnimation>().StartDialogue();
+                else
+                    other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
             }
         }
     }

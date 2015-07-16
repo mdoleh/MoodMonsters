@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace SadScene
 {
@@ -31,8 +32,16 @@ namespace SadScene
         public void KickForward()
         {
             stopMoving();
-            resetCamera();
+            resetCamera(true);
             StartCoroutine(KickBallForward());
+        }
+
+        public void StartDialogue()
+        {
+            stopMoving();
+            resetCamera(false);
+            Timeout.StopTimers();
+            GetComponent<OutsideGroupDialogue>().StartDialogue();
         }
 
         public void KickForwardEvent()
@@ -62,9 +71,9 @@ namespace SadScene
             multiplierDirection = 0f;
         }
 
-        private void resetCamera()
+        private void resetCamera(bool startTimers)
         {
-            HideJoystick();
+            HideJoystick(startTimers);
             ResetAndDisableJoystick();
             transform.position = new Vector3(transform.position.x, transform.position.y, 80.619f);
             mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.533f);

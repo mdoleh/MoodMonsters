@@ -9,6 +9,7 @@ public class Joystick : MonoBehaviour
     public Vector2 CurrentSpeedAndDirection;
     public float MaxSpeed = 3f;
     public float MaxDirection = 1f;
+    public bool shouldStartTimers = true;
 
     private float xMin;
     private float xMax;
@@ -40,7 +41,7 @@ public class Joystick : MonoBehaviour
     {
         transform.position = originalPosition;
         resetSpeedAndDirection();
-        Timeout.StartTimers();
+        if (shouldStartTimers) Timeout.StartTimers();
     }
 
     public void Drag()
