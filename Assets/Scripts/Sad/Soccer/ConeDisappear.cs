@@ -6,20 +6,28 @@ public class ConeDisappear : MonoBehaviour
 {
     private bool shouldSink = false;
     private float alpha = 1.0f;
+    private ConeManager manager;
+
+    private void Start()
+    {
+        manager = transform.parent.GetComponent<ConeManager>();
+    }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.name.ToLower().Equals("soccerball"))
+        if (other.transform.name.ToLower().Equals("soccerball") && !shouldSink)
         {
-            StartCoroutine(DestroyObject());
+            shouldSink = true;
+            StartCoroutine(HideObject());
         }
     }
 
-    private IEnumerator DestroyObject()
+    private IEnumerator HideObject()
     {
         yield return new WaitForSeconds(1f);
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        manager.NextCone();
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

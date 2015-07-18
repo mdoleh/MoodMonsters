@@ -11,6 +11,7 @@ public class ControllerMovement : MonoBehaviour {
     public float zMin = 80.366f;
     public GameObject[] joystickAnimations;
     public TutorialBase tutorial;
+    public AudioSource initialInstructions;
 
     protected bool isWalking = false;
     protected float multiplierSpeed = 1f;
@@ -90,6 +91,9 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (!joystickInstructionsAlreadyPlayed)
         {
+            Utilities.PlayAudio(initialInstructions);
+            if (initialInstructions != null)
+                yield return new WaitForSeconds(initialInstructions.clip.length);
             foreach (var joystickAnimation in joystickAnimations)
             {
                 joystickAnimation.SetActive(true);

@@ -76,7 +76,7 @@ namespace SadScene
             HideJoystick(startTimers);
             ResetAndDisableJoystick();
             transform.position = new Vector3(transform.position.x, transform.position.y, 80.619f);
-            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.533f);
+            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.115f);
             mainCamera.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
