@@ -5,8 +5,8 @@ namespace SadScene
 {
     public class GroupDialogue : MonoBehaviour
     {
-        public AudioSource explainCantPlay;
-        public AudioSource haveToWait;
+        public AudioSource cantPlay;
+        public AudioSource dontGetToPlay;
         public OutsideGroupDialogue otherCharacter;
 
         private Animator anim;
@@ -25,7 +25,7 @@ namespace SadScene
         public void TriggerCantPlayDialogue()
         {
             anim.SetTrigger("CantPlay");
-            Utilities.PlayAudio(explainCantPlay);
+            Utilities.PlayAudio(cantPlay);
         }
 
         public void PlayNowDialogue()
@@ -36,7 +36,7 @@ namespace SadScene
 
         public void HaveToWait()
         {
-            Utilities.PlayAudio(haveToWait);
+            Utilities.PlayAudio(dontGetToPlay);
             anim.SetTrigger("HaveToWait");
         }
 

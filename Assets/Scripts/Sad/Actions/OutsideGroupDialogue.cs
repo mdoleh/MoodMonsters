@@ -7,7 +7,7 @@ namespace SadScene
     public class OutsideGroupDialogue : MonoBehaviour
     {
         public AudioSource canIPlay;
-        public AudioSource iWantToPlayNow;
+        public AudioSource noneAreHere;
         public GroupDialogue otherCharacter;
 
         private Animator anim;
@@ -39,7 +39,7 @@ namespace SadScene
         public void PlayNowDialogue()
         {
             anim.SetTrigger("PlayNow");
-            Utilities.PlayAudio(iWantToPlayNow);
+            Utilities.PlayAudio(noneAreHere);
         }
 
         public void HaveToWait()
