@@ -17,6 +17,13 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
+        public void SetWalkAwaySpeed()
+        {
+            isWalking = true;
+            multiplierSpeed = -0.5f;
+            multiplierDirection = 0f;
+        }
+
         public void ShiftIdle()
         {
             anim.SetTrigger("Idle");

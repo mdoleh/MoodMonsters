@@ -1,32 +1,35 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ConeDisappear : MonoBehaviour
+namespace SadScene
 {
-    private bool shouldSink = false;
-    private float alpha = 1.0f;
-    private ConeManager manager;
-
-    private void Start()
+    public class ConeDisappear : MonoBehaviour
     {
-        manager = transform.parent.GetComponent<ConeManager>();
-    }
+        private bool shouldSink = false;
+        private float alpha = 1.0f;
+        private ConeManager manager;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.name.ToLower().Equals("soccerball") && !shouldSink)
+        private void Start()
         {
-            shouldSink = true;
-            StartCoroutine(HideObject());
+            manager = transform.parent.GetComponent<ConeManager>();
         }
-    }
 
-    private IEnumerator HideObject()
-    {
-        yield return new WaitForSeconds(1f);
-        GetComponent<BoxCollider>().enabled = false;
-        manager.NextCone();
-        yield return new WaitForSeconds(1f);
-        gameObject.SetActive(false);
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.transform.name.ToLower().Equals("soccerball") && !shouldSink)
+            {
+                shouldSink = true;
+                StartCoroutine(HideObject());
+            }
+        }
+
+        private IEnumerator HideObject()
+        {
+            yield return new WaitForSeconds(1f);
+            GetComponent<BoxCollider>().enabled = false;
+            manager.NextCone();
+            yield return new WaitForSeconds(1f);
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace SadScene
 
         public void WalkAway()
         {
-            
+            anim.SetTrigger("WalkAway");
         }
     }
 }
