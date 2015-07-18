@@ -8,8 +8,11 @@ namespace SadScene
     public class OutsideGroupSoccerAnimation : ControllerMovement
     {
         public OutsideGroupSoccerBallMovement soccerBall;
+        public AudioSource didntKickHardEnough;
+        public ObjectSequenceManager retryPointManager;
         
         private Animator anim;
+        private bool shouldAdjustCamera = true;
 
         protected void Start()
         {
@@ -27,6 +30,7 @@ namespace SadScene
         public void ShiftIdle()
         {
             anim.SetTrigger("Idle");
+            if (!shouldAdjustCamera) return;
             AdjustCamera();
             StartJoystickTutorial();
         }
@@ -46,6 +50,7 @@ namespace SadScene
         public void StartDialogue()
         {
             stopMoving();
+            anim.SetTrigger("Idle");
             resetCamera(false);
             Timeout.StopTimers();
             GetComponent<OutsideGroupDialogue>().StartDialogue();
@@ -53,12 +58,35 @@ namespace SadScene
 
         public void KickForwardEvent()
         {
-            soccerBall.KickBallForward();
+            if (multiplierSpeed < 2f)
+            {
+                soccerBall.KickBallForward(multiplierSpeed / 3f);
+                resetPosition();
+            }
+            else
+            {
+                soccerBall.KickBallForward(multiplierSpeed / 2f);
+            }
+        }
+
+        private void resetPosition()
+        {
+            retryPointManager.NextInSequence();
+            Utilities.PlayAudio(didntKickHardEnough);
+            anim.SetTrigger("WalkBackwards");
+            shouldAdjustCamera = false;
+        }
+
+        public void WalkBackwardsEvent()
+        {
+            if (shouldAdjustCamera) return;
+            isWalking = true;
+            multiplierSpeed = -1f;
+            multiplierDirection = 0f;
         }
 
         private IEnumerator KickBallForward()
         {
-            yield return new WaitForSeconds(1f);
             anim.SetTrigger("KickForward");
             yield return new WaitForSeconds(1f);
             GetComponent<CapsuleCollider>().enabled = true;
@@ -69,12 +97,18 @@ namespace SadScene
             if (!anim.GetBool("Run")) anim.SetBool("Run", true);
         }
 
+        public void StopWalkingBackwards()
+        {
+            isWalking = false;
+            multiplierSpeed = 0f;
+            shouldAdjustCamera = true;
+            ShiftIdle();
+        }
+
         private void stopMoving()
         {
             anim.SetBool("Run", false);
-            anim.SetTrigger("Idle");
             isWalking = false;
-            multiplierSpeed = 0f;
             multiplierDirection = 0f;
         }
 

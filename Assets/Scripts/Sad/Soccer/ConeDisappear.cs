@@ -7,11 +7,11 @@ namespace SadScene
     {
         private bool shouldSink = false;
         private float alpha = 1.0f;
-        private ConeManager manager;
+        private ObjectSequenceManager coneManager;
 
         private void Start()
         {
-            manager = transform.parent.GetComponent<ConeManager>();
+            coneManager = transform.parent.GetComponent<ObjectSequenceManager>();
         }
 
         private void OnCollisionEnter(Collision other)
@@ -27,7 +27,7 @@ namespace SadScene
         {
             yield return new WaitForSeconds(1f);
             GetComponent<BoxCollider>().enabled = false;
-            manager.NextCone();
+            coneManager.NextInSequence();
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
         }

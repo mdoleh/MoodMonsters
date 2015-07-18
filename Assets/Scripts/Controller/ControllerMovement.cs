@@ -14,7 +14,7 @@ public class ControllerMovement : MonoBehaviour {
     public AudioSource initialInstructions;
 
     protected bool isWalking = false;
-    protected float multiplierSpeed = 1f;
+    protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
     

@@ -6,6 +6,8 @@ namespace SadScene
     {
         private Rigidbody rigidBody;
         private bool shouldStartDialogue = false;
+        private Vector3 previousPosition;
+        private Quaternion previousRotation;
 
         private void Start()
         {
@@ -17,6 +19,12 @@ namespace SadScene
             rigidBody.velocity = Vector3.zero;   
         }
 
+        public void ResetPosition()
+        {
+            transform.position = previousPosition;
+            transform.rotation = previousRotation;
+        }
+
         public void KickBallUp()
         {
             neutralizeForce();
@@ -24,11 +32,13 @@ namespace SadScene
             rigidBody.AddTorque(0f, 0f, 100f);
         }
 
-        public void KickBallForward()
+        public void KickBallForward(float multiplier)
         {
             neutralizeForce();
+            previousPosition = transform.position;
+            previousRotation = transform.rotation;
             rigidBody.constraints = RigidbodyConstraints.None;
-            rigidBody.AddForce(250f, 180f, 0f);
+            rigidBody.AddForce(250f*multiplier, 180f*multiplier, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
             rigidBody.angularDrag = 20f;
         }
