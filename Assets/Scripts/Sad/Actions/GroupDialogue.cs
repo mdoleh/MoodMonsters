@@ -8,6 +8,7 @@ namespace SadScene
         public AudioSource cantPlay;
         public AudioSource dontGetToPlay;
         public OutsideGroupDialogue otherCharacter;
+        public static bool shouldStopPlaying = false;
 
         private Animator anim;
 
@@ -18,6 +19,7 @@ namespace SadScene
 
         public void ExplainCantPlay()
         {
+            shouldStopPlaying = true;
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("CantPlay");
         }
@@ -28,22 +30,33 @@ namespace SadScene
             Utilities.PlayAudio(cantPlay);
         }
 
-        public void PlayNowDialogue()
+        public void NoneAreHereDialogue()
         {
             anim.SetTrigger("Idle");
-            otherCharacter.PlayNowDialogue();
+            otherCharacter.NoneAreHereDialogue();
         }
 
-        public void HaveToWait()
+        public void DontGetToPlay()
         {
             Utilities.PlayAudio(dontGetToPlay);
-            anim.SetTrigger("HaveToWait");
+            anim.SetTrigger("DontGetToPlay");
         }
 
         public void TriggerWalkAway()
         {
             anim.SetTrigger("Idle");
+            anim.SetTrigger("TurnToFriends");
             otherCharacter.WalkAway();
+        }
+
+        public void ResumePlaying()
+        {
+            shouldStopPlaying = false;
+            var animationScripts = transform.parent.GetComponentsInChildren<GroupSoccerAnimation>();
+            foreach (var groupSoccerAnimation in animationScripts)
+            {
+                groupSoccerAnimation.SetOffAnimationTrigger();
+            }
         }
     }
 }

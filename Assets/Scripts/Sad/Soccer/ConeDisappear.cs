@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Security.Cryptography;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ConeDisappear : MonoBehaviour
 {

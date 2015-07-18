@@ -17,8 +17,8 @@ public class ControllerMovement : MonoBehaviour {
     protected float multiplierSpeed = 1f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
-    protected bool joystickInstructionsAlreadyPlayed = false;
-
+    
+    private bool initialInstructionsPlayed = false;
     private AudioSource joystickInstructions;
     private GameObject disableJoystickPanel;
     private Joystick joystickScript;
@@ -89,11 +89,17 @@ public class ControllerMovement : MonoBehaviour {
 
     private IEnumerator playJoystickInstructions()
     {
-        if (!joystickInstructionsAlreadyPlayed)
+        if (!initialInstructionsPlayed)
         {
             Utilities.PlayAudio(initialInstructions);
             if (initialInstructions != null)
+            {
                 yield return new WaitForSeconds(initialInstructions.clip.length);
+            }
+            initialInstructionsPlayed = true;
+        }
+        if (!Tutorials.JoyStickTutorialHasRun)
+        {
             foreach (var joystickAnimation in joystickAnimations)
             {
                 joystickAnimation.SetActive(true);
@@ -102,7 +108,7 @@ public class ControllerMovement : MonoBehaviour {
                 yield return new WaitForSeconds(audio.clip.length);
                 joystickAnimation.SetActive(false);
             }
-            joystickInstructionsAlreadyPlayed = true;
+            Tutorials.JoyStickTutorialHasRun = true;
         }
         EnableJoystick();
     }

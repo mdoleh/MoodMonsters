@@ -8,7 +8,6 @@ public class FearfulMovementActionsMenu : FearfulMovement
         base.Start();
         StartCoroutine(ShowActionsMenu());
         waitingForScarlet = false;
-        joystickInstructionsAlreadyPlayed = true;
     }
 
     private IEnumerator ShowActionsMenu()

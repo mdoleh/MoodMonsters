@@ -36,16 +36,16 @@ namespace SadScene
             otherCharacter.ExplainCantPlay();
         }
 
-        public void PlayNowDialogue()
+        public void NoneAreHereDialogue()
         {
-            anim.SetTrigger("PlayNow");
+            anim.SetTrigger("NoneAreHere");
             Utilities.PlayAudio(noneAreHere);
         }
 
-        public void HaveToWait()
+        public void DontGetToPlay()
         {
             anim.SetTrigger("Idle");
-            otherCharacter.HaveToWait();
+            otherCharacter.DontGetToPlay();
         }
 
         public void WalkAway()

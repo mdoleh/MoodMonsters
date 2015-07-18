@@ -47,6 +47,11 @@ namespace SadScene
         public void StopBallEvent()
         {
             soccerBall.NeutralizeForce();
+            if (GroupDialogue.shouldStopPlaying)
+            {
+                anim.SetTrigger("Idle");
+                return;
+            }
             animationTrigger(anim);
         }
 
@@ -60,7 +65,14 @@ namespace SadScene
         {
             yield return new WaitForSeconds(1f);
             GetComponent<CapsuleCollider>().enabled = true;
+            animationTrigger = null;
             anim.SetTrigger("Idle");
+        }
+
+        public void SetOffAnimationTrigger()
+        {
+            if (animationTrigger != null) animationTrigger(anim);
+            GetComponent<CapsuleCollider>().enabled = true;
         }
     }
 }
