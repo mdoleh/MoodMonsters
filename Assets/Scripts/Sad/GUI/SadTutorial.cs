@@ -11,7 +11,8 @@ public class SadTutorial : TutorialBase
         base.HelpExplanationComplete();
         GUIDetect.CanvasList = new List<string>
         {
-            "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
+            "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", 
+            "EmotionActionsCanvas", "ParentActionsCanvas", "SituationActionsCanvas"
         };
         GUIDetect.AudioIgnoreList = new List<string> { "ControllerCanvas" };
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
