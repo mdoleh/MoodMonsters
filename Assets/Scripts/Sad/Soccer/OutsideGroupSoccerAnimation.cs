@@ -20,11 +20,11 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
-        public void SetWalkAwaySpeed()
+        public void SetWalkAwaySpeed(bool walking, float speed, float direction)
         {
-            isWalking = true;
-            multiplierSpeed = -0.5f;
-            multiplierDirection = 0f;
+            isWalking = walking;
+            multiplierSpeed = speed;
+            multiplierDirection = direction;
         }
 
         public void ShiftIdle()
