@@ -52,7 +52,7 @@ namespace SadScene
                 anim.SetTrigger("Idle");
                 return;
             }
-            animationTrigger(anim);
+            if (animationTrigger != null) animationTrigger(anim);
         }
 
         private void stopBallAnimation(Action<Animator> trigger)

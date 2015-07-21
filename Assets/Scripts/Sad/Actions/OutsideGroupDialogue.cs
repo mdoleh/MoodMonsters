@@ -9,6 +9,7 @@ namespace SadScene
         public AudioSource canIPlay;
         public AudioSource noneAreHere;
         public GroupDialogue otherCharacter;
+        public CameraFollow cameraFollow;
 
         private Animator anim;
 
@@ -51,6 +52,7 @@ namespace SadScene
         public void WalkAway()
         {
             anim.SetTrigger("WalkAway");
+            cameraFollow.enabled = true;
         }
     }
 }
