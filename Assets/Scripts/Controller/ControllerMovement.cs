@@ -98,7 +98,7 @@ public class ControllerMovement : MonoBehaviour {
             }
             initialInstructionsPlayed = true;
         }
-        if (!Tutorials.JoyStickTutorialHasRun)
+        if (!GameFlags.JoyStickTutorialHasRun)
         {
             foreach (var joystickAnimation in joystickAnimations)
             {
@@ -108,7 +108,7 @@ public class ControllerMovement : MonoBehaviour {
                 yield return new WaitForSeconds(audio.clip.length);
                 joystickAnimation.SetActive(false);
             }
-            Tutorials.JoyStickTutorialHasRun = true;
+            GameFlags.JoyStickTutorialHasRun = true;
         }
         EnableJoystick();
     }

@@ -26,10 +26,10 @@ namespace PuzzleTutorial
         public void ExplainEndButtons()
         {
             Timeout.SetRepeatAudio(repeatAudioMenu);
-            if (!Tutorials.PuzzleTutorialHasRun)
+            if (!GameFlags.PuzzleTutorialHasRun)
             {
                 StartCoroutine(ShowMarkersExtra(endMarkers));
-                Tutorials.PuzzleTutorialHasRun = true;
+                GameFlags.PuzzleTutorialHasRun = true;
             }
             else
             {

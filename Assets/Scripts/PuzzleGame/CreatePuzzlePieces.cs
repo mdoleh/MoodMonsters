@@ -109,7 +109,7 @@ namespace PuzzleMiniGame
             Utilities.PlayAudio(transform.parent.GetComponent<AudioSource>());
             Timeout.SetRepeatAudio(transform.parent.GetComponent<AudioSource>());
             yield return new WaitForSeconds(transform.parent.GetComponent<AudioSource>().clip.length);
-            if (!Tutorials.PuzzleTutorialHasRun) tutorialCanvas.PlayTutorial(pieces);
+            if (!GameFlags.PuzzleTutorialHasRun) tutorialCanvas.PlayTutorial(pieces);
             else
             {
                 DisableCorrectlyPlacedPieces(pieces);

@@ -9,7 +9,7 @@ public class GlobalInit : MonoBehaviour {
 	void Start ()
 	{
 	    Timeout.ResetValues();
-        Tutorials.ResetValues();
+        GameFlags.ResetValues();
         Scenes.ResetValues();
         Attempts.ResetValues();
         Help.ResetValues();

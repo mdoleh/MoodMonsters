@@ -3,13 +3,14 @@ using System.Collections;
 
 namespace Globals
 {
-    public static class Tutorials
+    public static class GameFlags
     {
         public static bool MainTutorialHasRun = true;
         public static bool BucketTutorialHasRun = true;
         public static bool PuzzleTutorialHasRun = true;
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
+        public static bool AdultIsPresent = true;
 
         public static void ResetValues()
         {
@@ -17,6 +18,7 @@ namespace Globals
             BucketTutorialHasRun = false;
             PuzzleTutorialHasRun = false;
             CameraTutorialHasRun = false;
+            AdultIsPresent = false;
         }
     }
 }

@@ -35,7 +35,7 @@ public class BeginInstructions : MonoBehaviour
 
     private IEnumerator positionInstructions()
     {
-        if (!Tutorials.CameraTutorialHasRun)
+        if (!GameFlags.CameraTutorialHasRun)
         {
             Utilities.PlayAudio(getFaceIntoOvalAudio);
             yield return new WaitForSeconds(getFaceIntoOvalAudio.clip.length);
@@ -51,7 +51,7 @@ public class BeginInstructions : MonoBehaviour
             leftButtonArrow.SetActive(false);
         }
         disablePanel.SetActive(false);
-        Tutorials.CameraTutorialHasRun = true;
+        GameFlags.CameraTutorialHasRun = true;
         Timeout.SetRepeatAudio(rightButtonAudio);
         Timeout.StartTimers();
     }

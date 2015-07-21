@@ -34,7 +34,7 @@ public class TutorialBase : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Utilities.PlayAudio(GetComponent<AudioSource>());
         yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
-        if (Tutorials.MainTutorialHasRun) HelpExplanationComplete();
+        if (GameFlags.MainTutorialHasRun) HelpExplanationComplete();
         else
         {
             Utilities.PlayAudio(questionAudio);
@@ -68,7 +68,7 @@ public class TutorialBase : MonoBehaviour
 
     protected virtual void HelpExplanationComplete()
     {
-        Tutorials.MainTutorialHasRun = true;
+        GameFlags.MainTutorialHasRun = true;
         Timeout.StopTimers();
         Timeout.SetRepeatAudio(null);
     }
