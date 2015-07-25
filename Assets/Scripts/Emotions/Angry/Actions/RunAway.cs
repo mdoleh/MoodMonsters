@@ -5,15 +5,8 @@ namespace AngryScene
 {
     public class RunAway : ActionBase
     {
-
-        Animator anim;
-        bool run = false;
-        float rotation;
-
-        public void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
+        private bool run = false;
+        private float rotation;
 
         protected void Update() {
             if (run)

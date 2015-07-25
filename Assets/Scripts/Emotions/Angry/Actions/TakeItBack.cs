@@ -6,13 +6,7 @@ namespace AngryScene
     public class TakeItBack : ActionBase
     {
         public Animator other;
-        Animator anim;
         private bool takingTriggered = false;
-
-        public void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
 
         public void StartTaking()
         {

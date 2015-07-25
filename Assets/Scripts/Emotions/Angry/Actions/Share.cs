@@ -7,15 +7,9 @@ namespace AngryScene
     public class Share : ActionBase
     {
         public Animator otherAnim;
-        Animator anim;
-        float rotation;
-        bool listening = false;
+        private float rotation;
+        private bool listening = false;
         private bool sharingTriggered = false;
-
-        public void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
 
         public void StartTalking()
         {

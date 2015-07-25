@@ -9,12 +9,6 @@ namespace ScaredScene
         public Animator otherAnim;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
-        private Animator anim;
-
-        private void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
 
         private void VoiceFear()
         {

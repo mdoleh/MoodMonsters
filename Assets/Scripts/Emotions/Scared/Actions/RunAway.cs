@@ -5,13 +5,6 @@ namespace ScaredScene
 {
     public class RunAway : ActionBase
     {
-        private Animator anim;
-
-        private void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
-
         public override void StartAction()
         {
             base.StartAction();
