@@ -3,21 +3,12 @@
 public class ButtonSceneLoad : ButtonSelect {
 
     public string sceneToLoad;
-    public string tutorialToLoad;
 
     protected override void DoubleClickAction()
     {
         Timeout.StopTimers();
         if (sceneToLoad == "") return;
-        if (tutorialToLoad == "")
-        {
-            Utilities.LoadEmotionScene(sceneToLoad);
-        }
-        else
-        {
-            Scenes.NextSceneToLoad = sceneToLoad;
-            Utilities.LoadScene(tutorialToLoad);
-        }
+        Utilities.LoadEmotionScene(sceneToLoad);
     }
 
     protected override void Update()
