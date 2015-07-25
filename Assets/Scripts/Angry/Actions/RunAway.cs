@@ -25,8 +25,6 @@ namespace AngryScene
 
         public void StartRunningAway()
         {
-            startTimer = true;
-            eventTrigger = true;
             anim.SetTrigger("IsHiding");
             StartCoroutine(TriggerRun());
         }

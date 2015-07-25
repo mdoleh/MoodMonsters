@@ -3,12 +3,12 @@ using System.Collections;
 
 namespace SadScene
 {
-    public class TemperTantrum : IncorrectActionBase
+    public class ForceOtherKids : IncorrectActionBase
     {
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
-            anim.SetTrigger("Tantrum");
+//            anim.SetTrigger("Threaten");
         }
     }
 }

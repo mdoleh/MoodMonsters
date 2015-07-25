@@ -52,8 +52,6 @@ namespace AngryScene
         {
             anim.SetBool("IsUsingIPad", true);
             other.SetTrigger("IsSad");
-            startTimer = true;
-            eventTrigger = true;
         }
 
         public override void StartAction()

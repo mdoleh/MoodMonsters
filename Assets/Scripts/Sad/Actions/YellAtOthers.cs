@@ -7,13 +7,6 @@ namespace SadScene
     {
         public AudioSource yellAtOthersDialogue;
 
-        private Animator anim;
-
-        private void Awake()
-        {
-            anim = GetComponent<Animator>();
-        }
-
         public override void StartAction()
         {
             base.StartAction();

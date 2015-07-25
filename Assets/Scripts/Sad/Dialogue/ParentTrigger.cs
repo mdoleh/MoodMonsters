@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
-    public class ParentActions : MonoBehaviour
+    public class ParentTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)
         {
