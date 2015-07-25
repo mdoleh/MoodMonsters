@@ -20,6 +20,7 @@ namespace SadScene
 
         public void StartDialogue()
         {
+            GroupDialogue.shouldStopPlaying = true;
             anim.SetTrigger("CanIPlay");
             StartCoroutine(DelayPlayAudio(canIPlay));
         }

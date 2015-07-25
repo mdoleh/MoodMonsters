@@ -1,33 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ConveySadness : ActionBase
+namespace SadScene
 {
-    public AudioSource expressSadDialogue;
-
-    private Animator anim;
-
-    private void Awake()
+    public class ConveySadness : ActionBase
     {
-        anim = GetComponent<Animator>();
-    }
+        public AudioSource expressSadDialogue;
 
-    public override void StartAction()
-    {
-        base.StartAction();
-        ShowCorrect(true);
-        StartCoroutine(Explain());
-    }
+        private Animator anim;
 
-    private IEnumerator Explain()
-    {
-        Utilities.PlayAudio(actionExplanation);
-        yield return new WaitForSeconds(actionExplanation.clip.length);
-        ShowCorrect(false);
-        anim.SetTrigger("Talk");
-        Utilities.PlayAudio(expressSadDialogue);
-        yield return new WaitForSeconds(expressSadDialogue.clip.length);
-        GameObject.Find("EmotionActionsCanvas").GetComponent<Canvas>().enabled = true;
-        GUIDetect.NextGUI();
+        private void Awake()
+        {
+            anim = GetComponent<Animator>();
+        }
+
+        public override void StartAction()
+        {
+            base.StartAction();
+            ShowCorrect(true);
+            StartCoroutine(Explain());
+        }
+
+        private IEnumerator Explain()
+        {
+            Utilities.PlayAudio(actionExplanation);
+            yield return new WaitForSeconds(actionExplanation.clip.length);
+            ShowCorrect(false);
+            anim.SetTrigger("Talk");
+            Utilities.PlayAudio(expressSadDialogue);
+            yield return new WaitForSeconds(expressSadDialogue.clip.length);
+            anim.SetTrigger("Idle");
+            GameObject.Find("EmotionActionsCanvas").GetComponent<Canvas>().enabled = true;
+            GUIDetect.NextGUI();
+        }
     }
 }

@@ -143,6 +143,7 @@ ModelImporter:
     400134: mixamorig:Spine2
     7400000: standard_idle
     7400002: idle_sadscene_facing_parent
+    7400004: idle_sadscene_facing_others
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -327,17 +328,17 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: idle_sadscene_facing_parent
+      name: idle_sadscene_facing_others
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 90
       wrapMode: 0
-      orientationOffsetY: -65
+      orientationOffsetY: 80
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

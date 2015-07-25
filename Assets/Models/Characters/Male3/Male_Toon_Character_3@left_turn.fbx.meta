@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ea46ce9644b2b8244970b41a8e92e236
-timeCreated: 1435426961
+guid: f837f33993c05c447ac1ab13f373117d
+timeCreated: 1437840875
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -141,7 +141,7 @@ ModelImporter:
     400130: mixamorig:Spine
     400132: mixamorig:Spine1
     400134: mixamorig:Spine2
-    7400000: idle
+    7400000: left_turn
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -164,28 +164,35 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: left_turn
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 250
+      lastFrame: 49
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -70
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: StartYellingEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -361,7 +368,7 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: mixamorig:Hips
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: fe8546a6aa131d640803247c7520fa27,
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1fb228e8f4d0ea145b67e9ffccc03c71,
     type: 3}
   animationType: 2
   additionalBone: 0

@@ -69,9 +69,8 @@ namespace SadScene
             anim.SetTrigger("Idle");
         }
 
-        public void SetOffAnimationTrigger()
+        public void ResetCapsuleColliders()
         {
-            if (animationTrigger != null) animationTrigger(anim);
             GetComponent<CapsuleCollider>().enabled = true;
         }
     }

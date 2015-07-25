@@ -11,6 +11,7 @@ namespace SadScene
         public static bool shouldStopPlaying = false;
 
         private Animator anim;
+        private Quaternion originalRotation;
 
         private void Start()
         {
@@ -19,7 +20,8 @@ namespace SadScene
 
         public void ExplainCantPlay()
         {
-            shouldStopPlaying = true;
+            originalRotation = transform.rotation;
+            anim.applyRootMotion = true;
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("CantPlay");
         }
@@ -51,11 +53,14 @@ namespace SadScene
 
         public void ResumePlaying()
         {
+            transform.rotation = originalRotation;
+            anim.SetTrigger("Idle");
+            anim.applyRootMotion = false;
             shouldStopPlaying = false;
             var animationScripts = transform.parent.GetComponentsInChildren<GroupSoccerAnimation>();
             foreach (var groupSoccerAnimation in animationScripts)
             {
-                groupSoccerAnimation.SetOffAnimationTrigger();
+                groupSoccerAnimation.ResetCapsuleColliders();
             }
         }
     }
