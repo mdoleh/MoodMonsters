@@ -8,7 +8,7 @@ namespace HelpGUI
          protected override void DoubleClickAction()
         {
             base.DoubleClickAction();
-            Utilities.PlayAudio(GUIDetect.GetCurrentGUI().GetComponent<AudioSource>());
+            Utilities.PlayAudio(GUIHelper.GetCurrentGUI().GetComponent<AudioSource>());
         }
     }
 }

@@ -131,7 +131,7 @@ public class FearfulMovement : CharacterMovement
         base.ShiftIdle();
         joystickCanvas.GetComponent<Canvas>().enabled = true;
         EnableHelpGUI();
-        GUIDetect.NextGUI();
+        GUIHelper.NextGUI();
     }
 
     public void BackAway()

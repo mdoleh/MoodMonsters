@@ -84,13 +84,13 @@ public class ButtonDragDrop : MonoBehaviour {
     protected void HideGUI()
     {
         GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = false;
-        GUIDetect.GetCurrentGUI().enabled = false;
+        GUIHelper.GetCurrentGUI().enabled = false;
     }
 
     protected void NextGUI()
     {
         correctCount = 0;
-        GUIDetect.NextGUI();       
+        GUIHelper.NextGUI();       
     }
 
     private void initializeCorrectAmount()

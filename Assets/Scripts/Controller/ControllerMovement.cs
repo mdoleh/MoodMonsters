@@ -70,9 +70,9 @@ public class ControllerMovement : MonoBehaviour {
 
     protected virtual void AdjustCamera()
     {
-        if (GUIDetect.GetGUIByName(GUIDetect.CanvasList[0]).enabled)
+        if (GUIHelper.GetGUIByName(GUIHelper.CanvasList[0]).enabled)
         {
-            GUIDetect.NextGUI();
+            GUIHelper.NextGUI();
         }
         else
         {

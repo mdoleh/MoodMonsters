@@ -13,7 +13,7 @@ namespace SadScene
                 other.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = false;
                 GameObject.Find("ControllerCanvas").GetComponent<Canvas>().enabled = true;
-                GUIDetect.NextGUI();
+                GUIHelper.NextGUI();
             }
         }
     }

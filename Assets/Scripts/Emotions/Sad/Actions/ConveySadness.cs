@@ -16,7 +16,7 @@ namespace SadScene
             base.AfterDialogue();
             anim.SetTrigger("Idle");
             GameObject.Find("EmotionActionsCanvas").GetComponent<Canvas>().enabled = true;
-            GUIDetect.NextGUI();
+            GUIHelper.NextGUI();
         }
     }
 }

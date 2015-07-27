@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Globals;
 
-public class GUIDetect : MonoBehaviour {
+public class GUIHelper : MonoBehaviour {
     public static IList<string> CanvasList = new List<string>
     {
         "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
@@ -60,6 +60,7 @@ public class GUIDetect : MonoBehaviour {
         {
             if (guiCanvas.name == next)
             {
+                GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
                 guiCanvas.GetComponent<Canvas>().enabled = true;
                 if (!AudioIgnoreList.Contains(guiCanvas.name)) 
                     Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());

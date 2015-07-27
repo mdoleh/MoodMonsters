@@ -10,7 +10,7 @@ public class SadTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIDetect.CanvasList = GameFlags.AdultIsPresent
+        GUIHelper.CanvasList = GameFlags.AdultIsPresent
             ? new List<string>
             {
                 "TutorialCanvas",
@@ -36,7 +36,7 @@ public class SadTutorial : TutorialBase
                 "ParentDefaultCanvas", 
                 "SituationActionsCanvas"
             };
-        GUIDetect.AudioIgnoreList = new List<string> { "ControllerCanvas" };
+        GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas" };
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
     }
 }

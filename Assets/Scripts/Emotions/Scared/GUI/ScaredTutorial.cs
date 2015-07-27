@@ -13,11 +13,11 @@ public class ScaredTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIDetect.CanvasList = new List<string>
+        GUIHelper.CanvasList = new List<string>
         {
             "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
         };
-        GUIDetect.AudioIgnoreList = new List<string>{ "ControllerCanvas" };
+        GUIHelper.AudioIgnoreList = new List<string>{ "ControllerCanvas" };
 
         scarlet.GetComponent<CharacterMovement>().StartSequence();
         aj.GetComponent<CharacterMovement>().StartSequence();
