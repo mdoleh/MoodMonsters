@@ -4,6 +4,7 @@ namespace SadScene
 {
     public class OutsideGroupSoccerBallMovement : MonoBehaviour
     {
+        public bool isWatching = false;
         private Rigidbody rigidBody;
         private bool shouldStartDialogue = false;
         private Vector3 previousPosition;
@@ -54,7 +55,12 @@ namespace SadScene
             {
                 other.GetComponent<CapsuleCollider>().enabled = false;
                 if (shouldStartDialogue)
+                {
+                    shouldStartDialogue = false;
                     other.GetComponent<OutsideGroupSoccerAnimation>().StartDialogue();
+                }
+                else if (isWatching)
+                    other.GetComponent<SideLinesWatching>().StartWatchingFromSidelines();
                 else
                     other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
             }

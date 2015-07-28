@@ -32,6 +32,7 @@ namespace SadScene
         {
             anim.SetTrigger("Idle");
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(false, 0f, 0f);
+            GetComponent<OutsideGroupSoccerAnimation>().DisableSoccerBallCollider();
         }
     }
 }

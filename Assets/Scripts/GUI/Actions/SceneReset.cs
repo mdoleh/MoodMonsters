@@ -39,7 +39,7 @@ public class SceneReset : MonoBehaviour {
     private void showSymbol(Canvas symbol, Animator animator, bool show)
     {
         symbol.enabled = show;
-        if (show) animator.SetTrigger("ShowCanvas");
+        animator.SetTrigger(show ? "ShowCanvas" : "ResetCanvas");
     }
 
     private IEnumerator DelayLoadingScene(AudioSource audioSource, string sceneToLoad, Action displaySymbol)

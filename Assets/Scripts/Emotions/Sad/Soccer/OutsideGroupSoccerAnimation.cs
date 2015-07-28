@@ -20,6 +20,11 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
+        public void DisableSoccerBallCollider()
+        {
+            soccerBall.isWatching = true;
+        }
+
         public void SetWalkAwaySpeed(bool walking, float speed, float direction)
         {
             isWalking = walking;
