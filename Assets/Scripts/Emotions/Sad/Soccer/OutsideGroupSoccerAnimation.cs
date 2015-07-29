@@ -93,7 +93,7 @@ namespace SadScene
         private IEnumerator KickBallForward()
         {
             anim.SetTrigger("KickForward");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             GetComponent<CapsuleCollider>().enabled = true;
         }
 
