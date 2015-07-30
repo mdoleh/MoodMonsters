@@ -27,6 +27,12 @@ namespace SadScene
             rigidBody.AddForce(direction * 100f);
         }
 
+        public void KickBallForward(Vector3 direction, float force)
+        {
+            NeutralizeForce();
+            rigidBody.AddForce(direction * force);
+        }
+
         public void KickBallLateral(Vector3 direction)
         {
             NeutralizeForce();
@@ -39,6 +45,10 @@ namespace SadScene
             {
                 other.GetComponent<CapsuleCollider>().enabled = false;
                 kickInRandomDirection(other.GetComponent<GroupSoccerAnimation>());
+            }
+            else if (other.GetComponent<ForceIntoGame>() != null)
+            {
+                other.GetComponent<ForceIntoGame>().ForceKickBallForward();
             }
         }
 

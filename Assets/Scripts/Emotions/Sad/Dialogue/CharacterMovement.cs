@@ -28,11 +28,11 @@ namespace SadScene
             GetComponent<CapsuleCollider>().enabled = true;
         }
 
-        public void StopWalking()
+        public void StopWalking(bool soccerFlag)
         {
             anim.SetTrigger("Idle");
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(false, 0f, 0f);
-            GetComponent<OutsideGroupSoccerAnimation>().DisableSoccerBallCollider();
+            GetComponent<OutsideGroupSoccerAnimation>().SetSoccerBallFlag(soccerFlag);
         }
     }
 }

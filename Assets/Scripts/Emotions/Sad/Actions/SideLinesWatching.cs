@@ -30,7 +30,7 @@ namespace SadScene
         
         public void StartWatchingFromSidelines()
         {
-            GetComponent<CharacterMovement>().StopWalking();
+            GetComponent<CharacterMovement>().StopWalking(false);
             TriggerIncorrect();
         }
     }

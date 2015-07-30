@@ -9,7 +9,7 @@ namespace SadScene
         {
             if (other.GetComponent<CharacterMovement>() != null)
             {
-                other.GetComponent<CharacterMovement>().StopWalking();
+                other.GetComponent<CharacterMovement>().StopWalking(true);
                 other.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = false;
                 GameObject.Find("ControllerCanvas").GetComponent<Canvas>().enabled = true;

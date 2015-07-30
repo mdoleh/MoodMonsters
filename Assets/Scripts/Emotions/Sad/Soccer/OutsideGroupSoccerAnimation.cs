@@ -20,9 +20,14 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
-        public void DisableSoccerBallCollider()
+        public void SetSoccerBallFlag(bool flag)
         {
-            soccerBall.isWatching = true;
+            soccerBall.isWatching = flag;
+        }
+
+        public void HideSoccerBall()
+        {
+            soccerBall.gameObject.SetActive(false);
         }
 
         public void SetWalkAwaySpeed(bool walking, float speed, float direction)
