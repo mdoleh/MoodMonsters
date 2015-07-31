@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
+using Globals;
 
 namespace SadScene
 {
     public class CharacterMovement : MonoBehaviour
     {
-        public GameObject parentCharacter;
+        public GameObject[] parentCharacters;
 
         private Animator anim;
 
@@ -18,7 +20,7 @@ namespace SadScene
         {
             anim.SetTrigger("WalkAway");
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(true, -0.5f, 0f);
-            parentCharacter.SetActive(true);
+            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender)).SetActive(true);
             StartCoroutine(enableCollider());
         }
 
