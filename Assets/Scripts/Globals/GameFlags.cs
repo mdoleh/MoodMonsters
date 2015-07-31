@@ -10,7 +10,7 @@ namespace Globals
         public static bool PuzzleTutorialHasRun = true;
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
-        public static bool AdultIsPresent = true;
+        public static bool AdultIsPresent = false;
 
         public static void ResetValues()
         {

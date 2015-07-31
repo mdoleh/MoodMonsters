@@ -49,7 +49,6 @@ namespace SadScene
         public void ForceKickBallForwardEvent()
         {
             groupSoccerBall.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            var hips = transform.FindChild("mixamorig:Hips");
             groupSoccerBall.GetComponent<GroupSoccerBallMovement>().KickBallForward(new Vector3(1f, 0.72f, 0f), 250f);
         }
 

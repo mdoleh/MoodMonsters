@@ -16,7 +16,6 @@ namespace SadScene
             base.AfterDialogue();
 //            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
-            GameObject.Find("ParentActionsCanvas").GetComponent<Canvas>().enabled = true;
             GUIHelper.NextGUI();
         }
     }

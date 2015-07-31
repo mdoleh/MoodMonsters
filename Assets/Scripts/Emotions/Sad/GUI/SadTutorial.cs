@@ -32,11 +32,11 @@ public class SadTutorial : TutorialBase
                 "PhysicalCanvas2",
                 "PhysicalCanvas3",
                 "EmotionActionsCanvas",
-                //this will contain a script with an Update that checks for canvas visible, on visible run action on parent
                 "ParentDefaultCanvas", 
                 "SituationActionsCanvas"
             };
         GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas" };
+        GUIHelper.HelpCanvasIgnoreList = new List<string> { "ParentDefaultCanvas" };
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
     }
 }

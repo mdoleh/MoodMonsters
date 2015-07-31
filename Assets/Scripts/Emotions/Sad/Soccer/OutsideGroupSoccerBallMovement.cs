@@ -26,6 +26,11 @@ namespace SadScene
             transform.rotation = previousRotation;
         }
 
+        public void ApplyForce(Vector3 force)
+        {
+            rigidBody.AddForce(force);
+        }
+
         public void KickBallUp()
         {
             neutralizeForce();

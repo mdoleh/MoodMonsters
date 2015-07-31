@@ -11,6 +11,7 @@ public class GUIHelper : MonoBehaviour {
     };
 
     public static IList<string> AudioIgnoreList = new List<string>();
+    public static IList<string> HelpCanvasIgnoreList = new List<string>();
 
     public static string GetCurrentGUIName()
     {
@@ -60,7 +61,8 @@ public class GUIHelper : MonoBehaviour {
         {
             if (guiCanvas.name == next)
             {
-                GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
+                if (!HelpCanvasIgnoreList.Contains(guiCanvas.name))
+                    GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
                 guiCanvas.GetComponent<Canvas>().enabled = true;
                 if (!AudioIgnoreList.Contains(guiCanvas.name)) 
                     Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
