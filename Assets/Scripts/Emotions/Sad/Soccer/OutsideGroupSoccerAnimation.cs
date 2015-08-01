@@ -13,6 +13,7 @@ namespace SadScene
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
+        private bool shouldKickUp = true;
 
         protected virtual void Start()
         {
@@ -47,11 +48,12 @@ namespace SadScene
 
         public void KickBallUp()
         {
-            soccerBall.KickBallUp();
+            if (shouldKickUp) soccerBall.KickBallUp();
         }
 
         public void KickForwardWithDelay()
         {
+            shouldKickUp = false;
             anim.SetTrigger("Idle");
             StartCoroutine(DelayKickForward());
         }
@@ -60,6 +62,7 @@ namespace SadScene
         {
             yield return new WaitForSeconds(0.5f);
             KickForward();
+            shouldKickUp = true;
         }
 
         public void KickForward()

@@ -14,7 +14,10 @@ public class ButtonSceneLoad : ButtonSelect {
             Scenes.NextSceneToLoad = sceneToLoad;
             Utilities.LoadScene("ParentPresentMenuScreen");
         }
-        Utilities.LoadEmotionScene(sceneToLoad);
+        else
+        {
+            Utilities.LoadEmotionScene(sceneToLoad);
+        }
     }
 
     protected override void Update()
