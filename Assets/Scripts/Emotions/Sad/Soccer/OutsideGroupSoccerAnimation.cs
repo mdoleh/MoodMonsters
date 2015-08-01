@@ -50,6 +50,18 @@ namespace SadScene
             soccerBall.KickBallUp();
         }
 
+        public void KickForwardWithDelay()
+        {
+            anim.SetTrigger("Idle");
+            StartCoroutine(DelayKickForward());
+        }
+
+        private IEnumerator DelayKickForward()
+        {
+            yield return new WaitForSeconds(0.5f);
+            KickForward();
+        }
+
         public void KickForward()
         {
             stopMoving();

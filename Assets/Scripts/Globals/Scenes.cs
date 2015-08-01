@@ -7,7 +7,8 @@ namespace Globals
     {
         public static int CurrentMiniGameIndex = 0;
         public static string NextSceneToLoad;
-        public static string SceneForTesting = "AngrySceneSmallCity";
+        public static string SceneForTestingParentPresent = "SadSceneSmallCity";
+        public static string SceneForTestingMinigames = "AngrySceneSmallCity";
 
         public static IList<string> CompletedScenes = new List<string>();
 
@@ -31,7 +32,12 @@ namespace Globals
 
         public static string GetLastSceneCompleted()
         {
-            return CompletedScenes.Count == 0 ? SceneForTesting : CompletedScenes.Last();
+            return CompletedScenes.Count == 0 ? SceneForTestingMinigames : CompletedScenes.Last();
+        }
+
+        public static string GetNextSceneToLoadForParentPresent()
+        {
+            return string.IsNullOrEmpty(NextSceneToLoad) ? SceneForTestingParentPresent : NextSceneToLoad;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Globals
         public static void ResetValues()
         {
             MainTutorialHasRun = false;
+            JoyStickTutorialHasRun = false;
             BucketTutorialHasRun = false;
             PuzzleTutorialHasRun = false;
             CameraTutorialHasRun = false;

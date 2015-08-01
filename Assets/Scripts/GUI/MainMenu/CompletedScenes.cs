@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CompletedScenes : MonoBehaviour {
 
-    private void Awake()
+    private void Start()
     {
         ShowCompletedScenes();
         Utilities.PlayAudio(GameObject.Find("IntroAudio").GetComponent<AudioSource>());

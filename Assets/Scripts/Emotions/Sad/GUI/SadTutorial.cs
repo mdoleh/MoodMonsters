@@ -11,6 +11,6 @@ public class SadTutorial : TutorialBase
     {
         base.HelpExplanationComplete();
         GUIInitialization.Initialize();
-        luis.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
+        luis.GetComponent<OutsideGroupSoccerAnimation>().KickForwardWithDelay();
     }
 }

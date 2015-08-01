@@ -66,7 +66,7 @@ public class GUIHelper : MonoBehaviour {
         NextGUI(currentGUI, GetNextGUIName(currentGUI));
     }
 
-    private static void NextGUI(string current, string next)
+    public static void NextGUI(string current, string next)
     {
         var GUI = GetAllGUI();
         foreach (var guiCanvas in GUI)
