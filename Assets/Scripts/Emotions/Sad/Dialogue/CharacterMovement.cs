@@ -39,7 +39,7 @@ namespace SadScene
 
         public void EnableParent()
         {
-            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender)).SetActive(true);
+            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower())).SetActive(true);
         }
     }
 }

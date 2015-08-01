@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace SadScene
 {
@@ -16,6 +17,7 @@ namespace SadScene
             base.AfterDialogue();
 //            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
+            GameObject.Find("ParentActionsCanvas" + GameFlags.ParentGender).GetComponent<Canvas>().enabled = true;
             GUIHelper.NextGUI();
         }
     }

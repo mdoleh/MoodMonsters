@@ -14,7 +14,7 @@ namespace SadScene
 
         private void Start()
         {
-            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender));
+            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         private void Update()
