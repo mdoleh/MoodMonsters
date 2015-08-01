@@ -37,6 +37,18 @@ public class GUIHelper : MonoBehaviour {
         return GetGUIByName(nextGUI);
     }
 
+    public static string GetPreviousGUIName(string currentGUI)
+    {
+        var currentIndex = CanvasList.IndexOf(currentGUI);
+        return currentIndex - 1 < 0 ? null : CanvasList[currentIndex - 1];
+    }
+
+    public static Canvas GetPreviousGUI(string currentGUI)
+    {
+        var previousGUI = GetPreviousGUIName(currentGUI);
+        return GetGUIByName(previousGUI);
+    }
+
     public static GameObject[] GetAllGUI()
     {
         return GameObject.FindGameObjectsWithTag("GUI");

@@ -20,7 +20,7 @@ namespace SadScene
         {
             anim.SetTrigger("WalkAway");
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(true, -0.5f, 0f);
-            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender)).SetActive(true);
+            EnableParent();
             StartCoroutine(enableCollider());
         }
 
@@ -35,6 +35,11 @@ namespace SadScene
             anim.SetTrigger("Idle");
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(false, 0f, 0f);
             GetComponent<OutsideGroupSoccerAnimation>().SetSoccerBallFlag(soccerFlag);
+        }
+
+        public void EnableParent()
+        {
+            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender)).SetActive(true);
         }
     }
 }

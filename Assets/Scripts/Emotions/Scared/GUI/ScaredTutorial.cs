@@ -1,25 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Globals;
-using ScaredScene;
 using UnityEngine;
 using UnityEngine.UI;
+using CharacterMovement = ScaredScene.CharacterMovement;
 
-public class ScaredTutorial : TutorialBase
+namespace ScaredScene
 {
-    public GameObject scarlet;
-    public GameObject aj;
-
-    protected override void HelpExplanationComplete()
+    public class ScaredTutorial : TutorialBase
     {
-        base.HelpExplanationComplete();
-        GUIHelper.CanvasList = new List<string>
-        {
-            "TutorialCanvas", "ControllerCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
-        };
-        GUIHelper.AudioIgnoreList = new List<string>{ "ControllerCanvas" };
+        public GameObject scarlet;
+        public GameObject aj;
 
-        scarlet.GetComponent<CharacterMovement>().StartSequence();
-        aj.GetComponent<CharacterMovement>().StartSequence();
+        protected override void HelpExplanationComplete()
+        {
+            base.HelpExplanationComplete();
+            GUIInitialization.Initialize();
+
+            scarlet.GetComponent<CharacterMovement>().StartSequence();
+            aj.GetComponent<CharacterMovement>().StartSequence();
+        }
     }
 }

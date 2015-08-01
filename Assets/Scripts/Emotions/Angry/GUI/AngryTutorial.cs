@@ -19,10 +19,7 @@ public class AngryTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIHelper.CanvasList = new List<string>
-        {
-            "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
-        };
+        GUIInitialization.Initialize();
         StartCoroutine(HelpLilyPlayAudio());
     }
 

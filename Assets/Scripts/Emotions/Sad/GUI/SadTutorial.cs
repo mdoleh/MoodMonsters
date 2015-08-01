@@ -10,33 +10,7 @@ public class SadTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIHelper.CanvasList = GameFlags.AdultIsPresent
-            ? new List<string>
-            {
-                "TutorialCanvas",
-                "ControllerCanvas",
-                "EmotionsCanvas",
-                "PhysicalCanvas1",
-                "PhysicalCanvas2",
-                "PhysicalCanvas3",
-                "EmotionActionsCanvas",
-                "ParentActionsCanvas",
-                "SituationActionsCanvas"
-            }
-            : new List<string>
-            {
-                "TutorialCanvas",
-                "ControllerCanvas",
-                "EmotionsCanvas",
-                "PhysicalCanvas1",
-                "PhysicalCanvas2",
-                "PhysicalCanvas3",
-                "EmotionActionsCanvas",
-                "ParentDefaultCanvas", 
-                "SituationActionsCanvas"
-            };
-        GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas" };
-        GUIHelper.HelpCanvasIgnoreList = new List<string> { "ParentDefaultCanvas" };
+        GUIInitialization.Initialize();
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
     }
 }

@@ -14,7 +14,7 @@ namespace SadScene
         private Animator anim;
         private bool shouldAdjustCamera = true;
 
-        protected void Start()
+        protected virtual void Start()
         {
             base.Start();
             anim = GetComponent<Animator>();
