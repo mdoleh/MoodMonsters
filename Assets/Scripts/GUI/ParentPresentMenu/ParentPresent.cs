@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Globals;
 
 namespace ParentPresentMenu
@@ -27,6 +28,7 @@ namespace ParentPresentMenu
         public void No()
         {
             GameFlags.AdultIsPresent = false;
+            GameFlags.ParentGender = new List<string> {"Dad", "Mom"}[Random.Range(0, 2)];
             Timeout.StopTimers();
             Utilities.LoadEmotionScene(Scenes.GetNextSceneToLoadForParentPresent());
         }
