@@ -13,6 +13,10 @@ public class EdgeSlipTrigger : MonoBehaviour
             other.gameObject.GetComponent<CharacterMovement>().EdgeSlip("Stumble");
             shouldJump = true;
         }
+        else if (other.gameObject.GetComponent<FearfulMovement>() != null)
+        {
+            other.gameObject.GetComponent<FearfulMovement>().RunJumpWithClapping();
+        }
         else
         {
             other.gameObject.GetComponent<CharacterMovement>().RunJump();

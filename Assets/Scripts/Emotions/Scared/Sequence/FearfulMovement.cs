@@ -24,6 +24,12 @@ public class FearfulMovement : CharacterMovement
         base.Run();
     }
 
+    public void RunJumpWithClapping()
+    {
+        RunJump();
+        otherCharacter.GetComponent<FearlessMovement>().StartClapping();
+    }
+
     public override void StartSequence()
     {
         anim.SetTrigger("Idle");

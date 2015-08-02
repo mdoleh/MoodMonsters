@@ -12,6 +12,7 @@ namespace ScaredScene
         {
             if (shouldRunBase) base.Start();
             anim = GetComponent<Animator>();
+            multiplierSpeed = 1f;
         }
 
         public virtual void StepForward()
@@ -31,21 +32,11 @@ namespace ScaredScene
         {
             anim.SetBool("IsIdle", false);
             anim.SetTrigger("TurnAround");
-            anim.SetTrigger("Clap");
-
-            StartCoroutine(ResetTriggers());
-        }
-
-        private IEnumerator ResetTriggers()
-        {
-            yield return new WaitForSeconds(0.5f);
-            anim.ResetTrigger("Clap");
         }
 
         public virtual void StartWalking()
         {
             anim.SetBool("Walking", true);
-            multiplierSpeed = 1f;
             isWalking = true;
         }
 

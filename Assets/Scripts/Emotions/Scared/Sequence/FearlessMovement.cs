@@ -13,6 +13,11 @@ public class FearlessMovement : CharacterMovement
         otherCharacter = GameObject.Find("Aj");
     }
 
+    public void StartClapping()
+    {
+        anim.SetTrigger("Clap");
+    }
+
     public override void StartWalking()
     {
         base.StartWalking();
