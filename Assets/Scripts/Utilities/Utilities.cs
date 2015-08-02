@@ -6,6 +6,14 @@ using Globals;
 
 public class Utilities : MonoBehaviour {
 
+    private static readonly List<string> sceneFilters = new List<string>
+    {
+        "ActionsMenu", 
+        "Situation", 
+        "Emotion", 
+        "Parent"
+    }; 
+
     public static void PlayAudio(AudioSource audioSource, bool stopCurrentAudio = true)
     {
         if (audioSource != null)
@@ -48,7 +56,8 @@ public class Utilities : MonoBehaviour {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
-            var sceneName = Application.loadedLevelName.Replace("ActionsMenu", "");
+            var sceneName = Application.loadedLevelName;
+            sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
