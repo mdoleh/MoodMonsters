@@ -45,6 +45,7 @@ namespace ScaredScene
         public virtual void StartWalking()
         {
             anim.SetBool("Walking", true);
+            multiplierSpeed = 1f;
             isWalking = true;
         }
 
