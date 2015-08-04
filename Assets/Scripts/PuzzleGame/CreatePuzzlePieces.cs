@@ -18,7 +18,7 @@ namespace PuzzleMiniGame
         public List<GameObject> GeneratePuzzlePieces(List<GameObject> gridPanels, int dimensions, string panelBase,
             int width, int height)
         {
-            var photo = image.TakenPicture;
+            var photo = image.Image;
             TextureScale.Bilinear(photo, width*dimensions, height*dimensions);
             photo.Apply();
 

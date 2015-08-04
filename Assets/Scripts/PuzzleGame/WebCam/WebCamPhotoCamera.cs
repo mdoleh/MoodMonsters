@@ -4,11 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WebCamPhotoCamera : MonoBehaviour
+public class WebCamPhotoCamera : WebCam
 {
-    private WebCamTexture webCamTexture;
-    private IList<WebCamDevice> webCamDevices;
-    public TakenImage takenPhotoTexture2D;
     public AudioSource pictureCountDownAudio;
     public AudioSource cameraShutterAudio;
     public AudioSource keepPictureAudio;
@@ -16,46 +13,10 @@ public class WebCamPhotoCamera : MonoBehaviour
     public GameObject[] buttonsToDisable;
     public GameObject[] buttonsToEnable;
 
-    void Start()
+    protected override void Start()
     {
-        webCamDevices = WebCamTexture.devices;
+        base.Start();
         TurnOnCamera();
-    }
-
-    void Update()
-    {
-        if (webCamTexture != null)
-        {
-            GetComponent<RawImage>().texture = webCamTexture;
-            if (!webCamTexture.videoVerticallyMirrored) 
-                GetComponent<RawImage>().transform.localScale = new Vector3(-1, 1);
-        }
-    }
-
-    public void TurnOnCamera()
-    {
-        webCamTexture = new WebCamTexture();
-        var lastDevice = WebCamTexture.devices[WebCamTexture.devices.Length - 1].name;
-        webCamTexture.deviceName = lastDevice;
-        webCamTexture.Play();
-    }
-
-    public void CycleToNextDevice()
-    {
-        webCamTexture.Stop();
-        var currentIndex = webCamDevices.IndexOf(webCamDevices.First(x => x.name.Equals(webCamTexture.deviceName)));
-        ++currentIndex;
-        if (currentIndex >= webCamDevices.Count)
-        {
-            currentIndex = 0;
-        }
-        webCamTexture.deviceName = webCamDevices[currentIndex].name;
-        webCamTexture.Play();
-    }
-
-    public void TurnOffCamera()
-    {
-        webCamTexture.Stop();
     }
 
     public void TakePhoto()
@@ -78,7 +39,7 @@ public class WebCamPhotoCamera : MonoBehaviour
         photo.SetPixels(webCamTexture.GetPixels());
         photo.Apply();
 
-        if (takenPhotoTexture2D != null) takenPhotoTexture2D.TakenPicture = photo;
+        if (takenPhotoTexture2D != null) takenPhotoTexture2D.Image = photo;
         
         showYesNoButtons();
         TurnOffCamera();

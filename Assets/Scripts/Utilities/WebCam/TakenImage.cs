@@ -2,5 +2,5 @@
 
 public class TakenImage : MonoBehaviour
 {
-    public Texture2D TakenPicture;
+    public Texture2D Image;
 }
