@@ -1,22 +1,27 @@
 ﻿using System;
+using System.Linq;
+using Globals;
 using ScaredScene;
 using UnityEngine;
 
 public class FearfulMovement : CharacterMovement
 {
     public CameraFollow cameraFollow;
+    public GameObject[] parentCharacters;
 
     protected bool waitingForScarlet = true;
 
     private GameObject otherCharacter;
     private bool runSpeedFailure = false;
     private AudioSource runSpeedAudio;
+    private GameObject currentParent;
 
     protected override void Start()
     {
         base.Start();
         otherCharacter = GameObject.Find("Scarlet");
         runSpeedAudio = GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
+        currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
     }
 
     protected override void StartRunningAnimation()
@@ -27,7 +32,14 @@ public class FearfulMovement : CharacterMovement
     public void RunJumpWithClapping()
     {
         RunJump();
-        otherCharacter.GetComponent<FearlessMovement>().StartClapping();
+        if (GameFlags.AdultIsPresent)
+        {
+            currentParent.GetComponent<Comfort>().StartClapping();
+        }
+        else
+        {
+            otherCharacter.GetComponent<FearlessMovement>().StartClapping();
+        }
     }
 
     public override void StartSequence()

@@ -36,6 +36,13 @@ public class Conversation : MonoBehaviour
         StartCoroutine(PlayExplanation());
     }
 
+    public void ClappingAnimation()
+    {
+        accoladeTriggered = true;
+        anim.SetBool("IsIdle", false);
+        anim.SetTrigger("Clap");
+    }
+
     private IEnumerator PlayExplanation()
     {
         yield return new WaitForSeconds(successDialogue.clip.length);

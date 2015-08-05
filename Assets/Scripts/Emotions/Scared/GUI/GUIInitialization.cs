@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Globals;
 
 namespace ScaredScene
 {
@@ -8,7 +9,19 @@ namespace ScaredScene
     {
         public static void Initialize()
         {
-            GUIHelper.CanvasList = new List<string>
+            GUIHelper.CanvasList = GameFlags.AdultIsPresent
+            ? new List<string>
+            {
+                "TutorialCanvas",
+                "ControllerCanvas",
+                "EmotionsCanvas",
+                "PhysicalCanvas1",
+                "PhysicalCanvas2",
+                "PhysicalCanvas3",
+                "ActionsCanvas",
+                "ParentActionsCanvas" + GameFlags.ParentGender
+            }
+            : new List<string>
             {
                 "TutorialCanvas", 
                 "ControllerCanvas", 

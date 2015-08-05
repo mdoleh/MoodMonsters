@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using Globals;
 
 namespace ScaredScene
@@ -7,8 +8,16 @@ namespace ScaredScene
     public class ExplainFear : ActionBase
     {
         public Animator otherAnim;
+        public GameObject[] parentCharacters;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
+
+        private GameObject currentParent;
+
+        private void Start()
+        {
+            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
+        }
 
         private void VoiceFear()
         {
@@ -19,7 +28,15 @@ namespace ScaredScene
         public void GetEncouragement()
         {
             anim.SetTrigger("Idle");
-            otherAnim.GetComponent<Conversation>().GiveEncouragement();
+            if (GameFlags.AdultIsPresent)
+            {
+                GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
+                GUIHelper.NextGUI();
+            }
+            else
+            {
+                otherAnim.GetComponent<Conversation>().GiveEncouragement();
+            }
         }
 
         public void StartJumpSequence()
@@ -36,7 +53,14 @@ namespace ScaredScene
         public void GetComfort()
         {
             anim.SetTrigger("Idle");
-            otherAnim.GetComponent<Conversation>().GiveComfort();
+            if (GameFlags.AdultIsPresent)
+            {
+                currentParent.GetComponent<Comfort>().GiveComfort();
+            }
+            else
+            {
+                otherAnim.GetComponent<Conversation>().GiveComfort();
+            }
         }
 
         public override void StartAction()
