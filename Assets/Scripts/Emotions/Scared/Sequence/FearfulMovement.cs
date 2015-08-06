@@ -25,7 +25,7 @@ namespace ScaredScene
             runSpeedAudio =
                 GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
             currentParent =
-                parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
+                    parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         protected override void StartRunningAnimation()

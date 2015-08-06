@@ -11,7 +11,12 @@ namespace ScaredScene
         {
             base.Start();
             GUIInitialization.Initialize();
-            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower())).SetActive(true);
+            if (GameFlags.AdultIsPresent)
+            {
+                parentCharacters.ToList()
+                    .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                    .SetActive(true);
+            }
             StartCoroutine(ShowParentActionsMenu());
             waitingForScarlet = false;
         }
