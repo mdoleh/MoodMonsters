@@ -2,10 +2,14 @@
 using System.Collections;
 using ScaredScene;
 
-public class RunTrigger : MonoBehaviour {
-
-    void OnTriggerEnter(Collider other)
+namespace ScaredScene
+{
+    public class RunTrigger : MonoBehaviour
     {
-        other.gameObject.GetComponent<CharacterMovement>().Run();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            other.gameObject.GetComponent<CharacterMovement>().Run();
+        }
     }
 }

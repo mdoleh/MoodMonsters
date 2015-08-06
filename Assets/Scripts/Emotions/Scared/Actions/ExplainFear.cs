@@ -30,6 +30,7 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
             if (GameFlags.AdultIsPresent)
             {
+                sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentActionsMenu";
                 GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
                 GUIHelper.NextGUI();
             }

@@ -2,10 +2,14 @@
 using System.Collections;
 using ScaredScene;
 
-public class JumpTrigger : MonoBehaviour {
-
-    void OnTriggerEnter(Collider other)
+namespace ScaredScene
+{
+    public class JumpTrigger : MonoBehaviour
     {
-        other.gameObject.GetComponent<CharacterMovement>().RunJump();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            other.gameObject.GetComponent<CharacterMovement>().RunJump();
+        }
     }
 }

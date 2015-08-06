@@ -2,14 +2,17 @@
 using System.Collections;
 using ScaredScene;
 
-public class ConversationAnimation : MonoBehaviour
+namespace ScaredScene
 {
-    public Animator anim;
-    public Animator other;
-
-    public void StartListening()
+    public class ConversationAnimation : MonoBehaviour
     {
-        anim.SetTrigger("Listening");
-        other.SetTrigger("Talking");
+        public Animator anim;
+        public Animator other;
+
+        public void StartListening()
+        {
+            anim.SetTrigger("Listening");
+            other.SetTrigger("Talking");
+        }
     }
 }

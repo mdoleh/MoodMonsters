@@ -1,25 +1,28 @@
 ﻿using ScaredScene;
 using UnityEngine;
 
-public class EdgeSlipTrigger : MonoBehaviour
+namespace ScaredScene
 {
-    public bool AlwaysStumble = false;
-    public bool shouldJump = false;
-
-    void OnTriggerEnter(Collider other)
+    public class EdgeSlipTrigger : MonoBehaviour
     {
-        if (!shouldJump && other.gameObject.GetComponent<FearfulMovement>() != null)
+        public bool AlwaysStumble = false;
+        public bool shouldJump = false;
+
+        private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.GetComponent<CharacterMovement>().EdgeSlip("Stumble");
-            shouldJump = true;
-        }
-        else if (other.gameObject.GetComponent<FearfulMovement>() != null)
-        {
-            other.gameObject.GetComponent<FearfulMovement>().RunJumpWithClapping();
-        }
-        else
-        {
-            other.gameObject.GetComponent<CharacterMovement>().RunJump();
+            if (!shouldJump && other.gameObject.GetComponent<FearfulMovement>() != null)
+            {
+                other.gameObject.GetComponent<CharacterMovement>().EdgeSlip("Stumble");
+                shouldJump = true;
+            }
+            else if (other.gameObject.GetComponent<FearfulMovement>() != null)
+            {
+                other.gameObject.GetComponent<FearfulMovement>().RunJumpWithClapping();
+            }
+            else
+            {
+                other.gameObject.GetComponent<CharacterMovement>().RunJump();
+            }
         }
     }
 }

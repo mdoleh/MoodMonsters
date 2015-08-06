@@ -2,10 +2,14 @@
 using System.Collections;
 using ScaredScene;
 
-public class WalkTrigger : MonoBehaviour {
-
-    void OnTriggerEnter(Collider other)
+namespace ScaredScene
+{
+    public class WalkTrigger : MonoBehaviour
     {
-        other.gameObject.GetComponent<CharacterMovement>().RunToWalk();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            other.gameObject.GetComponent<CharacterMovement>().RunToWalk();
+        }
     }
 }

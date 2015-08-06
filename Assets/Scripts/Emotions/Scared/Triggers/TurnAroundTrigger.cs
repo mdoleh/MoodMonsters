@@ -3,21 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using ScaredScene;
 
-public class TurnAroundTrigger : MonoBehaviour
+namespace ScaredScene
 {
-    public bool shouldTurnAround = true;
-    private readonly IList<string> characters = new List<string>();
-
-    void OnTriggerEnter(Collider other)
+    public class TurnAroundTrigger : MonoBehaviour
     {
-        if (shouldTurnAround && !characters.Contains(other.name))
+        public bool shouldTurnAround = true;
+        private readonly IList<string> characters = new List<string>();
+
+        private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.GetComponent<CharacterMovement>().TurnAround();
-            characters.Add(other.name);
-        }
-        else
-        {
-            shouldTurnAround = true;
+            if (shouldTurnAround && !characters.Contains(other.name))
+            {
+                other.gameObject.GetComponent<CharacterMovement>().TurnAround();
+                characters.Add(other.name);
+            }
+            else
+            {
+                shouldTurnAround = true;
+            }
         }
     }
 }

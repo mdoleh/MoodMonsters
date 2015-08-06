@@ -2,37 +2,40 @@
 using System.Collections;
 using ScaredScene;
 
-public class FearlessMovement : CharacterMovement
+namespace ScaredScene
 {
-    private GameObject otherCharacter;
-
-    protected override void Start()
+    public class FearlessMovement : CharacterMovement
     {
-        shouldRunBase = false;
-        base.Start();
-        otherCharacter = GameObject.Find("Aj");
-    }
+        private GameObject otherCharacter;
 
-    public void StartClapping()
-    {
-        anim.SetTrigger("Clap");
-    }
+        protected override void Start()
+        {
+            shouldRunBase = false;
+            base.Start();
+            otherCharacter = GameObject.Find("Aj");
+        }
 
-    public override void StartWalking()
-    {
-        base.StartWalking();
-        otherCharacter.GetComponent<CharacterMovement>().StartWalking();
-    }
+        public void StartClapping()
+        {
+            anim.SetTrigger("Clap");
+        }
 
-    public override void TurnAround()
-    {
-        base.TurnAround();
-        otherCharacter.GetComponent<CharacterMovement>().Run();
-    }
+        public override void StartWalking()
+        {
+            base.StartWalking();
+            otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+        }
 
-    public override void Run()
-    {
-        base.Run();
-        otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+        public override void TurnAround()
+        {
+            base.TurnAround();
+            otherCharacter.GetComponent<CharacterMovement>().Run();
+        }
+
+        public override void Run()
+        {
+            base.Run();
+            otherCharacter.GetComponent<CharacterMovement>().StartWalking();
+        }
     }
 }

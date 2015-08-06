@@ -2,10 +2,14 @@
 using System.Collections;
 using ScaredScene;
 
-public class SlowTrigger : MonoBehaviour {
-
-    void OnTriggerEnter(Collider other)
+namespace ScaredScene
+{
+    public class SlowTrigger : MonoBehaviour
     {
-        other.gameObject.GetComponent<CharacterMovement>().Walk();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            other.gameObject.GetComponent<CharacterMovement>().Walk();
+        }
     }
 }
