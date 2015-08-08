@@ -74,7 +74,11 @@ public class GUIHelper : MonoBehaviour {
             if (guiCanvas.name == next)
             {
                 if (!HelpCanvasIgnoreList.Contains(guiCanvas.name))
-                    GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
+                {
+                    var helpCanvas = GameObject.Find("HelpCanvas");
+                    helpCanvas.GetComponent<Canvas>().enabled = true;
+                    helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
+                }
                 guiCanvas.GetComponent<Canvas>().enabled = true;
                 if (!AudioIgnoreList.Contains(guiCanvas.name)) 
                     Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
