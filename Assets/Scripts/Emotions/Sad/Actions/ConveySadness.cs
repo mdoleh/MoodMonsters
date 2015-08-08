@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Globals;
 
 namespace SadScene
 {
     public class ConveySadness : CorrectActionBase
     {
+        public AudioSource switchToParentAudio;
+
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
@@ -16,7 +19,14 @@ namespace SadScene
             base.AfterDialogue();
             anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentActionsMenu";
-            GameObject.Find("EmotionActionsCanvas").GetComponent<Canvas>().enabled = true;
+            StartCoroutine(SwitchToParent());
+        }
+
+        private IEnumerator SwitchToParent()
+        {
+            Utilities.PlayAudio(switchToParentAudio);
+            yield return new WaitForSeconds(switchToParentAudio.clip.length);
+            GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
     }

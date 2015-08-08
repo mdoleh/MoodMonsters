@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 using System.Linq;
 using Globals;
 
@@ -11,6 +12,7 @@ namespace ScaredScene
         public GameObject[] parentCharacters;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
+        public AudioSource switchToParentAudio;
 
         private GameObject currentParent;
 
@@ -31,13 +33,20 @@ namespace ScaredScene
             if (GameFlags.AdultIsPresent)
             {
                 sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentActionsMenu";
-                GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
-                GUIHelper.NextGUI();
+                StartCoroutine(SwitchToParent());
             }
             else
             {
                 otherAnim.GetComponent<Conversation>().GiveEncouragement();
             }
+        }
+
+        private IEnumerator SwitchToParent()
+        {
+            Utilities.PlayAudio(switchToParentAudio);
+            yield return new WaitForSeconds(switchToParentAudio.clip.length);
+            GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
+            GUIHelper.NextGUI();
         }
 
         public void StartJumpSequence()
