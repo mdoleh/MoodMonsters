@@ -19,7 +19,9 @@ namespace SadScene
                 "PhysicalCanvas2",
                 "PhysicalCanvas3",
                 "EmotionActionsCanvas",
-                "ParentActionsCanvas" + GameFlags.ParentGender,
+                "ParentPayAttentionAskCanvas" + GameFlags.ParentGender,
+                "ParentSupportCanvas" + GameFlags.ParentGender,
+                "ParentSolveCanvasMom" + GameFlags.ParentGender,
                 "SituationActionsCanvas"
             }
             : new List<string>

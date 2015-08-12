@@ -5,6 +5,7 @@ using Globals;
 public class CorrectActionBase : ActionBase
 {
     public AudioSource dialogue;
+    public AudioSource additionalActionExplanation;
 
     public override void StartAction()
     {
@@ -17,6 +18,8 @@ public class CorrectActionBase : ActionBase
     {
         Utilities.PlayAudio(actionExplanation);
         yield return new WaitForSeconds(actionExplanation.clip.length);
+        Utilities.PlayAudio(additionalActionExplanation);
+        if (additionalActionExplanation != null) yield return new WaitForSeconds(additionalActionExplanation.clip.length);
         ShowCorrect(false);
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);

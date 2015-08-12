@@ -28,7 +28,7 @@ namespace SadScene
             {
                 Utilities.PlayAudio(switchToParentAudio);
                 yield return new WaitForSeconds(switchToParentAudio.clip.length);
-                GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
+                GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             }
             else
             {
