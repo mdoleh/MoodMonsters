@@ -21,6 +21,7 @@ namespace Globals
             BucketTutorialHasRun = false;
             PuzzleTutorialHasRun = false;
             CameraTutorialHasRun = false;
+            HasSeenPASS = false;
             AdultIsPresent = false;
             ParentGender = "";
         }
