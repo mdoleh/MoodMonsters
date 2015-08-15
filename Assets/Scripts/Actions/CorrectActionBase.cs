@@ -16,8 +16,10 @@ public class CorrectActionBase : ActionBase
 
     private IEnumerator Explain()
     {
+        BeforeExplanation();
         Utilities.PlayAudio(actionExplanation);
         yield return new WaitForSeconds(actionExplanation.clip.length);
+        BeforeAdditionalExplanation();
         Utilities.PlayAudio(additionalActionExplanation);
         if (additionalActionExplanation != null) yield return new WaitForSeconds(additionalActionExplanation.clip.length);
         ShowCorrect(false);
@@ -26,6 +28,10 @@ public class CorrectActionBase : ActionBase
         yield return new WaitForSeconds(dialogue.clip.length);
         AfterDialogue();
     }
+
+    protected virtual void BeforeExplanation() { }
+
+    protected virtual void BeforeAdditionalExplanation() { }
 
     protected virtual void DialogueAnimation() { }
     

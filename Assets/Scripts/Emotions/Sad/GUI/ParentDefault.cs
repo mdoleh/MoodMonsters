@@ -21,7 +21,7 @@ namespace SadScene
         {
             if (GetComponent<Canvas>().enabled && !triggered)
             {
-                currentParent.GetComponent<Comfort>().StartDefaultAction();
+                currentParent.GetComponent<Support>().StartDefaultAction();
                 triggered = true;
             }
         }

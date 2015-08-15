@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
+using System.Linq;
 using Globals;
 
 namespace SadScene
 {
-    public class Comfort : DefaultActionBase
+    public class Solve : DefaultActionBase
     {
         public AudioSource switchToChildAudio;
+        public GameObject PASSLetter;
+        public GameObject[] PASSLetters;
 
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
+            PASSLetters.ToList().ForEach(x => x.SetActive(false));
 //            anim.SetTrigger("Talk");
         }
 
@@ -32,6 +37,19 @@ namespace SadScene
             }
             GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
             GUIHelper.NextGUI();
+        }
+
+        protected override void BeforeExplanation()
+        {
+            base.BeforeExplanation();
+            PASSLetter.SetActive(true);
+            PASSLetter.GetComponent<Animator>().SetTrigger("BlowUp");
+        }
+
+        protected override void BeforeAdditionalExplanation()
+        {
+            base.BeforeAdditionalExplanation();
+            PASSLetters.ToList().ForEach(x => x.GetComponent<Animator>().SetTrigger("BlowUp"));
         }
     }
 }
