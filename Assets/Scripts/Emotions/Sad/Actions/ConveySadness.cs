@@ -18,7 +18,7 @@ namespace SadScene
         {
             base.AfterDialogue();
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentActionsMenu";
+            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentPayAttentionAskActionsMenu";
             StartCoroutine(SwitchToParent());
         }
 

@@ -22,7 +22,7 @@ namespace SadScene
         {
             base.AfterDialogue();
 //            anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
+            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSupportActionsMenu";
             StartCoroutine(NextGUI());
         }
 

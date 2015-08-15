@@ -18,7 +18,7 @@ namespace SadScene
         {
             base.AfterDialogue();
 //            anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
+            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSolveActionsMenu";
             GUIHelper.GetPreviousGUI("ParentSolveCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
