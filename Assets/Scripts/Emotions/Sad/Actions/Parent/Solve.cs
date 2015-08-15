@@ -15,6 +15,7 @@ namespace SadScene
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
+            GameFlags.HasSeenPASS = true;
             PASSLetters.ToList().ForEach(x => x.SetActive(false));
 //            anim.SetTrigger("Talk");
         }

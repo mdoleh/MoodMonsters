@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Globals;
 
 namespace HelpGUI
 {
@@ -8,7 +7,7 @@ namespace HelpGUI
          protected override void DoubleClickAction()
         {
             base.DoubleClickAction();
-            Utilities.PlayAudio(GUIHelper.GetCurrentGUI().GetComponent<AudioSource>());
+            Utilities.PlayAudio(Timeout.GetRepeatAudio());
         }
     }
 }

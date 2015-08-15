@@ -73,21 +73,46 @@ public class GUIHelper : MonoBehaviour {
         {
             if (guiCanvas.name == next)
             {
-                if (!HelpCanvasIgnoreList.Contains(guiCanvas.name))
-                {
-                    var helpCanvas = GameObject.Find("HelpCanvas");
-                    helpCanvas.GetComponent<Canvas>().enabled = true;
-                    helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
-                }
+                showHelpUI(guiCanvas);
                 guiCanvas.GetComponent<Canvas>().enabled = true;
-                if (!AudioIgnoreList.Contains(guiCanvas.name)) 
-                    Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
+                playCanvasAudio(guiCanvas);
                 Timeout.StartTimers();
-                Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
             }
             if (guiCanvas.name == current)
             {
                 guiCanvas.GetComponent<Canvas>().enabled = false;
+            }
+        }
+    }
+
+    private static void showHelpUI(GameObject guiCanvas)
+    {
+        if (!HelpCanvasIgnoreList.Contains(guiCanvas.name))
+        {
+            var helpCanvas = GameObject.Find("HelpCanvas");
+            helpCanvas.GetComponent<Canvas>().enabled = true;
+            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
+        }
+    }
+
+    private static void playCanvasAudio(GameObject guiCanvas)
+    {
+        if (!AudioIgnoreList.Contains(guiCanvas.name))
+        {
+            var passReminder = guiCanvas.transform.FindChild("PASSReminder");
+            if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)
+            {
+                var passLetters = passReminder.GetComponentsInChildren<Transform>().ToList();
+                passLetters.Remove(passLetters.First(x => x.name.Equals(passReminder.name)));
+                var passCanvas = GameObject.Find("PASSCanvas").transform;
+                passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
+                Utilities.PlayAudio(passReminder.GetComponent<AudioSource>());
+                Timeout.SetRepeatAudio(passReminder.GetComponent<AudioSource>());
+            }
+            else
+            {
+                Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
+                Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
             }
         }
     }

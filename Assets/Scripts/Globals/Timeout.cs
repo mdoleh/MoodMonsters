@@ -39,8 +39,16 @@ namespace Globals
                 if (shouldReset) Application.LoadLevel("TitleScreen");
                 resetTimer += repeatTimer;
                 repeatTimer = 0f;
-                Utilities.PlayAudio(RepeatAudio);
+                StartCoroutine(PlayAudio());
             }
+        }
+
+        private IEnumerator PlayAudio()
+        {
+            shouldRunTimers = false;
+            Utilities.PlayAudio(RepeatAudio);
+            yield return new WaitForSeconds(RepeatAudio.clip.length);
+            StartTimers();
         }
 
         public static void StartTimers()
@@ -66,6 +74,11 @@ namespace Globals
         public static void SetRepeatAudio(AudioSource audioToRepeat)
         {
             RepeatAudio = audioToRepeat;
+        }
+
+        public static AudioSource GetRepeatAudio()
+        {
+            return RepeatAudio;
         }
     }
 }
