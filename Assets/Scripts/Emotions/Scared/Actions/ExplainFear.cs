@@ -32,7 +32,7 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
             if (GameFlags.AdultIsPresent)
             {
-                sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentActionsMenu";
+                sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentPayAttentionAskActionsMenu";
                 StartCoroutine(SwitchToParent());
             }
             else

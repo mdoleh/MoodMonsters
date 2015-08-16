@@ -29,7 +29,6 @@ namespace ScaredScene
         protected override void BeforeExplanation()
         {
             base.BeforeExplanation();
-            if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().ForEach(x => x.SetActive(true));
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("payattention")).GetComponent<Animator>().SetTrigger("BlowUp");
         }
@@ -37,7 +36,6 @@ namespace ScaredScene
         protected override void BeforeAdditionalExplanation()
         {
             base.BeforeAdditionalExplanation();
-            if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("payattention")).GetComponent<Animator>().SetTrigger("Empty");
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("BlowUp");
         }
