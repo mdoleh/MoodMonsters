@@ -30,8 +30,7 @@ namespace SadScene
 
         private IEnumerator SwitchBackToChild()
         {
-            var currentCanvas = GUIHelper.GetCurrentGUI();
-            if (currentCanvas == null || !currentCanvas.name.ToLower().Contains("default"))
+            if (GameFlags.AdultIsPresent)
             {
                 Utilities.PlayAudio(switchToChildAudio);
                 yield return new WaitForSeconds(switchToChildAudio.clip.length);
@@ -43,6 +42,7 @@ namespace SadScene
         protected override void BeforeExplanation()
         {
             base.BeforeExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetter.SetActive(true);
             PASSLetter.GetComponent<Animator>().SetTrigger("BlowUp");
         }
@@ -50,6 +50,7 @@ namespace SadScene
         protected override void BeforeAdditionalExplanation()
         {
             base.BeforeAdditionalExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().ForEach(x => x.GetComponent<Animator>().SetTrigger("BlowUp"));
         }
     }

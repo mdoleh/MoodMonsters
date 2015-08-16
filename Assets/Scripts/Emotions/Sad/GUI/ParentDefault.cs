@@ -9,7 +9,7 @@ namespace SadScene
     {
         public GameObject[] parentCharacters;
 
-        private bool triggered = false;
+        private bool askTriggered = false;
         private GameObject currentParent;
 
         private void Start()
@@ -19,10 +19,10 @@ namespace SadScene
 
         private void Update()
         {
-            if (GetComponent<Canvas>().enabled && !triggered)
+            if (GetComponent<Canvas>().enabled && !askTriggered)
             {
-                currentParent.GetComponent<Support>().StartDefaultAction();
-                triggered = true;
+                currentParent.GetComponent<Ask>().StartDefaultAction();
+                askTriggered = true;
             }
         }
     }

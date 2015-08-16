@@ -29,6 +29,7 @@ namespace SadScene
         protected override void BeforeExplanation()
         {
             base.BeforeExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().ForEach(x => x.SetActive(true));
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("payattention")).GetComponent<Animator>().SetTrigger("BlowUp");
         }
@@ -36,6 +37,7 @@ namespace SadScene
         protected override void BeforeAdditionalExplanation()
         {
             base.BeforeAdditionalExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("payattention")).GetComponent<Animator>().SetTrigger("Empty");
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("BlowUp");
         }
@@ -44,14 +46,15 @@ namespace SadScene
         {
             yield return child.PlayDialogue(theyWontLetMePlay);
             child.TriggerIdleAnimation();
-            var currentCanvas = GUIHelper.GetCurrentGUI();
-            if (currentCanvas == null || !currentCanvas.name.ToLower().Contains("default"))
+            if (!GameFlags.AdultIsPresent)
             {
-                // something different
-                yield return new WaitForSeconds(0f);
+                GetComponent<Support>().StartDefaultAction();
             }
-            GUIHelper.GetPreviousGUI("ParentSupportCanvas" + GameFlags.ParentGender).enabled = true;
-            GUIHelper.NextGUI();
+            else
+            {
+                GUIHelper.GetPreviousGUI("ParentSupportCanvas" + GameFlags.ParentGender).enabled = true;
+                GUIHelper.NextGUI();
+            }
         }
     }
 }

@@ -18,6 +18,11 @@ namespace SadScene
         {
             base.AfterDialogue();
 //            anim.SetTrigger("Idle");
+            if (!GameFlags.AdultIsPresent)
+            {
+                GetComponent<Solve>().StartDefaultAction();
+                return;
+            }
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSolveActionsMenu";
             GUIHelper.GetPreviousGUI("ParentSolveCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
@@ -26,6 +31,7 @@ namespace SadScene
         protected override void BeforeExplanation()
         {
             base.BeforeExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetter.SetActive(true);
             PASSLetter.GetComponent<Animator>().SetTrigger("BlowUp");
         }
@@ -33,6 +39,7 @@ namespace SadScene
         protected override void BeforeAdditionalExplanation()
         {
             base.BeforeAdditionalExplanation();
+            if (!GameFlags.AdultIsPresent) return;
             PASSLetter.GetComponent<Animator>().SetTrigger("Empty");
         }
     }
