@@ -17,14 +17,13 @@ namespace ScaredScene
                     .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
                     .SetActive(true);
             }
-            StartCoroutine(ShowActionsMenu());
             waitingForScarlet = false;
         }
 
-        private IEnumerator ShowActionsMenu()
+        protected IEnumerator ShowActionsMenu(string canvasName)
         {
             yield return new WaitForSeconds(2f);
-            var previousCanvas = GUIHelper.GetPreviousGUI("ActionsCanvas");
+            var previousCanvas = GUIHelper.GetPreviousGUI(canvasName);
             previousCanvas.GetComponent<Canvas>().enabled = true;
             GUIHelper.NextGUI();
         }
