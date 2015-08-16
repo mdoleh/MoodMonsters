@@ -45,7 +45,7 @@ namespace ScaredScene
         {
             Utilities.PlayAudio(switchToParentAudio);
             yield return new WaitForSeconds(switchToParentAudio.clip.length);
-            GUIHelper.GetPreviousGUI("ParentActionsCanvas" + GameFlags.ParentGender).enabled = true;
+            GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
 
@@ -63,14 +63,7 @@ namespace ScaredScene
         public void GetComfort()
         {
             anim.SetTrigger("Idle");
-            if (GameFlags.AdultIsPresent)
-            {
-                currentParent.GetComponent<Comfort>().GiveComfort();
-            }
-            else
-            {
-                otherAnim.GetComponent<Conversation>().GiveComfort();
-            }
+            otherAnim.GetComponent<Conversation>().GiveComfort();
         }
 
         public override void StartAction()

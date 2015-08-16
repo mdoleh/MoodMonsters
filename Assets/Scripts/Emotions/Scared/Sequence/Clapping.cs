@@ -4,38 +4,12 @@ using ScaredScene;
 
 namespace ScaredScene
 {
-    public class Comfort : CorrectActionBase
+    public class Clapping : MonoBehaviour
     {
         public ExplainFear fearfulCharacter;
         public Conversation fearlessCharacter;
-        public AudioSource comfortDialogue;
         public AudioSource successDialogue;
         public AudioSource explanationAudio;
-
-        protected override void DialogueAnimation()
-        {
-            //        anim.SetTrigger("Talk");
-        }
-
-        protected override void AfterDialogue()
-        {
-            //            anim.SetTrigger("Idle");
-            fearfulCharacter.AfraidToFall();
-        }
-
-        public void GiveComfort()
-        {
-            //            anim.SetTrigger("Comfort");
-            StartCoroutine(PlayComfortDialogue());
-        }
-
-        private IEnumerator PlayComfortDialogue()
-        {
-            Utilities.PlayAudio(comfortDialogue);
-            yield return new WaitForSeconds(comfortDialogue.clip.length);
-            //            anim.SetTrigger("Idle");
-            fearfulCharacter.StartJumpSequence();
-        }
 
         public void StartClapping()
         {

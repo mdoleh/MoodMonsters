@@ -19,7 +19,9 @@ namespace ScaredScene
                 "PhysicalCanvas2",
                 "PhysicalCanvas3",
                 "ActionsCanvas",
-                "ParentActionsCanvas" + GameFlags.ParentGender
+                "ParentPayAttentionAskCanvas" + GameFlags.ParentGender,
+                "ParentSupportCanvas" + GameFlags.ParentGender,
+                "ParentSolveCanvas" + GameFlags.ParentGender
             }
             : new List<string>
             {

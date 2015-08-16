@@ -38,7 +38,7 @@ namespace ScaredScene
             RunJump();
             if (GameFlags.AdultIsPresent)
             {
-                currentParent.GetComponent<Comfort>().StartClapping();
+                currentParent.GetComponent<Clapping>().StartClapping();
             }
             else
             {

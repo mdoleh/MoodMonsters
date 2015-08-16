@@ -64,5 +64,12 @@ namespace ScaredScene
             anim.SetBool("IsIdle", true);
             other.gameObject.GetComponent<ExplainFear>().StartJumpSequence();
         }
+
+        public WaitForSeconds PlayDialogue(AudioSource dialogue)
+        {
+            other.SetTrigger("TalkNoEvents");
+            Utilities.PlayAudio(dialogue);
+            return new WaitForSeconds(dialogue.clip.length);
+        }
     }
 }
