@@ -31,6 +31,7 @@ namespace SadScene
         public void StartWatchingFromSidelines()
         {
             GetComponent<CharacterMovement>().StopWalking(false);
+            transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = false;
             TriggerIncorrect();
         }
     }
