@@ -44,7 +44,7 @@ public class EggCollider : MonoBehaviour {
         // want the other sounds to play over this one
         if (!myPlayerScript.shouldKeepScore)
         {
-            Utilities.PlayAudio(goodSound, false);
+            Utilities.PlayAudioUnBlockable(goodSound);
             return;
         }
 

@@ -21,6 +21,7 @@ namespace ParentPresentMenu
 
         public void Yes()
         {
+            Timeout.StopTimers();
             GameFlags.AdultIsPresent = true;
             GUIHelper.NextGUI();
         }

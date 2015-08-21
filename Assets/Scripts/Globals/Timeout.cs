@@ -47,7 +47,8 @@ namespace Globals
         {
             shouldRunTimers = false;
             Utilities.PlayAudio(RepeatAudio);
-            yield return new WaitForSeconds(RepeatAudio.clip.length);
+            if (RepeatAudio != null) 
+                yield return new WaitForSeconds(RepeatAudio.clip.length);
             StartTimers();
         }
 

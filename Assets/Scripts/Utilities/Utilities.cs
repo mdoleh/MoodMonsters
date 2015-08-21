@@ -24,6 +24,15 @@ public class Utilities : MonoBehaviour {
         }
     }
 
+    public static void PlayAudioUnBlockable(AudioSource audioSource, bool stopCurrentAudio = false)
+    {
+        if (audioSource != null)
+        {
+            if (stopCurrentAudio) StopAudio(Sound.CurrentPlayingSound);
+            audioSource.Play();
+        }
+    }
+
     public static void PauseAudio(AudioSource audioSource)
     {
         if (audioSource != null && audioSource.isPlaying)
@@ -47,12 +56,17 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadEmotionScene(string sceneToLoad)
     {
-        if (CityInitializer.City != null) CityInitializer.City.SetActive(true);
+        if (CityInitializer.City != null)
+        {
+            CityInitializer.City.SetActive(true);
+            CityInitializer.City.GetComponent<AudioSource>().Play();
+        }
         Application.LoadLevel(sceneToLoad);
     }
 
     public static void LoadScene(string sceneToLoad)
     {
+        Timeout.StopTimers();
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
