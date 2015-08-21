@@ -59,7 +59,7 @@ public class Utilities : MonoBehaviour {
         if (CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(true);
-            CityInitializer.City.GetComponent<AudioSource>().Play();
+            PlayAudioUnBlockable(CityInitializer.City.GetComponent<AudioSource>());
         }
         Application.LoadLevel(sceneToLoad);
     }
@@ -70,6 +70,7 @@ public class Utilities : MonoBehaviour {
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
+            StopAudio(CityInitializer.City.GetComponent<AudioSource>());
             var sceneName = Application.loadedLevelName;
             sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
