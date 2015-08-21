@@ -18,6 +18,8 @@ namespace SadScene
         {
             if (other.transform.name.ToLower().Equals("soccerball") && !shouldSink)
             {
+                if (!gameObject.name.Contains("1"))
+                    Utilities.PlayRandomAudio(transform.parent.FindChild("Audio").GetComponentsInChildren<AudioSource>());
                 shouldSink = true;
                 StartCoroutine(HideObject());
             }

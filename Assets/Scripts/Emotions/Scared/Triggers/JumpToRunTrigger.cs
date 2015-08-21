@@ -6,10 +6,14 @@ namespace ScaredScene
 {
     public class JumpToRunTrigger : MonoBehaviour
     {
+        public bool shouldPlaySound;
 
         private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.GetComponent<CharacterMovement>().JumpToRun();
+            if (shouldPlaySound && other.GetComponent<FearfulMovement>() != null)
+                other.GetComponent<FearfulMovement>().JumpToRunWithAudio();
+            else
+                other.gameObject.GetComponent<CharacterMovement>().JumpToRun();
         }
     }
 }

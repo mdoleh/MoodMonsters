@@ -118,6 +118,13 @@ namespace ScaredScene
             otherCharacter.GetComponent<CharacterMovement>().StartSequence();
         }
 
+        public void JumpToRunWithAudio()
+        {
+            base.JumpToRun();
+            Utilities.PlayRandomAudio(transform.FindChild("SuccessAudio").GetComponentsInChildren<AudioSource>());
+            otherCharacter.GetComponent<CharacterMovement>().StartSequence();
+        }
+
         public override void TurnAround()
         {
             // do nothing
