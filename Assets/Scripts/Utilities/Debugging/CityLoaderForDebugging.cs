@@ -5,7 +5,7 @@ public class CityLoaderForDebugging : MonoBehaviour {
 
 	void Start ()
 	{
-	    if (CityInitializer.City == null) 
+        if (CityInitializer.City == null) 
             Application.LoadLevelAdditive("SmallCityForDebugging");
 	}
 }

@@ -8,6 +8,7 @@ namespace Globals
         public float TimeUntilReset;
         public float TimeUntilRepeat;
 
+        public static Timeout Instance;
         public static float ResetTime;
         public static float RepeatTime;
         public static AudioSource WarningAudio;
@@ -22,6 +23,7 @@ namespace Globals
             WarningAudio = transform.FindChild("WarningAudio").GetComponent<AudioSource>();
             ResetTime = TimeUntilReset;
             RepeatTime = TimeUntilRepeat;
+            Instance = gameObject.GetComponent<Timeout>();
         }
 
         private void Update()

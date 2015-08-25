@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Globals;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GUIHelper : MonoBehaviour {
     public static IList<string> CanvasList = new List<string>
@@ -75,8 +78,7 @@ public class GUIHelper : MonoBehaviour {
             {
                 showHelpUI(guiCanvas);
                 guiCanvas.GetComponent<Canvas>().enabled = true;
-                playCanvasAudio(guiCanvas);
-                Timeout.StartTimers();
+                Timeout.Instance.StartCoroutine(playCanvasAudio(guiCanvas));
             }
             if (guiCanvas.name == current)
             {
@@ -91,11 +93,16 @@ public class GUIHelper : MonoBehaviour {
         {
             var helpCanvas = GameObject.Find("HelpCanvas");
             helpCanvas.GetComponent<Canvas>().enabled = true;
-            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
         }
     }
 
-    private static void playCanvasAudio(GameObject guiCanvas)
+    private static void enableUI()
+    {
+        var helpCanvas = GameObject.Find("HelpCanvas");
+        helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
+    }
+
+    private static IEnumerator playCanvasAudio(GameObject guiCanvas)
     {
         if (!AudioIgnoreList.Contains(guiCanvas.name))
         {
@@ -108,12 +115,40 @@ public class GUIHelper : MonoBehaviour {
                 passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
                 Utilities.PlayAudio(passReminder.GetComponent<AudioSource>());
                 Timeout.SetRepeatAudio(passReminder.GetComponent<AudioSource>());
+                yield return new WaitForSeconds(passReminder.GetComponent<AudioSource>().clip.length);
             }
             else
             {
                 Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
                 Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
+                yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
             }
+
+            toggleTiles(guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList(), false);
+            foreach (var child in guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>())
+            {
+                yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
+            }
+            toggleTiles(guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList(), false);
+            enableUI();
+            Timeout.StartTimers();
         }
+    }
+
+    private static void toggleTiles(List<ButtonDragDrop> tiles, bool enabled)
+    {
+        tiles.ForEach(tile => { tile.enabled = enabled;
+        });
+    }
+
+    private static IEnumerator playTileAudio(Transform tile)
+    {
+        var tileAudio = tile.GetComponent<AudioSource>();
+        if (tileAudio == null) yield break;
+        tile.GetComponent<Animator>().ResetTrigger("Normal");
+        tile.GetComponent<Animator>().SetTrigger("ButtonGrow");
+        Utilities.PlayAudio(tileAudio);
+        yield return new WaitForSeconds(tileAudio.clip.length);
+        tile.GetComponent<Animator>().SetTrigger("Normal");
     }
 }
