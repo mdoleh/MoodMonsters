@@ -71,6 +71,7 @@ public class GUIHelper : MonoBehaviour {
 
     public static void NextGUI(string current, string next)
     {
+        Timeout.StopTimers();
         var GUI = GetAllGUI();
         foreach (var guiCanvas in GUI)
         {
@@ -93,6 +94,7 @@ public class GUIHelper : MonoBehaviour {
         {
             var helpCanvas = GameObject.Find("HelpCanvas");
             helpCanvas.GetComponent<Canvas>().enabled = true;
+            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(true);
         }
     }
 
