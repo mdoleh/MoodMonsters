@@ -37,6 +37,7 @@ public class TutorialBase : MonoBehaviour
         if (GameFlags.MainTutorialHasRun) HelpExplanationComplete();
         else
         {
+            EnableHelpGUI();
             Utilities.PlayAudio(questionAudio);
             yield return new WaitForSeconds(questionAudio.clip.length);
             EnablePracticeUI();
@@ -45,6 +46,7 @@ public class TutorialBase : MonoBehaviour
 
     public void ExplainHelpUI()
     {
+        DisableHelpGUI();
         helpCanvas.GetComponent<Canvas>().enabled = true;
         StartCoroutine(ExplainHelpButtons());
     }
