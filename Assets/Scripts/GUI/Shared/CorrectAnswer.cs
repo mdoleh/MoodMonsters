@@ -8,12 +8,12 @@ public class CorrectAnswer : ButtonDragDrop
     private AudioSource[] correctAudio;
     private AudioSource currentAudioPlaying;
     private Text correctCountText;
-    private Animator coinAnimator;
+    private Coin coin;
 
     protected override void Awake()
     {
         base.Awake();
-        coinAnimator = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation").GetComponent<Animator>();
+        coin = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation").GetComponent<Coin>();
         correctAudio = transform.parent.Find("CorrectAnswerAudio").GetComponentsInChildren<AudioSource>();
         initializeCorrectCountText();
     }
@@ -39,7 +39,7 @@ public class CorrectAnswer : ButtonDragDrop
         base.SubmitAnswer();
         Debug.Log("Correct answer submitted");
         StartCoroutine(ShowNextGUI());
-        showCoinAnimation();
+        coin.ShowAddCoinAnimation();
         updateCorrectCountText();
     }
 
@@ -52,12 +52,6 @@ public class CorrectAnswer : ButtonDragDrop
             shouldShowNextGUI = false;
             NextGUI();
         }
-    }
-
-    private void showCoinAnimation()
-    {
-        coinAnimator.gameObject.SetActive(true);
-        coinAnimator.SetTrigger("Add");
     }
 
     private void hideButton()

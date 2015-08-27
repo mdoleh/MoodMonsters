@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Coin : MonoBehaviour
 {
     public RectTransform coinPile;
+    public AudioSource correctSound;
+    public AudioSource wrongSound;
 
     public void AddCoins()
     {
@@ -28,6 +30,24 @@ public class Coin : MonoBehaviour
     public void HideCoin()
     {
         GetComponent<RawImage>().enabled = false;
+    }
+
+    public void ShowAddCoinAnimation()
+    {
+        showAnimation("Add");
+        Utilities.PlayAudioUnBlockable(correctSound);
+    }
+
+    public void ShowRemoveCoinAnimation()
+    {
+        showAnimation("Remove");
+        Utilities.PlayAudioUnBlockable(wrongSound);
+    }
+
+    private void showAnimation(string trigger)
+    {
+        GetComponent<Animator>().gameObject.SetActive(true);
+        GetComponent<Animator>().SetTrigger(trigger);
     }
 
     private void resetState()

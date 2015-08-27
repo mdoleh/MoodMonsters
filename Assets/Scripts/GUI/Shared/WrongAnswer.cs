@@ -4,12 +4,12 @@ using System.Collections;
 public class WrongAnswer : ButtonDragDrop
 {
     private AudioSource[] wrongAudio;
-    private Animator coinAnimator;
+    private Coin coin;
 
     protected override void Awake()
     {
         base.Awake();
-        coinAnimator = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation").GetComponent<Animator>();
+        coin = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation").GetComponent<Coin>();
         wrongAudio = transform.parent.Find("WrongAnswerAudio").GetComponentsInChildren<AudioSource>();
     }
 
@@ -24,13 +24,7 @@ public class WrongAnswer : ButtonDragDrop
         DecrementCorrectCount();
         base.SubmitAnswer();
         Debug.Log("Wrong answer submitted");
-        showCoinAnimation();
+        coin.ShowRemoveCoinAnimation();
         Utilities.PlayRandomAudio(wrongAudio);
-    }
-
-    private void showCoinAnimation()
-    {
-        coinAnimator.gameObject.SetActive(true);
-        coinAnimator.SetTrigger("Remove");
     }
 }
