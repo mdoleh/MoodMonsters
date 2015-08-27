@@ -126,21 +126,13 @@ public class GUIHelper : MonoBehaviour {
                 yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
             }
 
-            toggleTiles(guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList(), false);
             foreach (var child in guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>())
             {
                 yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
             }
-            toggleTiles(guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList(), false);
             enableUI();
             Timeout.StartTimers();
         }
-    }
-
-    private static void toggleTiles(List<ButtonDragDrop> tiles, bool enabled)
-    {
-        tiles.ForEach(tile => { tile.enabled = enabled;
-        });
     }
 
     private static IEnumerator playTileAudio(Transform tile)

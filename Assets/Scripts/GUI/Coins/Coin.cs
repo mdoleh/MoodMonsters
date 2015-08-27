@@ -54,5 +54,6 @@ public class Coin : MonoBehaviour
     {
         gameObject.SetActive(false);
         GetComponent<Animator>().SetTrigger("Normal");
+        CoinPile.currentSize = coinPile.transform.localScale;
     }
 }

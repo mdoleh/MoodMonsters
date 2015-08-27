@@ -89,7 +89,6 @@ namespace AngryScene
         void StartGUI()
         {
             GUIHelper.NextGUI();
-            GetComponent<WalkForward>().tutorial.EnableHelpGUI();
             enabled = false;
         }
     }

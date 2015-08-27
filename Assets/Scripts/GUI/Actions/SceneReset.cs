@@ -8,12 +8,19 @@ public class SceneReset : MonoBehaviour {
     public Canvas noSymbol;
     public Canvas correctSymbol;
     bool startedPlaying = false;
-    Animator noSymbolAnimator;
-    Animator correctSymbolAnimator;
+    private Animator noSymbolAnimator;
+    private Animator correctSymbolAnimator;
+    private Coin coin;
 
     void Awake() {
         if (noSymbol != null) noSymbolAnimator = noSymbol.GetComponent<Animator>();
         if (correctSymbol != null) correctSymbolAnimator = correctSymbol.GetComponent<Animator>();
+        if (GameObject.Find("ScoreCanvas") != null)
+        {
+            var coinTransform = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation");
+            if (coinTransform != null)
+                coin = coinTransform.GetComponent<Coin>();
+        }
     }
 
     public void TriggerSceneReset(AudioSource audioSource, bool showSymbol)
@@ -28,11 +35,13 @@ public class SceneReset : MonoBehaviour {
 
     public void ShowCorrectSymbol(bool show)
     {
+        if (coin != null) coin.ShowAddCoinAnimation();
         showSymbol(correctSymbol, correctSymbolAnimator, show);
     }
 
     public void ShowIncorrectSymbol(bool show)
     {
+        if (coin != null) coin.ShowRemoveCoinAnimation();
         showSymbol(noSymbol, noSymbolAnimator, show);
     }
 
