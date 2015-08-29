@@ -35,13 +35,13 @@ public class SceneReset : MonoBehaviour {
 
     public void ShowCorrectSymbol(bool show)
     {
-        if (coin != null) coin.ShowAddCoinAnimation();
+        if (coin != null && show) coin.ShowAddCoinAnimation();
         showSymbol(correctSymbol, correctSymbolAnimator, show);
     }
 
     public void ShowIncorrectSymbol(bool show)
     {
-        if (coin != null) coin.ShowRemoveCoinAnimation();
+        if (coin != null && show) coin.ShowRemoveCoinAnimation();
         showSymbol(noSymbol, noSymbolAnimator, show);
     }
 

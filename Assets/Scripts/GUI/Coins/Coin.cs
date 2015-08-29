@@ -4,20 +4,20 @@ using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {
-    public RectTransform coinPile;
+    public CoinPile coinPile;
     public AudioSource correctSound;
     public AudioSource wrongSound;
 
     public void AddCoins()
     {
-        coinPile.transform.localScale += new Vector3(0.3f, 0.3f);
+        coinPile.IncreaseScale(new Vector3(0.3f, 0.3f));
         HideCoin();
         resetState();
     }
 
     public void RemoveCoins()
     {
-        coinPile.transform.localScale -= new Vector3(0.3f, 0.3f);
+        coinPile.DecreaseScale(new Vector3(0.3f, 0.3f));
         HideCoin();
         resetState();
     }
@@ -46,6 +46,7 @@ public class Coin : MonoBehaviour
 
     private void showAnimation(string trigger)
     {
+        coinPile.ShowFlashing();
         GetComponent<Animator>().gameObject.SetActive(true);
         GetComponent<Animator>().SetTrigger(trigger);
     }
@@ -54,6 +55,6 @@ public class Coin : MonoBehaviour
     {
         gameObject.SetActive(false);
         GetComponent<Animator>().SetTrigger("Normal");
-        CoinPile.currentSize = coinPile.transform.localScale;
+        coinPile.UpdateCurrentSize();
     }
 }
