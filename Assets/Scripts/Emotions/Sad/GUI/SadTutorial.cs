@@ -12,6 +12,5 @@ public class SadTutorial : TutorialBase
         base.HelpExplanationComplete();
         GUIInitialization.Initialize();
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForwardWithDelay();
-        FindObjectsOfType<GameObject>();
     }
 }
