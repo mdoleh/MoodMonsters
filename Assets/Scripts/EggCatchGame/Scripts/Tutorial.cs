@@ -2,25 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Globals;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerScript : MonoBehaviour {
+public class Tutorial : MonoBehaviour {
     
-    public int theScore = 0;
     public GameObject[] instructions;
-    public GameObject[] stars;
     private string lastSceneCompleted;
-    public bool shouldDropEggs = false;
+    public PlayerScript player;
     public bool shouldKeepScore = true;
-    public Animator Lily;
     private float lastInput;
     private float animationDelay = 0.0f;
 
-    private void Awake()
+    private GameObject buttonDragDrop;
+    public RawImage[] images;
+    public GameObject[] badCatchIndicators;
+    public GameObject goodCatchIndicator;
+
+    private void Start()
     {
         Timeout.StopTimers();
         lastSceneCompleted = Scenes.GetLastSceneCompleted();
+        initializeObjects();
         StartCoroutine(DelayedPlayAudio());
+    }
+
+    private void initializeObjects()
+    {
+        buttonDragDrop = transform.FindChild("ButtonDrag").gameObject;
+        
+        images.ToList().ForEach(image =>
+        {
+            if (lastSceneCompleted.ToLower().Contains(image.name.ToLower()))
+            {
+                goodCatchIndicator.GetComponent<RawImage>().texture = image.texture;
+            }
+            else
+            {
+                var badCatch = badCatchIndicators.ToList().FirstOrDefault(x => x.GetComponent<RawImage>().texture == null);
+                if (badCatch != null) badCatch.GetComponent<RawImage>().texture = image.texture;
+            }
+        });
     }
 
     private IEnumerator DelayedPlayAudio()
@@ -30,11 +53,13 @@ public class PlayerScript : MonoBehaviour {
         {
             var instructions = GetAudioInstructions();
             Utilities.PlayAudio(instructions);
+            goodCatchIndicator.transform.parent.gameObject.SetActive(true);
             yield return new WaitForSeconds(instructions.clip.length);
 
             var avoidInstructions = GetAudioInstructions("avoid");
             Utilities.PlayAudio(avoidInstructions);
             yield return new WaitForSeconds(avoidInstructions.clip.length);
+            goodCatchIndicator.transform.parent.gameObject.SetActive(false);
 
             if (!GameFlags.BucketTutorialHasRun)
             {
@@ -47,17 +72,17 @@ public class PlayerScript : MonoBehaviour {
             }
         }
 
-        shouldDropEggs = true;
+        player.shouldDropEggs = true;
     }
 
     private void ShowDraggingAnimation()
     {
-        GameObject.Find("TutorialCanvas").GetComponent<Canvas>().enabled = true;
+        transform.FindChild("ButtonDrag").gameObject.SetActive(true);
     }
 
     private void HideDraggingAnimation()
     {
-        GameObject.Find("TutorialCanvas").GetComponent<Canvas>().enabled = false;
+        transform.FindChild("ButtonDrag").gameObject.SetActive(false);
     }
 
     private AudioSource GetAudioInstructions()
@@ -72,64 +97,6 @@ public class PlayerScript : MonoBehaviour {
 
     private AudioSource GetControlInstructions()
     {
-        return GameObject.Find("ButtonDrag").GetComponent<AudioSource>();
-    }
-
-    private void Start()
-    {
-        Timeout.StartTimers();
-    }
-
-	void Update () {
-        //These two lines are all there is to the actual movement..
-        float moveInput = Input.GetAxis("Mouse X") * Time.deltaTime * 0.1f;
-	    if (shouldKeepScore)
-	    {
-	        if (moveInput == lastInput) Timeout.StartTimers();
-            else Timeout.StopTimers();
-	    }
-	    else
-	    {
-	        animationDelay += Time.deltaTime;
-	        if (animationDelay >= 1)
-	        {
-	            Lily.SetTrigger(moveInput > 0 ? "SwipeRight" : "SwipeLeft");
-	            animationDelay = 0.0f;
-	        }
-	    }
-        
-        transform.position += new Vector3(moveInput, 0, 0);
-
-        //Restrict movement between two values
-        if (transform.position.x <= -2.5f || transform.position.x >= 2.5f)
-        {
-            float xPos = Mathf.Clamp(transform.position.x, -2.5f, 2.5f); //Clamp between min -2.5 and max 2.5
-            transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
-        }
-	    lastInput = moveInput;
-	}
-
-    public void UpdateScore(int value)
-    {
-        if (!shouldKeepScore) return;
-        theScore += value;
-        HideAllStars();
-        ShowStars();
-    }
-
-    private void HideAllStars()
-    {
-        foreach (var star in stars)
-        {
-            star.SetActive(false);
-        }
-    }
-
-    private void ShowStars()
-    {
-        for (var i = 0; i < theScore; ++i)
-        {
-            stars[i].SetActive(true);
-        }
+        return buttonDragDrop.GetComponent<AudioSource>();
     }
 }
