@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EggDestroyer : MonoBehaviour {
-
-    void OnCollisionEnter(Collision other)
+namespace EggCatch
+{
+    public class EggDestroyer : MonoBehaviour
     {
-        //Destroy this gameobject (and all attached components)
-        Destroy(other.transform.parent.gameObject);
+
+        private void OnCollisionEnter(Collision other)
+        {
+            //Destroy this gameobject (and all attached components)
+            Destroy(other.transform.parent.gameObject);
+        }
     }
 }
