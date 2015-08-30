@@ -11,7 +11,10 @@ public class Utilities : MonoBehaviour {
         "ActionsMenu", 
         "Situation", 
         "Emotion", 
-        "Parent"
+        "Parent",
+        "PayAttentionAsk",
+        "Solve",
+        "Support"
     }; 
 
     public static void PlayAudio(AudioSource audioSource, bool stopCurrentAudio = true)
@@ -61,7 +64,7 @@ public class Utilities : MonoBehaviour {
             CityInitializer.City.SetActive(true);
             PlayAudioUnBlockable(CityInitializer.City.GetComponent<AudioSource>());
         }
-        Application.LoadLevel(sceneToLoad);
+        LoadScene(sceneToLoad);
     }
 
     public static void LoadScene(string sceneToLoad)
@@ -75,6 +78,7 @@ public class Utilities : MonoBehaviour {
             sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
+        GameObject.Find("LoadingIndicatorCanvas").GetComponent<Canvas>().enabled = true;
         if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
     }
 
