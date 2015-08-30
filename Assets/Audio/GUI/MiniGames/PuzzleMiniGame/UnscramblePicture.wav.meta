@@ -3,7 +3,7 @@ guid: 36acca8f835e21c4cb3247b9bb7204c8
 AudioImporter:
   serializedVersion: 6
   defaultSettings:
-    loadType: 2
+    loadType: 1
     sampleRateSetting: 0
     sampleRateOverride: 0
     compressionFormat: 0
