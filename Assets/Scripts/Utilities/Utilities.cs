@@ -79,7 +79,12 @@ public class Utilities : MonoBehaviour {
             if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
         }
         GameObject.Find("LoadingIndicatorCanvas").GetComponent<Canvas>().enabled = true;
-        if (sceneToLoad != "") Application.LoadLevel(sceneToLoad);
+        if (sceneToLoad != "") Timeout.Instance.StartCoroutine(loadLevelAsync(sceneToLoad));
+    }
+
+    private static IEnumerator loadLevelAsync(string sceneToLoad)
+    {
+        yield return Application.LoadLevelAsync(sceneToLoad);
     }
 
     public static AudioSource PlayRandomAudio(IList<AudioSource> audioSources)
