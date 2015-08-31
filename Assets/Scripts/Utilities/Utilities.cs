@@ -70,6 +70,8 @@ public class Utilities : MonoBehaviour {
     public static void LoadScene(string sceneToLoad)
     {
         Timeout.StopTimers();
+        Timeout.Instance.StopAllCoroutines();
+        StopAudio(Sound.CurrentPlayingSound);
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);

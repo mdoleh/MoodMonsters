@@ -8,7 +8,6 @@ public class ButtonSceneLoad : ButtonSelect {
     protected override void DoubleClickAction()
     {
         Timeout.StopTimers();
-        StopAllCoroutines();
         if (string.IsNullOrEmpty(sceneToLoad)) return;
         if (shouldAskParentPresent)
         {
