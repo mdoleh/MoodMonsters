@@ -2,6 +2,7 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BeginInstructions : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class BeginInstructions : MonoBehaviour
     public GameObject disablePanel;
     public GameObject rightButtonArrow;
     public GameObject leftButtonArrow;
+    public GameObject[] kidsFacesImages;
 
 	void Start ()
 	{
@@ -21,6 +23,20 @@ public class BeginInstructions : MonoBehaviour
 
     private IEnumerator faceInstructions()
     {
+        yield return new WaitForSeconds(1.5f);
+
+        var makingFacesAudioList = transform.FindChild("Audio")
+            .FindChild("MakingFaces")
+            .GetComponentsInChildren<AudioSource>().ToList();
+        var makingFacesAudio = makingFacesAudioList.First(
+            x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+        Utilities.PlayAudio(makingFacesAudio);
+        var picturesToShow =
+            kidsFacesImages.First(x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+        picturesToShow.SetActive(true);
+        yield return new WaitForSeconds(makingFacesAudio.clip.length);
+        picturesToShow.SetActive(false);
+
         var emotionInstructions = transform.FindChild("Audio")
             .FindChild("Emotions")
             .GetComponentsInChildren<AudioSource>().ToList();
@@ -30,7 +46,7 @@ public class BeginInstructions : MonoBehaviour
 
         Utilities.PlayAudio(makeFaceInstruction);
         yield return new WaitForSeconds(makeFaceInstruction.clip.length);
-        StartCoroutine(positionInstructions());
+        yield return StartCoroutine(positionInstructions());
     }
 
     private IEnumerator positionInstructions()
