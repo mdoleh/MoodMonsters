@@ -1,12 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Globals;
+using UnityEngine.UI;
 
 namespace SadScene
 {
     public class ConveySadness : CorrectActionBase
     {
         public AudioSource switchToParentAudio;
+
+        private GameObject childToParentImage;
+
+        protected void Start()
+        {
+            childToParentImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ChildToParent").gameObject;
+        }
 
         protected override void DialogueAnimation()
         {
@@ -26,8 +34,10 @@ namespace SadScene
         {
             if (GameFlags.AdultIsPresent)
             {
+                childToParentImage.GetComponent<RawImage>().enabled = true;
                 Utilities.PlayAudio(switchToParentAudio);
                 yield return new WaitForSeconds(switchToParentAudio.clip.length);
+                childToParentImage.GetComponent<RawImage>().enabled = false;
                 GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             }
             else

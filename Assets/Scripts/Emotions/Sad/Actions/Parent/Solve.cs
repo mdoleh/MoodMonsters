@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Linq;
 using Globals;
+using UnityEngine.UI;
 
 namespace SadScene
 {
@@ -11,6 +12,13 @@ namespace SadScene
         public AudioSource switchToChildAudio;
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
+
+        private GameObject parentToChildImage;
+
+        protected void Start()
+        {
+            parentToChildImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ParentToChild").gameObject;
+        }
 
         protected override void DialogueAnimation()
         {
@@ -32,8 +40,10 @@ namespace SadScene
         {
             if (GameFlags.AdultIsPresent)
             {
+                parentToChildImage.GetComponent<RawImage>().enabled = true;
                 Utilities.PlayAudio(switchToChildAudio);
                 yield return new WaitForSeconds(switchToChildAudio.clip.length);
+                parentToChildImage.GetComponent<RawImage>().enabled = false;
             }
             GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
             GUIHelper.NextGUI();

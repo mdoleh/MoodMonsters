@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Linq;
 using Globals;
+using UnityEngine.UI;
 
 namespace ScaredScene
 {
@@ -15,9 +16,11 @@ namespace ScaredScene
         public AudioSource switchToParentAudio;
 
         private GameObject currentParent;
+        private GameObject childToParentImage;
 
         private void Start()
         {
+            childToParentImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ChildToParent").gameObject;
             currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
@@ -43,8 +46,10 @@ namespace ScaredScene
 
         private IEnumerator SwitchToParent()
         {
+            childToParentImage.GetComponent<RawImage>().enabled = true;
             Utilities.PlayAudio(switchToParentAudio);
             yield return new WaitForSeconds(switchToParentAudio.clip.length);
+            childToParentImage.GetComponent<RawImage>().enabled = false;
             GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }

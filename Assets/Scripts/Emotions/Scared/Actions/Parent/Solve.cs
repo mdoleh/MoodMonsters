@@ -2,6 +2,7 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ScaredScene
 {
@@ -11,6 +12,13 @@ namespace ScaredScene
         public AudioSource switchToChildAudio;
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
+
+        private GameObject parentToChildImage;
+
+        protected void Start()
+        {
+            parentToChildImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ParentToChild").gameObject;
+        }
 
         protected override void DialogueAnimation()
         {
@@ -30,8 +38,10 @@ namespace ScaredScene
 
         private IEnumerator SwitchBackToChild()
         {
+            parentToChildImage.GetComponent<RawImage>().enabled = true;
             Utilities.PlayAudio(switchToChildAudio);
             yield return new WaitForSeconds(switchToChildAudio.clip.length);
+            parentToChildImage.GetComponent<RawImage>().enabled = false;
             fearfulCharacter.StartJumpSequence();
         }
 
