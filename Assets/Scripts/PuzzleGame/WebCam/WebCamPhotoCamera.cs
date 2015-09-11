@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +46,9 @@ public class WebCamPhotoCamera : WebCam
         TurnOffCamera();
         GetComponent<RawImage>().texture = photo;
         Utilities.PlayAudio(keepPictureAudio);
+        yield return new WaitForSeconds(keepPictureAudio.clip.length);
+        Timeout.SetRepeatAudio(keepPictureAudio);
+        Timeout.StartTimers();
     }
 
     public void KeepPhoto()
