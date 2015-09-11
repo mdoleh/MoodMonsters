@@ -14,6 +14,9 @@ public class BeginInstructions : MonoBehaviour
     public GameObject rightButtonArrow;
     public GameObject leftButtonArrow;
     public GameObject[] kidsFacesImages;
+    
+    [HideInInspector]
+    public GameObject picturesToShow;
 
 	void Start ()
 	{
@@ -31,11 +34,10 @@ public class BeginInstructions : MonoBehaviour
         var makingFacesAudio = makingFacesAudioList.First(
             x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
         Utilities.PlayAudio(makingFacesAudio);
-        var picturesToShow =
+        picturesToShow =
             kidsFacesImages.First(x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
         picturesToShow.SetActive(true);
         yield return new WaitForSeconds(makingFacesAudio.clip.length);
-        picturesToShow.SetActive(false);
 
         var emotionInstructions = transform.FindChild("Audio")
             .FindChild("Emotions")

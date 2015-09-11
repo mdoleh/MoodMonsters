@@ -13,6 +13,7 @@ public class WebCamPhotoCamera : WebCam
     public CameraActions cameraActions;
     public GameObject[] buttonsToDisable;
     public GameObject[] buttonsToEnable;
+    public BeginInstructions instructions;
 
     protected override void Start()
     {
@@ -45,6 +46,7 @@ public class WebCamPhotoCamera : WebCam
         showYesNoButtons();
         TurnOffCamera();
         GetComponent<RawImage>().texture = photo;
+
         Utilities.PlayAudio(keepPictureAudio);
         yield return new WaitForSeconds(keepPictureAudio.clip.length);
         Timeout.SetRepeatAudio(keepPictureAudio);
@@ -54,6 +56,7 @@ public class WebCamPhotoCamera : WebCam
     public void KeepPhoto()
     {
         StopAllCoroutines();
+        instructions.picturesToShow.SetActive(false);
         Utilities.StopAudio(Sound.CurrentPlayingSound);
         setAllButtons(buttonsToEnable, false);
         cameraActions.RunPostPictureActions();
