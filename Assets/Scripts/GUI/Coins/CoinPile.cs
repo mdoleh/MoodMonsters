@@ -6,11 +6,15 @@ public class CoinPile : MonoBehaviour
 {
     public RectTransform backgroundGlow;
     private static Vector3 currentSize = Vector3.zero;
+    private static Vector3 backgroundSize = Vector3.zero;
 
     private void Start()
     {
-        if (currentSize != Vector3.zero) 
+        if (currentSize != Vector3.zero)
+        {
             transform.localScale = currentSize;
+            backgroundGlow.localScale = backgroundSize;
+        }
     }
 
     public void ShowFlashing()
@@ -40,5 +44,6 @@ public class CoinPile : MonoBehaviour
     public void UpdateCurrentSize()
     {
         currentSize = transform.localScale;
+        backgroundSize = backgroundGlow.localScale;
     }
 }
