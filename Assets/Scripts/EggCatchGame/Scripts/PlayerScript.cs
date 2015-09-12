@@ -14,6 +14,8 @@ namespace EggCatch
         public bool shouldDropEggs = false;
         public bool shouldKeepScore = true;
         public Animator Lily;
+        public int MAX_SCORE = 5;
+
         private float lastInput;
         private float animationDelay = 0.0f;
 
@@ -55,7 +57,7 @@ namespace EggCatch
         public void UpdateScore(int value)
         {
             if (!shouldKeepScore) return;
-            theScore += value;
+            if (theScore >= MAX_SCORE) theScore += value;
             HideAllStars();
             ShowStars();
         }

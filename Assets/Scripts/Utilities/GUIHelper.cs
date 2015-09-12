@@ -101,7 +101,8 @@ public class GUIHelper : MonoBehaviour {
     private static void enableUI()
     {
         var helpCanvas = GameObject.Find("HelpCanvas");
-        helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
+        if (helpCanvas != null)
+            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
     }
 
     private static IEnumerator playCanvasAudio(GameObject guiCanvas)
