@@ -15,6 +15,7 @@ namespace ScaredScene
 
         private GameObject otherCharacter;
         private bool runSpeedFailure = false;
+        private bool isBackingAway = false;
         private AudioSource runSpeedAudio;
         private GameObject currentParent;
 
@@ -156,6 +157,8 @@ namespace ScaredScene
         public override void ShiftIdle()
         {
             if (runSpeedFailure) return;
+            if (!isBackingAway) return;
+            isBackingAway = false;
             StopWalking(false);
             base.ShiftIdle();
             joystickCanvas.GetComponent<Canvas>().enabled = true;
@@ -165,6 +168,7 @@ namespace ScaredScene
 
         public void BackAway()
         {
+            isBackingAway = true;
             anim.SetTrigger("BackAway");
             multiplierSpeed = -0.2f;
             StartWalking();
