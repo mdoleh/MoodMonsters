@@ -20,7 +20,7 @@ namespace SadScene
 //            anim.SetTrigger("Idle");
             if (!GameFlags.AdultIsPresent)
             {
-                GetComponent<Solve>().StartDefaultAction();
+                GetComponent<AskToSolve>().StartDefaultAction();
                 return;
             }
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSolveActionsMenu";
