@@ -127,7 +127,8 @@ public class GUIHelper : MonoBehaviour {
                 yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
             }
 
-            foreach (var child in guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>())
+            var tiles = guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList();
+            foreach (var child in tiles)
             {
                 yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
             }
