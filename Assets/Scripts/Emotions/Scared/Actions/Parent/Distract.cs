@@ -3,12 +3,12 @@ using System.Collections;
 
 namespace ScaredScene
 {
-    public class Solve : IncorrectActionBase
+    public class Distract : IncorrectActionBase
     {
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
-            //            anim.SetTrigger("Solve");
+            //            anim.SetTrigger("Distract");
         }
     }
 }
