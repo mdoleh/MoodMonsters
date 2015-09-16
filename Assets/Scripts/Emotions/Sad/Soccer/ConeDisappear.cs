@@ -21,16 +21,18 @@ namespace SadScene
                 if (!gameObject.name.Contains("1"))
                     Utilities.PlayRandomAudio(transform.parent.FindChild("Audio").GetComponentsInChildren<AudioSource>());
                 shouldSink = true;
-                StartCoroutine(HideObject());
+                StartCoroutine(HideObject(other.transform));
             }
         }
 
-        private IEnumerator HideObject()
+        private IEnumerator HideObject(Transform soccerBall)
         {
             yield return new WaitForSeconds(1f);
             GetComponent<BoxCollider>().enabled = false;
             coneManager.NextInSequence();
-            coneManager.RandomizePositionZ();
+            soccerBall.transform.position = new Vector3(soccerBall.transform.position.x,
+                soccerBall.transform.position.y,
+                coneManager.RandomizePositionZ());
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
         }

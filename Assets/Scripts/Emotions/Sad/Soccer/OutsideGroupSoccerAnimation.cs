@@ -43,7 +43,6 @@ namespace SadScene
             anim.SetTrigger("Idle");
             if (!shouldAdjustCamera) return;
             AdjustCamera();
-            soccerBall.transform.position = ConeManager.randomPosition;
             StartJoystickTutorial();
         }
 
@@ -142,8 +141,8 @@ namespace SadScene
         {
             HideJoystick(startTimers);
             ResetAndDisableJoystick();
-            transform.position = new Vector3(transform.position.x, transform.position.y, 80.619f);
-            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.115f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, soccerBall.transform.position.z);
+            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, transform.position.z - 2.504f);
             mainCamera.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }

@@ -5,28 +5,24 @@ namespace SadScene
 {
     public class ConeManager : ObjectSequenceManager
     {
-        [HideInInspector]
-        public static Vector3 randomPosition;
-
         public float[] conePositions;
         public ParticleSystem[] lanes;
 
-        private readonly Color CORRECT_LANE_COLOR = new Color(0, 255, 1);
+        private readonly Color CORRECT_LANE_COLOR = new Color(0, 255, 0);
         private readonly Color WRONG_LANE_COLOR = new Color(255, 0, 0);
 
-        public void RandomizePositionZ()
+        public float RandomizePositionZ()
         {
-            var zPosition = conePositions[Random.Range(0, conePositions.Length)];
-            var objectPosition = SequenceObjects[currentIndex].transform.position;
-            var newPosition = new Vector3(objectPosition.x, objectPosition.y, zPosition);
-            SequenceObjects[currentIndex].transform.position = randomPosition;
-            randomPosition = newPosition;
-            adjustLaneColors();
+            var index = Random.Range(0, conePositions.Length);
+            var objectPosition = SequenceObjects[currentIndex - 1].transform.localPosition;
+            SequenceObjects[currentIndex - 1].transform.localPosition = new Vector3(objectPosition.x, objectPosition.y, conePositions[index]);
+            adjustLaneColors(conePositions[index]);
+            return SequenceObjects[currentIndex - 1].transform.position.z;
         }
 
-        private void adjustLaneColors()
+        private void adjustLaneColors(float zPosition)
         {
-            var positionIndex = conePositions.ToList().IndexOf(randomPosition.z);
+            var positionIndex = conePositions.ToList().IndexOf(zPosition);
             lanes.ToList().ForEach(lane =>
             {
                 lane.Stop();
