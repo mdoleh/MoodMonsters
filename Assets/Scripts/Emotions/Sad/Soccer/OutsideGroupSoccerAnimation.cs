@@ -67,6 +67,8 @@ namespace SadScene
 
         public void KickForward()
         {
+            LaneAppear.shouldShowLanes = false;
+            LaneAppear.HideAllLanes();
             stopMoving();
             resetCamera(true);
             StartCoroutine(KickBallForward());

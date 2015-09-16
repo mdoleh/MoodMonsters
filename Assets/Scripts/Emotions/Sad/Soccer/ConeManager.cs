@@ -29,6 +29,7 @@ namespace SadScene
                 lane.Stop();
                 lane.startColor = lanes.ToList().IndexOf(lane) == positionIndex ? CORRECT_LANE_COLOR : WRONG_LANE_COLOR;
             });
+            LaneAppear.shouldShowLanes = true;
         }
     }
 }
