@@ -10,14 +10,10 @@ namespace SadScene
         public OutsideGroupSoccerBallMovement soccerBall;
         public AudioSource didntKickHardEnough;
         public ObjectSequenceManager retryPointManager;
-        public GameObject lanesParent;
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
         private bool shouldKickUp = true;
-
-        private const string CORRECT_LANE_COLOR = "00FF01FF";
-        private const string WRONG_LANE_COLOR = "FF0000FF";
 
         protected virtual void Start()
         {
@@ -47,6 +43,7 @@ namespace SadScene
             anim.SetTrigger("Idle");
             if (!shouldAdjustCamera) return;
             AdjustCamera();
+            soccerBall.transform.position = ConeManager.randomPosition;
             StartJoystickTutorial();
         }
 
