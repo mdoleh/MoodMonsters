@@ -13,6 +13,7 @@ namespace SadScene
 
         public float RandomizePositionZ()
         {
+            if (currentIndex >= SequenceObjects.Length) return 80.52f;
             var index = Random.Range(0, conePositions.Length);
             var objectPosition = SequenceObjects[currentIndex - 1].transform.localPosition;
             SequenceObjects[currentIndex - 1].transform.localPosition = new Vector3(objectPosition.x, objectPosition.y, conePositions[index]);
