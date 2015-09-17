@@ -30,6 +30,7 @@ public class CoinPile : MonoBehaviour
 
     public void DecreaseScale(Vector3 value)
     {
+        if (transform.localScale.x - value.x < 0 || backgroundGlow.localScale.x - value.x < 0) return;
         transform.localScale -= value;
         backgroundGlow.localScale -= value;
     }
