@@ -57,7 +57,7 @@ namespace EggCatch
         public void UpdateScore(int value)
         {
             if (!shouldKeepScore) return;
-            if (theScore >= MAX_SCORE) theScore += value;
+            if (theScore < MAX_SCORE) theScore += value;
             HideAllStars();
             ShowStars();
         }
