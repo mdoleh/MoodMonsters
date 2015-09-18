@@ -7,10 +7,12 @@ namespace SadScene
     {
         private bool shouldSink = false;
         private ConeManager coneManager;
+        private ObjectSequenceManager ballMissManager;
 
         private void Start()
         {
             coneManager = transform.parent.GetComponent<ConeManager>();
+            ballMissManager = coneManager.ballMissManager;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -33,6 +35,7 @@ namespace SadScene
             soccerBall.transform.position = new Vector3(soccerBall.transform.position.x,
                 soccerBall.transform.position.y,
                 coneManager.RandomizePositionZ());
+            ballMissManager.NextInSequence();
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
         }

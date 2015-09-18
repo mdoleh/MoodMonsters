@@ -5,6 +5,7 @@ namespace SadScene
 {
     public class ConeManager : ObjectSequenceManager
     {
+        public ObjectSequenceManager ballMissManager;
         public float[] conePositions;
         public ParticleSystem[] lanes;
 
