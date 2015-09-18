@@ -14,6 +14,7 @@ public class RetryPoint : MonoBehaviour
             other.GetComponent<OutsideGroupSoccerAnimation>().StopWalkingBackwards();
             gameObject.SetActive(false);
             soccerBall.ResetPosition();
+            LaneAppear.shouldShowLanes = true;
             PreviousRetryPoint = gameObject;
         }
     }

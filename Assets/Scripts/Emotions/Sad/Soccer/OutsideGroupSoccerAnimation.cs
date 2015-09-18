@@ -10,6 +10,7 @@ namespace SadScene
         public OutsideGroupSoccerBallMovement soccerBall;
         public AudioSource didntKickHardEnough;
         public ObjectSequenceManager retryPointManager;
+        public GameObject runningLanes;
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
@@ -67,16 +68,16 @@ namespace SadScene
 
         public void KickForward()
         {
-            stopMoving();
-            resetCamera(true);
+            StopMoving();
+            ResetCamera(true, true);
             StartCoroutine(KickBallForward());
         }
 
         public void StartDialogue()
         {
-            stopMoving();
+            StopMoving();
             anim.SetTrigger("Idle");
-            resetCamera(false);
+            ResetCamera(false, true);
             Timeout.StopTimers();
             GetComponent<OutsideGroupDialogue>().StartDialogue();
         }
@@ -86,18 +87,20 @@ namespace SadScene
             if (multiplierSpeed < 2f)
             {
                 soccerBall.KickBallForward(multiplierSpeed / 3f);
-                resetPosition();
+                ResetPosition(didntKickHardEnough);
             }
             else
             {
                 soccerBall.KickBallForward(multiplierSpeed / 2f);
+                runningLanes.transform.position = new Vector3(transform.position.x,
+                    runningLanes.transform.position.y, runningLanes.transform.position.z);
             }
         }
 
-        private void resetPosition()
+        public void ResetPosition(AudioSource audioSource)
         {
             retryPointManager.NextInSequence();
-            Utilities.PlayAudio(didntKickHardEnough);
+            Utilities.PlayAudio(audioSource);
             anim.SetTrigger("WalkBackwards");
             shouldAdjustCamera = false;
         }
@@ -130,19 +133,22 @@ namespace SadScene
             ShiftIdle();
         }
 
-        private void stopMoving()
+        public void StopMoving()
         {
+            LaneAppear.shouldShowLanes = false;
+            LaneAppear.HideAllLanes();
             anim.SetBool("Run", false);
             isWalking = false;
             multiplierDirection = 0f;
         }
 
-        private void resetCamera(bool startTimers)
+        public void ResetCamera(bool startTimers, bool shouldAdjustPosition)
         {
             HideJoystick(startTimers);
             ResetAndDisableJoystick();
-            transform.position = new Vector3(transform.position.x, transform.position.y, 80.619f);
-            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.115f);
+            if (shouldAdjustPosition) 
+                transform.position = new Vector3(transform.position.x, transform.position.y, soccerBall.transform.position.z);
+            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, transform.position.z - 2.504f);
             mainCamera.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }

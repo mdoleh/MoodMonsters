@@ -38,11 +38,16 @@ namespace SadScene
             rigidBody.AddTorque(0f, 0f, 100f);
         }
 
+        public void SetPreviousPosition()
+        {
+            previousPosition = transform.position;
+            previousRotation = transform.rotation;
+        }
+
         public void KickBallForward(float multiplier)
         {
             neutralizeForce();
-            previousPosition = transform.position;
-            previousRotation = transform.rotation;
+            SetPreviousPosition();
             rigidBody.constraints = RigidbodyConstraints.None;
             rigidBody.AddForce(250f*multiplier, 180f*multiplier, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
