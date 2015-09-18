@@ -36,7 +36,7 @@ namespace SadScene
                 "ParentDefaultCanvas", 
                 "SituationActionsCanvas"
             };
-            GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas" };
+            GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas", "ParentDefaultCanvas" };
             GUIHelper.HelpCanvasIgnoreList = new List<string> { "ParentDefaultCanvas" };
         }
     }
