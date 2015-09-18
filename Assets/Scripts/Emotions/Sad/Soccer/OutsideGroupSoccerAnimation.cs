@@ -10,6 +10,7 @@ namespace SadScene
         public OutsideGroupSoccerBallMovement soccerBall;
         public AudioSource didntKickHardEnough;
         public ObjectSequenceManager retryPointManager;
+        public GameObject runningLanes;
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
@@ -69,6 +70,8 @@ namespace SadScene
         {
             LaneAppear.shouldShowLanes = false;
             LaneAppear.HideAllLanes();
+            runningLanes.transform.position = new Vector3(transform.position.x,
+                runningLanes.transform.position.y, runningLanes.transform.position.z);
             stopMoving();
             resetCamera(true);
             StartCoroutine(KickBallForward());
