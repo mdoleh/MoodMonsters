@@ -16,6 +16,8 @@ namespace SadScene
         {
             if (other.GetComponent<OutsideGroupSoccerAnimation>() != null)
             {
+                LaneAppear.shouldShowLanes = false;
+                LaneAppear.HideAllLanes();
                 ballMissManager.SetBallPreviousPosition();
                 var ballMissAudio = transform.parent.GetComponent<AudioSource>();
                 other.GetComponent<OutsideGroupSoccerAnimation>().StopMoving();

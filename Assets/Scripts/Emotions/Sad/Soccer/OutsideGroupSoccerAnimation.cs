@@ -68,6 +68,8 @@ namespace SadScene
 
         public void KickForward()
         {
+            LaneAppear.shouldShowLanes = false;
+            LaneAppear.HideAllLanes();
             StopMoving();
             ResetCamera(true, true);
             StartCoroutine(KickBallForward());
@@ -75,6 +77,7 @@ namespace SadScene
 
         public void StartDialogue()
         {
+            runningLanes.SetActive(false);
             StopMoving();
             anim.SetTrigger("Idle");
             ResetCamera(false, true);
@@ -135,8 +138,6 @@ namespace SadScene
 
         public void StopMoving()
         {
-            LaneAppear.shouldShowLanes = false;
-            LaneAppear.HideAllLanes();
             anim.SetBool("Run", false);
             isWalking = false;
             multiplierDirection = 0f;
