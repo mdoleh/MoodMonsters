@@ -11,8 +11,8 @@ namespace Globals
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = false;
-        public static bool AdultIsPresent = false;
-        public static string ParentGender = "Dad";
+        public static bool AdultIsPresent = true;
+        public static string ParentGender = "Mom";
 
         public static void ResetValues()
         {
