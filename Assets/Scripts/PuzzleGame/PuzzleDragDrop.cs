@@ -92,9 +92,9 @@ namespace PuzzleMiniGame
         {
             if (intersectingPanel == null) yield break;
             SwapPieces(intersectingPanel);
-            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             if (!isCorrectContainer) yield break;
             disabled = true;
+            yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
             if (AllPiecesInCorrectPlaces())
             {
                 GrowPieces();
