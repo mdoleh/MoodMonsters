@@ -12,7 +12,7 @@ public class LaneAppear : MonoBehaviour
 
     public static void HideAllLanes()
     {
-        GameObject.Find("Lanes").GetComponentsInChildren<ParticleSystem>().ToList().ForEach(lane => lane.Stop());
+        GameObject.Find("Lanes").GetComponentsInChildren<LaneColor>().ToList().ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +24,7 @@ public class LaneAppear : MonoBehaviour
                 isIntersectingPlayer = true;
                 return;
             }
-            transform.parent.GetComponent<ParticleSystem>().Play();
+            transform.parent.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 
@@ -32,7 +32,7 @@ public class LaneAppear : MonoBehaviour
     {
         if (other.GetComponent<OutsideGroupSoccerAnimation>() != null && shouldShowLanes)
         {
-            transform.parent.GetComponent<ParticleSystem>().Stop();
+            transform.parent.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
@@ -41,7 +41,7 @@ public class LaneAppear : MonoBehaviour
         if (isIntersectingPlayer && shouldShowLanes)
         {
             isIntersectingPlayer = false;
-            transform.parent.GetComponent<ParticleSystem>().Play();
+            transform.parent.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }

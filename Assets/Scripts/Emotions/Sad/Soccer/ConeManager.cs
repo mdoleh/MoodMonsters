@@ -7,7 +7,7 @@ namespace SadScene
     {
         public ObjectSequenceManager ballMissManager;
         public float[] conePositions;
-        public ParticleSystem[] lanes;
+        public LaneColor[] lanes;
 
         private readonly Color CORRECT_LANE_COLOR = new Color(0, 255, 0);
         private readonly Color WRONG_LANE_COLOR = new Color(255, 0, 0);
@@ -32,8 +32,7 @@ namespace SadScene
             var positionIndex = conePositions.ToList().IndexOf(zPosition);
             lanes.ToList().ForEach(lane =>
             {
-                lane.Stop();
-                lane.startColor = lanes.ToList().IndexOf(lane) == positionIndex ? CORRECT_LANE_COLOR : WRONG_LANE_COLOR;
+                lane.SetColor(lanes.ToList().IndexOf(lane) == positionIndex ? CORRECT_LANE_COLOR : WRONG_LANE_COLOR);
             });
             LaneAppear.shouldShowLanes = true;
         }
