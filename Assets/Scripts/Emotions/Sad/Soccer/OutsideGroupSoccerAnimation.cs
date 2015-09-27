@@ -95,9 +95,15 @@ namespace SadScene
             else
             {
                 soccerBall.KickBallForward(multiplierSpeed / 2f);
-                runningLanes.transform.position = new Vector3(transform.position.x,
-                    runningLanes.transform.position.y, runningLanes.transform.position.z);
+                StartCoroutine(moveLanes());
             }
+        }
+
+        private IEnumerator moveLanes()
+        {
+            yield return new WaitForSeconds(1f);
+            runningLanes.transform.position = new Vector3(transform.position.x,
+                    runningLanes.transform.position.y, runningLanes.transform.position.z);
         }
 
         public void ResetPosition(AudioSource audioSource)
