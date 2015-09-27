@@ -51,7 +51,7 @@ namespace SadScene
             rigidBody.constraints = RigidbodyConstraints.None;
             rigidBody.AddForce(250f*multiplier, 180f*multiplier, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
-            rigidBody.angularDrag = 20f;
+            rigidBody.angularDrag = 40f;
         }
 
         public void SetDialogueFlag(bool value)
