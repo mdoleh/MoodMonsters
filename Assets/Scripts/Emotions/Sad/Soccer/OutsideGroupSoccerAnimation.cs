@@ -62,16 +62,16 @@ namespace SadScene
         private IEnumerator DelayKickForward()
         {
             yield return new WaitForSeconds(0.5f);
-            KickForward();
+            KickForward(false);
             shouldKickUp = true;
         }
 
-        public void KickForward()
+        public void KickForward(bool shouldAdjustPosition)
         {
             LaneAppear.shouldShowLanes = false;
             LaneAppear.HideAllLanes();
             StopMoving();
-            ResetCamera(true, true);
+            ResetCamera(true, shouldAdjustPosition);
             StartCoroutine(KickBallForward());
         }
 
