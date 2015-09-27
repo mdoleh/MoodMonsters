@@ -8,6 +8,7 @@ namespace ScaredScene
     {
         public Animator anim;
         public Animator other;
+        public SceneReset sceneReset;
 
         public AudioSource encourageDialogue;
         public AudioSource comfortDialogue;
@@ -62,7 +63,9 @@ namespace ScaredScene
         public void StartJumpSequence()
         {
             anim.SetBool("IsIdle", true);
-            other.gameObject.GetComponent<ExplainFear>().StartJumpSequence();
+            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
+            GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
+            GUIHelper.NextGUI();
         }
 
         public WaitForSeconds PlayDialogue(AudioSource dialogue)

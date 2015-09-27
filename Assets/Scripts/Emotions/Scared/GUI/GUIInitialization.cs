@@ -18,10 +18,11 @@ namespace ScaredScene
                 "PhysicalCanvas1",
                 "PhysicalCanvas2",
                 "PhysicalCanvas3",
-                "ActionsCanvas",
+                "EmotionActionsCanvas",
                 "ParentPayAttentionAskCanvas" + GameFlags.ParentGender,
                 "ParentSupportCanvas" + GameFlags.ParentGender,
-                "ParentSolveCanvas" + GameFlags.ParentGender
+                "ParentSolveCanvas" + GameFlags.ParentGender,
+                "SituationActionsCanvas"
             }
             : new List<string>
             {
@@ -31,7 +32,8 @@ namespace ScaredScene
                 "PhysicalCanvas1", 
                 "PhysicalCanvas2", 
                 "PhysicalCanvas3", 
-                "ActionsCanvas"
+                "EmotionActionsCanvas",
+                "SituationActionsCanvas"
             };
             GUIHelper.AudioIgnoreList = new List<string> { "ControllerCanvas" };
         }

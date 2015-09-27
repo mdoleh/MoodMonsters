@@ -25,7 +25,7 @@ public class CorrectActionBase : ActionBase
         ShowCorrect(false);
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);
-        yield return new WaitForSeconds(dialogue.clip.length);
+        if (dialogue != null) yield return new WaitForSeconds(dialogue.clip.length);
         AfterDialogue();
     }
 

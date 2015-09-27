@@ -15,13 +15,11 @@ namespace ScaredScene
         public AudioSource afraidToFallDialogue;
         public AudioSource switchToParentAudio;
 
-        private GameObject currentParent;
         private GameObject childToParentImage;
 
         private void Start()
         {
             childToParentImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ChildToParent").gameObject;
-            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         private void VoiceFear()

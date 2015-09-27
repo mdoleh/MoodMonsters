@@ -32,7 +32,7 @@ namespace ScaredScene
         {
             base.AfterDialogue();
             //            anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityActionsMenu";
+            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
             StartCoroutine(SwitchBackToChild());
         }
 
@@ -42,7 +42,8 @@ namespace ScaredScene
             Utilities.PlayAudio(switchToChildAudio);
             yield return new WaitForSeconds(switchToChildAudio.clip.length);
             parentToChildImage.GetComponent<RawImage>().enabled = false;
-            fearfulCharacter.StartJumpSequence();
+            GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
+            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()
