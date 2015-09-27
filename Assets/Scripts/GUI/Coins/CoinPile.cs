@@ -47,4 +47,10 @@ public class CoinPile : MonoBehaviour
         currentSize = transform.localScale;
         backgroundSize = backgroundGlow.localScale;
     }
+
+    public static void ResetCoinPileSize()
+    {
+        currentSize = new Vector3(1f, 1f, 1f);
+        backgroundSize = new Vector3(1f, 1f, 1f);
+    }
 }

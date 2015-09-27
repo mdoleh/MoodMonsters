@@ -59,6 +59,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadEmotionScene(string sceneToLoad)
     {
+        CoinPile.ResetCoinPileSize();
         if (CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(true);
