@@ -72,7 +72,7 @@ namespace SadScene
                 else if (isWatching)
                     other.GetComponent<SideLinesWatching>().StartWatchingFromSidelines();
                 else
-                    other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
+                    other.GetComponent<OutsideGroupSoccerAnimation>().KickForward(true);
             }
         }
     }
