@@ -22,7 +22,7 @@ namespace EggCatch
         {
             myPlayerScript = transform.parent.GetComponent<PlayerScript>();
             lastSceneCompleted = Scenes.GetLastSceneCompleted();
-            reminderToPlay = reminders.ToList().First(x => lastSceneCompleted.Contains(x.gameObject.name));
+            reminderToPlay = reminders.ToList().FirstOrDefault(x => lastSceneCompleted.Contains(x.gameObject.name));
         }
 
         //Triggered by Unity's Physics
@@ -51,7 +51,7 @@ namespace EggCatch
             if (!myPlayerScript.shouldKeepScore)
             {
                 Utilities.PlayAudioUnBlockable(goodSound);
-                yield return null;
+                yield break;
             }
 
             var emotion = egg.parent.gameObject.name.Replace(PREFAB_NAME_BASE, "");

@@ -54,13 +54,13 @@ namespace AngryScene
             anim.SetTrigger("IsTakingIPad");
             other.SetBool("IsUsingIPad", false);
             other.SetTrigger("IsLosingIPad");
-            StartCoroutine(DelayGUI());
+            StartCoroutine(disableSelf());
         }
 
-        private IEnumerator DelayGUI()
+        private IEnumerator disableSelf()
         {
             yield return new WaitForSeconds(1f);
-            StartGUI();
+            enabled = false;
         }
 
         public void StartUsingIPad() {
@@ -84,12 +84,6 @@ namespace AngryScene
             ipad.transform.parent = arm.transform.FindChild("mixamorig:LeftHand");
             ipad.transform.localPosition = new Vector3(0.093f, 0.137f, 0.136f);
             ipad.transform.localRotation = Quaternion.Euler(66.94399f, 118.2474f, 34.07929f);
-        }
-
-        void StartGUI()
-        {
-            GUIHelper.NextGUI();
-            enabled = false;
         }
     }
 }
