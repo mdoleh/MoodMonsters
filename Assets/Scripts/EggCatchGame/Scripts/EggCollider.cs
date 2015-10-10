@@ -34,7 +34,7 @@ namespace EggCatch
         {
             AdjustScore(egg);
             Destroy(egg.parent.gameObject);
-            if (myPlayerScript.theScore >= 5)
+            if (myPlayerScript.theScore == 5)
             {
                 yield return new WaitForSeconds(goodSound.clip.length);
                 sceneReset.TriggerCorrect(GetComponent<AudioSource>(), Scenes.GetNextMiniGame(), true);
