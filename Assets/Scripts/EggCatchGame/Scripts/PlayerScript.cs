@@ -15,6 +15,7 @@ namespace EggCatch
         public bool shouldKeepScore = true;
         public Animator Lily;
         public int MAX_SCORE = 5;
+        public float inputSensitivity;
 
         private float lastInput;
         private float animationDelay = 0.0f;
@@ -26,8 +27,7 @@ namespace EggCatch
 
         private void Update()
         {
-            //These two lines are all there is to the actual movement..
-            float moveInput = Input.GetAxis("Mouse X")*Time.deltaTime*0.1f;
+            float moveInput = Input.GetAxis("Mouse X")*Time.deltaTime*inputSensitivity;
             if (shouldKeepScore)
             {
                 if (moveInput == lastInput) Timeout.StartTimers();
