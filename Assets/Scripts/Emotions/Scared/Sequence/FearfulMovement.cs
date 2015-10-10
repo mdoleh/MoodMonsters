@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using Globals;
 using ScaredScene;
@@ -16,6 +17,7 @@ namespace ScaredScene
         private GameObject otherCharacter;
         private bool runSpeedFailure = false;
         private bool isBackingAway = false;
+        private bool shouldPlayJoystickAudio = false;
         private AudioSource runSpeedAudio;
         private GameObject currentParent;
 
@@ -60,11 +62,24 @@ namespace ScaredScene
             {
                 if (anim.GetBool("WalkBackwards")) StopWalking(false);
                 StartJoystickTutorial();
+                if (shouldPlayJoystickAudio)
+                {
+                    Timeout.StopTimers();
+                    shouldPlayJoystickAudio = false;
+                    StartCoroutine(playJoystickAudio());
+                }
             }
             else
             {
                 StopWalking(false);
             }
+        }
+
+        private IEnumerator playJoystickAudio()
+        {
+            Utilities.PlayAudio(Timeout.GetRepeatAudio());
+            yield return new WaitForSeconds(Timeout.GetRepeatAudio().clip.length);
+            Timeout.StartTimers();
         }
 
         public override void StepForward()
@@ -152,6 +167,7 @@ namespace ScaredScene
             multiplierDirection = 0f;
             anim.SetBool("WalkBackwards", true);
             isWalking = true;
+            shouldPlayJoystickAudio = true;
         }
 
         public override void ShiftIdle()

@@ -119,6 +119,7 @@ public class ControllerMovement : MonoBehaviour {
         trackJoystick = true;
         EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
+        Timeout.StartTimers();
         multiplierSpeed = 0f;
         multiplierDirection = 0f;
         isWalking = true;
