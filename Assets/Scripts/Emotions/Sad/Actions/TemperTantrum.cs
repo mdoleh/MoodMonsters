@@ -10,5 +10,10 @@ namespace SadScene
             base.DialogueAnimation();
             anim.SetTrigger("Tantrum");
         }
+
+        public void SadIdleEvent()
+        {
+            anim.SetTrigger("Idle");
+        }
     }
 }

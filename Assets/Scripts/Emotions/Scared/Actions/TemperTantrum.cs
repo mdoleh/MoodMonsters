@@ -11,5 +11,10 @@ namespace ScaredScene
             transform.Find("CameraFollow").gameObject.SetActive(false);
             anim.SetTrigger("Tantrum");
         }
+
+        public void ScaredIdleEvent()
+        {
+            anim.SetTrigger("Idle");
+        }
     }
 }
