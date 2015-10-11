@@ -11,7 +11,8 @@ public class ButtonSceneLoad : ButtonSelect {
     {
         Timeout.StopTimers();
         if (string.IsNullOrEmpty(sceneToLoad)) return;
-        Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
+        if (GameObject.Find("MainCanvas") != null)
+            Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
         if (shouldAskParentPresent)
         {
             Scenes.NextSceneToLoad = sceneToLoad;
