@@ -86,7 +86,6 @@ namespace PuzzleMiniGame
             var piecesMutable = new List<GameObject>(pieces);
             while (piecesMutable.Count > 0)
             {
-                yield return new WaitForSeconds(0.5f);
                 var first = piecesMutable[Random.Range(0, piecesMutable.Count)];
                 piecesMutable.Remove(first);
                 if (piecesMutable.Count == 0)
@@ -103,6 +102,7 @@ namespace PuzzleMiniGame
                 first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = second;
                 second.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
                 Utilities.PlayAudio(shuffleSound);
+                yield return new WaitForSeconds(shuffleSound.clip.length);
             }
 
             yield return new WaitForSeconds(shuffleSound.clip.length);
