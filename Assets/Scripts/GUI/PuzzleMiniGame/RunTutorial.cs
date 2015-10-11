@@ -21,7 +21,7 @@ namespace PuzzleMiniGame
 
             piece = gridPanels.transform.GetChild(0).GetComponent<GridPanel>().CurrentPuzzlePiece.transform;
             piece.GetComponent<PuzzleDragDrop>().originalPosition = piece.localPosition;
-            gridPanel = gridPanels.transform.GetChild(1);
+            gridPanel = gridPanels.transform.GetChild(2);
 
             StartCoroutine(ShowDragging(pieces));
         }
