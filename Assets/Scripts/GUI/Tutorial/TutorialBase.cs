@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TutorialBase : MonoBehaviour
 {
     protected AudioSource buttonPushAudio;
+    protected AudioSource coinsGainingAudio;
+    protected AudioSource coinsLosingAudio;
     protected AudioSource helpAudio;
     protected AudioSource quitAudio;
     protected AudioSource repeatAudio;
@@ -14,6 +16,8 @@ public class TutorialBase : MonoBehaviour
     protected GameObject practiceDropContainer;
     protected GameObject practiceButton;
     protected GameObject buttonPush;
+    protected Coin coins;
+    protected GameObject coinsArrow;
     protected GameObject initCanvas;
     protected GameObject helpCanvas;
     protected GameObject disablePanel;
@@ -44,7 +48,25 @@ public class TutorialBase : MonoBehaviour
         }
     }
 
-    public void ExplainHelpUI()
+    public void ExplainCoins()
+    {
+        coinsArrow.SetActive(true);
+        StartCoroutine(playCoinExplanation());
+    }
+
+    private IEnumerator playCoinExplanation()
+    {
+        Utilities.PlayAudio(coinsGainingAudio);
+        coins.ShowAddCoinAnimation();
+        yield return new WaitForSeconds(coinsGainingAudio.clip.length);
+        Utilities.PlayAudio(coinsLosingAudio);
+        coins.ShowRemoveCoinAnimation();
+        yield return new WaitForSeconds(coinsLosingAudio.clip.length);
+        coinsArrow.SetActive(false);
+        explainHelpUI();
+    }
+
+    private void explainHelpUI()
     {
         DisableHelpGUI();
         helpCanvas.GetComponent<Canvas>().enabled = true;
@@ -122,6 +144,8 @@ public class TutorialBase : MonoBehaviour
         practiceDropContainer = transform.Find("DropContainer").gameObject;
         practiceButton = transform.Find("PracticeButton").gameObject;
         buttonPush = transform.Find("ButtonPush").gameObject;
+        coins = GameObject.Find("ScoreCanvas").transform.FindChild("CoinAnimation").GetComponent<Coin>();
+        coinsArrow = transform.Find("CoinsArrow").gameObject;
         helpCanvas = GameObject.Find("HelpCanvas");
         disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
     }
@@ -129,6 +153,8 @@ public class TutorialBase : MonoBehaviour
     protected virtual void InitializeAudio()
     {
         buttonPushAudio = transform.Find("ButtonPush").gameObject.GetComponent<AudioSource>();
+        coinsGainingAudio = transform.Find("CoinsArrow").FindChild("Gaining").gameObject.GetComponent<AudioSource>();
+        coinsLosingAudio = transform.Find("CoinsArrow").FindChild("Losing").gameObject.GetComponent<AudioSource>();
         questionAudio = transform.Find("TutorialQuestion").gameObject.GetComponent<AudioSource>();
     }
 }
