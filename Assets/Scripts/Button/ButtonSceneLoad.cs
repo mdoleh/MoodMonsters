@@ -1,4 +1,5 @@
 ﻿using Globals;
+using UnityEngine;
 
 public class ButtonSceneLoad : ButtonSelect {
 
@@ -9,6 +10,7 @@ public class ButtonSceneLoad : ButtonSelect {
     {
         Timeout.StopTimers();
         if (string.IsNullOrEmpty(sceneToLoad)) return;
+        Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
         if (shouldAskParentPresent)
         {
             Scenes.NextSceneToLoad = sceneToLoad;
