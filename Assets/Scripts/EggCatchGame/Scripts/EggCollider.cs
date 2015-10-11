@@ -15,6 +15,7 @@ namespace EggCatch
         public AudioSource[] reminders;
         private string lastSceneCompleted;
         private AudioSource reminderToPlay;
+        private bool loadingNextScene = false;
         private const string PREFAB_NAME_BASE = "EggPrefab";
 
         //Automatically run when a scene starts
@@ -37,10 +38,11 @@ namespace EggCatch
         {
             yield return StartCoroutine(AdjustScore(egg));
             Destroy(egg.parent.gameObject);
-            if (myPlayerScript.theScore == 5)
+            if (myPlayerScript.theScore == myPlayerScript.MAX_SCORE && !loadingNextScene)
             {
                 yield return new WaitForSeconds(goodSound.clip.length);
                 sceneReset.TriggerCorrect(GetComponent<AudioSource>(), Scenes.GetNextMiniGame(), true);
+                loadingNextScene = true;
             }
         }
 
