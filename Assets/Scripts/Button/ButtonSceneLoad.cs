@@ -5,6 +5,7 @@ public class ButtonSceneLoad : ButtonSelect {
 
     public string sceneToLoad;
     public bool shouldAskParentPresent = false;
+    public bool loadingEmotionScene = true;
 
     protected override void DoubleClickAction()
     {
@@ -18,7 +19,10 @@ public class ButtonSceneLoad : ButtonSelect {
         }
         else
         {
-            Utilities.LoadEmotionScene(sceneToLoad);
+            if (loadingEmotionScene)
+                Utilities.LoadEmotionScene(sceneToLoad);
+            else
+                Utilities.LoadScene(sceneToLoad);
         }
     }
 
