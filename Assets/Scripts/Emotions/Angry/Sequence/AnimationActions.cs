@@ -25,9 +25,9 @@ namespace AngryScene
             anim.SetTrigger("IsSharing");
         }
 
-        public void TriggerSadIdle()
+        public void TriggerAngryFoldedArmsEvent()
         {
-            anim.SetTrigger("IsSad");
+            anim.SetTrigger("IsAngry");
         }
     }
 }
