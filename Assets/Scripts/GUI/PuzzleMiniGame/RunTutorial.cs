@@ -1,4 +1,5 @@
-﻿using Globals;
+﻿using System;
+using Globals;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace PuzzleMiniGame
         private Transform gridPanel;
         private GameObject puzzlePieces;
         private GameObject gridPanels;
+        private Vector3 initialPosition;
 
         public void PlayTutorial(List<GameObject> pieces)
         {
@@ -32,7 +34,8 @@ namespace PuzzleMiniGame
             // force buttonDrag to be on top of the puzzle piece
             buttonDrag.SetParent(null);
             buttonDrag.SetParent(piece.parent);
-            buttonDrag.localPosition = new Vector3(piece.localPosition.x, buttonDrag.localPosition.y);
+            initialPosition = new Vector3(piece.localPosition.x, buttonDrag.localPosition.y);
+            buttonDrag.localPosition = initialPosition;
             buttonDrag.gameObject.SetActive(true);
 
             showDragging = true;
@@ -55,6 +58,13 @@ namespace PuzzleMiniGame
         {
             if (showDragging)
             {
+                buttonDrag.localPosition = new Vector3(buttonDrag.localPosition.x + Time.deltaTime*300f,
+                    buttonDrag.localPosition.y);
+                if (buttonDrag.localPosition.x >=
+                    gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition.x)
+                {
+                    buttonDrag.localPosition = initialPosition;
+                }
                 piece.localPosition = new Vector3(buttonDrag.localPosition.x, piece.localPosition.y);
             }
         }
