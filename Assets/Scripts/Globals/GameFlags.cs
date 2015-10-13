@@ -9,7 +9,7 @@ namespace Globals
         public static bool BucketTutorialHasRun = true;
         public static bool PuzzleTutorialHasRun = true;
         public static bool CameraTutorialHasRun = true;
-        public static bool JoyStickTutorialHasRun = false;
+        public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = false;
         public static bool AdultIsPresent = true;
         public static string ParentGender = "Mom";
