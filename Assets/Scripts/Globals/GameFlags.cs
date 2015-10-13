@@ -7,7 +7,7 @@ namespace Globals
     {
         public static bool MainTutorialHasRun = true;
         public static bool BucketTutorialHasRun = true;
-        public static bool PuzzleTutorialHasRun = false;
+        public static bool PuzzleTutorialHasRun = true;
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = false;

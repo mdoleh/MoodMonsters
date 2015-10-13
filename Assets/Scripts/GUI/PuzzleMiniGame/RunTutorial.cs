@@ -58,10 +58,10 @@ namespace PuzzleMiniGame
         {
             if (showDragging)
             {
-                buttonDrag.localPosition = new Vector3(buttonDrag.localPosition.x + Time.deltaTime*300f,
+                buttonDrag.localPosition = new Vector3(buttonDrag.localPosition.x + Time.deltaTime * (Screen.width / 300f) * 100f,
                     buttonDrag.localPosition.y);
                 if (buttonDrag.localPosition.x >=
-                    gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition.x)
+                    gridPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition.x / 2.0f)
                 {
                     buttonDrag.localPosition = initialPosition;
                 }
