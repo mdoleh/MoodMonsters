@@ -47,12 +47,12 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void ButtonRelease()
     {
-        Timeout.StartTimers();
         if (RectsOverlap(dropContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
             dropContainer.image.color = oldColor;
             SubmitAnswer();
         }
+        else Timeout.StartTimers();
         transform.position = originalPosition;
     }
 
