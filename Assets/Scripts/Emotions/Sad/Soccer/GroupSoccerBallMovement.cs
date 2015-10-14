@@ -7,12 +7,19 @@ namespace SadScene
     public class GroupSoccerBallMovement : MonoBehaviour {
 
         private Rigidbody rigidBody;
+        private GroupSoccerAnimation currentPersonWithBall;
         private readonly IList<string> kickDirections = 
             new List<string> { "KickForward", "KickLeft", "KickRight" };
 
         private void Start()
         {
             rigidBody = GetComponent<Rigidbody>();
+        }
+
+        public void RestartSoccerGame()
+        {
+            GroupDialogue.shouldStopPlaying = false;
+            kickInRandomDirection(currentPersonWithBall);
         }
 
         public void NeutralizeForce()
@@ -43,8 +50,9 @@ namespace SadScene
         {
             if (other.GetComponent<GroupSoccerAnimation>() != null)
             {
+                currentPersonWithBall = other.GetComponent<GroupSoccerAnimation>();
                 other.GetComponent<CapsuleCollider>().enabled = false;
-                kickInRandomDirection(other.GetComponent<GroupSoccerAnimation>());
+                kickInRandomDirection(currentPersonWithBall);
             }
             else if (other.GetComponent<ForceIntoGame>() != null)
             {

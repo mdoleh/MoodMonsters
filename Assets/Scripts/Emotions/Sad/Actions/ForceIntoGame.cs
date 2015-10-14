@@ -27,7 +27,6 @@ namespace SadScene
             groupSoccerBall.GetComponent<GroupSoccerBallMovement>().NeutralizeForce();
             groupSoccerBall.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             otherPlayers.ToList().ForEach(x => x.GetComponent<CapsuleCollider>().enabled = false);
-            otherPlayers.ToList().ForEach(x => x.GetComponent<Animator>().SetTrigger("Idle"));
         }
 
         public void RunTowardsOthersEvent()
