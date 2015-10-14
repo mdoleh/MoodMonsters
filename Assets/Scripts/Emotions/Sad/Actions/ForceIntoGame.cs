@@ -19,6 +19,7 @@ namespace SadScene
         private void TurnAround()
         {
             anim.SetTrigger("ForceIntoGame");
+            GetComponent<OutsideGroupSoccerAnimation>().HideSoccerBall();
             transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = true;
             GroupDialogue.shouldStopPlaying = true;
             groupSoccerBall.localPosition = new Vector3(193.386f, 3.9f, 80.403f);
@@ -26,6 +27,7 @@ namespace SadScene
             groupSoccerBall.GetComponent<GroupSoccerBallMovement>().NeutralizeForce();
             groupSoccerBall.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             otherPlayers.ToList().ForEach(x => x.GetComponent<CapsuleCollider>().enabled = false);
+            otherPlayers.ToList().ForEach(x => x.GetComponent<Animator>().SetTrigger("Idle"));
         }
 
         public void RunTowardsOthersEvent()
@@ -34,7 +36,6 @@ namespace SadScene
             anim.SetBool("Run", true);
             GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<OutsideGroupSoccerAnimation>().SetWalkAwaySpeed(true, 2f, 0f);
-            GetComponent<OutsideGroupSoccerAnimation>().HideSoccerBall();
         }
 
         public void ForceKickBallForward()
