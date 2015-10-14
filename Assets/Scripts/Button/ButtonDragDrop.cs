@@ -57,6 +57,7 @@ public class ButtonDragDrop : MonoBehaviour {
     }
 
     public virtual void SubmitAnswer() {
+        Timeout.StopTimers();
         StopAllCoroutines();
         correctCount += 1;
         if (correctCount == CORRECT_AMOUNT)
