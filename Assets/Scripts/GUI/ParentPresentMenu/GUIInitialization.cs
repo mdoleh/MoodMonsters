@@ -9,17 +9,17 @@ namespace ParentPresentMenu
     {
         public static void Initialize()
         {
-            GUIHelper.CanvasList = new List<string>
-            {
-                "ParentPresentCanvas",
-                "ManOrWomanCanvas"
-            };
-
-            GUIHelper.HelpCanvasIgnoreList = new List<string>
-            {
-                "ParentPresentCanvas",
-                "ManOrWomanCanvas"
-            };
+//            GUIHelper.CanvasList = new List<string>
+//            {
+//                "ParentPresentCanvas",
+//                "ManOrWomanCanvas"
+//            };
+//
+//            GUIHelper.HelpCanvasIgnoreList = new List<string>
+//            {
+//                "ParentPresentCanvas",
+//                "ManOrWomanCanvas"
+//            };
         }
     }
 }

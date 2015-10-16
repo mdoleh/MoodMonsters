@@ -52,7 +52,6 @@ namespace SadScene
             }
             else
             {
-                GUIHelper.GetPreviousGUI("ParentSupportCanvas" + GameFlags.ParentGender).enabled = true;
                 GUIHelper.NextGUI();
             }
         }

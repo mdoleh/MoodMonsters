@@ -16,9 +16,7 @@ namespace AngryScene
             yield return new WaitForSeconds(2f);
             anim.SetBool("IsUsingIPad", true);
             other.SetTrigger("IsAngry");
-            var previousCanvas = GUIHelper.GetPreviousGUI("ActionsCanvas");
-            previousCanvas.GetComponent<Canvas>().enabled = true;
-            GUIHelper.NextGUI();
+            GUIHelper.NextGUI(null, GUIHelper.GetCurrentGUI());
         }
     }
 }

@@ -6,26 +6,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using CharacterMovement = ScaredScene.CharacterMovement;
 
-namespace ScaredScene
+public class ScaredTutorial : TutorialBase
 {
-    public class ScaredTutorial : TutorialBase
-    {
-        public GameObject scarlet;
-        public GameObject aj;
-        public GameObject[] parentCharacters;
+    public GameObject scarlet;
+    public GameObject aj;
+    public GameObject[] parentCharacters;
 
-        protected override void HelpExplanationComplete()
+    protected override void HelpExplanationComplete()
+    {
+        base.HelpExplanationComplete();
+        GUIInitialization.Initialize();
+        if (GameFlags.AdultIsPresent)
         {
-            base.HelpExplanationComplete();
-            GUIInitialization.Initialize();
-            if (GameFlags.AdultIsPresent)
-            {
-                parentCharacters.ToList()
-                    .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
-                    .SetActive(true);
-            }
-            scarlet.GetComponent<CharacterMovement>().StartSequence();
-            aj.GetComponent<CharacterMovement>().StartSequence();
+            parentCharacters.ToList()
+                .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                .SetActive(true);
         }
+        scarlet.GetComponent<CharacterMovement>().StartSequence();
+        aj.GetComponent<CharacterMovement>().StartSequence();
     }
 }

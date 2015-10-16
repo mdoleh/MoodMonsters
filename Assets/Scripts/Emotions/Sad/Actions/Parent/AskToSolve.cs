@@ -45,7 +45,6 @@ namespace SadScene
                 yield return new WaitForSeconds(switchToChildAudio.clip.length);
                 parentToChildImage.GetComponent<RawImage>().enabled = false;
             }
-            GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
             GUIHelper.NextGUI();
         }
 

@@ -48,7 +48,6 @@ namespace ScaredScene
             Utilities.PlayAudio(switchToParentAudio);
             yield return new WaitForSeconds(switchToParentAudio.clip.length);
             childToParentImage.GetComponent<RawImage>().enabled = false;
-            GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
 

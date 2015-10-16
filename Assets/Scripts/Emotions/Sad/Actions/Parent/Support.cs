@@ -24,7 +24,6 @@ namespace SadScene
                 return;
             }
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSolveActionsMenu";
-            GUIHelper.GetPreviousGUI("ParentSolveCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
 

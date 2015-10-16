@@ -8,7 +8,7 @@ namespace SadScene
         protected override void Start()
         {
             base.Start();
-            GUIInitialization.Initialize();
+            global::GUIInitialization.Initialize();
             GetComponent<CharacterMovement>().EnableParent();
             GetComponent<CapsuleCollider>().enabled = false;
         }
@@ -16,8 +16,6 @@ namespace SadScene
         protected IEnumerator ShowActionsMenu(string canvasName)
         {
             yield return new WaitForSeconds(2f);
-            var previousCanvas = GUIHelper.GetPreviousGUI(canvasName);
-            previousCanvas.GetComponent<Canvas>().enabled = true;
             GUIHelper.NextGUI();
         }
     }

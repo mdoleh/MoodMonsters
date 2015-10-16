@@ -18,7 +18,6 @@ namespace ScaredScene
         {
             //            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentSolveActionsMenu";
-            GUIHelper.GetPreviousGUI("ParentSolveCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
 

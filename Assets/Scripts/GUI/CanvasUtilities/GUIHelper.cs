@@ -7,90 +7,67 @@ using Globals;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GUIHelper : MonoBehaviour {
-    public static IList<string> CanvasList = new List<string>
-    {
-        "TutorialCanvas", "EmotionsCanvas", "PhysicalCanvas1", "PhysicalCanvas2", "PhysicalCanvas3", "ActionsCanvas"
-    };
+public class GUIHelper : MonoBehaviour
+{
+    public static GameObject Canvases;
 
-    public static IList<string> AudioIgnoreList = new List<string>();
-    public static IList<string> HelpCanvasIgnoreList = new List<string>();
-
-    public static string GetCurrentGUIName()
+    public static GameObject GetCurrentGUI()
     {
-        var GUI = GameObject.FindGameObjectsWithTag("GUI");
-        return (from t in GUI where t.GetComponent<Canvas>().enabled select t.name).FirstOrDefault();
+        return GetAllGUI()[CanvasList.GetIndex()];
     }
 
-    public static Canvas GetCurrentGUI()
+    public static GameObject GetNextGUI()
     {
-        var GUI = GameObject.FindGameObjectsWithTag("GUI");
-        return (from t in GUI where t.GetComponent<Canvas>().enabled select t.GetComponent<Canvas>()).FirstOrDefault();
-    }
-
-    public static string GetNextGUIName(string currentGUI)
-    {
-        var currentIndex = CanvasList.IndexOf(currentGUI);
-        return currentIndex + 1 >= CanvasList.Count ? null : CanvasList[currentIndex + 1];
-    }
-
-    public static Canvas GetNextGUI(string currentGUI)
-    {
-        var nextGUI = GetNextGUIName(currentGUI);
-        return GetGUIByName(nextGUI);
-    }
-
-    public static string GetPreviousGUIName(string currentGUI)
-    {
-        var currentIndex = CanvasList.IndexOf(currentGUI);
-        return currentIndex - 1 < 0 ? null : CanvasList[currentIndex - 1];
-    }
-
-    public static Canvas GetPreviousGUI(string currentGUI)
-    {
-        var previousGUI = GetPreviousGUIName(currentGUI);
-        return GetGUIByName(previousGUI);
+        return GetAllGUI()[CanvasList.GetIndex() + 1];
     }
 
     public static GameObject[] GetAllGUI()
     {
-        return GameObject.FindGameObjectsWithTag("GUI");
+        return Canvases.GetComponent<CanvasList>().Canvases;
     }
 
-    public static Canvas GetGUIByName(string name)
+    public static GameObject[] GetAudioIgnoreList()
     {
-        var GUI = GameObject.FindGameObjectsWithTag("GUI");
-        return (from t in GUI where t.name == name select t.GetComponent<Canvas>()).FirstOrDefault();
+        return Canvases.GetComponent<CanvasList>().AudioIgnoreList;
+    }
+
+    public static GameObject[] GetHelpCanvasIgnoreList()
+    {
+        return Canvases.GetComponent<CanvasList>().HelpCanvasIgnoreList;
+    }
+
+    public static GameObject[] GetDisableCanvasIgnoreList()
+    {
+        return Canvases.GetComponent<CanvasList>().DisableCanvasIgnoreList;
+    }
+
+    public static GameObject GetGUIByName(string name)
+    {
+        return GetAllGUI().ToList().First(x => x.name.Equals(name));
     }
 
     public static void NextGUI()
     {
-        var currentGUI = GetCurrentGUIName();
-        NextGUI(currentGUI, GetNextGUIName(currentGUI));
+        NextGUI(GetCurrentGUI(), GetNextGUI());
     }
 
-    public static void NextGUI(string current, string next)
+    public static void NextGUI(GameObject current, GameObject next)
     {
         Timeout.StopTimers();
-        var GUI = GetAllGUI();
-        foreach (var guiCanvas in GUI)
+        showHelpUI(next);
+        next.SetActive(true);
+        if (current != null)
         {
-            if (guiCanvas.name == next)
-            {
-                showHelpUI(guiCanvas);
-                guiCanvas.GetComponent<Canvas>().enabled = true;
-                Timeout.Instance.StartCoroutine(playCanvasAudio(guiCanvas));
-            }
-            if (guiCanvas.name == current)
-            {
-                guiCanvas.GetComponent<Canvas>().enabled = false;
-            }
+            if (!GetDisableCanvasIgnoreList().Contains(current)) current.SetActive(false);
+            else current.GetComponent<Canvas>().enabled = false;
+            CanvasList.IncrementIndex();
         }
+        Timeout.Instance.StartCoroutine(playCanvasAudio(next));
     }
 
     private static void showHelpUI(GameObject guiCanvas)
     {
-        if (!HelpCanvasIgnoreList.Contains(guiCanvas.name))
+        if (!GetHelpCanvasIgnoreList().Contains(guiCanvas))
         {
             var helpCanvas = GameObject.Find("HelpCanvas");
             helpCanvas.GetComponent<Canvas>().enabled = true;
@@ -107,7 +84,7 @@ public class GUIHelper : MonoBehaviour {
 
     private static IEnumerator playCanvasAudio(GameObject guiCanvas)
     {
-        if (!AudioIgnoreList.Contains(guiCanvas.name))
+        if (!GetAudioIgnoreList().Contains(guiCanvas))
         {
             var passReminder = guiCanvas.transform.FindChild("PASSReminder");
             if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)

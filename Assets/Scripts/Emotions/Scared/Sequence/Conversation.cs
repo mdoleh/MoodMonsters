@@ -64,7 +64,6 @@ namespace ScaredScene
         {
             anim.SetBool("IsIdle", true);
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
-            GUIHelper.GetPreviousGUI("SituationActionsCanvas").enabled = true;
             GUIHelper.NextGUI();
         }
 

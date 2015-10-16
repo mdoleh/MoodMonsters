@@ -16,7 +16,7 @@ namespace ParentPresentMenu
         private IEnumerator DelayShowCanvas()
         {
             yield return new WaitForSeconds(1f);
-            GUIHelper.NextGUI(string.Empty, "ParentPresentCanvas");
+            GUIHelper.NextGUI(null, GUIHelper.GetCurrentGUI());
         }
 
         public void Yes()

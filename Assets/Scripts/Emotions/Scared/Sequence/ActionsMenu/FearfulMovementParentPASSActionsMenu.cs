@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
-    public class FearfulMovementParentSolveActionsMenu : FearfulMovementActionsMenu
+    public class FearfulMovementParentPASSActionsMenu : FearfulMovementActionsMenu
     {
         public GameObject[] PASSLetters;
 
@@ -13,7 +13,6 @@ namespace ScaredScene
         {
             base.Start();
             PASSLetters.ToList().ForEach(x => x.SetActive(true));
-            StartCoroutine(ShowActionsMenu("ParentSolveCanvas" + GameFlags.ParentGender));
         }
     }
 }

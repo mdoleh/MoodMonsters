@@ -7,15 +7,15 @@ namespace AngryScene
     {
         public static void Initialize()
         {
-            GUIHelper.CanvasList = new List<string>
-            {
-                "TutorialCanvas", 
-                "EmotionsCanvas", 
-                "PhysicalCanvas1", 
-                "PhysicalCanvas2", 
-                "PhysicalCanvas3", 
-                "ActionsCanvas"
-            };
+//            GUIHelper.CanvasList = new List<string>
+//            {
+//                "TutorialCanvas", 
+//                "EmotionsCanvas", 
+//                "PhysicalCanvas1", 
+//                "PhysicalCanvas2", 
+//                "PhysicalCanvas3", 
+//                "ActionsCanvas"
+//            };
         }
     }
 }
