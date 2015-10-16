@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SadScene
 {
-    public class OutsideGroupSoccerAnimationParentSupportActionsMenu : OutsideGroupSoccerAnimationActionsMenu
+    public class OutsideGroupSoccerAnimationParentPASSActionsMenu : OutsideGroupSoccerAnimationActionsMenu
     {
         public GameObject[] PASSLetters;
 
@@ -12,7 +12,6 @@ namespace SadScene
         {
             base.Start();
             PASSLetters.ToList().ForEach(x => x.SetActive(true));
-            StartCoroutine(ShowActionsMenu("ParentSupportCanvas" + GameFlags.ParentGender));
         }
     }
 }
