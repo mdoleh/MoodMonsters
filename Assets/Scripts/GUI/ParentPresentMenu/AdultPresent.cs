@@ -5,15 +5,9 @@ using Globals;
 
 namespace ParentPresentMenu
 {
-    public class ParentPresent : MonoBehaviour
+    public class AdultPresent : MonoBehaviour
     {
-        private void Start()
-        {
-            GUIInitialization.Initialize();
-            StartCoroutine(DelayShowCanvas());
-        }
-
-        private IEnumerator DelayShowCanvas()
+        public IEnumerator DelayShowCanvas()
         {
             yield return new WaitForSeconds(1f);
             GUIHelper.NextGUI(null, GUIHelper.GetCurrentGUI());
