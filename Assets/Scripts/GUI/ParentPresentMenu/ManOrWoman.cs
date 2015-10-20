@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using Globals;
+﻿using Globals;
+using UnityEngine;
 
 namespace ParentPresentMenu
 {

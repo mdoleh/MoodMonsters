@@ -57,7 +57,6 @@ public class SceneReset : MonoBehaviour {
         displaySymbol();
         if (audioSource != null) yield return new WaitForSeconds(audioSource.clip.length);
         Timeout.StopTimers();
-        CanvasList.ResetIndex();
         Utilities.LoadScene(sceneToLoad);
     }
 }

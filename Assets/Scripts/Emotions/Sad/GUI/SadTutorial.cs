@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Globals;
-using SadScene;
+﻿using SadScene;
 using UnityEngine;
 
 public class SadTutorial : TutorialBase

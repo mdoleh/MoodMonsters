@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace Globals
+﻿namespace Globals
 {
     public static class GameFlags
     {
@@ -12,7 +9,7 @@ namespace Globals
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = false;
         public static bool AdultIsPresent = true;
-        public static string ParentGender = "Dad";
+        public static string ParentGender = "Mom";
 
         public static void ResetValues()
         {
