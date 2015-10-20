@@ -2,10 +2,8 @@
 
 public class DraggingHorizontally : MonoBehaviour
 {
-    public Transform dragging;
     public Transform target;
-
-    public bool moveTargetWithDragging = false;
+    public Transform following;
 
     public float speed;
     // this is speedSmallScreen / (screenWidth / speedSmallScreen)
@@ -17,18 +15,18 @@ public class DraggingHorizontally : MonoBehaviour
 
     private void Start()
     {
-        initialPosition = dragging.localPosition;
+        initialPosition = transform.localPosition;
     }
 
     private void Update()
     {
-        dragging.localPosition = new Vector3(dragging.localPosition.x + Time.deltaTime * (Screen.width / speed) * constant,
-                dragging.localPosition.y);
-        if (dragging.localPosition.x >= target.localPosition.x / 2.0f)
+        transform.localPosition = new Vector3(transform.localPosition.x + Time.deltaTime * (Screen.width / speed) * constant,
+                transform.localPosition.y);
+        if (transform.localPosition.x >= target.localPosition.x / 2.0f)
         {
-            dragging.localPosition = initialPosition;
+            transform.localPosition = initialPosition;
         }
 
-        if (moveTargetWithDragging) target.localPosition = new Vector2(dragging.localPosition.x, target.localPosition.y);
+        if (following != null) following.localPosition = new Vector2(transform.localPosition.x, target.localPosition.y);
     }
 }

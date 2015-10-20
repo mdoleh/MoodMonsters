@@ -2,7 +2,7 @@
 {
     public static class GameFlags
     {
-        public static bool MainTutorialHasRun = true;
+        public static bool MainTutorialHasRun = false;
         public static bool BucketTutorialHasRun = true;
         public static bool PuzzleTutorialHasRun = true;
         public static bool CameraTutorialHasRun = true;
