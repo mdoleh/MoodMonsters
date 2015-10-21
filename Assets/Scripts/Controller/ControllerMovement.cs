@@ -25,9 +25,9 @@ public class ControllerMovement : MonoBehaviour {
 
     protected virtual void Start()
     {
-        joystickInstructions = GameObject.Find("ControllerCanvas").GetComponent<AudioSource>();
-        disableJoystickPanel = GameObject.Find("ControllerCanvas").transform.FindChild("DisablePanel").gameObject;
-        joystickScript = joystickCanvas.GetComponentInChildren<Joystick>();
+        joystickInstructions = joystickCanvas.GetComponent<AudioSource>();
+        disableJoystickPanel = joystickCanvas.transform.FindChild("DisablePanel").gameObject;
+        joystickScript = joystickCanvas.transform.FindChild("Base").FindChild("Stick").GetComponent<Joystick>();
         tutorial.InitializeGameObjects();
     }
 
@@ -70,14 +70,8 @@ public class ControllerMovement : MonoBehaviour {
 
     protected virtual void AdjustCamera()
     {
-        if (GUIHelper.GetGUIByName(GUIHelper.CanvasList[0]).enabled)
-        {
-            GUIHelper.NextGUI();
-        }
-        else
-        {
-            joystickCanvas.GetComponent<Canvas>().enabled = true;
-        }
+        if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
+        joystickCanvas.GetComponent<Canvas>().enabled = true;
         mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
         mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
     }
@@ -138,6 +132,7 @@ public class ControllerMovement : MonoBehaviour {
 
     protected void EnableHelpGUI()
     {
+        GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
         tutorial.EnableHelpGUI();
     }
 

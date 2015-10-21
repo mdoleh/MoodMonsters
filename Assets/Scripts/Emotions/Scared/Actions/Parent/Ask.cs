@@ -44,7 +44,6 @@ namespace ScaredScene
         {
             yield return child.PlayDialogue(itsTooFar);
             child.other.SetTrigger("Idle");
-            GUIHelper.GetPreviousGUI("ParentSupportCanvas" + GameFlags.ParentGender).enabled = true;
             GUIHelper.NextGUI();
         }
     }

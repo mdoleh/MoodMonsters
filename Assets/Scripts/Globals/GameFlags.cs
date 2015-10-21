@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace Globals
+﻿namespace Globals
 {
     public static class GameFlags
     {
