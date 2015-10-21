@@ -27,6 +27,6 @@ public class DraggingHorizontally : MonoBehaviour
             transform.localPosition = initialPosition;
         }
 
-        if (following != null) following.localPosition = new Vector2(transform.localPosition.x, target.localPosition.y);
+        if (following != null) following.localPosition = new Vector2(transform.localPosition.x, following.localPosition.y);
     }
 }
