@@ -17,7 +17,7 @@ namespace SadScene
             if (currentIndex >= SequenceObjects.Length)
             {
                 // middle lane is the correct lane for the final cone
-                adjustLaneColors(conePositions[1]);
+                adjustLaneColors(conePositions[2]);
                 return 80.52f;
             }
             var index = Random.Range(0, conePositions.Length);
