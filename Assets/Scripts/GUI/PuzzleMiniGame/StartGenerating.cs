@@ -7,13 +7,11 @@ public class StartGenerating : CameraActions
 {
     public WebCamPhotoCamera webCam;
     public CreatePuzzleGrid gridGenerator;
-    public GameObject changeDeviceButton;
 
     public override void RunPostPictureActions()
     {
         webCam.TurnOffCamera();
         webCam.gameObject.SetActive(false);
-        changeDeviceButton.SetActive(false);
         gridGenerator.StartGeneratingGrid();
         gameObject.SetActive(false);
     }
@@ -22,6 +20,5 @@ public class StartGenerating : CameraActions
     {
         Timeout.StopTimers();
         GetComponent<Button>().interactable = false;
-        changeDeviceButton.GetComponent<Button>().interactable = false;
     }
 }

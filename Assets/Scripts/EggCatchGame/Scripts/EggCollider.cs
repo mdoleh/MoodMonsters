@@ -37,17 +37,18 @@ namespace EggCatch
         private IEnumerator HandleCollision(Transform egg)
         {
             yield return StartCoroutine(AdjustScore(egg));
-            Destroy(egg.parent.gameObject);
             if (myPlayerScript.theScore == myPlayerScript.MAX_SCORE && !loadingNextScene)
             {
                 yield return new WaitForSeconds(goodSound.clip.length);
                 sceneReset.TriggerCorrect(GetComponent<AudioSource>(), Scenes.GetNextMiniGame(), true);
                 loadingNextScene = true;
             }
+            Destroy(egg.parent.gameObject);
         }
 
         private IEnumerator AdjustScore(Transform egg)
         {
+            if (loadingNextScene) yield break;
             // should only be false on the Angry Scene
             // want the other sounds to play over this one
             if (!myPlayerScript.shouldKeepScore)

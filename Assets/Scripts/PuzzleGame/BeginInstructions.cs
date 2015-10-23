@@ -8,11 +8,9 @@ public class BeginInstructions : MonoBehaviour
 {
     public AudioSource getFaceIntoOvalAudio;
     public AudioSource pictureCountDownAudio;
-    public AudioSource leftButtonAudio;
-    public AudioSource rightButtonAudio;
+    public AudioSource cameraButtonAudio;
     public GameObject disablePanel;
-    public GameObject rightButtonArrow;
-    public GameObject leftButtonArrow;
+    public GameObject cameraButtonArrow;
     public GameObject[] kidsFacesImages;
     
     [HideInInspector]
@@ -58,19 +56,14 @@ public class BeginInstructions : MonoBehaviour
             Utilities.PlayAudio(getFaceIntoOvalAudio);
             yield return new WaitForSeconds(getFaceIntoOvalAudio.clip.length);
 
-            Utilities.PlayAudio(rightButtonAudio);
-            rightButtonArrow.SetActive(true);
-            yield return new WaitForSeconds(rightButtonAudio.clip.length);
-            rightButtonArrow.SetActive(false);
-
-            leftButtonArrow.SetActive(true);
-            Utilities.PlayAudio(leftButtonAudio);
-            yield return new WaitForSeconds(leftButtonAudio.clip.length);
-            leftButtonArrow.SetActive(false);
+            Utilities.PlayAudio(cameraButtonAudio);
+            cameraButtonArrow.SetActive(true);
+            yield return new WaitForSeconds(cameraButtonAudio.clip.length);
+            cameraButtonArrow.SetActive(false);
         }
         disablePanel.SetActive(false);
         GameFlags.CameraTutorialHasRun = true;
-        Timeout.SetRepeatAudio(rightButtonAudio);
+        Timeout.SetRepeatAudio(cameraButtonAudio);
         Timeout.StartTimers();
     }
 }
