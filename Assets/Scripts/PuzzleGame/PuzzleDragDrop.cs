@@ -9,13 +9,15 @@ namespace PuzzleMiniGame
 {
     public class PuzzleDragDrop : MonoBehaviour
     {
-
-        public Transform correctContainer;
-        GameObject highlight;
-        GameObject[] gridPanels;
         public Vector3 originalPosition;
-        private GameObject intersectingPanel;
         public bool disabled = false;
+        public Transform correctContainer;
+        public Transform currentContainer;
+
+        private GameObject highlight;
+        private GameObject[] gridPanels;
+        private GameObject intersectingPanel;
+        private static Transform currentlyDraggingPiece;
 
         private void Awake()
         {
@@ -27,8 +29,19 @@ namespace PuzzleMiniGame
             highlight = correctContainer.FindChild("Highlight").gameObject;
         }
 
+        private void Update()
+        {
+            if (Input.touchCount > 1 && currentlyDraggingPiece == transform)
+            {
+                ReturnToOriginalPosition();
+                currentlyDraggingPiece = null;
+            }
+        }
+
         public void ClickPanel()
         {
+            if (Input.touchCount > 1) return;
+            currentlyDraggingPiece = transform;
             Timeout.StartTimers();
             originalPosition = transform.localPosition;
             Timeout.StartTimers();
@@ -36,6 +49,7 @@ namespace PuzzleMiniGame
 
         public void MovePanel()
         {
+            if (currentlyDraggingPiece != transform) return;
             if (disabled) return;
             Timeout.StopTimers();
             MoveToHierarchyBottom();
@@ -56,6 +70,7 @@ namespace PuzzleMiniGame
 
         public void PanelRelease()
         {
+            currentlyDraggingPiece = null;
             if (disabled) return;
             highlight.SetActive(false);
             if (intersectingPanel == null)
@@ -121,7 +136,7 @@ namespace PuzzleMiniGame
                 ReturnToOriginalPosition();
                 return;
             }
-            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
+            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = currentContainer.localPosition;
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
             Utilities.PlayAudio(GetComponent<AudioSource>());

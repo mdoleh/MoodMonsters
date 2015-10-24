@@ -58,6 +58,8 @@ namespace PuzzleMiniGame
             foreach (var piece in pieces)
             {
                 piece.transform.localPosition = piece.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+                piece.GetComponent<PuzzleDragDrop>().currentContainer =
+                    piece.GetComponent<PuzzleDragDrop>().correctContainer;
             }
         }
 
@@ -99,6 +101,10 @@ namespace PuzzleMiniGame
 
                 first.transform.localPosition = second.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
                 second.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+
+                first.GetComponent<PuzzleDragDrop>().currentContainer = second.GetComponent<PuzzleDragDrop>().correctContainer;
+                second.GetComponent<PuzzleDragDrop>().currentContainer = first.GetComponent<PuzzleDragDrop>().correctContainer;
+
                 first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = second;
                 second.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
                 Utilities.PlayAudio(shuffleSound);
