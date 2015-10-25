@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Globals;
 using UnityEngine;
 
@@ -38,6 +35,8 @@ namespace EggCatch
                 animationDelay += Time.deltaTime;
                 if (animationDelay >= 1)
                 {
+                    Lily.ResetTrigger("SwipeRight");
+                    Lily.ResetTrigger("SwipeLeft");
                     Lily.SetTrigger(moveInput > 0 ? "SwipeRight" : "SwipeLeft");
                     animationDelay = 0.0f;
                 }
