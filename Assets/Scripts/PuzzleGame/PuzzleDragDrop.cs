@@ -12,7 +12,6 @@ namespace PuzzleMiniGame
         public Vector3 originalPosition;
         public bool disabled = false;
         public Transform correctContainer;
-        public Transform currentContainer;
 
         private GameObject highlight;
         private GameObject[] gridPanels;
