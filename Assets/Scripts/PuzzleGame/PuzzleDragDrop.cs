@@ -70,6 +70,7 @@ namespace PuzzleMiniGame
 
         public void PanelRelease()
         {
+            if (currentlyDraggingPiece != transform) return;
             currentlyDraggingPiece = null;
             if (disabled) return;
             highlight.SetActive(false);
@@ -136,7 +137,7 @@ namespace PuzzleMiniGame
                 ReturnToOriginalPosition();
                 return;
             }
-            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = currentContainer.localPosition;
+            intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.transform.localPosition = originalPosition;
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece.GetComponent<PuzzleDragDrop>().CheckPieceCorrect();
             intersectingPanel.GetComponent<GridPanel>().CurrentPuzzlePiece = gameObject;
             Utilities.PlayAudio(GetComponent<AudioSource>());
