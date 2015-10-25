@@ -22,6 +22,11 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
+        public void IgnoreLateralMovement()
+        {
+            shouldIgnoreLateral = true;
+        }
+
         public void SetSoccerBallFlag(bool flag)
         {
             soccerBall.isWatching = flag;
@@ -45,6 +50,7 @@ namespace SadScene
             if (!shouldAdjustCamera) return;
             AdjustCamera();
             StartJoystickTutorial();
+            shouldIgnoreLateral = false;
         }
 
         public void KickBallUp()

@@ -9,9 +9,6 @@ namespace SadScene
         public float[] conePositions;
         public LaneColor[] lanes;
 
-        private readonly Color CORRECT_LANE_COLOR = new Color(0, 255, 0);
-        private readonly Color WRONG_LANE_COLOR = new Color(255, 0, 0);
-
         public float RandomizePositionZ()
         {
             if (currentIndex >= SequenceObjects.Length)
@@ -32,7 +29,7 @@ namespace SadScene
             var positionIndex = conePositions.ToList().IndexOf(zPosition);
             lanes.ToList().ForEach(lane =>
             {
-                lane.SetColor(lanes.ToList().IndexOf(lane) == positionIndex ? CORRECT_LANE_COLOR : WRONG_LANE_COLOR);
+                lane.SetColor(lanes.ToList().IndexOf(lane) == positionIndex ? LaneColor.CORRECT_LANE_COLOR : LaneColor.WRONG_LANE_COLOR);
             });
             LaneAppear.shouldShowLanes = true;
         }

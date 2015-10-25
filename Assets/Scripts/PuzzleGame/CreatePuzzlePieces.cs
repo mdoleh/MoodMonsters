@@ -99,6 +99,7 @@ namespace PuzzleMiniGame
 
                 first.transform.localPosition = second.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
                 second.transform.localPosition = first.GetComponent<PuzzleDragDrop>().correctContainer.localPosition;
+
                 first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = second;
                 second.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
                 Utilities.PlayAudio(shuffleSound);
