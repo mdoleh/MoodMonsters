@@ -1,47 +1,71 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using SadScene;
+﻿using System.Linq;
+using UnityEngine;
 
-public class LaneAppear : MonoBehaviour
+namespace SadScene
 {
-    [HideInInspector] 
-    public static bool shouldShowLanes;
-
-    private bool isIntersectingPlayer;
-
-    public static void HideAllLanes()
+    public class LaneAppear : MonoBehaviour
     {
-        GameObject.Find("Lanes").GetComponentsInChildren<LaneColor>().ToList().ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
-    }
+        [HideInInspector] public static bool shouldShowLanes;
+        private OutsideGroupSoccerAnimation soccerAnimation;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<OutsideGroupSoccerAnimation>() != null)
+        private bool isIntersectingPlayer;
+
+        private void Start()
         {
-            if (!shouldShowLanes)
+            soccerAnimation = GameObject.Find("Luis").GetComponent<OutsideGroupSoccerAnimation>();
+        }
+
+        public static void HideAllLanes()
+        {
+            GameObject.Find("Lanes")
+                .GetComponentsInChildren<LaneColor>()
+                .ToList()
+                .ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<OutsideGroupSoccerAnimation>() != null)
             {
-                isIntersectingPlayer = true;
-                return;
+                if (!shouldShowLanes)
+                {
+                    isIntersectingPlayer = true;
+                    return;
+                }
+                if (laneIsCorrectLane())
+                {
+                    other.GetComponent<OutsideGroupSoccerAnimation>().IgnoreLateralMovement();
+                }
+                transform.parent.GetComponent<MeshRenderer>().enabled = true;
             }
-            transform.parent.GetComponent<MeshRenderer>().enabled = true;
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<OutsideGroupSoccerAnimation>() != null && shouldShowLanes)
+        private bool laneIsCorrectLane()
         {
-            transform.parent.GetComponent<MeshRenderer>().enabled = false;
+            return colorsMatch(transform.parent.GetComponent<Renderer>().material.color, LaneColor.CORRECT_LANE_COLOR);
         }
-    }
 
-    private void Update()
-    {
-        if (isIntersectingPlayer && shouldShowLanes)
+        private bool colorsMatch(Color color1 , Color color2)
         {
-            isIntersectingPlayer = false;
-            transform.parent.GetComponent<MeshRenderer>().enabled = true;
+            return color1.r == color2.r && color1.g == color2.g && color1.b == color2.b;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.GetComponent<OutsideGroupSoccerAnimation>() != null && shouldShowLanes)
+            {
+                transform.parent.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+
+        private void Update()
+        {
+            if (isIntersectingPlayer && shouldShowLanes)
+            {
+                isIntersectingPlayer = false;
+                transform.parent.GetComponent<MeshRenderer>().enabled = true;
+                soccerAnimation.IgnoreLateralMovement();
+            }
         }
     }
 }

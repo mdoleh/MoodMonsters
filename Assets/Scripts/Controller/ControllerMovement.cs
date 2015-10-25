@@ -17,6 +17,8 @@ public class ControllerMovement : MonoBehaviour {
     protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
+    protected bool shouldIgnoreLateral = false;
+    protected bool shouldIgnoreForward = false;
     
     private bool initialInstructionsPlayed = false;
     private AudioSource joystickInstructions;
@@ -35,8 +37,8 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (isWalking)
         {
-            float moveSpeed = Time.deltaTime * multiplierSpeed;
-            float moveDirection = Time.deltaTime * multiplierDirection;
+            float moveSpeed = !shouldIgnoreForward ? Time.deltaTime * multiplierSpeed : 0f;
+            float moveDirection = !shouldIgnoreLateral ? Time.deltaTime * multiplierDirection : 0f;
             transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
         }
         trackJoystickMovement();
