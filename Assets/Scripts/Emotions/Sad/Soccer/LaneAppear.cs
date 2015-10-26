@@ -64,7 +64,7 @@ namespace SadScene
             {
                 isIntersectingPlayer = false;
                 transform.parent.GetComponent<MeshRenderer>().enabled = true;
-                soccerAnimation.IgnoreLateralMovement();
+                if (laneIsCorrectLane()) soccerAnimation.IgnoreLateralMovement();
             }
         }
     }
