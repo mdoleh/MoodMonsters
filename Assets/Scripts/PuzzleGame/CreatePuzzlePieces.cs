@@ -115,6 +115,7 @@ namespace PuzzleMiniGame
             {
                 DisableCorrectlyPlacedPieces(pieces);
                 GameObject.Find("DisablePanel").SetActive(false);
+                Timeout.StartTimers();
             }
         }
 
