@@ -12,13 +12,12 @@ namespace AngryScene
         private GameObject miniGame;
         protected Animator anim;
         public Animator other;
-        private GameObject ipadCameraFrame;
+        private GameObject ipadCanvas;
 
         public void Awake()
         {
             dialogue = transform.FindChild("Dialogue").gameObject;
-            ipadCamera = GameObject.Find("iPadCamera");
-            ipadCameraFrame = GameObject.Find("iPadCameraFrame");
+            ipadCanvas = GameObject.Find("iPadCanvas");
             miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
         }
@@ -47,8 +46,7 @@ namespace AngryScene
 
         public void TakeIPad()
         {
-            ipadCameraFrame.GetComponent<Image>().enabled = false;
-            ipadCamera.SetActive(false);
+            ipadCanvas.SetActive(false);
             miniGame.SetActive(false);
 
             anim.SetTrigger("IsTakingIPad");
