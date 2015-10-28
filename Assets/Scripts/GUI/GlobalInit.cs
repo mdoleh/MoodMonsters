@@ -11,7 +11,6 @@ public class GlobalInit : MonoBehaviour
         Timeout.ResetValues();
         GameFlags.ResetValues();
         Scenes.ResetValues();
-        Attempts.ResetValues();
         Help.ResetValues();
         Sound.ResetValues();
     }

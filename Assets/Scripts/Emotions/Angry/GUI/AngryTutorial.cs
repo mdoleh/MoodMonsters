@@ -27,6 +27,7 @@ public class AngryTutorial : TutorialBase
 
     private IEnumerator HelpLilyPlayAudio()
     {
+        HideNoInputSymbol();
         ipadCanvas.SetActive(true);
         miniGame.SetActive(true);
         Utilities.PlayAudio(whatLilyIsPlayingAudio);
