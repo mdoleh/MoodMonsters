@@ -193,6 +193,7 @@ namespace ScaredScene
         public override void EdgeSlip(string stumbleTrigger)
         {
             resetCamera();
+            DisableHelpGUI();
             runSpeedFailure = false;
             trackJoystick = false;
             multiplierDirection = 0f;
