@@ -20,6 +20,7 @@ namespace SadScene
 
         public void StartDialogue()
         {
+            GetComponent<OutsideGroupSoccerAnimation>().tutorial.DisableHelpGUI();
             GroupDialogue.shouldStopPlaying = true;
             anim.SetTrigger("CanIPlay");
             StartCoroutine(DelayPlayAudio(canIPlay));
