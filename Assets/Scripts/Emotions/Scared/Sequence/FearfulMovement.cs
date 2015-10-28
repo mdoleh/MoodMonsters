@@ -19,6 +19,7 @@ namespace ScaredScene
         private bool isBackingAway = false;
         private bool shouldPlayJoystickAudio = false;
         private AudioSource runSpeedAudio;
+        private AudioSource edgeSlipAudio;
         private GameObject currentParent;
 
         protected override void Start()
@@ -26,6 +27,7 @@ namespace ScaredScene
             base.Start();
             otherCharacter = GameObject.Find("Scarlet");
             runSpeedAudio = joystickCanvas.transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
+            edgeSlipAudio = transform.FindChild("Dialogue").FindChild("Whoa").GetComponent<AudioSource>();
             currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
@@ -191,9 +193,11 @@ namespace ScaredScene
         public override void EdgeSlip(string stumbleTrigger)
         {
             resetCamera();
+            DisableHelpGUI();
             runSpeedFailure = false;
             trackJoystick = false;
             multiplierDirection = 0f;
+            Utilities.PlayAudio(edgeSlipAudio);
             base.EdgeSlip(stumbleTrigger);
         }
 

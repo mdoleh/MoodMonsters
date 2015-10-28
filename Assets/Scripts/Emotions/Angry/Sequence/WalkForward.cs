@@ -55,6 +55,7 @@ namespace AngryScene
         {
             stepForward = false;
             anim.SetBool("IsWalking", false);
+            tutorial.ShowNoInputSymbol();
             gameObject.GetComponent<TakeItem>().TakeIPad();
         }
 

@@ -43,7 +43,8 @@ namespace EggCatch
                 sceneReset.TriggerCorrect(GetComponent<AudioSource>(), Scenes.GetNextMiniGame(), true);
                 loadingNextScene = true;
             }
-            Destroy(egg.parent.gameObject);
+            if (egg != null && egg.parent != null)
+                Destroy(egg.parent.gameObject);
         }
 
         private IEnumerator AdjustScore(Transform egg)

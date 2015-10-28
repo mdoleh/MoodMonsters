@@ -49,6 +49,7 @@ namespace SadScene
             anim.SetTrigger("Idle");
             if (!shouldAdjustCamera) return;
             AdjustCamera();
+            tutorial.EnableHelpGUI();
             StartJoystickTutorial();
             shouldIgnoreLateral = false;
         }
@@ -76,6 +77,7 @@ namespace SadScene
         {
             LaneAppear.shouldShowLanes = false;
             LaneAppear.HideAllLanes();
+            tutorial.DisableHelpGUI();
             StopMoving();
             ResetCamera(true, shouldAdjustPosition);
             StartCoroutine(KickBallForward());
@@ -114,6 +116,7 @@ namespace SadScene
 
         public void ResetPosition(AudioSource audioSource)
         {
+            tutorial.DisableHelpGUI();
             retryPointManager.NextInSequence();
             Utilities.PlayAudio(audioSource);
             anim.SetTrigger("WalkBackwards");

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using AngryScene;
-using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +12,11 @@ public class AngryTutorial : TutorialBase
     private GameObject fingerDrag;
     private GameObject ipadCamera;
     public GameObject miniGame;
-    private GameObject ipadCameraFrame;
+    public GameObject ipadCanvas;
+    private Transform ipadBucketTracker;
+    public Transform bucket;
+    private Transform maxX;
+    private Transform minX;
 
     protected override void HelpExplanationComplete()
     {
@@ -25,8 +27,8 @@ public class AngryTutorial : TutorialBase
 
     private IEnumerator HelpLilyPlayAudio()
     {
-        ipadCamera.GetComponent<Camera>().enabled = true;
-        ipadCameraFrame.GetComponent<Image>().enabled = true;
+        HideNoInputSymbol();
+        ipadCanvas.SetActive(true);
         miniGame.SetActive(true);
         Utilities.PlayAudio(whatLilyIsPlayingAudio);
         yield return new WaitForSeconds(whatLilyIsPlayingAudio.clip.length);
@@ -43,8 +45,9 @@ public class AngryTutorial : TutorialBase
     {
         base.InitializeGameObjects();
         fingerDrag = transform.Find("FingerDrag").gameObject;
-        ipadCamera = GameObject.Find("iPadCamera");
-        ipadCameraFrame = GameObject.Find("iPadCameraFrame");
+        ipadBucketTracker = ipadCanvas.transform.FindChild("Circle");
+        maxX = ipadCanvas.transform.FindChild("Max");
+        minX = ipadCanvas.transform.FindChild("Min");
     }
 
     protected override void InitializeAudio()
@@ -52,5 +55,13 @@ public class AngryTutorial : TutorialBase
         base.InitializeAudio();
         helpLilyPlayAudio = transform.Find("HelpLilyPlay").gameObject.GetComponent<AudioSource>();
         whatLilyIsPlayingAudio = transform.Find("WhatLilyIsPlaying").gameObject.GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        var percentMoved = (bucket.position.x + 2.5f)/5.0f;
+        var max = maxX.localPosition.x - (ipadBucketTracker.GetComponent<RectTransform>().rect.width / 2.0f);
+        var min = minX.localPosition.x + (ipadBucketTracker.GetComponent<RectTransform>().rect.width / 2.0f);
+        ipadBucketTracker.localPosition = new Vector2(min + ((max - min) * percentMoved), ipadBucketTracker.localPosition.y);
     }
 }
