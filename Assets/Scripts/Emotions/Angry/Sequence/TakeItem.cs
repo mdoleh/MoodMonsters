@@ -8,10 +8,10 @@ namespace AngryScene
     public class TakeItem : MonoBehaviour
     {
         private GameObject dialogue;
-        private GameObject ipadCamera;
         private GameObject miniGame;
         protected Animator anim;
         public Animator other;
+        public GameObject ipadCamera;
         private GameObject ipadCanvas;
 
         public void Awake()
@@ -46,6 +46,7 @@ namespace AngryScene
 
         public void TakeIPad()
         {
+            ipadCamera.SetActive(false);
             ipadCanvas.SetActive(false);
             miniGame.SetActive(false);
 
