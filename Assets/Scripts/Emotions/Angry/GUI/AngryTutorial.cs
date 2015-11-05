@@ -10,7 +10,7 @@ public class AngryTutorial : TutorialBase
 
     public GameObject otherCharacter;
     private GameObject fingerDrag;
-    private GameObject ipadCamera;
+    public GameObject ipadCamera;
     public GameObject miniGame;
     public GameObject ipadCanvas;
     private Transform ipadBucketTracker;
@@ -28,6 +28,7 @@ public class AngryTutorial : TutorialBase
     private IEnumerator HelpLilyPlayAudio()
     {
         HideNoInputSymbol();
+        ipadCamera.SetActive(true);
         ipadCanvas.SetActive(true);
         miniGame.SetActive(true);
         Utilities.PlayAudio(whatLilyIsPlayingAudio);
