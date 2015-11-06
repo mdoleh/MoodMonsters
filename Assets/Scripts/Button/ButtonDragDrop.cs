@@ -14,6 +14,7 @@ public class ButtonDragDrop : MonoBehaviour {
     private Color oldColor;
     protected int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
+    private static Transform currentlyDraggingPiece;
 
     protected virtual void Awake()
     {
@@ -23,7 +24,18 @@ public class ButtonDragDrop : MonoBehaviour {
         initializeCorrectAmount();
     }
 
+    private void Update()
+    {
+        if (Input.touchCount > 1 && currentlyDraggingPiece == transform)
+        {
+            transform.position = originalPosition;
+            dropContainer.image.color = oldColor;
+            currentlyDraggingPiece = null;
+        }
+    }
+
     public void MoveButton() {
+        if (currentlyDraggingPiece != transform) return;
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
         // check if in range of container and highlight the container
@@ -39,6 +51,8 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void ButtonDown()
     {
+        if (Input.touchCount > 1) return;
+        currentlyDraggingPiece = transform;
         originalPosition = transform.position;
         Utilities.PlayAudio(buttonAudio);
         Timeout.StopTimers();
@@ -47,6 +61,7 @@ public class ButtonDragDrop : MonoBehaviour {
 
     public virtual void ButtonRelease()
     {
+        if (currentlyDraggingPiece != transform) return;
         if (RectsOverlap(dropContainer.GetComponent<RectTransform>(), GetComponent<RectTransform>()))
         {
             dropContainer.image.color = oldColor;
