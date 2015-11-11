@@ -24,7 +24,7 @@ namespace EggCatch
 
         private void Update()
         {
-            float moveInput = Input.GetAxis("Mouse X")*Time.deltaTime*inputSensitivity;
+            float moveInput = (Input.GetAxis("Mouse X") / Screen.width) * 5f;
             if (shouldKeepScore)
             {
                 if (moveInput == lastInput) Timeout.StartTimers();
