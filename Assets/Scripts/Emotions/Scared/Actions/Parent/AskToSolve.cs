@@ -52,10 +52,18 @@ namespace ScaredScene
             PASSLetter.GetComponent<Animator>().SetTrigger("BlowUp");
         }
 
-        protected override void BeforeAdditionalExplanation()
+        protected override IEnumerator BeforeAdditionalExplanationCoroutine()
         {
-            base.BeforeAdditionalExplanation();
-            PASSLetters.ToList().ForEach(x => x.GetComponent<Animator>().SetTrigger("BlowUp"));
+            PASSLetter.GetComponent<Animator>().SetTrigger("Empty");
+            var list = PASSLetters.ToList();
+            foreach (var letter in list)
+            {
+                letter.GetComponent<Animator>().SetTrigger("BlowUp");
+                var letterAudio = letter.GetComponent<AudioSource>();
+                Utilities.PlayAudio(letterAudio);
+                yield return new WaitForSeconds(letterAudio.clip.length);
+            }
+            yield return base.BeforeAdditionalExplanationCoroutine();
         }
     }
 }
