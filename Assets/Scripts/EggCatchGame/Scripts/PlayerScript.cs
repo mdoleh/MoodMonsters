@@ -24,7 +24,7 @@ namespace EggCatch
 
         private void Update()
         {
-            float moveInput = (Input.GetAxis("Mouse X") / Screen.width) * 5f;
+            float moveInput = (Input.mousePosition.x / Screen.width) * 5f;
             if (shouldKeepScore)
             {
                 if (moveInput == lastInput) Timeout.StartTimers();
@@ -42,7 +42,7 @@ namespace EggCatch
                 }
             }
 
-            transform.position += new Vector3(moveInput, 0, 0);
+            transform.position = new Vector3(moveInput - 2.5f, transform.position.y, transform.position.z);
 
             //Restrict movement between two values
             if (transform.position.x <= -2.5f || transform.position.x >= 2.5f)
