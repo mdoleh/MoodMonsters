@@ -77,6 +77,13 @@ namespace ScaredScene
 
         private IEnumerator playJoystickAudio()
         {
+            if (Sound.CurrentPlayingSound == runSpeedAudio)
+            {
+                while (Sound.CurrentPlayingSound.isPlaying)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                }
+            }
             Utilities.PlayAudio(Timeout.GetRepeatAudio());
             yield return new WaitForSeconds(Timeout.GetRepeatAudio().clip.length);
             Timeout.StartTimers();

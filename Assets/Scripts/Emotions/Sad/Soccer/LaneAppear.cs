@@ -33,10 +33,6 @@ namespace SadScene
                     isIntersectingPlayer = true;
                     return;
                 }
-                if (laneIsCorrectLane())
-                {
-                    other.GetComponent<OutsideGroupSoccerAnimation>().IgnoreLateralMovement();
-                }
                 transform.parent.GetComponent<MeshRenderer>().enabled = true;
             }
         }

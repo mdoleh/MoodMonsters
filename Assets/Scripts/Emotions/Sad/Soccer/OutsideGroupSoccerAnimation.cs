@@ -27,6 +27,11 @@ namespace SadScene
             shouldIgnoreLateral = true;
         }
 
+        public void EnableLateralMovement()
+        {
+            shouldIgnoreLateral = false;
+        }
+
         public void SetSoccerBallFlag(bool flag)
         {
             soccerBall.isWatching = flag;
