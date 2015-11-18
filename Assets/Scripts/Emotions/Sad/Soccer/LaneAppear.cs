@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace SadScene
@@ -31,10 +32,6 @@ namespace SadScene
                 {
                     isIntersectingPlayer = true;
                     return;
-                }
-                if (laneIsCorrectLane())
-                {
-                    other.GetComponent<OutsideGroupSoccerAnimation>().IgnoreLateralMovement();
                 }
                 transform.parent.GetComponent<MeshRenderer>().enabled = true;
             }

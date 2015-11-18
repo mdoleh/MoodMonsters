@@ -3,8 +3,9 @@ using UnityEngine;
 using System.Collections;
 using Globals;
 
-public class ControllerMovement : MonoBehaviour {
-
+public class ControllerMovement : MonoBehaviour 
+{
+    public MovementHandler movementHandler;
     public GameObject joystickCanvas;
     public Camera mainCamera;
     public float zMax = 80.767f;
@@ -37,9 +38,10 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (isWalking)
         {
-            float moveSpeed = !shouldIgnoreForward ? Time.deltaTime * multiplierSpeed : 0f;
-            float moveDirection = !shouldIgnoreLateral ? Time.deltaTime * multiplierDirection : 0f;
-            transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z - moveDirection);
+            if (trackJoystick)
+                movementHandler.HandleMovement(transform, joystickScript);
+            else
+                movementHandler.OverrideMovement(transform, Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
         }
         trackJoystickMovement();
     }
@@ -85,6 +87,8 @@ public class ControllerMovement : MonoBehaviour {
 
     private IEnumerator playJoystickInstructions()
     {
+        tutorial.DisableHelpGUI();
+        tutorial.ShowNoInputSymbol();
         if (!initialInstructionsPlayed)
         {
             Utilities.PlayAudio(initialInstructions);
@@ -113,6 +117,8 @@ public class ControllerMovement : MonoBehaviour {
     {
         disableJoystickPanel.SetActive(false);
         trackJoystick = true;
+        tutorial.EnableHelpGUI();
+        tutorial.HideNoInputSymbol();
         EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
         Timeout.StartTimers();
