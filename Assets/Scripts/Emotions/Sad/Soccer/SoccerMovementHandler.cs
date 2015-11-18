@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SoccerMovementHandler : MovementHandler
 {
+    public int currentIndex = 1;
     public Transform[] lanes;
-    private int currentIndex = 1;
     private bool shouldAdjustPosition = true;
 
     public override void HandleMovement(Transform transform, Joystick joystick)
