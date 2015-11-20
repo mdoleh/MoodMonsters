@@ -5,6 +5,7 @@ using Globals;
 public class Pause : MonoBehaviour
 {
     public GameObject debugOptions;
+    public SceneLoader sceneLoaderButton;
     private float originalScale;
     private bool paused = false;
 
@@ -24,6 +25,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         paused = true;
         debugOptions.SetActive(true);
+        sceneLoaderButton.Initialize();
         Timeout.StopTimers();
         Utilities.PauseAudio(Sound.CurrentPlayingSound);
     }
