@@ -4,7 +4,7 @@ namespace SadScene
 {
     public class LaneColor : MonoBehaviour
     {
-        public static readonly Color CORRECT_LANE_COLOR = new Color(0, 255, 0);
+        public static readonly Color CORRECT_LANE_COLOR = new Color(255, 0, 0);
         public static readonly Color WRONG_LANE_COLOR = new Color(255, 0, 0);
         private const float ALPHA = 0.5f;
 
