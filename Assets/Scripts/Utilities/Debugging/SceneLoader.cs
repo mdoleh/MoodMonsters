@@ -49,6 +49,7 @@ public class SceneLoader : MonoBehaviour
             field.SetValue(field, flag.options[flag.value].text);
         });
         Scenes.ResetValues();
+        Scenes.LoadingSceneThroughDebugging = true;
         Scenes.CompletedScenes.Add(lastSceneCompleted.options[lastSceneCompleted.value].text);
         Utilities.LoadScene(sceneToLoad);
     }
