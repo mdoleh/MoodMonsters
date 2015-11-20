@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public Dropdown scenes;
     public Toggle[] flags;
     public Dropdown[] stringFlags;
+    public Dropdown lastSceneCompleted;
     public static string sceneToLoad;
 
     public void Initialize()
@@ -31,6 +32,7 @@ public class SceneLoader : MonoBehaviour
             var field = typeof(GameFlags).GetField(flagText);
             flag.value = flag.options.FindIndex(x => x.text.Equals((string)field.GetValue(field)));
         });
+        lastSceneCompleted.value = lastSceneCompleted.options.FindIndex(x => x.text.Equals(Scenes.GetLastSceneCompleted()));
     }
 
     public void LoadScene()
@@ -38,10 +40,17 @@ public class SceneLoader : MonoBehaviour
         pauseButton.UnPauseGame();
         flags.ToList().ForEach(flag =>
         {
-            var field = typeof(GameFlags).GetField(flag.transform.Find("Label").GetComponent<Text>().text);
+            var field = typeof(GameFlags).GetField(flag.name);
             field.SetValue(field, flag.isOn);
         });
-        typeof(GameFlags).GetFields().ToList().ForEach(field => Debug.Log(field.Name + ": " + field.GetValue(field).ToString()));
+        stringFlags.ToList().ForEach(flag =>
+        {
+            var field = typeof(GameFlags).GetField(flag.name);
+            field.SetValue(field, flag.options[flag.value].text);
+        });
+        Scenes.ResetValues();
+        Scenes.LoadingSceneThroughDebugging = true;
+        Scenes.CompletedScenes.Add(lastSceneCompleted.options[lastSceneCompleted.value].text);
         Utilities.LoadScene(sceneToLoad);
     }
 

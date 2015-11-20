@@ -5,6 +5,7 @@ namespace Globals
 {
     public static class Scenes
     {
+        public static bool LoadingSceneThroughDebugging = false;
         public static int CurrentMiniGameIndex = 0;
         public static string NextSceneToLoad;
         public static string SceneForTestingParentPresent = "SadSceneSmallCity";
@@ -28,6 +29,7 @@ namespace Globals
         public static void ResetValues()
         {
             CompletedScenes = new List<string>();
+            NextSceneToLoad = "";
         }
 
         public static string GetLastSceneCompleted()

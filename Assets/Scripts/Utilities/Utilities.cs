@@ -85,8 +85,10 @@ public class Utilities : MonoBehaviour {
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
             var sceneName = Application.loadedLevelName;
             sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
-            if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
+            if (!Scenes.CompletedScenes.Contains(sceneName) && !Scenes.LoadingSceneThroughDebugging) 
+                Scenes.CompletedScenes.Add(sceneName);
         }
+        Scenes.LoadingSceneThroughDebugging = false;
         GameObject.Find("LoadingIndicatorCanvas").GetComponent<Canvas>().enabled = true;
         if (sceneToLoad != "") Timeout.Instance.StartCoroutine(loadLevelAsync(sceneToLoad));
     }
