@@ -4,6 +4,7 @@ using Globals;
 
 public class Pause : MonoBehaviour
 {
+    public GameObject debugOptions;
     private float originalScale;
     private bool paused = false;
 
@@ -14,7 +15,7 @@ public class Pause : MonoBehaviour
 
     public void OnClick()
     {
-        if (paused) unPauseGame();
+        if (paused) UnPauseGame();
         else pauseGame();
     }
 
@@ -22,14 +23,16 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
+        debugOptions.SetActive(true);
         Timeout.StopTimers();
         Utilities.PauseAudio(Sound.CurrentPlayingSound);
     }
 
-    private void unPauseGame()
+    public void UnPauseGame()
     {
         Time.timeScale = originalScale;
         paused = false;
+        debugOptions.SetActive(false);
         Timeout.StartTimers();
         Utilities.UnPauseAudio(Sound.CurrentPlayingSound);
     }

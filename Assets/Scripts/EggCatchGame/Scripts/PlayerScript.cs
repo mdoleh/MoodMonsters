@@ -41,15 +41,9 @@ namespace EggCatch
                     animationDelay = 0.0f;
                 }
             }
+            
+            transform.position = new Vector3(Mathf.Clamp(moveInput - 2.5f, -2.5f, 2.5f), transform.position.y, transform.position.z);
 
-            transform.position = new Vector3(moveInput - 2.5f, transform.position.y, transform.position.z);
-
-            //Restrict movement between two values
-            if (transform.position.x <= -2.5f || transform.position.x >= 2.5f)
-            {
-                float xPos = Mathf.Clamp(transform.position.x, -2.5f, 2.5f); //Clamp between min -2.5 and max 2.5
-                transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
-            }
             lastInput = moveInput;
         }
 
