@@ -1,14 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace ScaredScene
+﻿namespace ScaredScene
 {
     public class Distract : IncorrectActionBase
     {
         protected override void DialogueAnimation()
         {
-            base.DialogueAnimation();
-            anim.SetTrigger("Distract");
+            anim.SetTrigger("Invalidate");
+        }
+
+        protected override void AfterDialogue()
+        {
+            anim.SetTrigger("Idle");
         }
     }
 }
