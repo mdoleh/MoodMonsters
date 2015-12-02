@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Globals;
-using ScaredScene;
 
 namespace ScaredScene
 {
@@ -12,10 +9,12 @@ namespace ScaredScene
         protected override void DialogueAnimation()
         {
             anim.SetTrigger("Talk");
+            anim.speed = dialogue.clip.length/anim.GetCurrentAnimatorStateInfo(0).length;
         }
 
         protected override void AfterDialogue()
         {
+            anim.speed = 1;
             anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentSolveActionsMenu";
             GUIHelper.NextGUI();
