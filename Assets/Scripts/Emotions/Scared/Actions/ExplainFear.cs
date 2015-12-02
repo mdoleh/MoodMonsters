@@ -10,7 +10,6 @@ namespace ScaredScene
     public class ExplainFear : ActionBase
     {
         public Animator otherAnim;
-        public GameObject[] parentCharacters;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
         public AudioSource switchToParentAudio;

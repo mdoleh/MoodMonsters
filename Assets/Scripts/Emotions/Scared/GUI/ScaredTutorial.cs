@@ -20,6 +20,7 @@ public class ScaredTutorial : TutorialBase
         {
             parentCharacters.ToList()
                 .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                .transform.parent.gameObject
                 .SetActive(true);
         }
         scarlet.GetComponent<CharacterMovement>().StartSequence();

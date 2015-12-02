@@ -11,12 +11,12 @@ namespace ScaredScene
 
         protected override void DialogueAnimation()
         {
-            //        anim.SetTrigger("Talk");
+            anim.SetTrigger("Talk");
         }
 
         protected override void AfterDialogue()
         {
-            //            anim.SetTrigger("Idle");
+            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentSolveActionsMenu";
             GUIHelper.NextGUI();
         }

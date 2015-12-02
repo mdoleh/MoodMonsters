@@ -8,7 +8,7 @@ namespace ScaredScene
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
-            //            anim.SetTrigger("Solve");
+            anim.SetTrigger("Solve");
         }
     }
 }

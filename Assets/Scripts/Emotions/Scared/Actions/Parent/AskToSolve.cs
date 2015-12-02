@@ -25,13 +25,13 @@ namespace ScaredScene
             base.DialogueAnimation();
             GameFlags.HasSeenPASS = true;
             PASSLetters.ToList().ForEach(x => x.SetActive(false));
-            //            anim.SetTrigger("Talk");
+            anim.SetTrigger("Talk");
         }
 
         protected override void AfterDialogue()
         {
             base.AfterDialogue();
-            //            anim.SetTrigger("Idle");
+            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
             StartCoroutine(SwitchBackToChild());
         }

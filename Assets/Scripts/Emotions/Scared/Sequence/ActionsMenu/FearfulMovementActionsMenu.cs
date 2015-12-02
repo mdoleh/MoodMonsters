@@ -15,6 +15,7 @@ namespace ScaredScene
             {
                 parentCharacters.ToList()
                     .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                    .transform.parent.gameObject
                     .SetActive(true);
             }
             waitingForScarlet = false;
