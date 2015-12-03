@@ -7,8 +7,12 @@ namespace SadScene
     {
         protected override void DialogueAnimation()
         {
-            base.DialogueAnimation();
-//            anim.SetTrigger("Threaten");
+            anim.SetTrigger("Yell");
+        }
+
+        protected override void AfterDialogue()
+        {
+            anim.SetTrigger("Idle");
         }
     }
 }

@@ -10,14 +10,12 @@ namespace SadScene
 
         protected override void DialogueAnimation()
         {
-            base.DialogueAnimation();
-//            anim.SetTrigger("Talk");
+            anim.SetTrigger("Talk");
         }
 
         protected override void AfterDialogue()
         {
-            base.AfterDialogue();
-//            anim.SetTrigger("Idle");
+            anim.SetTrigger("Idle");
             if (!GameFlags.AdultIsPresent)
             {
                 GetComponent<AskToSolve>().StartDefaultAction();
