@@ -118,7 +118,6 @@ public class ControllerMovement : MonoBehaviour
         disableJoystickPanel.SetActive(false);
         trackJoystick = true;
         tutorial.EnableHelpGUI();
-        tutorial.HideNoInputSymbol();
         EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
         Timeout.StartTimers();
