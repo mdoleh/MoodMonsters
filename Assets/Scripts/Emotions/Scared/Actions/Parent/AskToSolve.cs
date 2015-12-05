@@ -33,16 +33,13 @@ namespace ScaredScene
             base.AfterDialogue();
             anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
-            StartCoroutine(SwitchBackToChild());
+            switchBackToChild();
         }
 
-        private IEnumerator SwitchBackToChild()
+        private void switchBackToChild()
         {
-            parentToChildImage.GetComponent<RawImage>().enabled = true;
+            parentToChildImage.SetActive(true);
             Utilities.PlayAudio(switchToChildAudio);
-            yield return new WaitForSeconds(switchToChildAudio.clip.length);
-            parentToChildImage.GetComponent<RawImage>().enabled = false;
-            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()

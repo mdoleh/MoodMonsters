@@ -33,7 +33,7 @@ namespace ScaredScene
             if (GameFlags.AdultIsPresent)
             {
                 sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentPayAttentionAskActionsMenu";
-                StartCoroutine(SwitchToParent());
+                switchToParent();
             }
             else
             {
@@ -41,13 +41,10 @@ namespace ScaredScene
             }
         }
 
-        private IEnumerator SwitchToParent()
+        private void switchToParent()
         {
-            childToParentImage.GetComponent<RawImage>().enabled = true;
+            childToParentImage.SetActive(true);
             Utilities.PlayAudio(switchToParentAudio);
-            yield return new WaitForSeconds(switchToParentAudio.clip.length);
-            childToParentImage.GetComponent<RawImage>().enabled = false;
-            GUIHelper.NextGUI();
         }
 
         public void StartJumpSequence()

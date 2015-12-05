@@ -31,19 +31,20 @@ namespace SadScene
         {
             anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
-            StartCoroutine(SwitchBackToChild());
+            switchBackToChild();
         }
 
-        private IEnumerator SwitchBackToChild()
+        private void switchBackToChild()
         {
             if (GameFlags.AdultIsPresent)
             {
-                parentToChildImage.GetComponent<RawImage>().enabled = true;
+                parentToChildImage.SetActive(true);
                 Utilities.PlayAudio(switchToChildAudio);
-                yield return new WaitForSeconds(switchToChildAudio.clip.length);
-                parentToChildImage.GetComponent<RawImage>().enabled = false;
             }
-            GUIHelper.NextGUI();
+            else
+            {
+                GUIHelper.NextGUI();
+            }
         }
 
         protected override void BeforeExplanation()
