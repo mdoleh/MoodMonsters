@@ -50,7 +50,7 @@ public class CoinPile : MonoBehaviour
 
     public static void ResetCoinPileSize()
     {
-        currentSize = new Vector3(1f, 1f, 1f);
-        backgroundSize = new Vector3(1f, 1f, 1f);
+        currentSize = new Vector3(0.8f, 0.8f, 0.8f);
+        backgroundSize = new Vector3(0.8f, 0.8f, 0.8f);
     }
 }
