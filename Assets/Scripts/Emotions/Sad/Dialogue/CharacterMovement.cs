@@ -39,7 +39,8 @@ namespace SadScene
 
         public void EnableParent()
         {
-            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower())).SetActive(true);
+            parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                .transform.parent.gameObject.SetActive(true);
         }
     }
 }

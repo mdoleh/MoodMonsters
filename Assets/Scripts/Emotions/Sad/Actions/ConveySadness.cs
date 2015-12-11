@@ -27,24 +27,20 @@ namespace SadScene
             base.AfterDialogue();
             anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentPayAttentionAskActionsMenu";
-            StartCoroutine(SwitchToParent());
+            switchToParent();
         }
 
-        private IEnumerator SwitchToParent()
+        private void switchToParent()
         {
             if (GameFlags.AdultIsPresent)
             {
-                childToParentImage.GetComponent<RawImage>().enabled = true;
+                childToParentImage.SetActive(true);
                 Utilities.PlayAudio(switchToParentAudio);
-                yield return new WaitForSeconds(switchToParentAudio.clip.length);
-                childToParentImage.GetComponent<RawImage>().enabled = false;
-                GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
             }
             else
             {
-                GUIHelper.GetPreviousGUI("ParentDefaultCanvas").enabled = true;
+                GUIHelper.NextGUI();
             }
-            GUIHelper.NextGUI();
         }
     }
 }

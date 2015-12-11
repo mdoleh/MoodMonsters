@@ -25,9 +25,23 @@ namespace AngryScene
             anim.SetTrigger("IsSharing");
         }
 
-        public void TriggerSadIdle()
+        public void TriggerAngryFoldedArmsEvent()
         {
-            anim.SetTrigger("IsSad");
+            anim.SetTrigger("IsAngry");
+        }
+
+        public void MoveIpadUnderArm()
+        {
+            var ipad = GameObject.Find("iPad");
+            ipad.transform.localPosition = new Vector3(0.04f, -0.073f, 0.049f);
+            ipad.transform.localRotation = Quaternion.Euler(352.4399f, 357.2535f, 10.56083f);
+        }
+
+        public void MoveIpadToLap()
+        {
+            var ipad = GameObject.Find("iPad");
+            ipad.transform.localPosition = new Vector3(0.224f, 0.145f, 0.043f);
+            ipad.transform.localRotation = Quaternion.Euler(15.41914f, 158.8406f, 1.443392f);
         }
     }
 }

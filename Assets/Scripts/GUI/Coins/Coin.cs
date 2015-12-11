@@ -10,14 +10,14 @@ public class Coin : MonoBehaviour
 
     public void AddCoins()
     {
-        coinPile.IncreaseScale(new Vector3(0.3f, 0.3f));
+        coinPile.IncreaseScale(new Vector3(0.2f, 0.2f));
         HideCoin();
         resetState();
     }
 
     public void RemoveCoins()
     {
-        coinPile.DecreaseScale(new Vector3(0.3f, 0.3f));
+        coinPile.DecreaseScale(new Vector3(0.2f, 0.2f));
         HideCoin();
         resetState();
     }

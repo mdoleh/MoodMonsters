@@ -19,7 +19,7 @@ namespace SadScene
 
         private void Update()
         {
-            if (GetComponent<Canvas>().enabled && !askTriggered)
+            if (!askTriggered)
             {
                 currentParent.GetComponent<Ask>().StartDefaultAction();
                 askTriggered = true;

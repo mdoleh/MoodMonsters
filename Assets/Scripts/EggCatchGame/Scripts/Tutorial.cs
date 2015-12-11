@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Globals;
 using UnityEngine;
@@ -17,9 +18,12 @@ namespace EggCatch
         private float animationDelay = 0.0f;
 
         private GameObject buttonDragDrop;
+
         public RawImage[] images;
         public GameObject[] badCatchIndicators;
         public GameObject goodCatchIndicator;
+
+        private List<GameObject> stars;
 
         private void Start()
         {
@@ -32,6 +36,7 @@ namespace EggCatch
         private void initializeObjects()
         {
             buttonDragDrop = transform.FindChild("ButtonDrag").gameObject;
+            stars = player.stars.ToList();
 
             images.ToList().ForEach(image =>
             {
@@ -55,8 +60,10 @@ namespace EggCatch
             {
                 var instructions = GetAudioInstructions();
                 Utilities.PlayAudio(instructions);
+                stars.ForEach(x => x.SetActive(true));
                 goodCatchIndicator.transform.parent.gameObject.SetActive(true);
                 yield return new WaitForSeconds(instructions.clip.length);
+                stars.ForEach(x => x.SetActive(false));
 
                 var avoidInstructions = GetAudioInstructions("avoid");
                 Utilities.PlayAudio(avoidInstructions);

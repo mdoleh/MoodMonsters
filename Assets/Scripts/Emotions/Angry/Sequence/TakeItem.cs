@@ -8,17 +8,16 @@ namespace AngryScene
     public class TakeItem : MonoBehaviour
     {
         private GameObject dialogue;
-        private GameObject ipadCamera;
         private GameObject miniGame;
         protected Animator anim;
         public Animator other;
-        private GameObject ipadCameraFrame;
+        public GameObject ipadCamera;
+        private GameObject ipadCanvas;
 
         public void Awake()
         {
             dialogue = transform.FindChild("Dialogue").gameObject;
-            ipadCamera = GameObject.Find("iPadCamera");
-            ipadCameraFrame = GameObject.Find("iPadCameraFrame");
+            ipadCanvas = GameObject.Find("iPadCanvas");
             miniGame = GameObject.Find("MiniGame");
             anim = GetComponent<Animator>();
         }
@@ -47,20 +46,20 @@ namespace AngryScene
 
         public void TakeIPad()
         {
-            ipadCameraFrame.GetComponent<Image>().enabled = false;
             ipadCamera.SetActive(false);
+            ipadCanvas.SetActive(false);
             miniGame.SetActive(false);
 
             anim.SetTrigger("IsTakingIPad");
             other.SetBool("IsUsingIPad", false);
             other.SetTrigger("IsLosingIPad");
-            StartCoroutine(DelayGUI());
+            StartCoroutine(disableSelf());
         }
 
-        private IEnumerator DelayGUI()
+        private IEnumerator disableSelf()
         {
             yield return new WaitForSeconds(1f);
-            StartGUI();
+            enabled = false;
         }
 
         public void StartUsingIPad() {
@@ -84,12 +83,6 @@ namespace AngryScene
             ipad.transform.parent = arm.transform.FindChild("mixamorig:LeftHand");
             ipad.transform.localPosition = new Vector3(0.093f, 0.137f, 0.136f);
             ipad.transform.localRotation = Quaternion.Euler(66.94399f, 118.2474f, 34.07929f);
-        }
-
-        void StartGUI()
-        {
-            GUIHelper.NextGUI();
-            enabled = false;
         }
     }
 }

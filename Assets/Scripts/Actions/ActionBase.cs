@@ -4,13 +4,13 @@ using Globals;
 
 public class ActionBase : MonoBehaviour
 {
-    protected Animator anim;
+    public Animator anim;
     public SceneReset sceneReset;
     public AudioSource actionExplanation;
 
     protected void Awake()
     {
-        anim = GetComponent<Animator>();
+        if (anim == null) anim = GetComponent<Animator>();
     }
 
     public virtual void StartAction()

@@ -20,18 +20,21 @@ public class CorrectActionBase : ActionBase
         Utilities.PlayAudio(actionExplanation);
         yield return new WaitForSeconds(actionExplanation.clip.length);
         BeforeAdditionalExplanation();
+        yield return StartCoroutine(BeforeAdditionalExplanationCoroutine());
         Utilities.PlayAudio(additionalActionExplanation);
         if (additionalActionExplanation != null) yield return new WaitForSeconds(additionalActionExplanation.clip.length);
         ShowCorrect(false);
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);
-        yield return new WaitForSeconds(dialogue.clip.length);
+        if (dialogue != null) yield return new WaitForSeconds(dialogue.clip.length);
         AfterDialogue();
     }
 
     protected virtual void BeforeExplanation() { }
 
     protected virtual void BeforeAdditionalExplanation() { }
+
+    protected virtual IEnumerator BeforeAdditionalExplanationCoroutine() { yield return null; }
 
     protected virtual void DialogueAnimation() { }
     

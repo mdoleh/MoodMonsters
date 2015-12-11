@@ -25,7 +25,6 @@ namespace AngryScene
             otherAnim.SetTrigger("IsListening");
             var okay = otherAnim.transform.FindChild("Dialogue").FindChild("Okay").GetComponent<AudioSource>();
             Utilities.PlayAudio(okay);
-            StartCoroutine(DelayMoveIpad());
             StartCoroutine(TriggerSitting());
         }
 
@@ -34,28 +33,6 @@ namespace AngryScene
             yield return new WaitForSeconds(2.5f);
             Timeout.StopTimers();
             StartWalking();
-        }
-
-        private IEnumerator DelayMoveIpad()
-        {
-            yield return new WaitForSeconds(0.5f);
-            MoveIpadToUnderArm();
-            yield return new WaitForSeconds(3.5f);
-            MoveIpadToLap();
-        }
-
-        private void MoveIpadToLap()
-        {
-            var ipad = GameObject.Find("iPad");
-            ipad.transform.localPosition = new Vector3(0.224f, 0.145f, 0.043f);
-            ipad.transform.localRotation = Quaternion.Euler(15.41914f, 158.8406f, 1.443392f);
-        }
-
-        private void MoveIpadToUnderArm()
-        {
-            var ipad = GameObject.Find("iPad");
-            ipad.transform.localPosition = new Vector3(0.04f, -0.073f, 0.049f);
-            ipad.transform.localRotation = Quaternion.Euler(352.4399f, 357.2535f, 10.56083f);
         }
 
         public void StartWalking()

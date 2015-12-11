@@ -8,7 +8,7 @@ namespace SadScene
         public AudioSource cantPlay;
         public AudioSource dontGetToPlay;
         public OutsideGroupDialogue otherCharacter;
-        public static bool shouldStopPlaying = false;
+        public static bool shouldStopPlaying;
 
         private Animator anim;
         private Quaternion originalRotation;
@@ -16,11 +16,12 @@ namespace SadScene
         private void Start()
         {
             anim = GetComponent<Animator>();
+            shouldStopPlaying = true;
+            originalRotation = transform.rotation;
         }
 
         public void ExplainCantPlay()
         {
-            originalRotation = transform.rotation;
             anim.applyRootMotion = true;
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("CantPlay");

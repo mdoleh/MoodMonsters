@@ -36,6 +36,7 @@ public class WebCamPhotoCamera : WebCam
         Utilities.PlayAudio(pictureCountDownAudio);
         yield return new WaitForSeconds(pictureCountDownAudio.clip.length + 0.5f);
         Utilities.PlayAudio(cameraShutterAudio);
+        yield return new WaitForSeconds(cameraShutterAudio.clip.length);
 
         Texture2D photo = new Texture2D(webCamTexture.width, webCamTexture.height);
         photo.SetPixels(webCamTexture.GetPixels());

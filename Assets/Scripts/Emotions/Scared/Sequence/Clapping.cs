@@ -6,6 +6,7 @@ namespace ScaredScene
 {
     public class Clapping : MonoBehaviour
     {
+        public Animator anim;
         public ExplainFear fearfulCharacter;
         public Conversation fearlessCharacter;
         public AudioSource successDialogue;
@@ -13,7 +14,7 @@ namespace ScaredScene
 
         public void StartClapping()
         {
-            //            anim.SetTrigger("Clap");
+            anim.SetTrigger("Clap");
             fearlessCharacter.ClappingAnimation();
             StartCoroutine(PlayClappingDialogue());
         }

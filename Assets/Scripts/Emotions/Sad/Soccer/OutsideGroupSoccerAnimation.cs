@@ -10,6 +10,7 @@ namespace SadScene
         public OutsideGroupSoccerBallMovement soccerBall;
         public AudioSource didntKickHardEnough;
         public ObjectSequenceManager retryPointManager;
+        public GameObject runningLanes;
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
@@ -19,6 +20,16 @@ namespace SadScene
         {
             base.Start();
             anim = GetComponent<Animator>();
+        }
+
+        public void IgnoreLateralMovement()
+        {
+            shouldIgnoreLateral = true;
+        }
+
+        public void EnableLateralMovement()
+        {
+            shouldIgnoreLateral = false;
         }
 
         public void SetSoccerBallFlag(bool flag)
@@ -43,7 +54,9 @@ namespace SadScene
             anim.SetTrigger("Idle");
             if (!shouldAdjustCamera) return;
             AdjustCamera();
+            tutorial.EnableHelpGUI();
             StartJoystickTutorial();
+            shouldIgnoreLateral = false;
         }
 
         public void KickBallUp()
@@ -61,22 +74,26 @@ namespace SadScene
         private IEnumerator DelayKickForward()
         {
             yield return new WaitForSeconds(0.5f);
-            KickForward();
+            KickForward(false);
             shouldKickUp = true;
         }
 
-        public void KickForward()
+        public void KickForward(bool shouldAdjustPosition)
         {
-            stopMoving();
-            resetCamera(true);
+            LaneAppear.shouldShowLanes = false;
+            LaneAppear.HideAllLanes();
+            tutorial.DisableHelpGUI();
+            StopMoving();
+            ResetCamera(true, shouldAdjustPosition);
             StartCoroutine(KickBallForward());
         }
 
         public void StartDialogue()
         {
-            stopMoving();
+            runningLanes.SetActive(false);
+            StopMoving();
             anim.SetTrigger("Idle");
-            resetCamera(false);
+            ResetCamera(false, true);
             Timeout.StopTimers();
             GetComponent<OutsideGroupDialogue>().StartDialogue();
         }
@@ -86,18 +103,27 @@ namespace SadScene
             if (multiplierSpeed < 2f)
             {
                 soccerBall.KickBallForward(multiplierSpeed / 3f);
-                resetPosition();
+                ResetPosition(didntKickHardEnough);
             }
             else
             {
                 soccerBall.KickBallForward(multiplierSpeed / 2f);
+                StartCoroutine(moveLanes());
             }
         }
 
-        private void resetPosition()
+        private IEnumerator moveLanes()
         {
+            yield return new WaitForSeconds(1f);
+            runningLanes.transform.position = new Vector3(transform.position.x,
+                    runningLanes.transform.position.y, runningLanes.transform.position.z);
+        }
+
+        public void ResetPosition(AudioSource audioSource)
+        {
+            tutorial.DisableHelpGUI();
             retryPointManager.NextInSequence();
-            Utilities.PlayAudio(didntKickHardEnough);
+            Utilities.PlayAudio(audioSource);
             anim.SetTrigger("WalkBackwards");
             shouldAdjustCamera = false;
         }
@@ -130,19 +156,20 @@ namespace SadScene
             ShiftIdle();
         }
 
-        private void stopMoving()
+        public void StopMoving()
         {
             anim.SetBool("Run", false);
             isWalking = false;
             multiplierDirection = 0f;
         }
 
-        private void resetCamera(bool startTimers)
+        public void ResetCamera(bool startTimers, bool shouldAdjustPosition)
         {
             HideJoystick(startTimers);
             ResetAndDisableJoystick();
-            transform.position = new Vector3(transform.position.x, transform.position.y, 80.619f);
-            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, 78.115f);
+            if (shouldAdjustPosition) 
+                transform.position = new Vector3(transform.position.x, transform.position.y, soccerBall.transform.position.z);
+            mainCamera.transform.position = new Vector3(transform.position.x + 1.04f, 4.91f, transform.position.z - 2.504f);
             mainCamera.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }

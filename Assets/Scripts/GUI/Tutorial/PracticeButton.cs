@@ -37,7 +37,7 @@ public class PracticeButton : ButtonDragDrop {
     {
         answerSubmitted = true;
         Timeout.StopTimers();
-        transform.parent.GetComponent<TutorialBase>().ExplainHelpUI();
+        transform.parent.GetComponent<TutorialBase>().ExplainCoins();
         HidePracticeUI();
     }
 

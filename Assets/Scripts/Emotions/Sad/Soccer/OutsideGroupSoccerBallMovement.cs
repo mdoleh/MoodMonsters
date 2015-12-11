@@ -38,15 +38,20 @@ namespace SadScene
             rigidBody.AddTorque(0f, 0f, 100f);
         }
 
+        public void SetPreviousPosition()
+        {
+            previousPosition = transform.position;
+            previousRotation = transform.rotation;
+        }
+
         public void KickBallForward(float multiplier)
         {
             neutralizeForce();
-            previousPosition = transform.position;
-            previousRotation = transform.rotation;
+            SetPreviousPosition();
             rigidBody.constraints = RigidbodyConstraints.None;
             rigidBody.AddForce(250f*multiplier, 180f*multiplier, 0f);
             rigidBody.AddTorque(0f, 0f, -100f);
-            rigidBody.angularDrag = 20f;
+            rigidBody.angularDrag = 40f;
         }
 
         public void SetDialogueFlag(bool value)
@@ -67,7 +72,7 @@ namespace SadScene
                 else if (isWatching)
                     other.GetComponent<SideLinesWatching>().StartWatchingFromSidelines();
                 else
-                    other.GetComponent<OutsideGroupSoccerAnimation>().KickForward();
+                    other.GetComponent<OutsideGroupSoccerAnimation>().KickForward(true);
             }
         }
     }

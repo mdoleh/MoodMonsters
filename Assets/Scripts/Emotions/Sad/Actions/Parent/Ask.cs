@@ -13,15 +13,13 @@ namespace SadScene
 
         protected override void DialogueAnimation()
         {
-            base.DialogueAnimation();
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("Empty");
-//            anim.SetTrigger("Talk");
+            anim.SetTrigger("Talk");
         }
 
         protected override void AfterDialogue()
         {
-            base.AfterDialogue();
-//            anim.SetTrigger("Idle");
+            anim.SetTrigger("Idle");
             sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSupportActionsMenu";
             StartCoroutine(NextGUI());
         }
@@ -52,7 +50,6 @@ namespace SadScene
             }
             else
             {
-                GUIHelper.GetPreviousGUI("ParentSupportCanvas" + GameFlags.ParentGender).enabled = true;
                 GUIHelper.NextGUI();
             }
         }

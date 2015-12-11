@@ -59,6 +59,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadEmotionScene(string sceneToLoad)
     {
+        CoinPile.ResetCoinPileSize();
         if (CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(true);
@@ -71,15 +72,23 @@ public class Utilities : MonoBehaviour {
     {
         Timeout.StopTimers();
         Timeout.Instance.StopAllCoroutines();
+        CanvasList.ResetIndex();
         StopAudio(Sound.CurrentPlayingSound);
+        if (sceneToLoad.ToLower().Contains("mainmenu"))
+        {
+            CityInitializer.City.SetActive(false);
+            StopAudio(CityInitializer.City.GetComponent<AudioSource>());
+        }
         if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
             var sceneName = Application.loadedLevelName;
             sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
-            if (!Scenes.CompletedScenes.Contains(sceneName)) Scenes.CompletedScenes.Add(sceneName);
+            if (!Scenes.CompletedScenes.Contains(sceneName) && !Scenes.LoadingSceneThroughDebugging) 
+                Scenes.CompletedScenes.Add(sceneName);
         }
+        Scenes.LoadingSceneThroughDebugging = false;
         GameObject.Find("LoadingIndicatorCanvas").GetComponent<Canvas>().enabled = true;
         if (sceneToLoad != "") Timeout.Instance.StartCoroutine(loadLevelAsync(sceneToLoad));
     }

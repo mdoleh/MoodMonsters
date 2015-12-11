@@ -17,8 +17,11 @@ public class IncorrectActionBase : ActionBase
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);
         yield return new WaitForSeconds(dialogue.clip.length);
+        AfterDialogue();
         TriggerIncorrect();
     }
 
     protected virtual void DialogueAnimation() {}
+
+    protected virtual void AfterDialogue() {}
 }

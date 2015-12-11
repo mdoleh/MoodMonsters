@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using Globals;
 using ScaredScene;
@@ -15,17 +16,19 @@ namespace ScaredScene
 
         private GameObject otherCharacter;
         private bool runSpeedFailure = false;
+        private bool isBackingAway = false;
+        private bool shouldPlayJoystickAudio = false;
         private AudioSource runSpeedAudio;
+        private AudioSource edgeSlipAudio;
         private GameObject currentParent;
 
         protected override void Start()
         {
             base.Start();
             otherCharacter = GameObject.Find("Scarlet");
-            runSpeedAudio =
-                GameObject.Find("ControllerCanvas").transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
-            currentParent =
-                    parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
+            runSpeedAudio = joystickCanvas.transform.FindChild("RunSpeedFailure").GetComponent<AudioSource>();
+            edgeSlipAudio = transform.FindChild("Dialogue").FindChild("Whoa").GetComponent<AudioSource>();
+            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         protected override void StartRunningAnimation()
@@ -59,11 +62,31 @@ namespace ScaredScene
             {
                 if (anim.GetBool("WalkBackwards")) StopWalking(false);
                 StartJoystickTutorial();
+                if (shouldPlayJoystickAudio)
+                {
+                    Timeout.StopTimers();
+                    shouldPlayJoystickAudio = false;
+                    StartCoroutine(playJoystickAudio());
+                }
             }
             else
             {
                 StopWalking(false);
             }
+        }
+
+        private IEnumerator playJoystickAudio()
+        {
+            if (Sound.CurrentPlayingSound == runSpeedAudio)
+            {
+                while (Sound.CurrentPlayingSound.isPlaying)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                }
+            }
+            Utilities.PlayAudio(Timeout.GetRepeatAudio());
+            yield return new WaitForSeconds(Timeout.GetRepeatAudio().clip.length);
+            Timeout.StartTimers();
         }
 
         public override void StepForward()
@@ -151,11 +174,14 @@ namespace ScaredScene
             multiplierDirection = 0f;
             anim.SetBool("WalkBackwards", true);
             isWalking = true;
+            shouldPlayJoystickAudio = true;
         }
 
         public override void ShiftIdle()
         {
             if (runSpeedFailure) return;
+            if (!isBackingAway) return;
+            isBackingAway = false;
             StopWalking(false);
             base.ShiftIdle();
             joystickCanvas.GetComponent<Canvas>().enabled = true;
@@ -165,6 +191,7 @@ namespace ScaredScene
 
         public void BackAway()
         {
+            isBackingAway = true;
             anim.SetTrigger("BackAway");
             multiplierSpeed = -0.2f;
             StartWalking();
@@ -173,9 +200,11 @@ namespace ScaredScene
         public override void EdgeSlip(string stumbleTrigger)
         {
             resetCamera();
+            DisableHelpGUI();
             runSpeedFailure = false;
             trackJoystick = false;
             multiplierDirection = 0f;
+            Utilities.PlayAudio(edgeSlipAudio);
             base.EdgeSlip(stumbleTrigger);
         }
 

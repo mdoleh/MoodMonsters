@@ -1,14 +1,18 @@
 ﻿using Globals;
+using UnityEngine;
 
 public class ButtonSceneLoad : ButtonSelect {
 
     public string sceneToLoad;
     public bool shouldAskParentPresent = false;
+    public bool loadingEmotionScene = true;
 
     protected override void DoubleClickAction()
     {
         Timeout.StopTimers();
         if (string.IsNullOrEmpty(sceneToLoad)) return;
+        if (GameObject.Find("MainCanvas") != null)
+            Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
         if (shouldAskParentPresent)
         {
             Scenes.NextSceneToLoad = sceneToLoad;
@@ -16,7 +20,10 @@ public class ButtonSceneLoad : ButtonSelect {
         }
         else
         {
-            Utilities.LoadEmotionScene(sceneToLoad);
+            if (loadingEmotionScene)
+                Utilities.LoadEmotionScene(sceneToLoad);
+            else
+                Utilities.LoadScene(sceneToLoad);
         }
     }
 

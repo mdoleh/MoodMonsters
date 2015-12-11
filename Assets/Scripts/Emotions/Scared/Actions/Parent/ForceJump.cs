@@ -7,7 +7,7 @@ namespace ScaredScene
     {
         protected override void DialogueAnimation()
         {
-//            anim.SetTrigger("Yell");
+            anim.SetTrigger("Yell");
         }
     }
 }

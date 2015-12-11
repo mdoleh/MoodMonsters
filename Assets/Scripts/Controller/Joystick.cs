@@ -30,6 +30,7 @@ public class Joystick : MonoBehaviour
 
     public virtual void ButtonDown()
     {
+        if (Input.touchCount > 1) return;
         if (!initialized) Initialize();
         originalPosition = transform.position;
         Timeout.StopTimers();
@@ -39,6 +40,7 @@ public class Joystick : MonoBehaviour
 
     public virtual void ButtonRelease()
     {
+        if (Input.touchCount > 1) return;
         transform.position = originalPosition;
         resetSpeedAndDirection();
         if (shouldStartTimers) Timeout.StartTimers();
@@ -48,6 +50,12 @@ public class Joystick : MonoBehaviour
     {
         float x = 0f;
         float y = 0f;
+        if (Input.touchCount > 1)
+        {
+            transform.position = originalPosition;
+            resetSpeedAndDirection();
+            return;
+        }
         if (isInRange(transform.position) && isInRange(Input.mousePosition))
         {
             x = Input.mousePosition.x;

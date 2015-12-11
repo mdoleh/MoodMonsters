@@ -12,6 +12,7 @@ public class DefaultActionBase : CorrectActionBase
 
     private IEnumerator Explain()
     {
+        yield return new WaitForSeconds(0.5f);
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);
         yield return new WaitForSeconds(dialogue.clip.length);

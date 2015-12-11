@@ -19,7 +19,7 @@ namespace SadScene
             soccerBall.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             soccerBall.GetComponent<Rigidbody>().angularDrag = 20f;
             soccerBall.transform.position = new Vector3(soccerBall.transform.position.x, soccerBall.transform.position.y, 80.335f);
-            var force = new Vector3(-367f, 0f, 0f);
+            var force = new Vector3(-363f, 0f, 0f);
             soccerBall.ApplyForce(force);
         }
 

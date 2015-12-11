@@ -10,18 +10,15 @@ namespace ScaredScene
     public class ExplainFear : ActionBase
     {
         public Animator otherAnim;
-        public GameObject[] parentCharacters;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
         public AudioSource switchToParentAudio;
 
-        private GameObject currentParent;
         private GameObject childToParentImage;
 
         private void Start()
         {
             childToParentImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ChildToParent").gameObject;
-            currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         private void VoiceFear()
@@ -36,7 +33,7 @@ namespace ScaredScene
             if (GameFlags.AdultIsPresent)
             {
                 sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentPayAttentionAskActionsMenu";
-                StartCoroutine(SwitchToParent());
+                switchToParent();
             }
             else
             {
@@ -44,14 +41,10 @@ namespace ScaredScene
             }
         }
 
-        private IEnumerator SwitchToParent()
+        private void switchToParent()
         {
-            childToParentImage.GetComponent<RawImage>().enabled = true;
+            childToParentImage.SetActive(true);
             Utilities.PlayAudio(switchToParentAudio);
-            yield return new WaitForSeconds(switchToParentAudio.clip.length);
-            childToParentImage.GetComponent<RawImage>().enabled = false;
-            GUIHelper.GetPreviousGUI("ParentPayAttentionAskCanvas" + GameFlags.ParentGender).enabled = true;
-            GUIHelper.NextGUI();
         }
 
         public void StartJumpSequence()

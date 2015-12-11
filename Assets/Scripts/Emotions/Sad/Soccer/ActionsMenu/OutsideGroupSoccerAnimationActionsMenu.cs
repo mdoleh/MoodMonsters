@@ -8,17 +8,16 @@ namespace SadScene
         protected override void Start()
         {
             base.Start();
-            GUIInitialization.Initialize();
+            global::GUIInitialization.Initialize();
             GetComponent<CharacterMovement>().EnableParent();
             GetComponent<CapsuleCollider>().enabled = false;
+            StartCoroutine(ShowActionsMenu());
         }
 
-        protected IEnumerator ShowActionsMenu(string canvasName)
+        protected IEnumerator ShowActionsMenu()
         {
             yield return new WaitForSeconds(2f);
-            var previousCanvas = GUIHelper.GetPreviousGUI(canvasName);
-            previousCanvas.GetComponent<Canvas>().enabled = true;
-            GUIHelper.NextGUI();
+            GUIHelper.NextGUI(null, GUIHelper.GetCurrentGUI());
         }
     }
 }

@@ -7,6 +7,7 @@ namespace SadScene
     public class SideLinesWatching : ActionBase
     {
         public GameObject[] parents;
+        public GroupSoccerBallMovement groupSoccerBall;
 
         public override void StartAction()
         {
@@ -17,6 +18,7 @@ namespace SadScene
         private void TurnAround()
         {
             anim.SetTrigger("Watch");
+            groupSoccerBall.RestartSoccerGame();
             transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = true;
         }
 

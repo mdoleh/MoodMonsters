@@ -9,6 +9,7 @@ namespace SadScene
         {
             if (other.GetComponent<CharacterMovement>() != null)
             {
+                GroupDialogue.shouldStopPlaying = true;
                 other.GetComponent<CharacterMovement>().StopWalking(true);
                 other.GetComponent<CapsuleCollider>().enabled = false;
                 other.transform.FindChild("CameraFollow").GetComponent<CameraFollow>().enabled = false;

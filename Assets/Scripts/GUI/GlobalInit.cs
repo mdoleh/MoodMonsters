@@ -7,10 +7,10 @@ public class GlobalInit : MonoBehaviour
 {
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Timeout.ResetValues();
         GameFlags.ResetValues();
         Scenes.ResetValues();
-        Attempts.ResetValues();
         Help.ResetValues();
         Sound.ResetValues();
     }
