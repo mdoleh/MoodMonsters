@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using AngryScene;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AngryTutorial : TutorialBase
 {
@@ -21,7 +20,6 @@ public class AngryTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIInitialization.Initialize();
         StartCoroutine(HelpLilyPlayAudio());
     }
 
