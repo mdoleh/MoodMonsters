@@ -8,6 +8,7 @@ public class SoccerMovementHandler : MovementHandler
     {
         float moveSpeed = Time.deltaTime * joystick.CurrentSpeedAndDirection.y;
         transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);
-        laneBasedMovementHandler.AdjustPosition(transform, joystick);
+        var newPositionZ = laneBasedMovementHandler.AdjustPosition(transform, joystick).z;
+        transform.position = new Vector3(transform.position.x, transform.position.y, newPositionZ);
     }
 }

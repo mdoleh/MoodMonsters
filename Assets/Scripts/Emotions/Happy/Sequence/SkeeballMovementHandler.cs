@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace HappyScene
 {
@@ -9,7 +8,8 @@ namespace HappyScene
 
         public override void HandleMovement(Joystick joystick)
         {
-            laneBasedMovementHandler.AdjustPosition(transform, joystick);
+            var newPositionX = laneBasedMovementHandler.AdjustPosition(transform, joystick).x;
+            transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);
         }
     }
 }

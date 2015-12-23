@@ -17,8 +17,6 @@ public class ControllerMovement : MonoBehaviour
     protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
-    protected bool shouldIgnoreLateral = false;
-    protected bool shouldIgnoreForward = false;
     
     private bool initialInstructionsPlayed = false;
     private AudioSource joystickInstructions;
