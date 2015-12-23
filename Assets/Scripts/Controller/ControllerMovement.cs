@@ -11,7 +11,6 @@ public class ControllerMovement : MonoBehaviour
     public float zMax = 80.767f;
     public float zMin = 80.366f;
     public GameObject[] joystickAnimations;
-    public TutorialBase tutorial;
     public AudioSource initialInstructions;
 
     protected bool isWalking = false;
@@ -25,13 +24,18 @@ public class ControllerMovement : MonoBehaviour
     private AudioSource joystickInstructions;
     private GameObject disableJoystickPanel;
     private Joystick joystickScript;
+    private GameObject disablePanel;
+    private GameObject noInputSymbol;
+    private Canvas helpCanvas;
 
     protected virtual void Start()
     {
         joystickInstructions = joystickCanvas.GetComponent<AudioSource>();
         disableJoystickPanel = joystickCanvas.transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.transform.FindChild("Base").FindChild("Stick").GetComponent<Joystick>();
-        tutorial.InitializeGameObjects();
+        helpCanvas = GameObject.Find("HelpCanvas").GetComponent<Canvas>();
+        disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
+        noInputSymbol = disablePanel.transform.FindChild("NoInputSymbol").gameObject;
     }
 
     protected virtual void Update()
@@ -39,9 +43,9 @@ public class ControllerMovement : MonoBehaviour
         if (isWalking)
         {
             if (trackJoystick)
-                movementHandler.HandleMovement(transform, joystickScript);
+                movementHandler.HandleMovement(joystickScript);
             else
-                movementHandler.OverrideMovement(transform, Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
+                movementHandler.OverrideMovement(Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
         }
         trackJoystickMovement();
     }
@@ -87,8 +91,7 @@ public class ControllerMovement : MonoBehaviour
 
     private IEnumerator playJoystickInstructions()
     {
-        tutorial.DisableHelpGUI();
-        tutorial.ShowNoInputSymbol();
+        DisableHelpGUI();
         if (!initialInstructionsPlayed)
         {
             Utilities.PlayAudio(initialInstructions);
@@ -117,7 +120,6 @@ public class ControllerMovement : MonoBehaviour
     {
         disableJoystickPanel.SetActive(false);
         trackJoystick = true;
-        tutorial.EnableHelpGUI();
         EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
         Timeout.StartTimers();
@@ -132,15 +134,16 @@ public class ControllerMovement : MonoBehaviour
         joystickScript.shouldStartTimers = shouldStartTimers;
     }
 
-    protected void DisableHelpGUI()
+    public void DisableHelpGUI()
     {
-        tutorial.DisableHelpGUI();
+        disablePanel.SetActive(true);
+        noInputSymbol.SetActive(true);
     }
 
-    protected void EnableHelpGUI()
+    public void EnableHelpGUI()
     {
-        GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
-        tutorial.EnableHelpGUI();
+        helpCanvas.enabled = true;
+        disablePanel.SetActive(false);
     }
 
     protected void ResetAndDisableJoystick()

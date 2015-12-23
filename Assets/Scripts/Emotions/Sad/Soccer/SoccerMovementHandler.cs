@@ -9,7 +9,7 @@ public class SoccerMovementHandler : MovementHandler
     public Transform[] lanes;
     private bool shouldAdjustPosition = true;
 
-    public override void HandleMovement(Transform transform, Joystick joystick)
+    public override void HandleMovement(Joystick joystick)
     {
         float moveSpeed = Time.deltaTime * joystick.CurrentSpeedAndDirection.y;
         transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);

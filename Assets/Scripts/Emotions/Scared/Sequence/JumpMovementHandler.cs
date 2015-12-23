@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class JumpMovementHandler : MovementHandler
 {
-    public override void HandleMovement(Transform transform, Joystick joystick)
+    public override void HandleMovement(Joystick joystick)
     {
         float moveSpeed = Time.deltaTime * joystick.CurrentSpeedAndDirection.y;
         float moveDirection = Time.deltaTime * joystick.CurrentSpeedAndDirection.x;
