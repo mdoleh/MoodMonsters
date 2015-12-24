@@ -16,11 +16,11 @@ public class ControllerMovement : MonoBehaviour
     protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
+    protected Joystick joystickScript;
     
     private bool initialInstructionsPlayed = false;
     private AudioSource joystickInstructions;
     private GameObject disableJoystickPanel;
-    private Joystick joystickScript;
     private GameObject disablePanel;
     private GameObject noInputSymbol;
     private Canvas helpCanvas;
@@ -40,21 +40,19 @@ public class ControllerMovement : MonoBehaviour
         if (isWalking)
         {
             if (trackJoystick)
+            {
                 movementHandler.HandleMovement(joystickScript);
+                multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
+                multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
+            }
             else
-                movementHandler.OverrideMovement(Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
+            {
+                movementHandler.OverrideMovement(Time.deltaTime*multiplierSpeed, Time.deltaTime*multiplierDirection);
+            }
         }
     }
 
     public virtual void StartRunningAnimation() {}
-
-    protected virtual void AdjustCamera()
-    {
-        if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
-        joystickCanvas.GetComponent<Canvas>().enabled = true;
-        mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
-        mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
-    }
 
     protected virtual void StartJoystickTutorial()
     {

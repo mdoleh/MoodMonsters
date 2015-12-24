@@ -48,6 +48,14 @@ namespace SadScene
             StartJoystickTutorial();
         }
 
+        private void AdjustCamera()
+        {
+            if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
+            joystickCanvas.GetComponent<Canvas>().enabled = true;
+            mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
+            mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
+        }
+
         public void KickBallUp()
         {
             if (shouldKickUp) soccerBall.KickBallUp();
