@@ -19,9 +19,9 @@ namespace HappyScene
         {
             var mainCamera = GameObject.Find("MainCamera");
             // limit character's position so it can't move behind the camera
-            if (Math.Abs(mainCamera.transform.position.z - transform.position.z) < 1.0f)
+            if (Math.Abs(mainCamera.transform.position.z - transform.position.z) < 1.3f)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z + 1.0f);
+                transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z + 1.3f);
             }
         }
     }
