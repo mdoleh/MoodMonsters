@@ -45,34 +45,9 @@ public class ControllerMovement : MonoBehaviour
             else
                 movementHandler.OverrideMovement(Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
         }
-        trackJoystickMovement();
     }
 
-    private void trackJoystickMovement()
-    {
-        if (trackJoystick)
-        {
-            if (joystickScript.CurrentSpeedAndDirection.y > 0) StartRunningAnimation();
-            multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
-            multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
-            // limit character's position laterally (z-direction)
-            if (transform.position.z > zMax)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, zMax);
-            }
-            else if (transform.position.z < zMin)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, zMin);
-            }
-            // limit character's position so it can't move behind the camera
-            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.0f)
-            {
-                transform.position = new Vector3(mainCamera.transform.position.x + 1.0f, transform.position.y, transform.position.z);
-            }
-        }
-    }
-
-    protected virtual void StartRunningAnimation() {}
+    public virtual void StartRunningAnimation() {}
 
     protected virtual void AdjustCamera()
     {

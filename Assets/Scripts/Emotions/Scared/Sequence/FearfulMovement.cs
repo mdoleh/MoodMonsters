@@ -31,7 +31,7 @@ namespace ScaredScene
             currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
-        protected override void StartRunningAnimation()
+        public override void StartRunningAnimation()
         {
             base.Run();
         }

@@ -132,7 +132,7 @@ namespace SadScene
             GetComponent<CapsuleCollider>().enabled = true;
         }
 
-        protected override void StartRunningAnimation()
+        public override void StartRunningAnimation()
         {
             if (!anim.GetBool("Run")) anim.SetBool("Run", true);
         }

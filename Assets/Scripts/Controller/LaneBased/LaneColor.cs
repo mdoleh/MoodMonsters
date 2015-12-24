@@ -9,7 +9,7 @@ public class LaneColor : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f, ALPHA);
+        GetComponent<Renderer>().material.color = WRONG_LANE_COLOR;
     }
 
     public void SetColor(Color newColor)

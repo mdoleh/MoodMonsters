@@ -13,6 +13,7 @@ namespace HappyScene
             mainCamera.transform.position = new Vector3(214.269f, 5.77f, 163.522f);
             GUIHelper.NextGUI();
             StartJoystickTutorial();
+            LaneAppear.shouldShowLanes = true;
         }
     }
 }
