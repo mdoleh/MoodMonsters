@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Globals;
+using UnityEngine;
 
 public class ControllerMovement : MonoBehaviour 
 {
@@ -105,6 +104,11 @@ public class ControllerMovement : MonoBehaviour
     {
         joystickCanvas.GetComponent<Canvas>().enabled = false;
         joystickScript.shouldStartTimers = shouldStartTimers;
+    }
+
+    protected void ShowJoystick()
+    {
+        joystickCanvas.GetComponent<Canvas>().enabled = true;
     }
 
     public void DisableHelpGUI()
