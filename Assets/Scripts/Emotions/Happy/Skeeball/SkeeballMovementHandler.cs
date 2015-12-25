@@ -14,7 +14,7 @@ namespace HappyScene
             transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);
             restrictMovement();
 
-            if (joystick.CurrentSpeedAndDirection.y >= 1.0f)
+            if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
             {
                 thrower.ThrowBall(transform);
             }
