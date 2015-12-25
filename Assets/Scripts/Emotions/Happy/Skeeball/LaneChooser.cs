@@ -13,11 +13,11 @@ namespace HappyScene
         {
             var index = Random.Range(0, lanes.Length);
             correctLane = lanes[index];
-            resetAllHighlighers();
+            HideAllHighlighers();
             goalHighlighters[index].GetComponent<MeshRenderer>().enabled = true;
         }
 
-        private void resetAllHighlighers()
+        public void HideAllHighlighers()
         {
             goalHighlighters.ToList().ForEach(x =>
             {
