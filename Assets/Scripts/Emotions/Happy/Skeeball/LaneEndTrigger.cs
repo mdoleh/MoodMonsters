@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using HappyScene;
+using UnityEngine;
 
-public class LaneEndTrigger : MonoBehaviour
+namespace HappyScene
 {
-    private void OnTriggerEnter(Collider other)
+    public class LaneEndTrigger : MonoBehaviour
     {
-        var ballAnimation = other.GetComponent<BallAnimation>();
-        if (ballAnimation != null)
+        private void OnTriggerEnter(Collider other)
         {
-            var method = ballAnimation.GetType().GetMethod("Animate" + transform.parent.name + "Lane");
-            method.Invoke(ballAnimation, null);
+            var ballAnimation = other.GetComponent<BallAnimation>();
+            if (ballAnimation != null)
+            {
+                var method = ballAnimation.GetType().GetMethod("Animate" + transform.parent.name + "Lane");
+                method.Invoke(ballAnimation, new object[] {LaneChooser.correctLane.name == transform.parent.name});
+            }
         }
     }
 }

@@ -6,27 +6,27 @@ public class BallAnimation : MonoBehaviour
 {
     public SkeeballCharacterMovement thrower;
 
-    public void AnimateLeftLane()
+    public void AnimateLeftLane(bool isCorrect)
     {
         // animation stuff here
         // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Left Lane triggered");
+        Debug.Log("Left Lane triggered isCorrect:" + isCorrect);
         resetBall();
     }
 
-    public void AnimateMiddleLane()
+    public void AnimateMiddleLane(bool isCorrect)
     {
         // animation stuff here
         // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Middle Lane triggered");
+        Debug.Log("Middle Lane triggered isCorrect:" + isCorrect);
         resetBall();
     }
 
-    public void AnimateRightLane()
+    public void AnimateRightLane(bool isCorrect)
     {
         // animation stuff here
         // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Right Lane triggered");
+        Debug.Log("Right Lane triggered isCorrect:" + isCorrect);
         resetBall();
     }
 
