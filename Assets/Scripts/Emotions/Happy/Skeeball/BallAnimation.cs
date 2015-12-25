@@ -1,39 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
-using HappyScene;
 
-public class BallAnimation : MonoBehaviour
+namespace HappyScene
 {
-    public SkeeballCharacterMovement thrower;
-
-    public void AnimateLeftLane(bool isCorrect)
+    public class BallAnimation : MonoBehaviour
     {
-        // animation stuff here
-        // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Left Lane triggered isCorrect:" + isCorrect);
-        resetBall();
-    }
+        public void AnimateLeftLane()
+        {
+            // animation stuff here
+            // maybe read XML file with all positions of ball trajectory in it
+            Debug.Log("Left Lane triggered");
+            transform.position = new Vector3(213.934f, 5.659f, 167.881f);
+        }
 
-    public void AnimateMiddleLane(bool isCorrect)
-    {
-        // animation stuff here
-        // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Middle Lane triggered isCorrect:" + isCorrect);
-        resetBall();
-    }
+        public void AnimateMiddleLane()
+        {
+            // animation stuff here
+            // maybe read XML file with all positions of ball trajectory in it
+            Debug.Log("Middle Lane triggered");
+            transform.position = new Vector3(214.304f, 5.603f, 167.768f);
+        }
 
-    public void AnimateRightLane(bool isCorrect)
-    {
-        // animation stuff here
-        // maybe read XML file with all positions of ball trajectory in it
-        Debug.Log("Right Lane triggered isCorrect:" + isCorrect);
-        resetBall();
-    }
-
-    private void resetBall()
-    {
-        transform.GetComponent<LaneBasedMovementHandler>().currentIndex = 1;
-        transform.position = new Vector3(214.304f, 4.73f, 164.882f);
-        thrower.ResetForNextThrow(transform);
+        public void AnimateRightLane()
+        {
+            // animation stuff here
+            // maybe read XML file with all positions of ball trajectory in it
+            Debug.Log("Right Lane triggered");
+            transform.position = new Vector3(214.679f, 5.659f, 167.881f);
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using HappyScene;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HappyScene
 {
@@ -11,7 +10,7 @@ namespace HappyScene
             if (ballAnimation != null)
             {
                 var method = ballAnimation.GetType().GetMethod("Animate" + transform.parent.name + "Lane");
-                method.Invoke(ballAnimation, new object[] {LaneChooser.correctLane.name == transform.parent.name});
+                method.Invoke(ballAnimation, null);
             }
         }
     }

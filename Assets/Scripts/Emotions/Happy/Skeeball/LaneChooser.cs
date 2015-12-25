@@ -14,14 +14,14 @@ namespace HappyScene
             var index = Random.Range(0, lanes.Length);
             correctLane = lanes[index];
             resetAllHighlighers();
-            goalHighlighters[index].SetActive(true);
+            goalHighlighters[index].GetComponent<MeshRenderer>().enabled = true;
         }
 
         private void resetAllHighlighers()
         {
             goalHighlighters.ToList().ForEach(x =>
             {
-                x.SetActive(false);
+                x.GetComponent<MeshRenderer>().enabled = false;
                 var color = x.GetComponent<Renderer>().material.color;
                 x.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0.5f);
             });
