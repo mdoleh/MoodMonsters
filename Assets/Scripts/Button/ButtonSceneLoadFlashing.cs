@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Globals;
 
 public class ButtonSceneLoadFlashing : ButtonSelect {
 
@@ -7,6 +6,7 @@ public class ButtonSceneLoadFlashing : ButtonSelect {
 
     protected override void DoubleClickAction()
     {
+        Scenes.NextSceneToLoad = "IntroductionScreen";
         Utilities.LoadScene(sceneToLoad);
     }
 }

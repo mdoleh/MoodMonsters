@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5a1d40db657c9c9479637c2e9e8aaaca
-timeCreated: 1449020135
+guid: d6679f40af66f6644905acfc17220452
+timeCreated: 1452467330
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -137,8 +137,7 @@ ModelImporter:
     400126: mixamorig:Spine
     400128: mixamorig:Spine1
     400130: mixamorig:Spine2
-    7400000: idle
-    7400002: idle_introduction
+    7400000: standard_idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -162,12 +161,12 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: standard_idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 250
+      lastFrame: 90
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 90
       level: 0
       cycleOffset: 0
       loop: 0
@@ -342,7 +341,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 1
   humanDescription:
@@ -355,7 +354,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: mixamorig:Hips
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 65d31f13cf52eb7428de6923eff5db8c,
     type: 3}
