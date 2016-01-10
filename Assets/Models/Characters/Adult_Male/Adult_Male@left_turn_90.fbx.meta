@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5a1d40db657c9c9479637c2e9e8aaaca
-timeCreated: 1449020135
+guid: f2c68a816303bcd42a4a9c0da34e93f8
+timeCreated: 1452462511
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -137,8 +137,7 @@ ModelImporter:
     400126: mixamorig:Spine
     400128: mixamorig:Spine1
     400130: mixamorig:Spine2
-    7400000: idle
-    7400002: idle_introduction
+    7400000: left_turn_90
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -162,17 +161,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: left_turn_90
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 250
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -184,7 +183,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.92505354
+        functionName: ShiftIdle
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -342,7 +348,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 1
   humanDescription:
