@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Globals;
 
 public class GameIntroduction : MonoBehaviour
 {
@@ -30,16 +31,32 @@ public class GameIntroduction : MonoBehaviour
         yield return new WaitForSeconds(bodyAndFace.clip.length);
         Utilities.PlayAudio(useWordsLike);
         yield return new WaitForSeconds(useWordsLike.clip.length);
-        yield return StartCoroutine(playEmotions());
+        yield return StartCoroutine(playListOfAudio(emotions));
+        hideListOfObjects(emotions);
+        yield return StartCoroutine(playParentSection());
+        Utilities.LoadScene("MainMenuScreen");
     }
 
-    private IEnumerator playEmotions()
+    private IEnumerator playListOfAudio(AudioSource[] audioList)
     {
-        foreach (var emotion in emotions)
+        foreach (var audio in audioList)
         {
-            emotion.gameObject.SetActive(true);
-            Utilities.PlayAudio(emotion);
-            yield return new WaitForSeconds(emotion.clip.length);
+            audio.gameObject.SetActive(true);
+            Utilities.PlayAudio(audio);
+            yield return new WaitForSeconds(audio.clip.length);
         }
+    }
+
+    private void hideListOfObjects(AudioSource[] audioList)
+    {
+        audioList.ToList().ForEach(element => element.gameObject.SetActive(false));
+    }
+
+    private IEnumerator playParentSection()
+    {
+        if (!GameFlags.AdultIsPresent) yield break;
+        Utilities.PlayAudio(PASSIntro);
+        yield return new WaitForSeconds(PASSIntro.clip.length);
+        yield return StartCoroutine(playListOfAudio(PASSLetters));
     }
 }
