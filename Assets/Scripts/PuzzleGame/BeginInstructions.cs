@@ -30,10 +30,10 @@ public class BeginInstructions : MonoBehaviour
             .FindChild("MakingFaces")
             .GetComponentsInChildren<AudioSource>().ToList();
         var makingFacesAudio = makingFacesAudioList.First(
-            x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+            x => Scenes.GetLastEmotionCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
         Utilities.PlayAudio(makingFacesAudio);
         picturesToShow =
-            kidsFacesImages.First(x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+            kidsFacesImages.First(x => Scenes.GetLastEmotionCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
         picturesToShow.SetActive(true);
         yield return new WaitForSeconds(makingFacesAudio.clip.length);
 
@@ -42,7 +42,7 @@ public class BeginInstructions : MonoBehaviour
             .GetComponentsInChildren<AudioSource>().ToList();
         var makeFaceInstruction =
             emotionInstructions.First(
-                x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+                x => Scenes.GetLastEmotionCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
 
         Utilities.PlayAudio(makeFaceInstruction);
         yield return new WaitForSeconds(makeFaceInstruction.clip.length);

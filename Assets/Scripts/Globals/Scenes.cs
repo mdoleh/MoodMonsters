@@ -8,8 +8,10 @@ namespace Globals
         public static bool LoadingSceneThroughDebugging = false;
         public static int CurrentMiniGameIndex = 0;
         public static string NextSceneToLoad;
-        public static string SceneForTestingParentPresent = "SadSceneSmallCity";
-        public static string SceneForTestingMinigames = "AngrySceneSmallCity";
+        public static string LastLoadedScene;
+        private static string SceneForTestingParentPresent = "SadSceneSmallCity";
+        private static string EmotionForTestingMinigames = "AngrySceneSmallCity";
+        private static string LastLoadedSceneForTesting = "TitleScreen";
 
         public static IList<string> CompletedScenes = new List<string>();
 
@@ -32,14 +34,19 @@ namespace Globals
             NextSceneToLoad = "";
         }
 
-        public static string GetLastSceneCompleted()
+        public static string GetLastEmotionCompleted()
         {
-            return CompletedScenes.Count == 0 ? SceneForTestingMinigames : CompletedScenes.Last();
+            return CompletedScenes.Count == 0 ? EmotionForTestingMinigames : CompletedScenes.Last();
         }
 
         public static string GetNextSceneToLoadForParentPresent()
         {
             return string.IsNullOrEmpty(NextSceneToLoad) ? SceneForTestingParentPresent : NextSceneToLoad;
+        }
+
+        public static string GetLastLoadedScene()
+        {
+            return string.IsNullOrEmpty(LastLoadedScene) ? LastLoadedSceneForTesting : LastLoadedScene;
         }
     }
 }

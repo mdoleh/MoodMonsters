@@ -22,7 +22,7 @@ namespace EggCatch
         private void Awake()
         {
             myPlayerScript = transform.parent.GetComponent<PlayerScript>();
-            lastSceneCompleted = Scenes.GetLastSceneCompleted();
+            lastSceneCompleted = Scenes.GetLastEmotionCompleted();
             reminderToPlay = reminders.ToList().FirstOrDefault(x => lastSceneCompleted.Contains(x.gameObject.name));
         }
 
