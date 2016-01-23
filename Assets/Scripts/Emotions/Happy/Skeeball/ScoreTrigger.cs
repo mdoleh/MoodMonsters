@@ -29,7 +29,6 @@ namespace HappyScene
 
         private void resetBall(Collider other)
         {
-            other.GetComponent<LaneBasedMovementHandler>().currentIndex = 1;
             other.transform.position = new Vector3(214.304f, 4.73f, 165.337f);
             thrower.ResetForNextThrow(other.transform);
         }

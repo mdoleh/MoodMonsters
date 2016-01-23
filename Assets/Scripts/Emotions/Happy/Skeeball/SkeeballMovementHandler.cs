@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace HappyScene
@@ -6,12 +7,14 @@ namespace HappyScene
     public class SkeeballMovementHandler : MovementHandler
     {
         public SkeeballCharacterMovement thrower;
-        public LaneBasedMovementHandler laneBasedMovementHandler;
+        [Header("Horizontal Restrictions")]
+        public float minX;
+        public float maxX;
 
         public override void HandleMovement(Joystick joystick)
         {
-            var newPositionX = laneBasedMovementHandler.AdjustPosition(transform, joystick).x;
-            transform.position = new Vector3(newPositionX, transform.position.y, transform.position.z);
+            float moveDirection = Time.deltaTime * joystick.CurrentSpeedAndDirection.x;
+            transform.position = new Vector3(transform.position.x + moveDirection, transform.position.y, transform.position.z);
             restrictMovement();
 
             if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
@@ -32,6 +35,14 @@ namespace HappyScene
             if (Math.Abs(mainCamera.transform.position.z - transform.position.z) < 1.3f)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z + 1.3f);
+            }
+            if (transform.position.x <= minX)
+            {
+                transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+            }
+            if (transform.position.x >= maxX)
+            {
+                transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
             }
         }
 
