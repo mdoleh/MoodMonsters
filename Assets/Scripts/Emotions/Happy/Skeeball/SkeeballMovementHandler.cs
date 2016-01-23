@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace HappyScene
@@ -44,11 +43,6 @@ namespace HappyScene
             {
                 transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
             }
-        }
-
-        private void throwBall()
-        {
-
         }
     }
 }
