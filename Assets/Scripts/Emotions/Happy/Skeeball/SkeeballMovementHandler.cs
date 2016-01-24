@@ -13,6 +13,9 @@ namespace HappyScene
         public float minX;
         public float maxX;
 
+        [Header("Debugging")]
+        public float defaultSpeed = 1500f;
+
         public override void HandleMovement(Joystick joystick)
         {
             float speed = 0f;
@@ -23,7 +26,7 @@ namespace HappyScene
             {
                 speed = (Input.touches[0].deltaPosition/Time.deltaTime).y;
             }
-            else speed = 1500f;
+            else speed = defaultSpeed;
             if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
             {
                 Debug.Log("speed: " + speed);
@@ -42,7 +45,7 @@ namespace HappyScene
             {
                 return 0.8f;
             }
-            return 0.5f;
+            return 0.75f;
         }
 
         public override void OverrideMovement(float moveSpeed, float moveDirection)

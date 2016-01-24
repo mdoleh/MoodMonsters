@@ -26,7 +26,7 @@ namespace HappyScene
             LaneAppear.shouldShowLanes = true;
             goalChooser.ChooseLane();
         }
-
+        
         public void ThrowBall(Transform ball, float speedFactor)
         {
             Utilities.PlayAudio(ball.GetComponent<AudioSource>());

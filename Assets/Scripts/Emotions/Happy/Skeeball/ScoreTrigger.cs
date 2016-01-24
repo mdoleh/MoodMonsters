@@ -29,7 +29,6 @@ namespace HappyScene
 
         private void resetBall(Collider other)
         {
-            BackPanelTrigger.ResetBackPanel();
             other.transform.position = new Vector3(214.304f, 4.73f, 165.337f);
             other.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             thrower.ResetForNextThrow(other.transform);
