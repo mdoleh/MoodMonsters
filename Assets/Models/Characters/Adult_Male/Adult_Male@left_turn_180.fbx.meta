@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 02a3d83bd19fb2e42af1eaa7848c1f70
-timeCreated: 1449019876
+guid: 4a6908d418ce16e42af88bb7defdfd6d
+timeCreated: 1453672756
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -137,8 +137,8 @@ ModelImporter:
     400126: mixamorig:Spine
     400128: mixamorig:Spine1
     400130: mixamorig:Spine2
-    7400000: talking_dismissive
-    7400002: talking_happy
+    7400000: left_turn_180_happy_scene
+    7400002: left_turn_180_happy_scene_to_putdown_prize
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -162,10 +162,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: talking_dismissive
+      name: left_turn_180_happy_scene
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 214
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -184,7 +184,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.98715204
+        functionName: GetPrizeEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -322,19 +329,19 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: talking_happy
+      name: left_turn_180_happy_scene_to_putdown_prize
       takeName: mixamo.com
-      firstFrame: 16
-      lastFrame: 53
+      firstFrame: 0
+      lastFrame: 49
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 15
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
@@ -344,7 +351,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.9764454
+        functionName: PutDownPrizeEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -502,7 +516,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 1
   humanDescription:

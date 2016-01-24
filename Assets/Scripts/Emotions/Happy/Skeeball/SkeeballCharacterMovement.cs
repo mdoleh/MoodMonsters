@@ -16,8 +16,6 @@ namespace HappyScene
 
         public void StartSequence()
         {
-            // place character in "skeeball ready" idle pose
-            //anim.SetTrigger("Idle");
             mainCamera.transform.position = new Vector3(214.269f, 5.599f, 163.684f);
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13.65f, 0f, 0f));
             if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
@@ -32,6 +30,11 @@ namespace HappyScene
         {
             trackJoystick = false;
             HideJoystick(false);
+        }
+
+        public void TakePrize()
+        {
+            anim.SetTrigger("TakePrize");
         }
 
         private void resetBallPosition(Transform ball)

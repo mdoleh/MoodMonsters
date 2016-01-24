@@ -5,6 +5,7 @@ namespace HappyScene
     public class PlayerSkeeballThrow : SkeeballThrow
     {
         public SkeeballAutomatedCharacterMovement automatedCharacter;
+        public VendorAnimations vendor;
         public SkeeballScore skeeballScore;
         public const int MAX_SCORE = 400;
 
@@ -47,7 +48,7 @@ namespace HappyScene
 
         private void winPrize()
         {
-            // animation sequence to win prize
+            vendor.WonPrize();
         }
     }
 }
