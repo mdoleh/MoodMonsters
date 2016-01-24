@@ -8,7 +8,7 @@ namespace HappyScene
         [HideInInspector]
         public float speedFactor = 0f;
 
-        public SkeeballCharacterMovement thrower;
+        public SkeeballThrow thrower;
         [Header("Horizontal Restrictions")]
         public float minX;
         public float maxX;
@@ -31,7 +31,7 @@ namespace HappyScene
             {
                 Debug.Log("speed: " + speed);
                 speedFactor = computeSpeedFactor(speed);
-                thrower.ThrowBall(transform, speedFactor);
+                thrower.ThrowBall(transform);
             }
         }
 

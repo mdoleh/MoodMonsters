@@ -4,7 +4,7 @@ namespace HappyScene
 {
     public class SkeeballScore : MonoBehaviour
     {
-        public static int Score = 0;
+        public int Score = 0;
 
         public void IncreaseScore(int amount)
         {

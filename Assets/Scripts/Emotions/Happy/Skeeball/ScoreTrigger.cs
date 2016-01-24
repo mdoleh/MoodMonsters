@@ -4,7 +4,7 @@ namespace HappyScene
 {
     public class ScoreTrigger : MonoBehaviour
     {
-        public SkeeballCharacterMovement thrower;
+        public SkeeballThrow thrower;
         public SkeeballScore scoreKeeper;
         public AudioSource bonusSound;
         public AudioSource defaultSound;
@@ -29,8 +29,6 @@ namespace HappyScene
 
         private void resetBall(Collider other)
         {
-            other.transform.position = new Vector3(214.304f, 4.73f, 165.337f);
-            other.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             thrower.ResetForNextThrow(other.transform);
         }
     }

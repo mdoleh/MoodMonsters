@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace HappyScene
 {
@@ -13,9 +12,9 @@ namespace HappyScene
             scarlet.StartSequence();
         }
 
-        protected override void InitializeAudio()
+        public override void InitializeGameObjects()
         {
-            base.InitializeAudio();
+            base.InitializeGameObjects();
             scarlet = GameObject.Find("Scarlet").GetComponent<SkeeballCharacterMovement>();
         }
     }
