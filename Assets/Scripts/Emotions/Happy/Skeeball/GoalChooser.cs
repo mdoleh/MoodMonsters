@@ -3,16 +3,15 @@ using UnityEngine;
 
 namespace HappyScene
 {
-    public class LaneChooser : MonoBehaviour
+    public class GoalChooser : MonoBehaviour
     {
-        public GameObject[] lanes;
         public GameObject[] goalHighlighters;
-        public static GameObject correctLane;
+        public static GameObject correctGoal;
 
         public void ChooseLane()
         {
-            var index = Random.Range(0, lanes.Length);
-            correctLane = lanes[index];
+            var index = Random.Range(0, goalHighlighters.Length);
+            correctGoal = goalHighlighters[index];
             HideAllHighlighers();
             goalHighlighters[index].GetComponent<MeshRenderer>().enabled = true;
         }

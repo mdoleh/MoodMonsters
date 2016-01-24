@@ -5,6 +5,9 @@ namespace HappyScene
 {
     public class SkeeballMovementHandler : MovementHandler
     {
+        [HideInInspector]
+        public float speedFactor = 0f;
+
         public SkeeballCharacterMovement thrower;
         [Header("Horizontal Restrictions")]
         public float minX;
@@ -12,19 +15,39 @@ namespace HappyScene
 
         public override void HandleMovement(Joystick joystick)
         {
+            float speed = 0f;
             float moveDirection = Time.deltaTime * joystick.CurrentSpeedAndDirection.x;
             transform.position = new Vector3(transform.position.x + moveDirection, transform.position.y, transform.position.z);
             restrictMovement();
-
+            if (Input.touches.Length > 0)
+            {
+                speed = (Input.touches[0].deltaPosition/Time.deltaTime).y;
+            }
+            else speed = 1500f;
             if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
             {
-                thrower.ThrowBall(transform);
+                Debug.Log("speed: " + speed);
+                speedFactor = computeSpeedFactor(speed);
+                thrower.ThrowBall(transform, speedFactor);
             }
+        }
+
+        private float computeSpeedFactor(float speed)
+        {
+            if (speed >= 1500f)
+            {
+                return 1f;
+            }
+            if (speed < 1500f && speed >= 400f)
+            {
+                return 0.8f;
+            }
+            return 0.5f;
         }
 
         public override void OverrideMovement(float moveSpeed, float moveDirection)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + moveSpeed);
+            // do nothing
         }
 
         private void restrictMovement()

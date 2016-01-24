@@ -7,8 +7,6 @@ public class ControllerMovement : MonoBehaviour
     public MovementHandler movementHandler;
     public GameObject joystickCanvas;
     public Camera mainCamera;
-    public float zMax = 80.767f;
-    public float zMin = 80.366f;
     public GameObject[] joystickAnimations;
     public AudioSource initialInstructions;
 

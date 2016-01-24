@@ -4,7 +4,7 @@ namespace HappyScene
 {
     public class SkeeballCharacterMovement : ControllerMovement
     {
-        public LaneChooser laneChooser;
+        public GoalChooser goalChooser;
         public const int MAX_SCORE = 400;
         private Animator anim;
 
@@ -24,16 +24,16 @@ namespace HappyScene
             StartJoystickTutorial();
             movementHandler.gameObject.SetActive(true);
             LaneAppear.shouldShowLanes = true;
-            laneChooser.ChooseLane();
+            goalChooser.ChooseLane();
         }
 
-        public void ThrowBall(Transform ball)
+        public void ThrowBall(Transform ball, float speedFactor)
         {
-            // Todo: attach ball as child of her hand and animate her throwing it
-            animateThrowBall();
             Utilities.PlayAudio(ball.GetComponent<AudioSource>());
+            var ballRigidbody = ball.GetComponent<Rigidbody>();
+            ballRigidbody.useGravity = true;
             trackJoystick = false;
-            multiplierSpeed = 2.0f;
+            ballRigidbody.AddForce(ball.forward * (300f * speedFactor));
             HideJoystick(false);
         }
 
@@ -47,15 +47,12 @@ namespace HappyScene
             else
             {
                 Utilities.StopAudio(ball.GetComponent<AudioSource>());
-                laneChooser.ChooseLane();
+                ball.GetComponent<BallAnimation>().NeutralizeForce();
+                ball.GetComponent<Rigidbody>().useGravity = false;
+                goalChooser.ChooseLane();
                 EnableJoystick();
                 ShowJoystick();
             }
-        }
-
-        private void animateThrowBall()
-        {
-            //anim.SetTrigger("Throw");
         }
 
         private void winPrize()
@@ -66,7 +63,7 @@ namespace HappyScene
         private void stopSkeeball(Transform ball)
         {
             ball.gameObject.SetActive(false);
-            laneChooser.HideAllHighlighers();
+            goalChooser.HideAllHighlighers();
             mainCamera.transform.position = new Vector3(213.64f, 6.42f, 162.15f);
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(25.3244f, 0f, 0f));
         }
