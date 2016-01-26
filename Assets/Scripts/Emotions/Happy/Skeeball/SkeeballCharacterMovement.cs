@@ -6,13 +6,6 @@ namespace HappyScene
     {
         public GoalChooser goalChooser;
         public SkeeballThrow skeeballThrow;
-        private Animator anim;
-
-        protected override void Start()
-        {
-            base.Start();
-            anim = GetComponent<Animator>();
-        }
 
         public void StartSequence()
         {
@@ -30,11 +23,6 @@ namespace HappyScene
         {
             trackJoystick = false;
             HideJoystick(false);
-        }
-
-        public void TakePrize()
-        {
-            anim.SetTrigger("TakePrize");
         }
 
         private void resetBallPosition(Transform ball)

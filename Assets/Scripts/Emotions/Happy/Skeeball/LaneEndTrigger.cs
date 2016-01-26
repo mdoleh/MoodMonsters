@@ -14,6 +14,7 @@ namespace HappyScene
                 other.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
                 other.GetComponent<Rigidbody>().AddForce(other.transform.forward * 75f);
                 other.GetComponent<Rigidbody>().AddForce(other.transform.up * (250f * speedFactor));
+                Utilities.StopAudio(Sound.CurrentPlayingSound);
             }
         }
     }
