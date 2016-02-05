@@ -52,8 +52,10 @@ namespace HappyScene
 
         private void adjustCamera()
         {
-            mainCamera.transform.position = new Vector3(215.008f, 5.553f, 165.528f);
-            mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13f, 270f, 0f));
+//            mainCamera.transform.position = new Vector3(215.008f, 5.553f, 165.528f);
+            mainCamera.transform.position = new Vector3(213.285f, 5.586f, 162.746f);
+//            mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13f, 270f, 0f));
+            mainCamera.transform.rotation = Quaternion.Euler(new Vector3(15f, 0f, 0f));
         }
     }
 }
