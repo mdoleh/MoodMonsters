@@ -19,10 +19,16 @@ namespace HappyScene
         public void StartSequence()
         {
             resetBallPosition(skeeball);
+            resetBallColor(skeeball);
             adjustCamera();
 //            anim.SetTrigger("Throw");
             // TODO: this is temporary, should be called by an animation event
             StartCoroutine(throwBall());
+        }
+
+        private void resetBallColor(Transform skeeball)
+        {
+            skeeball.GetComponent<Renderer>().material = skeeball.GetComponent<SkeeballMovementHandler>().autoColor;
         }
 
         private IEnumerator throwBall()

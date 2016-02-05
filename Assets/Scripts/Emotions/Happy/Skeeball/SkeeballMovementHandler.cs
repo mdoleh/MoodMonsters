@@ -9,6 +9,8 @@ namespace HappyScene
         public float speedFactor = 0f;
 
         public SkeeballThrow thrower;
+        public Material playerColor;
+        public Material autoColor;
         [Header("Horizontal Restrictions")]
         public float minX;
         public float maxX;

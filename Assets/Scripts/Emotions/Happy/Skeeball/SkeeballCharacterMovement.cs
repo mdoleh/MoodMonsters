@@ -15,6 +15,7 @@ namespace HappyScene
             else ShowJoystick();
             StartJoystickTutorial();
             resetBallPosition(movementHandler.gameObject.transform);
+            resetBallColor(movementHandler.gameObject.transform);
             movementHandler.gameObject.SetActive(true);
             goalChooser.ChooseLane();
         }
@@ -29,6 +30,11 @@ namespace HappyScene
         {
             ball.position = new Vector3(214.304f, 4.73f, 165.337f);
             ball.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        }
+
+        private void resetBallColor(Transform ball)
+        {
+            ball.GetComponent<Renderer>().material = ball.GetComponent<SkeeballMovementHandler>().playerColor;
         }
     }
 }
