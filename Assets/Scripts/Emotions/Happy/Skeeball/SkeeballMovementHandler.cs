@@ -16,7 +16,7 @@ namespace HappyScene
         public float maxX;
 
         [Header("Debugging")]
-        public float defaultSpeed = 1500f;
+        public float defaultSpeed = 1000f;
 
         public override void HandleMovement(Joystick joystick)
         {
@@ -39,11 +39,11 @@ namespace HappyScene
 
         private float computeSpeedFactor(float speed)
         {
-            if (speed >= 1500f)
+            if (speed >= 1000f)
             {
                 return 1f;
             }
-            if (speed < 1500f && speed >= 400f)
+            if (speed < 1000f && speed >= 400f)
             {
                 return 0.8f;
             }

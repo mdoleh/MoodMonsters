@@ -6,6 +6,7 @@ namespace HappyScene
     {
         public SkeeballThrow thrower;
         public SkeeballScore scoreKeeper;
+        public GoalChooser goalChooser;
         public AudioSource bonusSound;
         public AudioSource defaultSound;
 
@@ -30,6 +31,7 @@ namespace HappyScene
         private void resetBall(Collider other)
         {
             thrower.ResetForNextThrow(other.transform);
+            if (goalChooser != null) goalChooser.HideAllHighlighers();
         }
     }
 }
