@@ -10,6 +10,7 @@ namespace HappyScene
             {
                 StopWalking();
                 GUIHelper.NextGUI();
+                enabled = false;
             }
         }
     }
