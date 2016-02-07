@@ -7,10 +7,15 @@ namespace HappyScene
     {
         private void OnTriggerEnter(Collider other)
         {
-            var playerCharacter = other.GetComponent<PlayerPickupPrize>();
-            if (playerCharacter != null)
+            var character = other.GetComponent<CollectPrizeBase>();
+            if (character != null)
             {
-                playerCharacter.Turn();
+                character.Turn();
+            }
+            var player = other.GetComponent<PlayerPickupPrize>();
+            if (player != null)
+            {
+                player.AutomatedFollow();
             }
         }
     }

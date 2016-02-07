@@ -2,20 +2,17 @@
 
 namespace HappyScene
 {
-    public class PlayerPickupPrize : MonoBehaviour
+    public class PlayerPickupPrize : CollectPrizeBase
     {
         public VendorAnimations vendor;
+        public AutomatedFollowPlayer automatedCharacter;
         public Camera mainCamera;
         public Transform rightHand;
         public Transform prize;
 
-        private Animator anim;
-        private bool shouldMove = false;
-        private bool shouldMoveZ = false;
-
-        private void Start()
+        public void AutomatedFollow()
         {
-            anim = GetComponent<Animator>();
+            automatedCharacter.Turn();
         }
 
         public void TakePrize()
@@ -38,43 +35,24 @@ namespace HappyScene
         public void AdjustPrizePosition()
         {
             prize.localPosition = new Vector3(-0.1590579f, 0.1720701f, 0.03714781f);
-//            prize.position = new Vector3(216.5865f, 4.913111f, 164.7747f);
             prize.localRotation = Quaternion.Euler(new Vector3(297.1701f, 61.78062f, 22.98684f));
-//            prize.rotation = Quaternion.Euler(new Vector3(350.1668f, 187.73f, 334.5417f));
         }
 
-        public void Idle()
+        public override void StartMoving()
         {
-            anim.SetTrigger("Idle");
-        }
-
-        public void Turn()
-        {
-            anim.SetTrigger("TurnAround");
-        }
-
-        public void WalkEvent()
-        {
-            anim.SetTrigger("Walk");
-        }
-
-        public void StartMoving()
-        {
-            shouldMove = true;
+            base.StartMoving();
             GetComponent<CameraFollow>().enabled = true;
         }
 
-        public void StopMoving()
+        public override void StopMoving()
         {
-            shouldMove = false;
-            shouldMoveZ = true;
+            base.StopMoving();
             GetComponent<CameraFollow>().enabled = false;
         }
 
-        public void StopWalking()
+        public override void StopWalking()
         {
-            StopMoving();
-            anim.SetTrigger("Idle");
+            base.StopWalking();
             mainCamera.transform.position = new Vector3(219.819f, 5.665f, 165.045f);
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13f, 270f, 0f));
         }
