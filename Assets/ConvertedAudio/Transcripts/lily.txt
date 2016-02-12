@@ -1,0 +1,5 @@
+Lily
+
+Angry Scene:
+	- Hey! Give it back! (*GiveItBack)
+	- Maybe we should share. (*MaybeWeShouldShare)

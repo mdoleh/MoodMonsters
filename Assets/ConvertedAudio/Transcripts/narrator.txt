@@ -1,0 +1,156 @@
+Narrator
+
+General Audio (used in all scenes):
+ - Good! (*Good)
+ - Good job! (*GoodJob)
+ - Nice job! (*NiceJob)
+ - Not quite, try again. (*NotQuiteTryAgain)
+ - Right! (*Right)
+ - Super job! (*SuperJob)
+ - Now give control back to the child (*GiveControlsToChild)
+ - Now it's the adult's turn to answer the questions (*NowTheAdultTurn)
+ - Touch the picture when you are ready to continue (*TouchPictureWhenReady)
+ - Drag it left or right to control his direction (*DragLeftRightControlDirection)
+ 
+ - Timer Running Out
+	- Choose something or the game will reset (*ChooseOrReset)
+	- Do something or the game will restart (*DoSomethingOrReset)
+	
+ - Intro Screens
+	- Is there an adult with you? Touch the check mark for yes or the X for no. (*IsThereAnAdult)
+	- Is the adult who is with you a man or a woman? Touch the left picture for man or touch the right button for woman. (*ManOrWoman)
+	- Touch one to start (*TouchOneToStart)
+	- Touch the flashing button to begin (*TouchToPlay)
+ 
+ - Main Tutorial
+	- For every right answer you get coins (*CoinsExplanationGaining)
+	- Don't get any wrong answers or you will lose them (*CoinsExplanationLosing)
+	- Drag a card into the box to give the answer. Now it's your turn, try dragging the card into the box. (*DragACardToSubmit)
+	- For a hint, touch the help button (*ForAHintTouchHelp)
+	- When this symbol is on screen you cannot touch any buttons. Wait until it goes away. (*NoTouchSymbolExplanation)
+	- To quit the game, touch the quit button. (*ToQuitTouchQuit)
+	- To repeat the question, touch the repeat button. (*ToRepeatTouchRepeat)
+	- Touch a card or button to hear what it is. Now you try, touch the card. (*TouchCardOrButtonToHear)
+
+ - Help Menu
+	- Touch again for help (*TouchAgainForHelp)
+	- Touch again for information (*TouchAgainForInfo)
+	- Touch again to go back (*TouchAgainToGoBack)
+	- Touch again to quit (*TouchAgainToQuit)
+	- Touch again to repeat (*TouchAgainToRepeat)
+	- Touch again to start (*TouchAgainToStart)
+	
+ - Emotions Menu
+	- Angry (*Angry)
+	- Excited (*Excited)
+	- Happy (*Happy)
+	- Jealous (*Jealous)
+	- Sad (*Sad)
+	- Scared (*Scared)
+	
+ - Physical Responses Menu
+	- Arms in the air (*ArmsInTheAir)
+	- Breathing fast (*BreathingFast)
+	- Butterflies in stomach (*Butterflies)
+	- Crying (*Crying)
+	- Making fists with hands (*Fists)
+	- Shaking hands (*HandsShaking)
+	- Head down (*HeadDown)
+	- Heart racing (*HeartRacing)
+	- High five (*HighFive)
+	- Feeling hot (*Hot)
+	- Hugging toys (*HuggingToys)
+	- Jumping up and down (*Jumping)
+	- Laughing (*Laughing)
+	- Smiling (*Smiling)
+	- Stamping feet (*StampingFeet)
+	- Sweating (*Sweating)
+	- Throat closing up (*ThroatClosing)
+	- Tingling in hands or fingers (*Tingling)
+	- Feeling tired (*Tired)
+	
+ - PASS
+	- Ask (*Ask)
+	- Pay Attention (*PayAttention)
+	- Solve (*Solve)
+	- Support (*Support)
+	
+ - Scene Intros
+	- How does he feel? (*HowDoesHeFeel)
+	- How does she feel? (*HowDoesSheFeel)
+	
+ - Egg Drop Mini Game
+	- Try not to catch any other faces or you will lose stars (*AvoidOtherFaces)
+	- Use the bucket to catch Angry faces and earn stars (*CatchTheAngryFaces)
+	- Use the bucket to catch Happy faces and earn stars (*CatchTheHappyFaces)
+	- Use the bucket to catch Sad faces and earn stars (*CatchTheSadFaces)
+	- Use the bucket to catch Scared faces and earn stars (*CatchTheScaredFaces)
+	- Drag your finger left or right to move the bucket (*DragFingerMoveBucket)
+	- Remember, only catch the angry faces or you will lose stars (*OnlyCatchAngryFaces)
+	- Remember, only catch the happy faces or you will lose stars (*OnlyCatchHappyFaces)
+	- Remember, only catch the sad faces or you will lose stars (*OnlyCatchSadFaces)
+	- Remember, only catch the scared faces or you will lose stars (*OnlyCatchScaredFaces)
+	
+ - Puzzle Mini Game
+	- Drag a puzzle piece on top of another to switch their places (*DragPieceOnAnotherToSwap)
+	- Unscramble the picture (*UnscramblePicture)
+	- Do you want to use this picture? Touch the check mark to keep it, touch the X to retake it. (*DoYouWantToUseThisPicture)
+	- Try to get your face to take up as much of the oval as possible (*GetFaceIntoOval)
+	- These kids are making their angry faces (*KidsAreMakingAngryFaces)
+	- These kids are making their happy faces (*KidsAreMakingHappyFaces)
+	- These kids are making their sad faces (*KidsAreMakingSadFaces)
+	- These kids are making their scared faces (*KidsAreMakingScaredFaces)
+	- Taking a picture in 3, 2, 1 (*TakingAPictureCountDown)
+	- Touch the button to start the count down to take a picture (*TouchButtonToTakePicture)
+	- What does your angry face look like? (*WhatDoesYourAngryFaceLookLike)
+	- What does your happy face look like? (*WhatDoesYourHappyFaceLookLike)
+	- What does your sad face look like? (*WhatDoesYourSadFaceLookLike)
+	- What does your scared face look like? (*WhatDoesYourScaredFaceLookLike)
+	
+Game Intro (first thing seen after pressing Play):
+	- Your body and face do different things depending on what you are feeling so pay attention to how your body and face are telling you how you feel. (*PayAttentionToBodyAndFace)
+	- Then use a word like (*UseWordsLike)
+	- Happy (as if you are reading a list of items) (*Happy)
+	- Sad (as if you are reading a list of items) (*Sad)
+	- Angry (as if you are reading a list of items) (*Angry)
+	- or Scared to tell others what you are feeling and work with an adult to find a way to handle the situation. (*OrScaredToTellOthers)
+	- Even very young children can learn how to use their words to describe their feelings. This can reduce tantrums and other problematic behaviors. To help your child handle his or her emotions use PASS. (*AdultPASSIntro)
+	- Pay attention to your child's emotions (*PayAttentionToChildsEmotions)
+	- Ask about how he or she is feeling (*AskAboutFeelings)
+	- Support your child emotionally (*SupportChildEmotionally)
+	- Solve the problem by working with your child to identify solutions (*SolveByWorkingWithChild)
+	
+Angry Scene:
+	- Help Lily play her game by dragging your finger left or right (*HelpLilyPlay)
+	- Oh look! Here comes Ty. (*HereComesTy)
+	- This is Lily. She's playing with her new iPad and she likes it. (*LilyIntro)
+	- This is what Lily is playing. (*ThisIsWhatLilyIsPlaying)
+	- Uh oh! Ty took Lily's iPad away. Do you know how that makes her feel? (*HowDoesLilyFeel)
+	- What does your body do when you're angry? (*WhatDoesYourBodyDoAngry)
+	- What else does your body do when you're angry? (*WhatElseDoesYourBodyDoAngry)
+	- Can you find another thing you do when you're angry? (*CanYouFindWhatYouDoAngry)
+	- Actions Menu:
+		- What should Lily do to make it better? (*WhatShouldLilyDo)
+		- Share (*Share)
+		- Take it back (*TakeItBack)
+	- That's not right. Now Lily doesn't get to play with the iPad. Try again. (*LilyDoesntGetToPlay)
+	- That's not right. Lily got her iPad back, but now Ty (tie) is angry. Try again. (*LilyGotItBackTyIsAngry)
+	- That's right! Now Lily and Ty (tie) can play together. Good job! Now you get to play a game (*TheyCanPlayTogether)
+	
+	
+Happy Scene:
+	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
+	- Drag the joystick left or right to line up the ball with the green bonus holes. (*DragLeftOrRightLineUp)
+	- Swipe it forward as fast as you can to roll the ball. (*SwipeForwardToRollBall)
+	- Scarlet is playing skeeball with her friend Ty [tie] and is having fun. (*ScarletIntro)
+	
+Sad Scene:
+	- Drag the joystick forward to make Luis (loo-is) run (*DragJoystickForwardMakeLuisRun)
+	- Drag the joystick forward to make Luis (loo-is) run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis)
+	- This is Luis (loo-is). He's playing in the park. (*LuisIntro)
+	- Use the soccer ball to knock over the cones. Move Luis (loo-is) toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
+	
+Scared Scene:
+	- AJ is playing with his friend Scarlet and is having fun. (*AJIntro)
+	- Drag the joystick forward to make AJ run. (*DragJoystickForwardMakeAJRun)
+	- Drag the joystick forward to make AJ run. Drag it left or right to control his direction (*DragJoystickRunAndDirectionsAJ)
