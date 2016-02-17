@@ -7,6 +7,7 @@ namespace HappyScene
     {
         public SkeeballThrow skeeballThrow;
         public Transform skeeball;
+        public Transform throwingHand;
         public GoalChooser goalChooser;
         public Camera mainCamera;
         private Animator anim;
@@ -21,9 +22,12 @@ namespace HappyScene
             resetBallPosition(skeeball);
             resetBallColor(skeeball);
             adjustCamera();
-//            anim.SetTrigger("Throw");
-            // TODO: this is temporary, should be called by an animation event
-            StartCoroutine(throwBall());
+            anim.SetTrigger("Throw");
+        }
+
+        public void ShiftIdleEvent()
+        {
+            anim.SetTrigger("Idle");
         }
 
         private void resetBallColor(Transform skeeball)
@@ -31,30 +35,25 @@ namespace HappyScene
             skeeball.GetComponent<Renderer>().material = skeeball.GetComponent<SkeeballMovementHandler>().autoColor;
         }
 
-        private IEnumerator throwBall()
-        {
-            yield return new WaitForSeconds(1.5f);
-            ThrowBallEvent();
-        }
-
         public void ThrowBallEvent()
         {
+            skeeball.parent = null;
+            skeeball.position = new Vector3(212.913f, 4.472f, 164.257f);
+            skeeball.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             skeeball.GetComponent<SkeeballMovementHandler>().speedFactor = 0.75f;
             skeeballThrow.ThrowBall(skeeball);
         }
 
         private void resetBallPosition(Transform ball)
         {
-            // TODO: put the ball in his hand
-            ball.position = new Vector3(212.913f, 4.472f, 164.257f);
+            ball.parent = throwingHand;
+            ball.localPosition = new Vector3(0.001f, 0.073f, 0.069f);
             ball.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         }
 
         private void adjustCamera()
         {
-//            mainCamera.transform.position = new Vector3(215.008f, 5.553f, 165.528f);
             mainCamera.transform.position = new Vector3(212.092f, 5.573f, 163.023f);
-//            mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13f, 270f, 0f));
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(15.00005f, 5.96f, 0f));
         }
     }
