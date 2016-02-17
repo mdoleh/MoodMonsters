@@ -25,6 +25,7 @@ namespace HappyScene
 
         public void WalkEvent()
         {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle")) return;
             anim.SetTrigger("Walk");
         }
 

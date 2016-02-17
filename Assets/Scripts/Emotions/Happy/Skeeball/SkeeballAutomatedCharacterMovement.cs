@@ -22,6 +22,12 @@ namespace HappyScene
             resetBallPosition(skeeball);
             resetBallColor(skeeball);
             adjustCamera();
+            StartCoroutine(rollBallDelayed());
+        }
+
+        private IEnumerator rollBallDelayed()
+        {
+            yield return new WaitForSeconds(1f);
             anim.SetTrigger("Throw");
         }
 
