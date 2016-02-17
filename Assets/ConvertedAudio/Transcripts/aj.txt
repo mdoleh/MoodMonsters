@@ -1,0 +1,8 @@
+AJ
+
+Scared Scene:
+	- No! I don't want to! (*IDontWantTo)
+	- But I'm afraid I'll fall. (*ImAfraidIWillFall)
+	- I'm scared. (*ImScared)
+	- It's too far. (*ItsTooFar)
+	- Whoa! (*Whoa)

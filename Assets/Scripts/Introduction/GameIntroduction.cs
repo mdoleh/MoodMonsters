@@ -29,7 +29,8 @@ namespace GameIntro
         private IEnumerator playIntro()
         {
             yield return new WaitForSeconds(2f);
-            mainCamera.PanRight((position) => position.x <= 204.352f);
+            mainCamera.PanRight(
+                new Vector3(204.352f, mainCamera.transform.position.y, mainCamera.transform.position.z), bodyAndFace.clip.length);
             Utilities.PlayAudio(bodyAndFace);
             yield return new WaitForSeconds(bodyAndFace.clip.length);
             Utilities.PlayAudio(useWordsLike);

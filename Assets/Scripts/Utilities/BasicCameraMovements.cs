@@ -3,40 +3,42 @@ using UnityEngine;
 
 public class BasicCameraMovements : MonoBehaviour
 {
-    public float PAN_SPEED = 0.01f;
+    private float PAN_SPEED;
 
     private bool panUp;
     private bool panDown;
     private bool panLeft;
     private bool panRight;
 
-    private Func<Vector3, bool> conditionUp;
-    private Func<Vector3, bool> conditionDown;
-    private Func<Vector3, bool> conditionLeft;
-    private Func<Vector3, bool> conditionRight; 
+    private Vector3 finalPosition;
 
-    public void PanLeft(Func<Vector3, bool> condition)
+
+    public void PanLeft(Vector3 finalPosition, float timeToMove)
     {
         panLeft = true;
-        conditionLeft = condition;
+        PAN_SPEED = Math.Abs(transform.position.x - finalPosition.x) / timeToMove;
+        this.finalPosition = finalPosition;
     }
 
-    public void PanRight(Func<Vector3, bool> condition)
+    public void PanRight(Vector3 finalPosition, float timeToMove)
     {
         panRight = true;
-        conditionRight = condition;
+        PAN_SPEED = Math.Abs(transform.position.x - finalPosition.x) / timeToMove;
+        this.finalPosition = finalPosition;
     }
 
-    public void PanUp(Func<Vector3, bool> condition)
+    public void PanUp(Vector3 finalPosition, float timeToMove)
     {
         panUp = true;
-        conditionUp = condition;
+        PAN_SPEED = Math.Abs(transform.position.y - finalPosition.y) / timeToMove;
+        this.finalPosition = finalPosition;
     }
 
-    public void PanDown(Func<Vector3, bool> condition)
+    public void PanDown(Vector3 finalPosition, float timeToMove)
     {
         panDown = true;
-        conditionDown = condition;
+        PAN_SPEED = Math.Abs(transform.position.y - finalPosition.y) / timeToMove;
+        this.finalPosition = finalPosition;
     }
 
     public void ResetFlags()
@@ -46,33 +48,30 @@ public class BasicCameraMovements : MonoBehaviour
         panLeft = false;
         panRight = false;
 
-        conditionUp = null;
-        conditionDown = null;
-        conditionLeft = null;
-        conditionRight = null; 
+        finalPosition = Vector3.zero;
     }
 
     private void Update()
     {
         if (panUp)
         {
-            transform.position += transform.up * PAN_SPEED;
-            if (conditionUp(transform.position)) panUp = false;
+            transform.position += transform.up * Time.deltaTime * PAN_SPEED;
+            if (transform.position.y >= finalPosition.y) panUp = false;
         }
         if (panDown)
         {
-            transform.position -= transform.up * PAN_SPEED;
-            if (conditionDown(transform.position)) panDown = false;
+            transform.position -= transform.up * Time.deltaTime * PAN_SPEED;
+            if (transform.position.y <= finalPosition.y) panDown = false;
         }
         if (panLeft)
         {
-            transform.position -= transform.right * PAN_SPEED;
-            if (conditionLeft(transform.position)) panLeft = false;
+            transform.position -= transform.right * Time.deltaTime * PAN_SPEED;
+            if (transform.position.x >= finalPosition.x) panLeft = false;
         }
         if (panRight)
         {
-            transform.position += transform.right * PAN_SPEED;
-            if (conditionRight(transform.position)) panRight = false;
+            transform.position += transform.right * Time.deltaTime * PAN_SPEED;
+            if (transform.position.x <= finalPosition.x) panRight = false;
         }
     }
 }

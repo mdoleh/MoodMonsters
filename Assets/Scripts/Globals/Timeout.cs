@@ -12,7 +12,6 @@ namespace Globals
         public static float ResetTime;
         public static float RepeatTime;
         public static AudioSource WarningAudio;
-        public bool shouldDisableAfterAwake = false;
 
         private static AudioSource RepeatAudio;
         private static float repeatTimer = 0f;
@@ -26,7 +25,7 @@ namespace Globals
             ResetTime = TimeUntilReset;
             RepeatTime = TimeUntilRepeat;
             Instance = gameObject.GetComponent<Timeout>();
-            if (shouldDisableAfterAwake) enabled = false;
+            enabled = false;
         }
 
         private void Update()
@@ -60,6 +59,7 @@ namespace Globals
         public static void StartTimers()
         {
             shouldRunTimers = true;
+            Instance.enabled = true;
         }
 
         public static void StopTimers()
@@ -68,6 +68,7 @@ namespace Globals
             shouldReset = false;
             repeatTimer = 0f;
             resetTimer = 0f;
+            Instance.enabled = false;
         }
 
         public static void ResetValues()

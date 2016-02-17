@@ -1,0 +1,9 @@
+Luis
+
+Sad Scene:
+	- Can I play? (*CanIPlay)
+	- I didn't want to play anyway! (*DidntWantToPlayAnyway)
+	- I'm sad. (*ImSad)
+	- But none of my friends are here. (*NoneOfMyFriendsAreHere)
+	- No! It's not fair! I wanted to play. (*NotFairWantedToPlay)
+	- They won't let me play. (*TheyWontLetMePlay)

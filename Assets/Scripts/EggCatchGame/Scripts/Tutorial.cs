@@ -28,7 +28,7 @@ namespace EggCatch
         private void Start()
         {
             Timeout.StopTimers();
-            lastSceneCompleted = Scenes.GetLastSceneCompleted();
+            lastSceneCompleted = Scenes.GetLastEmotionCompleted();
             initializeObjects();
             StartCoroutine(DelayedPlayAudio());
         }

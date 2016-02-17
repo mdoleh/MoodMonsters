@@ -22,16 +22,6 @@ namespace SadScene
             anim = GetComponent<Animator>();
         }
 
-        public void IgnoreLateralMovement()
-        {
-            shouldIgnoreLateral = true;
-        }
-
-        public void EnableLateralMovement()
-        {
-            shouldIgnoreLateral = false;
-        }
-
         public void SetSoccerBallFlag(bool flag)
         {
             soccerBall.isWatching = flag;
@@ -54,9 +44,16 @@ namespace SadScene
             anim.SetTrigger("Idle");
             if (!shouldAdjustCamera) return;
             AdjustCamera();
-            tutorial.EnableHelpGUI();
+            EnableHelpGUI();
             StartJoystickTutorial();
-            shouldIgnoreLateral = false;
+        }
+
+        private void AdjustCamera()
+        {
+            if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
+            joystickCanvas.GetComponent<Canvas>().enabled = true;
+            mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
+            mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
         }
 
         public void KickBallUp()
@@ -82,7 +79,7 @@ namespace SadScene
         {
             LaneAppear.shouldShowLanes = false;
             LaneAppear.HideAllLanes();
-            tutorial.DisableHelpGUI();
+            DisableHelpGUI();
             StopMoving();
             ResetCamera(true, shouldAdjustPosition);
             StartCoroutine(KickBallForward());
@@ -121,7 +118,7 @@ namespace SadScene
 
         public void ResetPosition(AudioSource audioSource)
         {
-            tutorial.DisableHelpGUI();
+            DisableHelpGUI();
             retryPointManager.NextInSequence();
             Utilities.PlayAudio(audioSource);
             anim.SetTrigger("WalkBackwards");
@@ -143,7 +140,7 @@ namespace SadScene
             GetComponent<CapsuleCollider>().enabled = true;
         }
 
-        protected override void StartRunningAnimation()
+        public override void StartRunningAnimation()
         {
             if (!anim.GetBool("Run")) anim.SetBool("Run", true);
         }
