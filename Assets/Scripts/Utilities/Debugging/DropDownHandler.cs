@@ -21,9 +21,13 @@ public class DropDownHandler : MonoBehaviour
         if (dropdown != null)
         {
             var canvasGroup = transform.Find("Dropdown List").GetComponent<CanvasGroup>();
-            canvasGroup.alpha = 1;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
+            if (canvasGroup.alpha >= 1f) HideDropDownList();
+            else
+            {
+                canvasGroup.alpha = 1;
+                canvasGroup.interactable = true;
+                canvasGroup.blocksRaycasts = true;
+            }
         }
     }
 }
