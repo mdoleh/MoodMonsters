@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Globals;
+using UnityEngine.SceneManagement;
 
 public class Utilities : MonoBehaviour {
 
@@ -74,12 +75,12 @@ public class Utilities : MonoBehaviour {
         Timeout.Instance.StopAllCoroutines();
         CanvasList.ResetIndex();
         StopAudio(Sound.CurrentPlayingSound);
-        if (sceneToLoad.ToLower().Contains("mainmenu"))
+        if (sceneToLoad.ToLower().Contains("mainmenu") && CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
         }
-        if (sceneToLoad.ToLower().Contains("minigame") && !Application.loadedLevelName.ToLower().Contains("minigame"))
+        if (sceneToLoad.ToLower().Contains("minigame") && !SceneManager.GetActiveScene().name.ToLower().Contains("minigame"))
         {
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
@@ -89,6 +90,7 @@ public class Utilities : MonoBehaviour {
                 Scenes.CompletedScenes.Add(sceneName);
         }
         Scenes.LoadingSceneThroughDebugging = false;
+        Scenes.LastLoadedScene = SceneManager.GetActiveScene().name;
         GameObject.Find("LoadingIndicatorCanvas").GetComponent<Canvas>().enabled = true;
         if (sceneToLoad != "") Timeout.Instance.StartCoroutine(loadLevelAsync(sceneToLoad));
     }

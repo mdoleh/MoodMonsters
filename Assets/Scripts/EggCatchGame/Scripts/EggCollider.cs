@@ -22,7 +22,7 @@ namespace EggCatch
         private void Awake()
         {
             myPlayerScript = transform.parent.GetComponent<PlayerScript>();
-            lastSceneCompleted = Scenes.GetLastSceneCompleted();
+            lastSceneCompleted = Scenes.GetLastEmotionCompleted();
             reminderToPlay = reminders.ToList().FirstOrDefault(x => lastSceneCompleted.Contains(x.gameObject.name));
         }
 
@@ -47,16 +47,9 @@ namespace EggCatch
                 Destroy(egg.parent.gameObject);
         }
 
-        private IEnumerator AdjustScore(Transform egg)
+        protected virtual IEnumerator AdjustScore(Transform egg)
         {
             if (loadingNextScene) yield break;
-            // should only be false on the Angry Scene
-            // want the other sounds to play over this one
-            if (!myPlayerScript.shouldKeepScore)
-            {
-                Utilities.PlayAudioUnBlockable(goodSound);
-                yield break;
-            }
 
             var emotion = egg.parent.gameObject.name.Replace(PREFAB_NAME_BASE, "");
             emotion = emotion.Replace("(Clone)", "");

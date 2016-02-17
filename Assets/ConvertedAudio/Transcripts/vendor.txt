@@ -1,0 +1,4 @@
+Vendor
+
+Happy Scene:
+	- You won a prize! Good job! (*YouWonAPrize)

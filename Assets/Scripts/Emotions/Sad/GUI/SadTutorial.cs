@@ -9,7 +9,6 @@ public class SadTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIInitialization.Initialize();
         groupSoccerBall.RestartSoccerGame();
         luis.GetComponent<OutsideGroupSoccerAnimation>().KickForwardWithDelay();
     }

@@ -15,7 +15,6 @@ public class ScaredTutorial : TutorialBase
     protected override void HelpExplanationComplete()
     {
         base.HelpExplanationComplete();
-        GUIInitialization.Initialize();
         if (GameFlags.AdultIsPresent)
         {
             parentCharacters.ToList()

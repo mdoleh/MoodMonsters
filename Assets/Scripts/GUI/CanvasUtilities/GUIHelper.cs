@@ -1,11 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Globals;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class GUIHelper : MonoBehaviour
 {

@@ -1,0 +1,6 @@
+Ty
+
+Angry Scene:
+	- Okay! (*Okay)
+	- Let me play (*LetMePlay)
+	- Come on! I want to play! (*ComeOnIWantToPlay)

@@ -18,7 +18,7 @@ namespace EggCatch
 
         private void Awake()
         {
-            lastSceneCompleted = Scenes.GetLastSceneCompleted();
+            lastSceneCompleted = Scenes.GetLastEmotionCompleted();
         }
 
         private void Update()

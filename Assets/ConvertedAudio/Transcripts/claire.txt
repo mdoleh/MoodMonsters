@@ -1,0 +1,5 @@
+Claire
+
+Sad Scene:
+	- No, go play with your own friends. (*PlayWithOwnFriends)
+	- Then you don't get to play. (*ThenYouDontGetToPlay)

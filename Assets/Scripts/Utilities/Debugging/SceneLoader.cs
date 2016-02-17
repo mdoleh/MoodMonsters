@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
             var field = typeof(GameFlags).GetField(flagText);
             flag.value = flag.options.FindIndex(x => x.text.Equals((string)field.GetValue(field)));
         });
-        lastSceneCompleted.value = lastSceneCompleted.options.FindIndex(x => x.text.Equals(Scenes.GetLastSceneCompleted()));
+        lastSceneCompleted.value = lastSceneCompleted.options.FindIndex(x => x.text.Equals(Scenes.GetLastEmotionCompleted()));
     }
 
     public void LoadScene()

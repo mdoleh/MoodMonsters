@@ -6,7 +6,7 @@ namespace SadScene
 {
     public class GroupSoccerBallMovement : MonoBehaviour {
 
-        private Rigidbody rigidBody;
+        protected Rigidbody rigidBody;
         private GroupSoccerAnimation currentPersonWithBall;
         private readonly IList<string> kickDirections = 
             new List<string> { "KickForward", "KickLeft", "KickRight" };
@@ -28,7 +28,7 @@ namespace SadScene
             rigidBody.angularVelocity = Vector3.zero;
         }
 
-        public void KickBallForward(Vector3 direction)
+        public virtual void KickBallForward(Vector3 direction)
         {
             NeutralizeForce();
             rigidBody.AddForce(direction * 100f);
@@ -46,7 +46,7 @@ namespace SadScene
             rigidBody.AddForce(direction * 100f);
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<GroupSoccerAnimation>() != null)
             {

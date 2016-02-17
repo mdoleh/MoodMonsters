@@ -1,0 +1,19 @@
+Dad
+
+Shared:
+	- Let's do something else. (*LetsDoSomethingElseDad)
+	- What do you think we should do? (*WhatDoYouThinkShouldDoDad)
+	
+Sad Scene:
+	- I understand that you feel sad. It's no fun being left out. (*ComfortDad)
+	- How about you try to find something else to do. (*FindSomethingElseToDoDad)
+	- Hey! Let Luis [loo-is] play or I'm telling your parents. (*LetLouisPlayDad)
+	- What's wrong? Why are you sad? (*WhatsWrongDad)
+	- You're fine. You're not sad. (*YoureNotSadDad)
+	
+Scared Scene:
+	- I understand you feel scared. That is a big jump and everyone gets scared sometimes. (*ComfortDad)
+	- See? I knew you could do it! (*IKnewYouCouldDoItDad)
+	- What's wrong? Why are you scared? (*WhatsWrongDad)
+	- You're fine. You're not scared. (*YouAreFineNotScaredDad)
+	- You can do it! You've jumped things like this before! (*YouCanDoItDad)

@@ -1,0 +1,19 @@
+Mom
+
+Shared:
+	- Let's do something else. (*LetsDoSomethingElseMom)
+	- What do you think we should do? (*WhatDoYouThinkShouldDoMom)
+	
+Sad Scene:
+	- I understand that you feel sad. It's no fun being left out. (*ComfortMom)
+	- How about you try to find something else to do. (*FindSomethingElseToDoMom)
+	- Hey! Let Luis [loo-is] play or I'm telling your parents. (*LetLouisPlayMom)
+	- What's wrong? Why are you sad? (*WhatsWrongMom)
+	- You're fine. You're not sad. (*YoureNotSadMom)
+	
+Scared Scene:
+	- I understand you feel scared. That is a big jump and everyone gets scared sometimes. (*ComfortMom)
+	- See? I knew you could do it! (*IKnewYouCouldDoItMom)
+	- What's wrong? Why are you scared? (*WhatsWrongMom)
+	- You're fine. You're not scared. (*YouAreFineNotScaredMom)
+	- You can do it! You've jumped things like this before! (*YouCanDoItMom)

@@ -103,6 +103,7 @@ public class TutorialBase : MonoBehaviour
         GameFlags.MainTutorialHasRun = true;
         Timeout.StopTimers();
         Timeout.SetRepeatAudio(null);
+        GUIInitialization.Initialize();
     }
 
     protected void ExplainButton(GameObject helpCanvas, string name, ref AudioSource audio)

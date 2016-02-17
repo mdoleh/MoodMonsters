@@ -1,37 +1,36 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Globals;
+using UnityEngine;
 
 public class ControllerMovement : MonoBehaviour 
 {
     public MovementHandler movementHandler;
     public GameObject joystickCanvas;
     public Camera mainCamera;
-    public float zMax = 80.767f;
-    public float zMin = 80.366f;
     public GameObject[] joystickAnimations;
-    public TutorialBase tutorial;
     public AudioSource initialInstructions;
 
     protected bool isWalking = false;
     protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
-    protected bool shouldIgnoreLateral = false;
-    protected bool shouldIgnoreForward = false;
+    protected Joystick joystickScript;
     
     private bool initialInstructionsPlayed = false;
     private AudioSource joystickInstructions;
     private GameObject disableJoystickPanel;
-    private Joystick joystickScript;
+    private GameObject disablePanel;
+    private GameObject noInputSymbol;
+    private Canvas helpCanvas;
 
     protected virtual void Start()
     {
         joystickInstructions = joystickCanvas.GetComponent<AudioSource>();
         disableJoystickPanel = joystickCanvas.transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.transform.FindChild("Base").FindChild("Stick").GetComponent<Joystick>();
-        tutorial.InitializeGameObjects();
+        helpCanvas = GameObject.Find("HelpCanvas").GetComponent<Canvas>();
+        disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
+        noInputSymbol = disablePanel.transform.FindChild("NoInputSymbol").gameObject;
     }
 
     protected virtual void Update()
@@ -39,46 +38,19 @@ public class ControllerMovement : MonoBehaviour
         if (isWalking)
         {
             if (trackJoystick)
-                movementHandler.HandleMovement(transform, joystickScript);
+            {
+                movementHandler.HandleMovement(joystickScript);
+                multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
+                multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
+            }
             else
-                movementHandler.OverrideMovement(transform, Time.deltaTime * multiplierSpeed, Time.deltaTime * multiplierDirection);
-        }
-        trackJoystickMovement();
-    }
-
-    private void trackJoystickMovement()
-    {
-        if (trackJoystick)
-        {
-            if (joystickScript.CurrentSpeedAndDirection.y > 0) StartRunningAnimation();
-            multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
-            multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
-            // limit character's position laterally (z-direction)
-            if (transform.position.z > zMax)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, zMax);
-            }
-            else if (transform.position.z < zMin)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, zMin);
-            }
-            // limit character's position so it can't move behind the camera
-            if (Math.Abs(mainCamera.transform.position.x - transform.position.x) < 1.0f)
-            {
-                transform.position = new Vector3(mainCamera.transform.position.x + 1.0f, transform.position.y, transform.position.z);
+                movementHandler.OverrideMovement(Time.deltaTime*multiplierSpeed, Time.deltaTime*multiplierDirection);
             }
         }
     }
 
-    protected virtual void StartRunningAnimation() {}
-
-    protected virtual void AdjustCamera()
-    {
-        if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
-        joystickCanvas.GetComponent<Canvas>().enabled = true;
-        mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
-        mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
-    }
+    public virtual void StartRunningAnimation() {}
 
     protected virtual void StartJoystickTutorial()
     {
@@ -87,8 +59,7 @@ public class ControllerMovement : MonoBehaviour
 
     private IEnumerator playJoystickInstructions()
     {
-        tutorial.DisableHelpGUI();
-        tutorial.ShowNoInputSymbol();
+        DisableHelpGUI();
         if (!initialInstructionsPlayed)
         {
             Utilities.PlayAudio(initialInstructions);
@@ -117,7 +88,6 @@ public class ControllerMovement : MonoBehaviour
     {
         disableJoystickPanel.SetActive(false);
         trackJoystick = true;
-        tutorial.EnableHelpGUI();
         EnableHelpGUI();
         Timeout.SetRepeatAudio(joystickInstructions);
         Timeout.StartTimers();
@@ -132,15 +102,21 @@ public class ControllerMovement : MonoBehaviour
         joystickScript.shouldStartTimers = shouldStartTimers;
     }
 
-    protected void DisableHelpGUI()
+    protected void ShowJoystick()
     {
-        tutorial.DisableHelpGUI();
+        joystickCanvas.GetComponent<Canvas>().enabled = true;
     }
 
-    protected void EnableHelpGUI()
+    public void DisableHelpGUI()
     {
-        GameObject.Find("HelpCanvas").GetComponent<Canvas>().enabled = true;
-        tutorial.EnableHelpGUI();
+        disablePanel.SetActive(true);
+        noInputSymbol.SetActive(true);
+    }
+
+    public void EnableHelpGUI()
+    {
+        helpCanvas.enabled = true;
+        disablePanel.SetActive(false);
     }
 
     protected void ResetAndDisableJoystick()

@@ -6,11 +6,11 @@ public class ButtonSceneLoad : ButtonSelect {
     public string sceneToLoad;
     public bool shouldAskParentPresent = false;
     public bool loadingEmotionScene = true;
+    public bool loadPreviousScene = false;
 
     protected override void DoubleClickAction()
     {
         Timeout.StopTimers();
-        if (string.IsNullOrEmpty(sceneToLoad)) return;
         if (GameObject.Find("MainCanvas") != null)
             Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
         if (shouldAskParentPresent)
@@ -22,6 +22,8 @@ public class ButtonSceneLoad : ButtonSelect {
         {
             if (loadingEmotionScene)
                 Utilities.LoadEmotionScene(sceneToLoad);
+            else if (loadPreviousScene)
+                Utilities.LoadScene(Scenes.GetLastLoadedScene());
             else
                 Utilities.LoadScene(sceneToLoad);
         }

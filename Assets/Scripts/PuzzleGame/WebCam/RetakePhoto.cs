@@ -14,7 +14,7 @@ public class RetakePhoto : MonoBehaviour
             .FindChild("Emotions")
             .GetComponentsInChildren<AudioSource>().ToList();
         makeAFaceInstruction = emotionInstructions.First(
-                x => Scenes.GetLastSceneCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
+                x => Scenes.GetLastEmotionCompleted().ToLower().Contains(x.gameObject.name.ToLower()));
 	}
 
     public void RetakePicture()
