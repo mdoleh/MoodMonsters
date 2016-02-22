@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace HappyScene
 {
@@ -11,9 +12,19 @@ namespace HappyScene
         {
             mainCamera.transform.position = new Vector3(214.269f, 5.599f, 163.684f);
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(13.65f, 0f, 0f));
-            if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
+            if (!joystickCanvas.activeInHierarchy)
+            {
+                GUIHelper.NextGUI();
+                StartCoroutine(goalChooser.FlashBonusHighlighters());
+            }
             else ShowJoystick();
-            StartJoystickTutorial();
+            StartCoroutine(startSequence());
+        }
+
+        private IEnumerator startSequence()
+        {
+            yield return PlayJoystickInstructions();
+            goalChooser.StopFlashingHighlighters();
             resetBallPosition(movementHandler.gameObject.transform);
             resetBallColor(movementHandler.gameObject.transform);
             movementHandler.gameObject.SetActive(true);

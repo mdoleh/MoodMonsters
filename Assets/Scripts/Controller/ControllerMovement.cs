@@ -54,10 +54,10 @@ public class ControllerMovement : MonoBehaviour
 
     protected virtual void StartJoystickTutorial()
     {
-        StartCoroutine(playJoystickInstructions());
+        StartCoroutine(PlayJoystickInstructions());
     }
 
-    private IEnumerator playJoystickInstructions()
+    protected virtual IEnumerator PlayJoystickInstructions()
     {
         DisableHelpGUI();
         if (!initialInstructionsPlayed)
