@@ -6,12 +6,17 @@ namespace HappyScene
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<CollectPrizeBase>() != null)
+            if (other.GetComponent<CollectPrizeBase>() != null && GetComponent<CapsuleCollider>().enabled)
             {
                 StopWalking();
                 GUIHelper.NextGUI();
-                enabled = false;
+                GetComponent<CapsuleCollider>().enabled = false;
             }
+        }
+
+        public void ShiftSad()
+        {
+            anim.SetTrigger("Idle");
         }
     }
 }

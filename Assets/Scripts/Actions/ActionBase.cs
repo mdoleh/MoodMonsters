@@ -4,7 +4,10 @@ using Globals;
 
 public class ActionBase : MonoBehaviour
 {
+    [Header("Optional")]
     public Animator anim;
+
+    [Header("Required")]
     public SceneReset sceneReset;
     public AudioSource actionExplanation;
 
