@@ -4,3 +4,7 @@ Scared Scene:
 	- See? I knew you could do it! (*IKnewYouCouldDoIt)
 	- It's okay to be scared sometimes. Everyone gets scared, but you've done these jumps before so I know you can do it! (*ItsOkayToBeScared)
 	- You can do it! We've jumped things like this before! (*YouCanDoIt)
+	
+Happy Scene:
+	- I want the big bear!(*IWantTheBigBear)
+	- I won a prize and you didn't. (*IWonYouDidnt)
