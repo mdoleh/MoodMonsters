@@ -53,13 +53,6 @@ namespace HappyScene
             anim.SetTrigger("PutDownPrize");
         }
 
-//        public void PutPrizeOnGroundEvent()
-//        {
-//            prizeBear.parent = null;
-//            prizeBear.position = new Vector3(216.997f, 5.114f, 165.192f);
-//            prizeBear.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
-//        }
-
         public void TakePrize()
         {
             playerCharacter.TakePrize();
@@ -76,6 +69,7 @@ namespace HappyScene
             if (player != null)
             {
                 player.StopWalking();
+                GetComponent<CapsuleCollider>().enabled = false;
             }
         }
     }
