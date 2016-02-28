@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using Globals;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CorrectActionBase : ActionBase
 {

@@ -6,7 +6,7 @@ namespace HappyScene
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<PlayerPickupPrize>().AdjustPrizePosition();
+            animator.GetComponent<CollectPrizeBase>().AdjustPrizePosition();
         }
     }
 }
