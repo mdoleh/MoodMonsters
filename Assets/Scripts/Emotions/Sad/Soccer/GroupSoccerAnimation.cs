@@ -10,7 +10,6 @@ namespace SadScene
         public Transform head;
 
         private Animator anim;
-        private Action<Animator> animationTrigger;
 
         private void Start()
         {
@@ -19,7 +18,7 @@ namespace SadScene
 
         public void KickForward()
         {
-            stopBallAnimation(animator => { anim.SetTrigger("KickForward"); });
+            stopBall("KickForward");
         }
 
         public void KickForwardEvent()
@@ -30,7 +29,7 @@ namespace SadScene
 
         public void KickLeft()
         {
-            stopBallAnimation(animator => { anim.SetTrigger("KickLeft"); });
+            stopBall("KickLeft");
         }
 
         public void KickLateralEvent()
@@ -41,10 +40,10 @@ namespace SadScene
 
         public void KickRight()
         {
-            stopBallAnimation(animator => { animator.SetTrigger("KickRight"); });
+            stopBall("KickRight");
         }
 
-        public void StopBallEvent()
+        private void stopBall(string triggerName)
         {
             soccerBall.NeutralizeForce();
             if (GroupDialogue.shouldStopPlaying)
@@ -52,20 +51,13 @@ namespace SadScene
                 anim.SetTrigger("Idle");
                 return;
             }
-            if (animationTrigger != null) animationTrigger(anim);
-        }
-
-        private void stopBallAnimation(Action<Animator> trigger)
-        {
-            animationTrigger = trigger;
-            anim.SetTrigger("StopBall");
+            anim.SetTrigger(triggerName);
         }
 
         private IEnumerator RestoreCollider()
         {
             yield return new WaitForSeconds(1f);
             GetComponent<CapsuleCollider>().enabled = true;
-            animationTrigger = null;
             anim.SetTrigger("Idle");
         }
 

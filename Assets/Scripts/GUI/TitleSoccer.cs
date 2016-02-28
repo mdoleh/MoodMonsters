@@ -14,8 +14,7 @@ public class TitleSoccer : GroupSoccerBallMovement
         var character = other.GetComponent<GroupSoccerAnimation>();
         if (character != null)
         {
-            var method = character.GetType().GetMethod("KickForward");
-            method.Invoke(character, null);  
+            character.KickForward();
         }
     }
 }
