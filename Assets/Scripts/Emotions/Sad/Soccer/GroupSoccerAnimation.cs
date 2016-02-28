@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
-using System.Collections;
 
 namespace SadScene
 {
@@ -9,14 +8,14 @@ namespace SadScene
         public GroupSoccerBallMovement soccerBall;
         public Transform head;
 
-        private Animator anim;
+        protected Animator anim;
 
         private void Start()
         {
             anim = GetComponent<Animator>();
         }
 
-        public void KickForward()
+        public virtual void KickForward()
         {
             stopBall("KickForward");
         }
