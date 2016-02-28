@@ -3,31 +3,35 @@ using System.Collections;
 using SadScene;
 using UnityEngine;
 
-public class TitleWave : GroupSoccerAnimation
+namespace TitleScreen
 {
-    public int counter = 0;
-
-    private void clearCounter()
+    public class TitleWave : GroupSoccerAnimation
     {
-        counter = 0;
-    }
+        public int counter = 0;
 
-    public override void KickForward()
-    {
-        soccerBall.NeutralizeForce();
-        ++counter;
-        if (counter >= 2)
+        private void clearCounter()
         {
-            StartCoroutine(waveAnimation(() => base.KickForward()));
-        } else base.KickForward();
-    }
+            counter = 0;
+        }
 
-    private IEnumerator waveAnimation(Action callBack)
-    {
-        anim.SetTrigger("Wave");
-        yield return new WaitForSeconds(3f);
-        anim.SetTrigger("Idle");
-        clearCounter();
-        callBack();
+        public override void KickForward()
+        {
+            soccerBall.NeutralizeForce();
+            ++counter;
+            if (counter >= 2)
+            {
+                StartCoroutine(waveAnimation(() => base.KickForward()));
+            }
+            else base.KickForward();
+        }
+
+        private IEnumerator waveAnimation(Action callBack)
+        {
+            anim.SetTrigger("Wave");
+            yield return new WaitForSeconds(3f);
+            anim.SetTrigger("Idle");
+            clearCounter();
+            callBack();
+        }
     }
 }

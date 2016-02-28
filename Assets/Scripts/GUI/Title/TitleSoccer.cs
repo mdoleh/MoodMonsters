@@ -1,20 +1,23 @@
 ﻿using SadScene;
 using UnityEngine;
 
-public class TitleSoccer : GroupSoccerBallMovement
+namespace TitleScreen
 {
-    public override void KickBallForward(Vector3 direction)
+    public class TitleSoccer : GroupSoccerBallMovement
     {
-        NeutralizeForce();
-        rigidBody.AddForce(direction * 500f);
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        var character = other.GetComponent<GroupSoccerAnimation>();
-        if (character != null)
+        public override void KickBallForward(Vector3 direction)
         {
-            character.KickForward();
+            NeutralizeForce();
+            rigidBody.AddForce(direction*500f);
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            var character = other.GetComponent<GroupSoccerAnimation>();
+            if (character != null)
+            {
+                character.KickForward();
+            }
         }
     }
 }
