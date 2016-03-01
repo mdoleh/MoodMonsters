@@ -32,6 +32,13 @@ General Audio (used in all scenes):
 	- To repeat the question, touch the repeat button. (*ToRepeatTouchRepeat)
 	- Touch a card or button to hear what it is. Now you try, touch the card. (*TouchCardOrButtonToHear)
 
+ - Hints
+	- Shared
+		- P stands for pay attention. (*PstandsFor)
+		- A stands for Ask. (*AstandsFor)
+		- The first S stands for Support. (*FirstSstandsFor)
+		- The second S stands for Solve. (*SecondSstandsFor)
+	
  - Help Menu:
 	- Touch again for help (*TouchAgainForHelp)
 	- Touch again for information (*TouchAgainForInfo)

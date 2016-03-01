@@ -7,7 +7,8 @@ namespace HelpGUI
         protected override void DoubleClickAction()
         {
             base.DoubleClickAction();
-            //GUIHelper.GetCurrentGUI().GetComponent<HintBase>().ShowHint();
+            var hint = GUIHelper.GetCurrentGUI().GetComponent<HintBase>();
+            if (hint != null) hint.ShowHint();
             Debug.Log("Help clicked.");
         }
     }
