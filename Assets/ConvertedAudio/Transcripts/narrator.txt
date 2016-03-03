@@ -1,6 +1,8 @@
 Narrator
 
+********************************************************************************************
 General Audio (used in all scenes):
+********************************************************************************************
  - Good! (*Good)
  - Good job! (*GoodJob)
  - Nice job! (*NiceJob)
@@ -100,8 +102,16 @@ General Audio (used in all scenes):
  - Scene Intros:
 	- How does he feel? (*HowDoesHeFeel)
 	- How does she feel? (*HowDoesSheFeel)
-	
- - Egg Drop Mini Game:
+
+********************************************************************************************
+End General Audio
+********************************************************************************************
+
+********************************************************************************************
+Mini Games
+********************************************************************************************	
+
+Egg Drop Mini Game:
 	- Try not to catch any other faces or you will lose stars (*AvoidOtherFaces)
 	- Use the bucket to catch Angry faces and earn stars (*CatchTheAngryFaces)
 	- Use the bucket to catch Happy faces and earn stars (*CatchTheHappyFaces)
@@ -113,7 +123,7 @@ General Audio (used in all scenes):
 	- Remember, only catch the sad faces or you will lose stars (*OnlyCatchSadFaces)
 	- Remember, only catch the scared faces or you will lose stars (*OnlyCatchScaredFaces)
 	
- - Puzzle Mini Game:
+Puzzle Mini Game:
 	- Drag a puzzle piece on top of another to switch their places (*DragPieceOnAnotherToSwap)
 	- Unscramble the picture (*UnscramblePicture)
 	- Do you want to use this picture? Touch the check mark to keep it, touch the X to retake it. (*DoYouWantToUseThisPicture)
@@ -129,6 +139,13 @@ General Audio (used in all scenes):
 	- What does your sad face look like? (*WhatDoesYourSadFaceLookLike)
 	- What does your scared face look like? (*WhatDoesYourScaredFaceLookLike)
 	
+********************************************************************************************
+End Mini Games
+********************************************************************************************
+
+********************************************************************************************
+Game Intro
+********************************************************************************************
 Game Intro (first thing seen after pressing Play):
 	- Your body and face do different things depending on what you are feeling so pay attention to how your body and face are telling you how you feel. (*PayAttentionToBodyAndFace)
 	- Then use a word like (*UseWordsLike)
@@ -141,7 +158,15 @@ Game Intro (first thing seen after pressing Play):
 	- Ask about how he or she is feeling (*AskAboutFeelings)
 	- Support your child emotionally (*SupportChildEmotionally)
 	- Solve the problem by working with your child to identify solutions (*SolveByWorkingWithChild)
-	
+
+********************************************************************************************
+End Game Intro
+********************************************************************************************	
+
+********************************************************************************************
+Emotion Scenes
+********************************************************************************************
+
 Angry Scene:
 	- Help Lily play her game by dragging your finger left or right (*HelpLilyPlay)
 	- Oh look! Here comes Ty. (*HereComesTy)
@@ -272,3 +297,7 @@ Scared Scene:
 		- and A stands for ask. They are the first steps. (*Ask)
 		- Good! The first S stands for support. It will validate his feelings. (*Support)
 		- Good! The second S stands for solve. He should be guided to find a solution. (*Solve)
+		
+********************************************************************************************
+End Emotion Scenes
+********************************************************************************************
