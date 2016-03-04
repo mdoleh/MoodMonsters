@@ -201,6 +201,8 @@ Happy Scene:
 		- That's right! Now Scarlet and Ty [tie] can both be happy. Good job! Now you get to play a game. (*ScarletAndTyBothHappy)
 		- Brag about winning a prize. (*BragAboutWinning)
 		- Complain that the prize isn't a big one (*ComplainAboutSize)
+	- Hints
+		- Look at what Scarlet is doing, and pick an answer that matches. (*LookAtWhatScarletDoing)
 	
 Sad Scene:
 	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)

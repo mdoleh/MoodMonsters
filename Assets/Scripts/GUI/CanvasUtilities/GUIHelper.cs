@@ -57,6 +57,8 @@ public class GUIHelper : MonoBehaviour
             if (!GetDisableCanvasIgnoreList().Contains(current)) current.SetActive(false);
             else current.GetComponent<Canvas>().enabled = false;
             CanvasList.IncrementIndex();
+            var hintToNotify = current.GetComponent<HintBase>();
+            if (hintToNotify != null) hintToNotify.NotifyCanvasChange();
         }
         Timeout.Instance.StartCoroutine(playCanvasAudio(next));
     }
