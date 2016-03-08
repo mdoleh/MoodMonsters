@@ -6,6 +6,7 @@ General Audio (used in all scenes):
  - Good! (*Good)
  - Good job! (*GoodJob)
  - Nice job! (*NiceJob)
+ - Oops! Try again. (*OopsTryAgain)
  - Not quite, try again. (*NotQuiteTryAgain)
  - Right! (*Right)
  - Super job! (*SuperJob)
@@ -295,10 +296,6 @@ Scared Scene:
 		- How should AJ's Dad respond? (*HowShouldDadRespond)
 		- How should AJ's Dad respond? Remember what P and A stand for. (*HowShouldDadRespondPASSReminder)
 		- What should AJ's Dad do? (*WhatShouldDadDo)
-	- PASS:
-		- and A stands for ask. They are the first steps. (*Ask)
-		- Good! The first S stands for support. It will validate his feelings. (*Support)
-		- Good! The second S stands for solve. He should be guided to find a solution. (*Solve)
 		
 ********************************************************************************************
 End Emotion Scenes
