@@ -6,7 +6,7 @@ General Audio (used in all scenes):
  - Good! (*Good)
  - Good job! (*GoodJob)
  - Nice job! (*NiceJob)
- - Oops! Try again. (*OopsTryAgain)
+ - Oops! Try again. (*OopsTryAgain) ******
  - Not quite, try again. (*NotQuiteTryAgain)
  - Right! (*Right)
  - Super job! (*SuperJob)
@@ -44,11 +44,12 @@ General Audio (used in all scenes):
 	
  - Help Menu:
 	- Touch again for help (*TouchAgainForHelp)
-	- Touch again for information (*TouchAgainForInfo)
+	- Touch again for information (*TouchAgainForInfo) ******
 	- Touch again to go back (*TouchAgainToGoBack)
 	- Touch again to quit (*TouchAgainToQuit)
-	- Touch again to repeat (*TouchAgainToRepeat)
+	- Touch again to repeat (*TouchAgainToRepeat) ******
 	- Touch again to start (*TouchAgainToStart)
+	- Touch again to play (*TouchAgainToPlay) ******
 	
  - Emotions Menu:
 	- Angry (*Angry)
@@ -66,7 +67,7 @@ General Audio (used in all scenes):
 	- Making fists with hands (*Fists)
 	- Shaking hands (*HandsShaking)
 	- Head down (*HeadDown)
-	- Heart racing (*HeartRacing)
+	- Heart racing (*HeartRacing) ******
 	- High five (*HighFive)
 	- Feeling hot (*Hot)
 	- Hugging toys (*HuggingToys)
