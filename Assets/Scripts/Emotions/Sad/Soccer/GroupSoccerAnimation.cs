@@ -55,7 +55,7 @@ namespace SadScene
 
         private IEnumerator RestoreCollider()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             GetComponent<CapsuleCollider>().enabled = true;
             anim.SetTrigger("Idle");
         }

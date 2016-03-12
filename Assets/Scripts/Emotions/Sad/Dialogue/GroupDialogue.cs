@@ -23,6 +23,7 @@ namespace SadScene
         public void ExplainCantPlay()
         {
             anim.applyRootMotion = true;
+            anim.ResetTrigger("Idle");
             GetComponent<CapsuleCollider>().enabled = false;
             anim.SetTrigger("CantPlay");
         }
