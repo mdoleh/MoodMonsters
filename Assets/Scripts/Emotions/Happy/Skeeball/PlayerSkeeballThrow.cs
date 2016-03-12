@@ -42,7 +42,7 @@ namespace HappyScene
         {
             ball.gameObject.SetActive(false);
             goalChooser.HideAllHighlighers();
-            mainCamera.transform.position = new Vector3(213.64f, 6.42f, 162.15f);
+            mainCamera.transform.position = new Vector3(214.358f, 6.42f, 162.15f);
             mainCamera.transform.rotation = Quaternion.Euler(new Vector3(25.3244f, 0f, 0f));
         }
 

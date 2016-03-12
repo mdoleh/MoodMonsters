@@ -1,16 +1,15 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class PhysicalHint : HintBase
+public class PhysicalHint : SimpleHint
 {
-    public AudioSource hintToPlay;
     public Animator anim;
     public string animationTrigger;
     public string animationResetTrigger;
 
     public override void ShowHint()
     {
-        Utilities.PlayAudio(hintToPlay);
+        base.ShowHint();
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(animationTrigger))
             anim.SetTrigger(animationTrigger);
     }

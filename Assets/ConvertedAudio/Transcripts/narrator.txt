@@ -185,6 +185,8 @@ Angry Scene:
 		- That's not right. Now Lily doesn't get to play with the iPad. Try again. (*LilyDoesntGetToPlay)
 		- That's not right. Lily got her iPad back, but now Ty [tie] is angry. Try again. (*LilyGotItBackTyIsAngry)
 		- That's right! Now Lily and Ty [tie] can play together. Good job! Now you get to play a game (*TheyCanPlayTogether)
+	- Hints
+		- What are her eyebrows doing to show you how she feels? (*WhatAreHerEyebrowsDoing)
 		
 Happy Scene:
 	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
@@ -205,6 +207,7 @@ Happy Scene:
 		- Complain that the prize isn't a big one (*ComplainAboutSize)
 	- Hints
 		- Look at what Scarlet is doing, and pick an answer that matches. (*LookAtWhatScarletDoing)
+		- What is her mouth doing to show you how she feels? (*WhatIsHerMouthDoing)
 	
 Sad Scene:
 	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)
