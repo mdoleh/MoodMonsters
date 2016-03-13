@@ -39,11 +39,11 @@ namespace HappyScene
 
         private float computeSpeedFactor(float speed)
         {
-            if (speed >= 400f)
+            if (speed >= 300f)
             {
                 return 1f;
             }
-            if (speed < 400f && speed >= 300)
+            if (speed < 300f && speed >= 200)
             {
                 return 0.8f;
             }
