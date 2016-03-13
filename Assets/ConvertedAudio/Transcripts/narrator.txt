@@ -78,6 +78,7 @@ General Audio (used in all scenes):
 	- Sweating (*Sweating)
 	- Throat closing up (*ThroatClosing)
 	- Tingling in hands or fingers (*Tingling)
+	- Covering eyes (*CoveringEyes) ******
 	- Feeling tired (*Tired)
 	
  - Actions Menu (shared):
