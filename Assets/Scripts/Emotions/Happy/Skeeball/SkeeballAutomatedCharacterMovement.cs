@@ -45,7 +45,7 @@ namespace HappyScene
         {
             skeeball.parent = null;
             skeeball.position = new Vector3(212.913f, 4.472f, 164.257f);
-            skeeball.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            skeeball.rotation = Quaternion.Euler(Vector3.zero);
             skeeball.GetComponent<SkeeballMovementHandler>().speedFactor = 0.75f;
             skeeballThrow.ThrowBall(skeeball);
         }
@@ -54,7 +54,7 @@ namespace HappyScene
         {
             ball.parent = throwingHand;
             ball.localPosition = new Vector3(0.001f, 0.073f, 0.069f);
-            ball.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            ball.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void adjustCamera()

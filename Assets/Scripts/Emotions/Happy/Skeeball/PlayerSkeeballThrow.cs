@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Globals;
+using UnityEngine;
 
 namespace HappyScene
 {
@@ -33,6 +34,7 @@ namespace HappyScene
             }
             else
             {
+                Timeout.StopTimers();
                 base.ResetForNextThrow(ball);
                 automatedCharacter.StartSequence();
             }
@@ -40,6 +42,7 @@ namespace HappyScene
 
         private void stopSkeeball(Transform ball)
         {
+            Timeout.StopTimers();
             ball.gameObject.SetActive(false);
             goalChooser.HideAllHighlighers();
             mainCamera.transform.position = new Vector3(214.358f, 6.42f, 162.15f);
