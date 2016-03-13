@@ -25,6 +25,14 @@ public class WrongAnswer : ButtonDragDrop
         base.SubmitAnswer();
         Debug.Log("Wrong answer submitted");
         coin.ShowRemoveCoinAnimation();
-        Utilities.PlayRandomAudio(wrongAudio);
+        StartCoroutine(playAudio());
+    }
+
+    private IEnumerator playAudio()
+    {
+        var audioPlaying = Utilities.PlayRandomAudio(wrongAudio);
+        yield return new WaitForSeconds(audioPlaying.clip.length);
+        var emotionHint = GUIHelper.GetCurrentGUI().GetComponent<EmotionHint>();
+        if (emotionHint != null) emotionHint.ShowHint();
     }
 }
