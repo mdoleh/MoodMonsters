@@ -262,6 +262,10 @@ Sad Scene:
 		- and A stands for ask. They are the first steps. (*Ask)
 		- Good! The first S stands for support. It will validate his feelings. (*Support)
 		- Good! The second S stands for solve. He should be guided to find a solution. (*Solve)
+	- Hints:
+		- Look at what Luis [loo-is] is doing, and pick an answer that matches. (*LookAtWhatLuisDoing)
+		- What is his mouth doing to show you how he feels? (*WhatIsHisMouthDoing)
+
 Scared Scene:
 	- AJ is playing with his friend Scarlet and is having fun. (*AJIntro)
 	- Drag the joystick forward to make AJ run. (*DragJoystickForwardMakeAJRun)
