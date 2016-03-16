@@ -28,5 +28,11 @@ namespace HappyScene
             anim.SetTrigger("Happy");
             prizeWinner.Idle();
         }
+
+        protected override void Update()
+        {
+            base.Update();
+
+        }
     }
 }
