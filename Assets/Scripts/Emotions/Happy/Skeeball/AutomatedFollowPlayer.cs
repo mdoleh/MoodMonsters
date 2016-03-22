@@ -29,10 +29,30 @@ namespace HappyScene
             prizeWinner.Idle();
         }
 
+        public void ReturnToOriginalSpot()
+        {
+            direction = -1;
+            anim.SetTrigger("WalkBackwards");
+        }
+
         protected override void Update()
         {
             base.Update();
-
+            if (shouldMove && shouldMoveZ)
+            {
+                if (transform.position.z >= 164.4759f)
+                {
+                    StopMoving();
+                    anim.SetTrigger("HighFive");
+                    prizeWinner.GetComponent<Animator>().SetTrigger("HighFive");
+                }
+                if (direction == -1 && transform.position.z <= 163.9075f)
+                {
+                    StopMoving();
+                    anim.SetTrigger("Idle");
+                    direction = 1;
+                }
+            }
         }
     }
 }

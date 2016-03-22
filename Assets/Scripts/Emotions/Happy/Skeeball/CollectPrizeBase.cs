@@ -10,6 +10,7 @@ namespace HappyScene
         protected Animator anim;
         protected bool shouldMove = false;
         protected bool shouldMoveZ = false;
+        protected int direction = 1;
 
         private void Start()
         {
@@ -50,7 +51,6 @@ namespace HappyScene
 
         public void WalkEvent()
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle")) return;
             anim.SetTrigger("Walk");
         }
 
@@ -79,8 +79,13 @@ namespace HappyScene
             }
             else if (shouldMove && shouldMoveZ)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Time.deltaTime);
+                MoveInZDirection(direction);
             }
+        }
+
+        protected void MoveInZDirection(int mult)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (mult * Time.deltaTime));
         }
     }
 }
