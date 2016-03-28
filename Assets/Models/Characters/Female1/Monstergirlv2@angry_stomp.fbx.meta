@@ -188,7 +188,16 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nDefault bone length found in this file is different
+      form the one found in the source avatar:\n\t'mixamorig:LeftUpLeg' : position
+      error = 82.875809 mm\n\t'mixamorig:LeftLeg' : position error = 329.774139 mm\n\t'mixamorig:LeftFoot'
+      : position error = 363.749664 mm\n\t'mixamorig:LeftToeBase' : position error
+      = 133.847397 mm\n\t'mixamorig:RightUpLeg' : position error = 83.115288 mm\n\t'mixamorig:RightLeg'
+      : position error = 333.556030 mm\n\t'mixamorig:RightFoot' : position error =
+      360.070984 mm\n\t'mixamorig:RightToeBase' : position error = 132.898315 mm\n\nClip
+      'Take 001' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'mixamorig:Spine2'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -211,9 +220,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
