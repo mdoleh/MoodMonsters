@@ -236,7 +236,7 @@ Sad Scene:
 		- Stay at the sidelines and watch the game. (*StayAtTheSidelines)
 		- Tell someone he feels sad. (*TellSomeoneHeIsSad)
 		- Yell at the other kids. (*YellAtOtherKids) ******
-	- Parent Actions Menu:
+	- Parent Actions Menu: ******
 		- Ask Luis [loo-is] why he's sad. (*AskLuis)
 		- Ask Luis [loo-is] what he thinks he should do about the problem. (*AskLuisWhatToDo)
 		- Provide Luis [loo-is] comfort. (*ComfortLuis)
@@ -259,9 +259,9 @@ Sad Scene:
 		- How should Luis's [loo-is] Mom respond? (*WhatShouldMomRespond)
 		- How should Luis's [loo-is] Mom respond? Remember what P and A stand for. (*WhatShouldMomRespondPASSReminder)
 	- PASS:
-		- and A stands for ask. They are the first steps. (*Ask)
-		- Good! The first S stands for support. It will validate his feelings. (*Support)
-		- Good! The second S stands for solve. He should be guided to find a solution. (*Solve)
+		- and A stands for ask. They are the first steps. (*Ask) ******
+		- Good! The first S stands for support. It will validate his feelings. (*Support) ******
+		- Good! The second S stands for solve. He should be guided to find a solution. (*Solve) ******
 	- Hints:
 		- Look at what Luis [loo-is] is doing, and pick an answer that matches. (*LookAtWhatLuisDoing) ******
 		- What is his mouth doing to show you how he feels? (*WhatIsHisMouthDoing) ******
