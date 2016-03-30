@@ -30,7 +30,7 @@ General Audio (used in all scenes):
 	- Don't get any wrong answers or you will lose them (*CoinsExplanationLosing)
 	- Drag a card into the box to give the answer. Now it's your turn, try dragging the card into the box. (*DragACardToSubmit)
 	- For a hint, touch the help button (*ForAHintTouchHelp)
-	- When this symbol is on screen you cannot touch any buttons. Wait until it goes away. (*NoTouchSymbolExplanation) ******
+	- When this symbol is on screen you cannot touch any buttons. Wait until it goes away. (*NoTouchSymbolExplanation)
 	- To quit the game, touch the quit button. (*ToQuitTouchQuit)
 	- To repeat the question, touch the repeat button. (*ToRepeatTouchRepeat)
 	- Touch a card or button to hear what it is. Now you try, touch the card. (*TouchCardOrButtonToHear)
