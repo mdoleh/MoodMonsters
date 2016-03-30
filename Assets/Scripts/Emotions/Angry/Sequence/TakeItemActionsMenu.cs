@@ -7,10 +7,10 @@ namespace AngryScene
     {
         private void Start()
         {
-            StartCoroutine(StartUsingIPad());
+            StartCoroutine(StartUsingIPadDelayed());
         }
 
-        private IEnumerator StartUsingIPad()
+        private IEnumerator StartUsingIPadDelayed()
         {
             yield return new WaitForSeconds(2f);
             anim.SetBool("IsUsingIPad", true);

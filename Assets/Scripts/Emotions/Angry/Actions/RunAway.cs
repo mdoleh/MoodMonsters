@@ -36,7 +36,7 @@ namespace AngryScene
         private IEnumerator triggerReset()
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(3f);
             sceneReset.TriggerSceneReset(actionExplanation, true);
         }
 

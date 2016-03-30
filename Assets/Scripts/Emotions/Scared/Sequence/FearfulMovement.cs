@@ -223,7 +223,7 @@ namespace ScaredScene
             cameraFollow.enabled = true;
             HideJoystick(true);
             transform.position = new Vector3(transform.position.x, transform.position.y, 167.147f);
-            mainCamera.transform.position = new Vector3(cameraFollow.gameObject.transform.position.x, 6.95f, 163.25f);
+            mainCamera.transform.position = new Vector3(cameraFollow.gameObject.transform.position.x - 0.6189f, 6.95f, 162.82f);
             mainCamera.transform.localRotation = Quaternion.Euler(4.587073f, 1.254006f, 0.08177387f);
         }
 

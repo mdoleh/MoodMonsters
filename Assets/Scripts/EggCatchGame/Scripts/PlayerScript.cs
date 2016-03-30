@@ -32,6 +32,7 @@ namespace EggCatch
         public virtual void UpdateScore(int value)
         {
             if (theScore < MAX_SCORE) theScore += value;
+            else shouldDropEggs = false;
             HideAllStars();
             ShowStars();
         }
