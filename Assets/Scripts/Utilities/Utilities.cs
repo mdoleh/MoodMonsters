@@ -74,6 +74,7 @@ public class Utilities : MonoBehaviour {
         Timeout.StopTimers();
         Timeout.Instance.StopAllCoroutines();
         CanvasList.ResetIndex();
+        GameFlags.JoyStickTutorialHasRun = false;
         StopAudio(Sound.CurrentPlayingSound);
         if (sceneToLoad.ToLower().Contains("mainmenu") && CityInitializer.City != null)
         {
