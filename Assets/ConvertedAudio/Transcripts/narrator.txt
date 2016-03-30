@@ -306,6 +306,9 @@ Scared Scene:
 		- How should AJ's Dad respond? (*HowShouldDadRespond)
 		- How should AJ's Dad respond? Remember what P and A stand for. (*HowShouldDadRespondPASSReminder)
 		- What should AJ's Dad do? (*WhatShouldDadDo)
+	- Hints
+		- Look at what AJ is doing, and pick an answer that matches. (*LookAtWhatAJDoing)
+		- What are his eyes doing to show you how he feels? (*WhatAreHisEyesDoing)
 		
 ********************************************************************************************
 End Emotion Scenes
