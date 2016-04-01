@@ -266,6 +266,8 @@ Sad Scene:
 	- Hints:
 		- Look at what Luis [loo-is] is doing, and pick an answer that matches. (*LookAtWhatLuisDoing) ******
 		- What is his mouth doing to show you how he feels? (*WhatIsHisMouthDoing) ******
+		- What would help him to feel better in this situation? (*WhatHelpsHimFeelBetter) ******
+		- What could he do that would allow him to have fun, and to be better at soccer in the future? (*WhatCanHeDoToHaveFun) ******
 
 Scared Scene:
 	- AJ is playing with his friend Scarlet and is having fun. (*AJIntro)
