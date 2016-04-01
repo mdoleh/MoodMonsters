@@ -14,10 +14,10 @@ public class ControllerMovement : MonoBehaviour
     protected float multiplierSpeed = 2f;
     protected float multiplierDirection = 0f;
     protected bool trackJoystick = false;
+    protected AudioSource joystickInstructions;
     protected Joystick joystickScript;
-    
+
     private bool initialInstructionsPlayed = false;
-    private AudioSource joystickInstructions;
     private GameObject disableJoystickPanel;
     private GameObject disablePanel;
     private GameObject noInputSymbol;

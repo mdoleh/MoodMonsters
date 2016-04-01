@@ -80,13 +80,10 @@ namespace ScaredScene
         {
             if (Sound.CurrentPlayingSound == runSpeedAudio)
             {
-                while (Sound.CurrentPlayingSound.isPlaying)
-                {
-                    yield return new WaitForSeconds(0.01f);
-                }
+                yield return new WaitForSeconds(Sound.CurrentPlayingSound.clip.length - Sound.CurrentPlayingSound.time);
             }
-            Utilities.PlayAudio(Timeout.GetRepeatAudio());
-            yield return new WaitForSeconds(Timeout.GetRepeatAudio().clip.length);
+            Utilities.PlayAudio(joystickInstructions);
+            yield return new WaitForSeconds(joystickInstructions.clip.length);
             Timeout.StartTimers();
         }
 
