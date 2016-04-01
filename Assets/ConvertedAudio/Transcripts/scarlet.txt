@@ -8,3 +8,4 @@ Scared Scene:
 Happy Scene:
 	- I want the big bear!(*IWantTheBigBear)
 	- I won a prize and you didn't. (*IWonYouDidnt)
+	- You can play with it now. (*YouCanPlayWithItNow)

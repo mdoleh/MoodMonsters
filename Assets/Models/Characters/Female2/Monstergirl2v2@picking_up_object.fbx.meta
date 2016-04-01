@@ -346,7 +346,7 @@ ModelImporter:
     - serializedVersion: 16
       name: picking_up_object_no_events
       takeName: mixamo.com
-      firstFrame: 0
+      firstFrame: 45
       lastFrame: 70
       wrapMode: 0
       orientationOffsetY: 0

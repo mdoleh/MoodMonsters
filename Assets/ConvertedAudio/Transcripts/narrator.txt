@@ -211,6 +211,7 @@ Happy Scene:
 	- Hints
 		- Look at what Scarlet is doing, and pick an answer that matches. (*LookAtWhatScarletDoing)
 		- What is her mouth doing to show you how she feels? (*WhatIsHerMouthDoing)
+		- What should Scarlet do to be a good friend in this situation? (*BeAGoodFriend) ******
 	
 Sad Scene:
 	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)

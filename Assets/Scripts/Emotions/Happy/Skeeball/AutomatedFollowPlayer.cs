@@ -40,7 +40,7 @@ namespace HappyScene
             base.Update();
             if (shouldMove && shouldMoveZ)
             {
-                if (transform.position.z >= 164.4759f)
+                if (transform.position.z >= 164.562f)
                 {
                     StopMoving();
                     anim.SetTrigger("HighFive");
