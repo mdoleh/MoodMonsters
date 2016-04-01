@@ -310,6 +310,8 @@ Scared Scene:
 	- Hints
 		- Look at what AJ is doing, and pick an answer that matches. (*LookAtWhatAJDoing)
 		- What are his eyes doing to show you how he feels? (*WhatAreHisEyesDoing)
+		- What could he do to get help with the jump and feel better? (*WhatCanHeDoToFeelBetter)
+		- What could he do that will help him to conquer his fear? (*WhatCanHeDoToConquerFear)
 		
 ********************************************************************************************
 End Emotion Scenes
