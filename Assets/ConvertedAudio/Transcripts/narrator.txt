@@ -189,6 +189,7 @@ Angry Scene:
 	- Hints
 		- What are her eyebrows doing to show you how she feels? (*WhatAreHerEyebrowsDoing)
 		- Look at what Lily is doing, and pick an answer that matches. (*LookAtWhatLilyDoing)
+		- What could she do so they are both happy? (*WhatCouldSheDo) ******
 		
 Happy Scene:
 	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)

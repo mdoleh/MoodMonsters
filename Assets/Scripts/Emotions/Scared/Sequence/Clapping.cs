@@ -24,6 +24,8 @@ namespace ScaredScene
             Utilities.PlayAudio(successDialogue);
             yield return new WaitForSeconds(successDialogue.clip.length);
             Utilities.PlayAudio(explanationAudio);
+            fearfulCharacter.GetComponent<Rigidbody>().constraints =
+                fearfulCharacter.GetComponent<Rigidbody>().constraints | RigidbodyConstraints.FreezePositionY;
             yield return new WaitForSeconds(explanationAudio.clip.length);
             fearfulCharacter.gameObject.GetComponent<ExplainFear>().GoToMiniGame();
         }

@@ -21,6 +21,7 @@ namespace ScaredScene
         private AudioSource runSpeedAudio;
         private AudioSource edgeSlipAudio;
         private GameObject currentParent;
+        private RigidbodyConstraints originalConstraints;
 
         protected override void Start()
         {
