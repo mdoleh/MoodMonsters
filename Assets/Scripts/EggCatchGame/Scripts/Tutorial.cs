@@ -22,6 +22,7 @@ namespace EggCatch
         public RawImage[] images;
         public GameObject[] badCatchIndicators;
         public GameObject goodCatchIndicator;
+        public GameObject bucketImage;
 
         private List<GameObject> stars;
 
@@ -43,6 +44,7 @@ namespace EggCatch
                 if (lastSceneCompleted.ToLower().Contains(image.name.ToLower()))
                 {
                     goodCatchIndicator.GetComponent<RawImage>().texture = image.texture;
+                    bucketImage.GetComponent<Renderer>().material.mainTexture = image.texture;
                 }
                 else
                 {
