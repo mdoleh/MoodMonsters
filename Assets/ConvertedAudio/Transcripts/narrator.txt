@@ -121,10 +121,10 @@ Egg Drop Mini Game:
 	- Use the bucket to catch Sad faces and earn stars (*CatchTheSadFaces)
 	- Use the bucket to catch Scared faces and earn stars (*CatchTheScaredFaces)
 	- Drag your finger left or right to move the bucket (*DragFingerMoveBucket)
-	- Remember, only catch the angry faces or you will lose stars (*OnlyCatchAngryFaces)
-	- Remember, only catch the happy faces or you will lose stars (*OnlyCatchHappyFaces)
-	- Remember, only catch the sad faces or you will lose stars (*OnlyCatchSadFaces)
-	- Remember, only catch the scared faces or you will lose stars (*OnlyCatchScaredFaces)
+	- Only catch the angry faces (*OnlyCatchAngryFaces)
+	- Only catch the happy faces (*OnlyCatchHappyFaces)
+	- Only catch the sad faces (*OnlyCatchSadFaces)
+	- Only catch the scared faces (*OnlyCatchScaredFaces)
 	
 Puzzle Mini Game:
 	- Drag a puzzle piece on top of another to switch their places (*DragPieceOnAnotherToSwap)
@@ -216,7 +216,8 @@ Happy Scene:
 Sad Scene:
 	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)
 	- Drag the joystick forward to make Luis [loo-is] run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis)
-	- This is Luis [loo-is]. He's playing in the park. (*LuisIntro)
+	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom) ******
+	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad) ******
 	- Use the soccer ball to knock over the cones. Move Luis [loo-is] toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
 	- Oops! Luis [loo-is] didn't kick the ball hard enough to knock over the cone. Try running faster next time. (*DidntKickHardEnough)
 	- Oops! Try to line up Luis with the ball to kick it. (*LineUpLuisWithBall)
