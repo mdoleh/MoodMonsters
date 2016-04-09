@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 using Globals;
 
 namespace SadScene
@@ -11,15 +12,19 @@ namespace SadScene
         public AudioSource didntKickHardEnough;
         public ObjectSequenceManager retryPointManager;
         public GameObject runningLanes;
+        public Transform[] parents;
         
         private Animator anim;
         private bool shouldAdjustCamera = true;
         private bool shouldKickUp = true;
+        private bool shouldMoveParent = true;
+        private Transform currentParent;
 
         protected virtual void Start()
         {
             base.Start();
             anim = GetComponent<Animator>();
+            currentParent = parents.ToList().Find(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
         public void SetSoccerBallFlag(bool flag)
@@ -52,8 +57,17 @@ namespace SadScene
         {
             if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
             joystickCanvas.GetComponent<Canvas>().enabled = true;
+            if (shouldMoveParent) MoveParent();
             mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
             mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
+        }
+
+        private void MoveParent()
+        {
+            currentParent.position = new Vector3(185.86f, 3.9f, 80.425f);
+            currentParent.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            currentParent.gameObject.SetActive(false);
+            shouldMoveParent = false;
         }
 
         public void KickBallUp()

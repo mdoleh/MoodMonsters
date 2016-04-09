@@ -13,6 +13,7 @@ public class TutorialBase : MonoBehaviour
     protected AudioSource quitAudio;
     protected AudioSource repeatAudio;
     protected AudioSource questionAudio;
+    protected AudioSource introAudio;
 
     protected GameObject practiceDropContainer;
     protected GameObject practiceButton;
@@ -30,17 +31,17 @@ public class TutorialBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        StartCoroutine(DelayPlayAudio());
-
         InitializeGameObjects();
         InitializeAudio();
+
+        StartCoroutine(DelayPlayAudio());
     }
 
     private IEnumerator DelayPlayAudio()
     {
         yield return new WaitForSeconds(1f);
-        Utilities.PlayAudio(GetComponent<AudioSource>());
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
+        Utilities.PlayAudio(introAudio);
+        yield return new WaitForSeconds(introAudio.clip.length);
         if (GameFlags.MainTutorialHasRun) HelpExplanationComplete();
         else
         {
@@ -178,5 +179,6 @@ public class TutorialBase : MonoBehaviour
         coinsLosingAudio = coinsArrow.transform.FindChild("Losing").gameObject.GetComponent<AudioSource>();
         questionAudio = transform.Find("TutorialQuestion").gameObject.GetComponent<AudioSource>();
         noTouchSymbolAudio = noTouchArrow.GetComponent<AudioSource>();
+        introAudio = GetComponent<AudioSource>();
     }
 }
