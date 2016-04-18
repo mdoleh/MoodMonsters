@@ -168,6 +168,10 @@ namespace ScaredScene
 
         public void WalkBackwards()
         {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX |
+                                                    RigidbodyConstraints.FreezeRotationX |
+                                                    RigidbodyConstraints.FreezeRotationY |
+                                                    RigidbodyConstraints.FreezeRotationZ;
             multiplierSpeed = -1f;
             multiplierDirection = 0f;
             anim.SetBool("WalkBackwards", true);
@@ -182,6 +186,7 @@ namespace ScaredScene
             isBackingAway = false;
             StopWalking(false);
             base.ShiftIdle();
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             joystickCanvas.GetComponent<Canvas>().enabled = true;
             EnableHelpGUI();
             GUIHelper.NextGUI();

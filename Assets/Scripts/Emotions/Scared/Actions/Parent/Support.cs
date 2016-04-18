@@ -9,7 +9,7 @@ namespace ScaredScene
         protected override void DialogueAnimation()
         {
             anim.SetTrigger("Talk");
-            anim.speed = dialogue.clip.length/anim.GetCurrentAnimatorStateInfo(0).length;
+            anim.speed = dialogue.clip.length/anim.GetCurrentAnimatorStateInfo(1).length;
         }
 
         protected override void AfterDialogue()

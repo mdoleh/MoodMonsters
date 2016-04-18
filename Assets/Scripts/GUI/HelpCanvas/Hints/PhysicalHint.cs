@@ -10,13 +10,13 @@ public class PhysicalHint : SimpleHint
     public override void ShowHint()
     {
         base.ShowHint();
-        if (!anims.ToList().TrueForAll(x => x.GetCurrentAnimatorStateInfo(0).IsName(animationTrigger)))
+        if (!anims.ToList().TrueForAll(x => x.GetCurrentAnimatorStateInfo(1).IsName(animationTrigger)))
             anims.ToList().ForEach(x => x.SetTrigger(animationTrigger));
     }
 
     public override void NotifyCanvasChange()
     {
-        if (anims.ToList().TrueForAll(x => x.GetCurrentAnimatorStateInfo(0).IsName(animationTrigger)))
+        if (anims.ToList().TrueForAll(x => x.GetCurrentAnimatorStateInfo(1).IsName(animationTrigger)))
             anims.ToList().ForEach(x => x.SetTrigger(animationResetTrigger));
     }
 }
