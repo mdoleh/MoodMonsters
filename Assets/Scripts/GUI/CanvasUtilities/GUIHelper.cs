@@ -65,14 +65,24 @@ public class GUIHelper : MonoBehaviour
         Timeout.Instance.StartCoroutine(playCanvasAudio(next));
     }
 
+    private static IEnumerator playGuidedTutorial(GameObject guiCanvas)
+    {
+        if (GameFlags.GuidedTutorialHasRun) yield break;
+        var guidedTutorial = GameObject.Find("GuidedTutorial");
+        var guidedAudio = guidedTutorial.GetComponentsInChildren<AudioSource>();
+        var currentAudio =
+            guidedAudio.ToList()
+                .Find(x => guiCanvas.name.Contains(x.gameObject.name) && !x.gameObject.name.Contains("Parent"));
+        Utilities.PlayAudio(currentAudio);
+        yield return new WaitForSeconds(currentAudio.clip.length);
+    }
+
     private static void showHelpUI(GameObject guiCanvas)
     {
-        if (!GetHelpCanvasIgnoreList().Contains(guiCanvas))
-        {
-            var helpCanvas = GameObject.Find("HelpCanvas");
-            helpCanvas.GetComponent<Canvas>().enabled = true;
-            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(true);
-        }
+        if (GetHelpCanvasIgnoreList().Contains(guiCanvas)) return;
+        var helpCanvas = GameObject.Find("HelpCanvas");
+        helpCanvas.GetComponent<Canvas>().enabled = true;
+        helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(true);
     }
 
     private static void enableUI()
@@ -84,34 +94,34 @@ public class GUIHelper : MonoBehaviour
 
     private static IEnumerator playCanvasAudio(GameObject guiCanvas)
     {
-        if (!GetAudioIgnoreList().Contains(guiCanvas))
+        if (GetAudioIgnoreList().Contains(guiCanvas)) yield break;
+        
+        var passReminder = guiCanvas.transform.FindChild("PASSReminder");
+        if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)
         {
-            var passReminder = guiCanvas.transform.FindChild("PASSReminder");
-            if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)
-            {
-                var passLetters = passReminder.GetComponentsInChildren<Transform>().ToList();
-                passLetters.Remove(passLetters.First(x => x.name.Equals(passReminder.name)));
-                var passCanvas = GameObject.Find("PASSCanvas").transform;
-                passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
-                Utilities.PlayAudio(passReminder.GetComponent<AudioSource>());
-                Timeout.SetRepeatAudio(passReminder.GetComponent<AudioSource>());
-                yield return new WaitForSeconds(passReminder.GetComponent<AudioSource>().clip.length);
-            }
-            else
-            {
-                Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
-                Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
-                yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
-            }
-
-            var tiles = guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList();
-            foreach (var child in tiles)
-            {
-                yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
-            }
-            enableUI();
-            Timeout.StartTimers();
+            var passLetters = passReminder.GetComponentsInChildren<Transform>().ToList();
+            passLetters.Remove(passLetters.First(x => x.name.Equals(passReminder.name)));
+            var passCanvas = GameObject.Find("PASSCanvas").transform;
+            passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
+            Utilities.PlayAudio(passReminder.GetComponent<AudioSource>());
+            Timeout.SetRepeatAudio(passReminder.GetComponent<AudioSource>());
+            yield return new WaitForSeconds(passReminder.GetComponent<AudioSource>().clip.length);
         }
+        else
+        {
+            Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
+            Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
+            yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
+        }
+
+        var tiles = guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList();
+        foreach (var child in tiles)
+        {
+            yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
+        }
+        yield return Timeout.Instance.StartCoroutine(playGuidedTutorial(guiCanvas));
+        enableUI();
+        Timeout.StartTimers();
     }
 
     private static IEnumerator playTileAudio(Transform tile)

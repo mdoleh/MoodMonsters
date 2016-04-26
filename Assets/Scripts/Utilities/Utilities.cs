@@ -74,7 +74,6 @@ public class Utilities : MonoBehaviour {
         Timeout.StopTimers();
         Timeout.Instance.StopAllCoroutines();
         CanvasList.ResetIndex();
-        GameFlags.JoyStickTutorialHasRun = false;
         StopAudio(Sound.CurrentPlayingSound);
         if (sceneToLoad.ToLower().Contains("mainmenu") && CityInitializer.City != null)
         {
@@ -83,6 +82,8 @@ public class Utilities : MonoBehaviour {
         }
         if (sceneToLoad.ToLower().Contains("minigame") && !SceneManager.GetActiveScene().name.ToLower().Contains("minigame"))
         {
+            GameFlags.JoyStickTutorialHasRun = false;
+            GameFlags.GuidedTutorialHasRun = true;
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
             var sceneName = Application.loadedLevelName;

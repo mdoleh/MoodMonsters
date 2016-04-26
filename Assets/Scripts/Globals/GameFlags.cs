@@ -2,6 +2,7 @@
 {
     public static class GameFlags
     {
+        public static bool GuidedTutorialHasRun = false;
         public static bool MainTutorialHasRun = true;
         public static bool BucketTutorialHasRun = true;
         public static bool PuzzleTutorialHasRun = true;
@@ -13,6 +14,7 @@
 
         public static void ResetValues()
         {
+            GuidedTutorialHasRun = false;
             MainTutorialHasRun = false;
             JoyStickTutorialHasRun = false;
             BucketTutorialHasRun = false;

@@ -35,6 +35,11 @@ General Audio (used in all scenes):
 	- To repeat the question, touch the repeat button. (*ToRepeatTouchRepeat)
 	- Touch a card or button to hear what it is. Now you try, touch the card. (*TouchCardOrButtonToHear)
 
+ - Guided Tutorial ******:
+	- Your face helps you know what you are feeling. (*FaceHelpYouKnow)
+	- Your body can also help you know what you are feeling. (*BodyHelpsYouKnow)
+	- It's good to talk to others about your feelings and have them help you solve the situation. (*GoodToTalkToOthers)
+	
  - Hints
 	- Shared
 		- P stands for pay attention. (*PstandsFor)
