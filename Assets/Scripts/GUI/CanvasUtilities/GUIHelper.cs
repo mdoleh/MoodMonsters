@@ -72,7 +72,9 @@ public class GUIHelper : MonoBehaviour
         var guidedAudio = guidedTutorial.GetComponentsInChildren<AudioSource>();
         var currentAudio =
             guidedAudio.ToList()
-                .Find(x => guiCanvas.name.Contains(x.gameObject.name) && !x.gameObject.name.Contains("Parent"));
+                .Find(x => guiCanvas.name.ToLower().Contains(x.gameObject.name.ToLower()) &&
+                    !x.gameObject.name.ToLower().Contains("parent"));
+        if (guiCanvas.name.ToLower().Contains("physical") && !guiCanvas.name.Contains("1")) yield break;
         Utilities.PlayAudio(currentAudio);
         yield return new WaitForSeconds(currentAudio.clip.length);
     }
