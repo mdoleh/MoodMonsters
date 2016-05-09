@@ -53,6 +53,11 @@ namespace Globals
         {
             return CompletedScenes.Count == 0;
         }
+
+        public static bool HasCompletedAllScenes()
+        {
+            return CompletedScenes.Count >= 4;
+        }
     }
 }
 

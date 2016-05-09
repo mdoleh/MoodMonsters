@@ -1,9 +1,12 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System.Collections;
 using Globals;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class CompletedScenes : MonoBehaviour {
+public class CompletedScenes : MonoBehaviour
+{
+    public GameObject bonusScene;
+    public AudioSource initialAudio;
 
     private void Start()
     {
@@ -26,5 +29,16 @@ public class CompletedScenes : MonoBehaviour {
                 completedScene.transform.FindChild("Text").GetComponent<RawImage>().color = new Color(0.66f, 0.66f, 0.66f, 1f);
             }
         }
+        StartCoroutine(showBonusScene());
+    }
+
+    private IEnumerator showBonusScene()
+    {
+        if (!Scenes.HasCompletedAllScenes()) yield break;
+        yield return new WaitForSeconds(initialAudio.clip.length);
+        bonusScene.SetActive(true);
+        var bonusAudio = bonusScene.GetComponent<AudioSource>();
+        Utilities.PlayAudio(bonusAudio);
+        yield return new WaitForSeconds(bonusAudio.clip.length);
     }
 }

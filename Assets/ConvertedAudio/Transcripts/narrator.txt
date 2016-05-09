@@ -24,6 +24,7 @@ General Audio (used in all scenes):
 	- Is the adult who is with you a man or a woman? Touch the left picture for man or touch the right button for woman. (*ManOrWoman)
 	- Touch one to start (*TouchOneToStart)
 	- Touch the flashing button to begin (*TouchToPlay)
+	- You've completed all the levels! Good Job! You've unlocked the bonus level! (*UnlockedBonus) ******
  
  - Main Tutorial:
 	- For every right answer you get coins (*CoinsExplanationGaining)
