@@ -327,6 +327,8 @@ Scared Scene:
 Emotion Blends Scene (work in progress, don't record these yet): ******
 	- This is Claire and her sister Lily. They're playing outside. (*IntroSisters)
 	- This is Ty and his brother AJ. They're playing outside. (*IntroBrothers)
+	- Here comes their mom. (*HereComesMom)
+	- Here comes their dad. (*HereComesDad)
 		
 ********************************************************************************************
 End Emotion Scenes
