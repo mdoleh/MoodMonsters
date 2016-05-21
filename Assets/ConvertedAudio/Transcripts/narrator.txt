@@ -324,6 +324,10 @@ Scared Scene:
 		- What could he do to get help with the jump and feel better? (*WhatCanHeDoToFeelBetter)
 		- What could he do that will help him to conquer his fear? (*WhatCanHeDoToConquerFear)
 		
+Emotion Blends Scene (work in progress, don't record these yet): ******
+	- This is Claire and her sister Lily. They're playing outside. (*IntroSisters)
+	- This is Ty and his brother AJ. They're playing outside. (*IntroBrothers)
+		
 ********************************************************************************************
 End Emotion Scenes
 ********************************************************************************************
