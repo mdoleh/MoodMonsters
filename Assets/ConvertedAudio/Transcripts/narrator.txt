@@ -21,10 +21,11 @@ General Audio (used in all scenes):
 	
  - Intro Screens:
 	- Is there an adult with you? Touch the check mark for yes or the X for no. (*IsThereAnAdult)
-	- Is the adult who is with you a man or a woman? Touch the left picture for man or touch the right button for woman. (*ManOrWoman)
+	- Is the adult who is with you a man or a woman? Touch the left picture for man or touch the right picture for woman. (*ManOrWoman)
 	- Touch one to start (*TouchOneToStart)
 	- Touch the flashing button to begin (*TouchToPlay)
 	- You've completed all the levels! Good Job! You've unlocked the bonus level! (*UnlockedBonus) ******
+	- Are you a boy? Or a girl? Touch the left picture for man or touch the right picture for woman. (*BoyOrGirl) ******
  
  - Main Tutorial:
 	- For every right answer you get coins (*CoinsExplanationGaining)

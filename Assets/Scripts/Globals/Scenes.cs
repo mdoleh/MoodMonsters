@@ -9,7 +9,6 @@ namespace Globals
         public static int CurrentMiniGameIndex = 0;
         public static string NextSceneToLoad;
         public static string LastLoadedScene;
-        private const string SceneForTestingParentPresent = "SadSceneSmallCity";
         private const string EmotionForTestingMinigames = "AngrySceneSmallCity";
         private const string LastLoadedSceneForTesting = "TitleScreen";
 
@@ -39,9 +38,9 @@ namespace Globals
             return HasCompletedScenes() ? EmotionForTestingMinigames : CompletedScenes.Last();
         }
 
-        public static string GetNextSceneToLoadForParentPresent()
+        public static string GetNextEmotionSceneToLoad(string sceneForTesting)
         {
-            return string.IsNullOrEmpty(NextSceneToLoad) ? SceneForTestingParentPresent : NextSceneToLoad;
+            return string.IsNullOrEmpty(NextSceneToLoad) ? sceneForTesting : NextSceneToLoad;
         }
 
         public static string GetLastLoadedScene()

@@ -69,6 +69,7 @@ public class GUIHelper : MonoBehaviour
     {
         if (GameFlags.GuidedTutorialHasRun) yield break;
         var guidedTutorial = GameObject.Find("GuidedTutorial");
+        if (guidedTutorial == null) yield break;
         var guidedAudio = guidedTutorial.GetComponentsInChildren<AudioSource>();
         var currentAudio =
             guidedAudio.ToList()

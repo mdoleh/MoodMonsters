@@ -1,7 +1,7 @@
 ﻿using Globals;
 using UnityEngine;
 
-namespace ParentPresentMenu
+namespace PreSceneMenus
 {
     public class ManOrWoman : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace ParentPresentMenu
         private void handleClick()
         {
             Timeout.StopTimers();
-            Utilities.LoadEmotionScene(Scenes.GetNextSceneToLoadForParentPresent());
+            Utilities.LoadEmotionScene(Scenes.GetNextEmotionSceneToLoad("SadSceneSmallCity"));
         }
     }
 }
