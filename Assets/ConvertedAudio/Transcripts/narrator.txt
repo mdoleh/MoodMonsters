@@ -331,9 +331,13 @@ Emotion Blends Scene (work in progress, don't record these yet): ******
 	- Here comes their dad. (*HereComesDad)
 	- How would you feel if you were in their situation? (*HowWouldYouFeel)
 	- Sometimes you can feel more than one emotion. What else might you feel if you were in their situation? (*WhatElseMightYouFeel)
-	- Hints
+	- Hints:
 		- How would you feel if you were getting your own room? (*GettingYourOwnRoom)
 		- How would you feel if you had to leave your friends behind? (*LeaveFriendsBehind)
+	- Actions Menu:
+		- Refuse to go. (*RefuseToGo)
+		- Talk about it. (*TalkAboutIt)
+		- Argue about it. (*ArgueAboutIt)
 		
 ********************************************************************************************
 End Emotion Scenes
