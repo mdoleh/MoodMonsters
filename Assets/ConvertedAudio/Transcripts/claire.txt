@@ -3,3 +3,6 @@ Claire
 Sad Scene:
 	- No, go play with your own friends. (*PlayWithOwnFriends)
 	- Then you don't get to play. (*ThenYouDontGetToPlay)
+	
+Blends Scene:
+	- Can I still see my friends after we move? (*CanIStillSeeMyFriendsGirl)

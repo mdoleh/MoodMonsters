@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace BlendsScene
 {
@@ -17,7 +16,11 @@ namespace BlendsScene
             if (anim.GetBool("Walk"))
             {
                 changePosition(1f);
-                if (transform.position.z <= 143.637f) anim.SetBool("Walk", false);
+                if (transform.position.z <= 143.637f)
+                {
+                    anim.SetBool("Walk", false);
+                    GetComponent<DialogueParent>().ExplainMoving();
+                }
             }
         }
 

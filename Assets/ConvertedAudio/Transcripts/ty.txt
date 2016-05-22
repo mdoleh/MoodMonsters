@@ -4,3 +4,6 @@ Angry Scene:
 	- Okay! (*Okay)
 	- Let me play (*LetMePlay)
 	- Come on! I want to play! (*ComeOnIWantToPlay)
+	
+Blends Scene:
+	- Can I still see my friends after we move? (*CanIStillSeeMyFriendsBoy)
