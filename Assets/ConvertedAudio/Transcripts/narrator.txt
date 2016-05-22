@@ -329,6 +329,11 @@ Emotion Blends Scene (work in progress, don't record these yet): ******
 	- This is Ty and his brother AJ. They're playing outside. (*IntroBrothers)
 	- Here comes their mom. (*HereComesMom)
 	- Here comes their dad. (*HereComesDad)
+	- How would you feel if you were in their situation? (*HowWouldYouFeel)
+	- Sometimes you can feel more than one emotion. What else might you feel if you were in their situation? (*WhatElseMightYouFeel)
+	- Hints
+		- How would you feel if you were getting your own room? (*GettingYourOwnRoom)
+		- How would you feel if you had to leave your friends behind? (*LeaveFriendsBehind)
 		
 ********************************************************************************************
 End Emotion Scenes

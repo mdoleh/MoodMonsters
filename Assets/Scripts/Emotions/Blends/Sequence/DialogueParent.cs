@@ -36,7 +36,13 @@ namespace BlendsScene
         public void CantSeeFriends()
         {
             anim.SetTrigger("TalkingSad");
-            StartCoroutine(playAudio(cantSeeFriends, () => anim.SetTrigger("Idle")));
+            anim.speed = cantSeeFriends.clip.length / anim.GetCurrentAnimatorStateInfo(0).length;
+            StartCoroutine(playAudio(cantSeeFriends, () =>
+            {
+                anim.speed = 1;
+                anim.SetTrigger("Idle");
+                GUIHelper.NextGUI();
+            }));
         }
 
         private IEnumerator playAudio(AudioSource source, Action postAudioAction)

@@ -39,6 +39,7 @@ namespace BlendsScene
 
         private IEnumerator playHereComesParent()
         {
+            yield return new WaitForSeconds(0.5f);
             var audioToPlay =
                 hereComesParent.ToList().Find(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
             Utilities.PlayAudio(audioToPlay);

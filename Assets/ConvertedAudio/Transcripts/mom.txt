@@ -20,3 +20,4 @@ Scared Scene:
 	
 Blends Scene:
 	- Guess what? We're moving! We're getting a bigger house, and each of you will get your own room. (*WeAreMovingMom)
+	- We're moving far away. You wouldn't be able to see them. (*MovingFarAwayMom)
