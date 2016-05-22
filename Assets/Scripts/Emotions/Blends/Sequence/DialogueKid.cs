@@ -23,16 +23,17 @@ namespace BlendsScene
 
         public void CanSeeFriends()
         {
-            anim.SetTrigger("Ask");
-            StartCoroutine(playAudio(canSeeFriends, () =>
+            StartCoroutine(playAudio(canSeeFriends, () => anim.SetTrigger("Ask"), () =>
             {
                 currentParent.CantSeeFriends();
                 anim.SetTrigger("Idle");
             }));
         }
 
-        private IEnumerator playAudio(AudioSource source, Action postAudioAction)
+        private IEnumerator playAudio(AudioSource source, Action preAudioAction, Action postAudioAction)
         {
+            yield return new WaitForSeconds(0.5f);
+            preAudioAction();
             Utilities.PlayAudio(source);
             yield return new WaitForSeconds(source.clip.length);
             postAudioAction();

@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace BlendsScene
 {
     public class WalkForward : MonoBehaviour
     {
+        public Animator[] children;
+
         private Animator anim;
 
         private void Start()
@@ -19,6 +22,7 @@ namespace BlendsScene
                 if (transform.position.z <= 143.637f)
                 {
                     anim.SetBool("Walk", false);
+                    children.ToList().ForEach(x => x.SetTrigger("Idle"));
                     GetComponent<DialogueParent>().ExplainMoving();
                 }
             }
