@@ -4,7 +4,7 @@ using UnityEngine;
 public class ButtonSceneLoad : ButtonSelect {
 
     public string sceneToLoad;
-    public bool shouldAskParentPresent = false;
+    public string preSceneToLoad;
     public bool loadingEmotionScene = true;
     public bool loadPreviousScene = false;
 
@@ -13,10 +13,10 @@ public class ButtonSceneLoad : ButtonSelect {
         Timeout.StopTimers();
         if (GameObject.Find("MainCanvas") != null)
             Utilities.StopAudio(GameObject.Find("MainCanvas").GetComponent<AudioSource>());
-        if (shouldAskParentPresent)
+        if (!string.IsNullOrEmpty(preSceneToLoad))
         {
             Scenes.NextSceneToLoad = sceneToLoad;
-            Utilities.LoadScene("ParentPresentMenuScreen");
+            Utilities.LoadScene(preSceneToLoad);
         }
         else
         {

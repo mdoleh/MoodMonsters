@@ -13,6 +13,7 @@ namespace Globals
         private const string LastLoadedSceneForTesting = "TitleScreen";
 
         public static IList<string> CompletedScenes = new List<string>();
+//        public static IList<string> CompletedScenes = new List<string>{"AngrySceneSmallCity", "SadSceneSmallCity", "ScaredSceneSmallCity", "HappySceneSmallCity"};
 
         public static IList<string> MiniGames = new List<string>
         {
