@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
@@ -10,11 +12,12 @@ public class SceneLoader : MonoBehaviour
     public Toggle[] flags;
     public Dropdown[] stringFlags;
     public Dropdown lastSceneCompleted;
+    public Toggle simulateAllScenesCompleted;
     public static string sceneToLoad;
 
     public void Initialize()
     {
-        sceneToLoad = Application.loadedLevelName;
+        sceneToLoad = SceneManager.GetActiveScene().name;
         updateUI();
     }
 
@@ -33,6 +36,7 @@ public class SceneLoader : MonoBehaviour
             flag.value = flag.options.FindIndex(x => x.text.Equals((string)field.GetValue(field)));
         });
         lastSceneCompleted.value = lastSceneCompleted.options.FindIndex(x => x.text.Equals(Scenes.GetLastEmotionCompleted()));
+        scenes.value = scenes.options.FindIndex(x => x.text.Equals(SceneManager.GetActiveScene().name));
     }
 
     public void LoadScene()
@@ -51,6 +55,15 @@ public class SceneLoader : MonoBehaviour
         Scenes.ResetValues();
         Scenes.LoadingSceneThroughDebugging = true;
         Scenes.CompletedScenes.Add(lastSceneCompleted.options[lastSceneCompleted.value].text);
+        Scenes.CompletedScenes = simulateAllScenesCompleted.isOn
+            ? new List<string>
+            {
+                "AngrySceneSmallCity",
+                "SadSceneSmallCity",
+                "ScaredSceneSmallCity",
+                "HappySceneSmallCity"
+            }
+            : new List<string>();
         Utilities.LoadScene(sceneToLoad);
     }
 

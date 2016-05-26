@@ -24,6 +24,7 @@
             HasSeenPASS = true;
             AdultIsPresent = false;
             ParentGender = "";
+            PlayerGender = "";
         }
     }
 }
