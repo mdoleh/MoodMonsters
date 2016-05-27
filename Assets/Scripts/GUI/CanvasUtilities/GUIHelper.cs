@@ -112,9 +112,13 @@ public class GUIHelper : MonoBehaviour
         }
         else
         {
-            Utilities.PlayAudio(guiCanvas.GetComponent<AudioSource>());
-            Timeout.SetRepeatAudio(guiCanvas.GetComponent<AudioSource>());
-            yield return new WaitForSeconds(guiCanvas.GetComponent<AudioSource>().clip.length);
+            var guiAudio = guiCanvas.GetComponent<AudioSource>() ?? guiCanvas.transform.Find("Questions")
+                .GetComponentsInChildren<AudioSource>()
+                .ToList()
+                .Find(x => x.gameObject.name.ToLower().Equals(GameFlags.PlayerGender.ToLower()));
+            Utilities.PlayAudio(guiAudio);
+            Timeout.SetRepeatAudio(guiAudio);
+            yield return new WaitForSeconds(guiAudio.clip.length);
         }
 
         var tiles = guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList();
