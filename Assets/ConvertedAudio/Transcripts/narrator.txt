@@ -25,7 +25,7 @@ General Audio (used in all scenes):
 	- Touch one to start (*TouchOneToStart)
 	- Touch the flashing button to begin (*TouchToPlay)
 	- You've completed all the levels! Good Job! You've unlocked the bonus level! (*UnlockedBonus) ******
-	- Are you a boy? Or a girl? Touch the left picture for man or touch the right picture for woman. (*BoyOrGirl) ******
+	- Are you a boy? Or a girl? Touch the left picture for boy or touch the right picture for girl. (*BoyOrGirl) ******
  
  - Main Tutorial:
 	- For every right answer you get coins (*CoinsExplanationGaining)
