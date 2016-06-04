@@ -10,7 +10,7 @@
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = true;
         public static bool AdultIsPresent = true;
-        public static string ParentGender = "Dad";
+        public static string ParentGender = "Mom";
         public static string PlayerGender = "Female";
 
         public static void ResetValues()

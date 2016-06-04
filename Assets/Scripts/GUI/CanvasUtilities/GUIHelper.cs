@@ -112,10 +112,7 @@ public class GUIHelper : MonoBehaviour
         }
         else
         {
-            var guiAudio = guiCanvas.GetComponent<AudioSource>() ?? guiCanvas.transform.Find("Questions")
-                .GetComponentsInChildren<AudioSource>()
-                .ToList()
-                .Find(x => x.gameObject.name.ToLower().Equals(GameFlags.PlayerGender.ToLower()));
+            var guiAudio = guiCanvas.GetComponent<AudioSource>();
             Utilities.PlayAudio(guiAudio);
             Timeout.SetRepeatAudio(guiAudio);
             yield return new WaitForSeconds(guiAudio.clip.length);

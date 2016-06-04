@@ -10,6 +10,7 @@ namespace BlendsScene
     {
         public AudioSource weAreMoving;
         public AudioSource cantSeeFriends;
+        public AudioSource newJobFarAway;
         public DialogueKid[] children;
 
         private DialogueKid currentChild;
@@ -41,6 +42,15 @@ namespace BlendsScene
             }, () =>
             {
                 anim.speed = 1;
+                anim.SetTrigger("Idle");
+                GUIHelper.NextGUI();
+            }));
+        }
+
+        public void ExplainNewJob()
+        {
+            StartCoroutine(playAudio(newJobFarAway, () => anim.SetTrigger("TalkingSad"), () =>
+            {
                 anim.SetTrigger("Idle");
                 GUIHelper.NextGUI();
             }));

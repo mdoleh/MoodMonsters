@@ -8,3 +8,4 @@ Angry Scene:
 Blends Scene:
 	- Can I still see my friends after we move? (*CanIStillSeeMyFriendsBoy)
 	- We don't have to go. (*WeDontHaveToGo)
+	- Why we have to move? (*WhyDoWeHaveToMoveBoy)

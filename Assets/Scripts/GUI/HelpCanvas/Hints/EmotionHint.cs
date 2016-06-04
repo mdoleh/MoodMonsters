@@ -5,6 +5,12 @@ public class EmotionHint : SimpleHint
     public Transform mainCamera;
     public Vector3 zoomPosition;
     public Vector3 zoomRotation;
+
+    [Header("Optional")]
+    public ShowEmotion character;
+    public string emotionToShow;
+    public string afterEmotionToShow;
+
     private Vector3 originalPosition = Vector3.zero;
     private Vector3 originalRotation = Vector3.zero;
 
@@ -16,12 +22,14 @@ public class EmotionHint : SimpleHint
             originalPosition = mainCamera.position;
             originalRotation = mainCamera.rotation.eulerAngles;
         }
+        if (character != null) character.ShowAnimation(emotionToShow);
         mainCamera.position = zoomPosition;
         mainCamera.rotation = Quaternion.Euler(zoomRotation);
     }
 
     public override void NotifyCanvasChange()
     {
+        if (character != null) character.AfterAnimation(afterEmotionToShow);
         mainCamera.position = originalPosition;
         mainCamera.rotation = Quaternion.Euler(originalRotation);
     }

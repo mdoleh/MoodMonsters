@@ -17,6 +17,12 @@ public class GUIInitialization : MonoBehaviour
         {
             list.RemoveAll(x => x.name.Contains("Parent") && !x.name.Contains("ParentDefault"));
         }
+
+        if (!string.IsNullOrEmpty(GameFlags.PlayerGender))
+        {
+            list.RemoveAll(x => x.name.Contains("Actions") && !x.name.Contains(GameFlags.PlayerGender));
+        }
+
         canvasList.Canvases = list.ToArray();
 
         GUIHelper.Canvases = canvasList.gameObject;
