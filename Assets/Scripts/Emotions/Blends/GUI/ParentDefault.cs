@@ -5,11 +5,11 @@ using Globals;
 
 namespace BlendsScene
 {
-    public class ParentDefault : MonoBehaviour
+    public class ParentDefault<T> : MonoBehaviour where T : DefaultActionBase
     {
         public GameObject[] parentCharacters;
 
-        private bool askTriggered = false;
+        private bool triggered = false;
         private GameObject currentParent;
 
         private void Start()
@@ -19,10 +19,10 @@ namespace BlendsScene
 
         private void Update()
         {
-            if (!askTriggered)
+            if (!triggered)
             {
-                currentParent.GetComponent<Ask>().StartDefaultAction();
-                askTriggered = true;
+                currentParent.GetComponent<T>().StartDefaultAction();
+                triggered = true;
             }
         }
     }

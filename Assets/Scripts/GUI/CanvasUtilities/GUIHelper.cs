@@ -71,24 +71,20 @@ public class GUIHelper : MonoBehaviour
 
     private static bool showPassTablet(GameObject current, GameObject next)
     {
+        if (!GameFlags.AdultIsPresent) return false;
         current.SetActive(false);
         var passTablet = GameObject.Find("PassTabletCanvas").GetComponent<PassTablet>();
-        if (isParentCanvas(current) && !next.name.ToLower().Contains("parent"))
+        if (current.name.ToLower().Contains("parent") && !next.name.ToLower().Contains("parent"))
         {
             passTablet.SwitchToChild();
             return true;
         }
-        else if (!current.name.ToLower().Contains("parent") && isParentCanvas(next))
+        if (!current.name.ToLower().Contains("parent") && next.name.ToLower().Contains("parent"))
         {
             passTablet.SwitchToParent();
             return true;
         }
         return false;
-    }
-
-    private static bool isParentCanvas(GameObject canvas)
-    {
-        return canvas.name.ToLower().Contains("parent") && !canvas.name.ToLower().Contains("default");
     }
 
     private static IEnumerator playGuidedTutorial(GameObject guiCanvas)
