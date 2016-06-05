@@ -20,7 +20,6 @@ namespace SadScene
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSupportActionsMenu";
             StartCoroutine(NextGUI());
         }
 

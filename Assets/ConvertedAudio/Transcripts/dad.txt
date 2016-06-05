@@ -22,3 +22,5 @@ Blends Scene:
 	- Guess what? We're moving! We're getting a bigger house, and each of you will get your own room. (*WeAreMovingDad)
 	- Well, maybe every once in a while, but we're moving far away so it's going to be hard. (*MovingFarAwayDad)
 	- I got a new job, and it's far away. (*NewJobFarAwayDad)
+	- How do you feel about us moving? (*AskDad)
+	- I understand how you feel. I'm worried about moving too, but we can get through this together. (*SupportDad)

@@ -103,6 +103,7 @@ public class GUIHelper : MonoBehaviour
         if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)
         {
             var passLetters = passReminder.GetComponentsInChildren<Transform>().ToList();
+            // removes PASSReminder from the list of letters
             passLetters.Remove(passLetters.First(x => x.name.Equals(passReminder.name)));
             var passCanvas = GameObject.Find("PASSCanvas").transform;
             passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
@@ -113,6 +114,11 @@ public class GUIHelper : MonoBehaviour
         else
         {
             var guiAudio = guiCanvas.GetComponent<AudioSource>();
+            if (guiAudio == null)
+                guiAudio = guiCanvas.transform.Find("Questions")
+                .GetComponentsInChildren<AudioSource>()
+                .ToList()
+                .Find(x => x.gameObject.name.ToLower().Equals(GameFlags.PlayerGender.ToLower()));
             Utilities.PlayAudio(guiAudio);
             Timeout.SetRepeatAudio(guiAudio);
             yield return new WaitForSeconds(guiAudio.clip.length);

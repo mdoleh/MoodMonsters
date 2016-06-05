@@ -60,6 +60,7 @@ public class Utilities : MonoBehaviour {
 
     public static void LoadEmotionScene(string sceneToLoad)
     {
+        CanvasList.ResetIndex();
         CoinPile.ResetCoinPileSize();
         if (CityInitializer.City != null)
         {
@@ -73,15 +74,16 @@ public class Utilities : MonoBehaviour {
     {
         Timeout.StopTimers();
         Timeout.Instance.StopAllCoroutines();
-        CanvasList.ResetIndex();
         StopAudio(Sound.CurrentPlayingSound);
         if (sceneToLoad.ToLower().Contains("mainmenu") && CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
+            CanvasList.ResetIndex();
         }
         if (sceneToLoad.ToLower().Contains("minigame") && !SceneManager.GetActiveScene().name.ToLower().Contains("minigame"))
         {
+            CanvasList.ResetIndex();
             GameFlags.JoyStickTutorialHasRun = false;
             GameFlags.GuidedTutorialHasRun = true;
             CityInitializer.City.SetActive(false);

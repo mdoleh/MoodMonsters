@@ -22,7 +22,6 @@ namespace ScaredScene
         {
             base.AfterDialogue();
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentSupportActionsMenu";
             StartCoroutine(NextGUI());
         }
 

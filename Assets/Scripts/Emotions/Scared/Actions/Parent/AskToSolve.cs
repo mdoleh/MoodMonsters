@@ -2,23 +2,15 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ScaredScene
 {
     public class AskToSolve : DefaultActionBase
     {
         public ExplainFear fearfulCharacter;
-        public AudioSource switchToChildAudio;
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
-
-        private GameObject parentToChildImage;
-
-        protected void Start()
-        {
-            parentToChildImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ParentToChild").gameObject;
-        }
+        public PassTablet passTablet;
 
         protected override void DialogueAnimation()
         {
@@ -32,14 +24,7 @@ namespace ScaredScene
         {
             base.AfterDialogue();
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
-            switchBackToChild();
-        }
-
-        private void switchBackToChild()
-        {
-            parentToChildImage.SetActive(true);
-            Utilities.PlayAudio(switchToChildAudio);
+            passTablet.SwitchToChild();
         }
 
         protected override void BeforeExplanation()

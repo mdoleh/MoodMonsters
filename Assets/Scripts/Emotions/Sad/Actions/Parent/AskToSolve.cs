@@ -1,24 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Diagnostics;
+﻿using System.Collections;
 using System.Linq;
 using Globals;
-using UnityEngine.UI;
+using UnityEngine;
 
 namespace SadScene
 {
     public class AskToSolve : DefaultActionBase
     {
-        public AudioSource switchToChildAudio;
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
-
-        private GameObject parentToChildImage;
-
-        protected void Start()
-        {
-            parentToChildImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ParentToChild").gameObject;
-        }
+        public PassTablet passTablet;
 
         protected override void DialogueAnimation()
         {
@@ -30,21 +21,7 @@ namespace SadScene
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCitySituationActionsMenu";
-            switchBackToChild();
-        }
-
-        private void switchBackToChild()
-        {
-            if (GameFlags.AdultIsPresent)
-            {
-                parentToChildImage.SetActive(true);
-                Utilities.PlayAudio(switchToChildAudio);
-            }
-            else
-            {
-                GUIHelper.NextGUI();
-            }
+            passTablet.SwitchToChild();
         }
 
         protected override void BeforeExplanation()

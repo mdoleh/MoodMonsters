@@ -3,7 +3,8 @@ using UnityEngine;
 using System.Collections;
 using Globals;
 
-public class SceneReset : MonoBehaviour {
+public class SceneReset : MonoBehaviour
+{
     public string sceneToLoadIncorrect;
     public Canvas noSymbol;
     public Canvas correctSymbol;

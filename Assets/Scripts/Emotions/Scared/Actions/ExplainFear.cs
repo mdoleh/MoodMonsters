@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Collections;
 using Globals;
-using UnityEngine.UI;
+using UnityEngine;
 
 namespace ScaredScene
 {
@@ -12,14 +9,7 @@ namespace ScaredScene
         public Animator otherAnim;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
-        public AudioSource switchToParentAudio;
-
-        private GameObject childToParentImage;
-
-        private void Start()
-        {
-            childToParentImage = GameObject.Find("PassTabletCanvas").transform.FindChild("ChildToParent").gameObject;
-        }
+        public PassTablet passTablet;
 
         private void VoiceFear()
         {
@@ -32,19 +22,12 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
             if (GameFlags.AdultIsPresent)
             {
-                sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentPayAttentionAskActionsMenu";
-                switchToParent();
+                passTablet.SwitchToParent();
             }
             else
             {
                 otherAnim.GetComponent<Conversation>().GiveEncouragement();
             }
-        }
-
-        private void switchToParent()
-        {
-            childToParentImage.SetActive(true);
-            Utilities.PlayAudio(switchToParentAudio);
         }
 
         public void StartJumpSequence()

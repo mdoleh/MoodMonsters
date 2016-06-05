@@ -63,7 +63,6 @@ namespace ScaredScene
         public void StartJumpSequence()
         {
             anim.SetBool("IsIdle", true);
-            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCitySituationActionsMenu";
             GUIHelper.NextGUI();
         }
 

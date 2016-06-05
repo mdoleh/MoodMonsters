@@ -16,7 +16,6 @@ namespace ScaredScene
         {
             anim.speed = 1;
             anim.SetTrigger("Idle");
-            sceneReset.sceneToLoadIncorrect = "ScaredSceneSmallCityParentSolveActionsMenu";
             GUIHelper.NextGUI();
         }
 

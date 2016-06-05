@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Globals;
+using UnityEngine;
 
 public class EmotionHint : SimpleHint
 {
@@ -7,12 +9,19 @@ public class EmotionHint : SimpleHint
     public Vector3 zoomRotation;
 
     [Header("Optional")]
-    public ShowEmotion character;
+    public ShowEmotion[] characters;
     public string emotionToShow;
     public string afterEmotionToShow;
 
     private Vector3 originalPosition = Vector3.zero;
     private Vector3 originalRotation = Vector3.zero;
+    private ShowEmotion character;
+
+    private void Start()
+    {
+        if (characters != null)
+            character = characters.ToList().Find(x => x.gameObject.name.Contains(GameFlags.PlayerGender));
+    }
 
     public void ShowHint(bool playAudio = true)
     {

@@ -21,7 +21,6 @@ namespace SadScene
                 GetComponent<AskToSolve>().StartDefaultAction();
                 return;
             }
-            sceneReset.sceneToLoadIncorrect = "SadSceneSmallCityParentSolveActionsMenu";
             GUIHelper.NextGUI();
         }
 
