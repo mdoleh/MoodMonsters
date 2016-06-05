@@ -51,9 +51,6 @@ public class GUIHelper : MonoBehaviour
     {
         Timeout.StopTimers();
         showHelpUI(next);
-        next.SetActive(true);
-        var emotionHint = next.GetComponent<EmotionHint>();
-        if (emotionHint != null) emotionHint.ShowHint(false);
         if (current != null)
         {
             if (!GetDisableCanvasIgnoreList().Contains(current)) current.SetActive(false);
@@ -62,6 +59,9 @@ public class GUIHelper : MonoBehaviour
             var hintToNotify = current.GetComponent<HintBase>();
             if (hintToNotify != null) hintToNotify.NotifyCanvasChange();
         }
+        next.SetActive(true);
+        var emotionHint = next.GetComponent<EmotionHint>();
+        if (emotionHint != null) emotionHint.ShowHint(false);
         Timeout.Instance.StartCoroutine(playCanvasAudio(next));
     }
 

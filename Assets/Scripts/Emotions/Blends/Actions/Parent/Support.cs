@@ -1,16 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Linq;
 using Globals;
+using UnityEngine;
 
 namespace BlendsScene
 {
     public class Support : DefaultActionBase
     {
         public GameObject PASSLetter;
+        public GameObject[] PASSLetters;
 
         protected override void DialogueAnimation()
         {
             anim.SetTrigger("Talk");
+            PASSLetters.ToList().ForEach(x => x.SetActive(false));
         }
 
         protected override void AfterDialogue()

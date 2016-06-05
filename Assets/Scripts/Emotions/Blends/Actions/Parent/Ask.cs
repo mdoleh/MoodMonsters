@@ -13,6 +13,7 @@ namespace BlendsScene
         protected override void DialogueAnimation()
         {
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("Empty");
+            PASSLetters.ToList().ForEach(x => x.SetActive(false));
             anim.SetTrigger("Talk");
         }
 

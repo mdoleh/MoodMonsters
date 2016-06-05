@@ -24,3 +24,6 @@ Blends Scene:
 	- I got a new job, and it's far away. (*NewJobFarAwayDad)
 	- How do you feel about us moving? (*AskDad)
 	- I understand how you feel. I'm worried about moving too, but we can get through this together. (*SupportDad)
+	- Everything is going to be fine. There's nothing to worry about. (*InvalidateDad)
+	- How about we go get some ice cream? (*DistractDad)
+	- We should start packing. (*SolveDad)

@@ -24,3 +24,6 @@ Blends Scene:
 	- I got a new job, and it's far away. (*NewJobFarAwayMom)
 	- How do you feel about us moving? (*AskMom)
 	- I understand how you feel. I'm worried about moving too, but we can get through this together. (*SupportMom)
+	- Everything is going to be fine. There's nothing to worry about. (*InvalidateMom)
+	- How about we go get some ice cream? (*DistractMom)
+	- We should start packing. (*SolveMom)

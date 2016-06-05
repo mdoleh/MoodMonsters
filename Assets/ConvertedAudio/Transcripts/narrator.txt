@@ -362,10 +362,13 @@ Emotion Blends Scene (work in progress, don't record these yet): ******
 		- That's not right. Refusing to move away isn't going to change the situation or help in coping with it. Try again. (*RefusingDoesntChangeSituation)
 	- Parent Actions Menu:
 		- Say everything will be fine. (*InvalidateMoving)
-		- Ask why they shouldn't move. (*AskShouldntMove)
+		- Ask them how they feel. (*AskHowFeel)
 		- Offer emotional support. (*OfferSupport)
 		- Provide advice on what to do about the problem. (*ProvideAdvice)
 		- Ask what they can all do about the problem. (*AskWhatToDo)
+		- That's not right. This invalidates their feelings when there's nothing wrong with having them. (*InvalidatesFeelings)
+		- That's not right. Distracting them doesn't help them address their feelings about moving. Try again. (*Distracting)
+		- That's not right. Giving them the solution doesn't allow them to solve it on their own, or show them they can work through it. Try again. (*Solving)
 		
 ********************************************************************************************
 End Emotion Scenes
