@@ -2,7 +2,6 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GUIHelper : MonoBehaviour
 {
