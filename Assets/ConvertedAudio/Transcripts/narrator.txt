@@ -369,6 +369,8 @@ Emotion Blends Scene (work in progress, don't record these yet): ******
 		- That's not right. This invalidates their feelings when there's nothing wrong with having them. (*InvalidatesFeelings)
 		- That's not right. Distracting them doesn't help them address their feelings about moving. Try again. (*Distracting)
 		- That's not right. Giving them the solution doesn't allow them to solve it on their own, or show them they can work through it. Try again. (*Solving)
+		- Good! The first S stands for support. It will validate their feelings. (*Support)
+		- Good! The second S stands for solve. They should be guided to find a solution. (*AskToSolve)
 		
 ********************************************************************************************
 End Emotion Scenes

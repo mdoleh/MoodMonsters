@@ -12,7 +12,7 @@ namespace BlendsScene
         protected override void DialogueAnimation()
         {
             anim.SetTrigger("Talk");
-            anim.speed = anim.GetCurrentAnimatorClipInfo(0).Length/dialogue.clip.length;
+            anim.speed = dialogue.clip.length/anim.GetCurrentAnimatorStateInfo(1).length;
             PASSLetters.ToList().ForEach(x => x.SetActive(false));
         }
 

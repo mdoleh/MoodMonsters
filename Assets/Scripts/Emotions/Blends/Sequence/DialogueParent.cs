@@ -39,7 +39,7 @@ namespace BlendsScene
             StartCoroutine(playAudio(cantSeeFriends, () =>
             {
                 anim.SetTrigger("TalkingSad");
-                anim.speed = cantSeeFriends.clip.length / anim.GetCurrentAnimatorStateInfo(0).length;
+                anim.speed = cantSeeFriends.clip.length / anim.GetCurrentAnimatorStateInfo(1).length;
             }, () =>
             {
                 anim.speed = 1;
