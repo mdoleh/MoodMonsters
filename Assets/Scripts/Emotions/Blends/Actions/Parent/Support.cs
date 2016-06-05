@@ -12,11 +12,13 @@ namespace BlendsScene
         protected override void DialogueAnimation()
         {
             anim.SetTrigger("Talk");
+            anim.speed = anim.GetCurrentAnimatorClipInfo(0).Length/dialogue.clip.length;
             PASSLetters.ToList().ForEach(x => x.SetActive(false));
         }
 
         protected override void AfterDialogue()
         {
+            anim.speed = 1f;
             anim.SetTrigger("Idle");
             if (!GameFlags.AdultIsPresent)
             {
