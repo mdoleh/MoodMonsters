@@ -9,7 +9,6 @@ namespace SadScene
     {
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
-        public PassTablet passTablet;
 
         protected override void DialogueAnimation()
         {
@@ -21,7 +20,7 @@ namespace SadScene
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            passTablet.SwitchToChild();
+            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()

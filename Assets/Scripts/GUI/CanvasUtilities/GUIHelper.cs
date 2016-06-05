@@ -2,6 +2,7 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIHelper : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public class GUIHelper : MonoBehaviour
 
     public static void NextGUI()
     {
-        NextGUI(GetCurrentGUI(), GetNextGUI());
+        var current = GetCurrentGUI();
+        var next = GetNextGUI();
+        if (!showPassTablet(current, next))
+            NextGUI(current, next);
     }
 
     public static void NextGUI(GameObject current, GameObject next)
@@ -63,6 +67,28 @@ public class GUIHelper : MonoBehaviour
         var emotionHint = next.GetComponent<EmotionHint>();
         if (emotionHint != null) emotionHint.ShowHint(false);
         Timeout.Instance.StartCoroutine(playCanvasAudio(next));
+    }
+
+    private static bool showPassTablet(GameObject current, GameObject next)
+    {
+        current.SetActive(false);
+        var passTablet = GameObject.Find("PassTabletCanvas").GetComponent<PassTablet>();
+        if (isParentCanvas(current) && !next.name.ToLower().Contains("parent"))
+        {
+            passTablet.SwitchToChild();
+            return true;
+        }
+        else if (!current.name.ToLower().Contains("parent") && isParentCanvas(next))
+        {
+            passTablet.SwitchToParent();
+            return true;
+        }
+        return false;
+    }
+
+    private static bool isParentCanvas(GameObject canvas)
+    {
+        return canvas.name.ToLower().Contains("parent") && !canvas.name.ToLower().Contains("default");
     }
 
     private static IEnumerator playGuidedTutorial(GameObject guiCanvas)

@@ -7,7 +7,6 @@ namespace BlendsScene
 {
     public class Ask : DefaultActionBase
     {
-        public PassTablet passTablet;
         public GameObject[] PASSLetters;
 
         protected override void DialogueAnimation()
@@ -20,7 +19,7 @@ namespace BlendsScene
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            passTablet.SwitchToChild();
+            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()

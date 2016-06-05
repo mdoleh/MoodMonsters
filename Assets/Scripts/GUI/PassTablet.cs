@@ -26,8 +26,10 @@ public class PassTablet : MonoBehaviour
     public void ImageClicked()
     {
         StopAllCoroutines();
-        GUIHelper.NextGUI();
+        GUIHelper.NextGUI(GUIHelper.GetCurrentGUI(), GUIHelper.GetNextGUI());
         arrows.SetActive(false);
+        childToParentImage.GetComponent<Animator>().SetTrigger("Normal");
+        parentToChildImage.GetComponent<Animator>().SetTrigger("Normal");
         childToParentImage.SetActive(false);
         parentToChildImage.SetActive(false);
     }

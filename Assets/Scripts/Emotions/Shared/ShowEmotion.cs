@@ -12,6 +12,7 @@ public class ShowEmotion : MonoBehaviour
 
     public void ShowAnimation(string trigger)
     {
+        if (anim.GetCurrentAnimatorStateInfo(1).IsName(trigger)) return;
         anim.SetTrigger(trigger);
     }
 

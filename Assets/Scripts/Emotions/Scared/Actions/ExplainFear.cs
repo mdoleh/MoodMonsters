@@ -9,7 +9,6 @@ namespace ScaredScene
         public Animator otherAnim;
         public AudioSource scaredDialogue;
         public AudioSource afraidToFallDialogue;
-        public PassTablet passTablet;
 
         private void VoiceFear()
         {
@@ -22,7 +21,7 @@ namespace ScaredScene
             anim.SetTrigger("Idle");
             if (GameFlags.AdultIsPresent)
             {
-                passTablet.SwitchToParent();
+                GUIHelper.NextGUI();
             }
             else
             {

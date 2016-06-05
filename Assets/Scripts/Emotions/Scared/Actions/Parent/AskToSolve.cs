@@ -10,7 +10,6 @@ namespace ScaredScene
         public ExplainFear fearfulCharacter;
         public GameObject PASSLetter;
         public GameObject[] PASSLetters;
-        public PassTablet passTablet;
 
         protected override void DialogueAnimation()
         {
@@ -24,7 +23,7 @@ namespace ScaredScene
         {
             base.AfterDialogue();
             anim.SetTrigger("Idle");
-            passTablet.SwitchToChild();
+            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()

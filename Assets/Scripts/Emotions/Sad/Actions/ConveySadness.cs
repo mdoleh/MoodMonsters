@@ -2,8 +2,6 @@
 {
     public class ConveySadness : CorrectActionBase
     {
-        public PassTablet passTablet;
-
         protected override void DialogueAnimation()
         {
             base.DialogueAnimation();
@@ -14,7 +12,7 @@
         {
             base.AfterDialogue();
             anim.SetTrigger("Idle");
-            passTablet.SwitchToParent();
+            GUIHelper.NextGUI();
         }
     }
 }

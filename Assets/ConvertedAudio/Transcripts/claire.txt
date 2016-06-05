@@ -8,3 +8,4 @@ Blends Scene:
 	- Can I still see my friends after we move? (*CanIStillSeeMyFriendsGirl)
 	- We don't have to go. (*WeDontHaveToGo)
 	- Why we have to move? (*WhyDoWeHaveToMoveGirl)
+	- I think we should get ready for the move. (*GetReadyForMoveGirl)

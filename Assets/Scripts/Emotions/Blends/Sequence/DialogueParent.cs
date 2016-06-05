@@ -12,7 +12,6 @@ namespace BlendsScene
         public AudioSource cantSeeFriends;
         public AudioSource newJobFarAway;
         public DialogueKid[] children;
-        public PassTablet passTablet;
         
         private DialogueKid currentChild;
         private Animator anim;
@@ -53,11 +52,9 @@ namespace BlendsScene
             StartCoroutine(playAudio(newJobFarAway, () => anim.SetTrigger("TalkingSad"), () =>
             {
                 anim.SetTrigger("Idle");
-                passTablet.SwitchToParent();
+                GUIHelper.NextGUI();
             }));
         }
-
-        
 
         private IEnumerator playAudio(AudioSource source, Action preAudioAction, Action postAudioAction)
         {
