@@ -8,24 +8,13 @@ namespace PreSceneMenus
         public string SceneForTesting;
         public string GameFlagToSet;
 
-        public void AssignGameFlagNoSceneLoad(string value)
+        public void AssignGameFlag(string value, bool loadScene)
         {
-            setFlag(value, false);
-        }
-
-        public void AssignGameFlagNoSceneLoad(bool value)
-        {
-            setFlag(value, false);
-        }
-
-        public void AssignGameFlagWithSceneLoad(string value)
-        {
-            setFlag(value, true);
-        }
-
-        public void AssignGameFlagWithSceneLoad(bool value)
-        {
-            setFlag(value, true);
+            bool result;
+            if (bool.TryParse(value, out result))
+                setFlag(result, loadScene);
+            else
+                setFlag(value, loadScene);
         }
 
         private void setFlag<T>(T value, bool loadEmotionScene)

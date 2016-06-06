@@ -2,6 +2,7 @@
 using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GUIHelper : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class GUIHelper : MonoBehaviour
 
     private static bool showPassTablet(GameObject current, GameObject next)
     {
-        if (!GameFlags.AdultIsPresent) return false;
+        if (!GameFlags.AdultIsPresent || !SceneManager.GetActiveScene().name.Contains("SmallCity")) return false;
         current.SetActive(false);
         var passTablet = GameObject.Find("PassTabletCanvas").GetComponent<PassTablet>();
         if (current.name.ToLower().Contains("parent") && !next.name.ToLower().Contains("parent"))
