@@ -24,8 +24,8 @@ General Audio (used in all scenes):
 	- Is the adult who is with you a man or a woman? Touch the left picture for man or touch the right picture for woman. (*ManOrWoman)
 	- Touch one to start (*TouchOneToStart)
 	- Touch the flashing button to begin (*TouchToPlay)
-	- You've completed all the levels! Good Job! You've unlocked the bonus level! (*UnlockedBonus) ******
-	- Are you a boy? Or a girl? Touch the left picture for boy or touch the right picture for girl. (*BoyOrGirl) ******
+	- You've completed all the levels! Good Job! You've unlocked the bonus level! (*UnlockedBonus)
+	- Are you a boy? Or a girl? Touch the left picture for boy or touch the right picture for girl. (*BoyOrGirl)
  
  - Main Tutorial:
 	- For every right answer you get coins (*CoinsExplanationGaining)
@@ -37,7 +37,7 @@ General Audio (used in all scenes):
 	- To repeat the question, touch the repeat button. (*ToRepeatTouchRepeat)
 	- Touch a card or button to hear what it is. Now you try, touch the card. (*TouchCardOrButtonToHear)
 
- - Guided Tutorial ******:
+ - Guided Tutorial:
 	- Your face helps you know what you are feeling. (*FaceHelpYouKnow)
 	- Your body can also help you know what you are feeling. (*BodyHelpsYouKnow)
 	- It's good to talk to others about your feelings and have them help you solve the situation. (*GoodToTalkToOthers)
@@ -49,7 +49,7 @@ General Audio (used in all scenes):
 		- The first S stands for Support. (*FirstSstandsFor)
 		- The second S stands for Solve. (*SecondSstandsFor)
 	
- - Help Menu ******:
+ - Help Menu:
 	- Touch again for help (*TouchAgainForHelp)
 	- Touch again for information (*TouchAgainForInfo)
 	- Touch again to go back (*TouchAgainToGoBack)
@@ -58,7 +58,7 @@ General Audio (used in all scenes):
 	- Touch again to start (*TouchAgainToStart)
 	- Touch again to play (*TouchAgainToPlay)
 	
- - Pre-Scene Menus:
+ - Pre-Scene Menus ******:
 	- Touch again for yes. (*TouchAgainForYes)
 	- Touch again for no. (*TouchAgainForNo)
 	- Touch again for boy. (*TouchAgainForBoy)
@@ -204,7 +204,7 @@ Angry Scene:
 	- Hints
 		- What are her eyebrows doing to show you how she feels? (*WhatAreHerEyebrowsDoing)
 		- Look at what Lily is doing, and pick an answer that matches. (*LookAtWhatLilyDoing)
-		- What could she do so they are both happy? (*WhatCouldSheDo) ******
+		- What could she do so they are both happy? (*WhatCouldSheDo)
 		
 Happy Scene:
 	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
@@ -226,13 +226,13 @@ Happy Scene:
 	- Hints
 		- Look at what Scarlet is doing, and pick an answer that matches. (*LookAtWhatScarletDoing)
 		- What is her mouth doing to show you how she feels? (*WhatIsHerMouthDoing)
-		- What should Scarlet do to be a good friend in this situation? (*BeAGoodFriend) ******
+		- What should Scarlet do to be a good friend in this situation? (*BeAGoodFriend)
 	
 Sad Scene:
 	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)
 	- Drag the joystick forward to make Luis [loo-is] run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis)
-	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom) ******
-	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad) ******
+	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom)
+	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad)
 	- Use the soccer ball to knock over the cones. Move Luis [loo-is] toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
 	- Oops! Luis [loo-is] didn't kick the ball hard enough to knock over the cone. Try running faster next time. (*DidntKickHardEnough)
 	- Oops! Try to line up Luis with the ball to kick it. (*LineUpLuisWithBall)
