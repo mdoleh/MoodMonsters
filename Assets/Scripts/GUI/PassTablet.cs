@@ -36,27 +36,13 @@ public class PassTablet : MonoBehaviour
 
     public void SwitchToParent()
     {
-        if (GameFlags.AdultIsPresent)
-        {
-            childToParentImage.SetActive(true);
-            StartCoroutine(playInstructions(switchToParentAudio));
-        }
-        else
-        {
-            GUIHelper.NextGUI();
-        }
+        childToParentImage.SetActive(true);
+        StartCoroutine(playInstructions(switchToParentAudio));
     }
 
     public void SwitchToChild()
     {
-        if (GameFlags.AdultIsPresent)
-        {
-            parentToChildImage.SetActive(true);
-            StartCoroutine(playInstructions(switchToChildAudio));
-        }
-        else
-        {
-            GUIHelper.NextGUI();
-        }
+        parentToChildImage.SetActive(true);
+        StartCoroutine(playInstructions(switchToChildAudio));
     }
 }

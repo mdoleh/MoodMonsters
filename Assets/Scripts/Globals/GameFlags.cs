@@ -9,7 +9,7 @@
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = true;
-        public static bool AdultIsPresent = true;
+        public static bool AdultIsPresent = false;
         public static string ParentGender = "Dad";
         public static string PlayerGender = "";
 
