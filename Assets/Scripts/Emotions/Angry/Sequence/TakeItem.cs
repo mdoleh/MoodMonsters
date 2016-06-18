@@ -7,11 +7,14 @@ namespace AngryScene
 {
     public class TakeItem : MonoBehaviour
     {
-        private GameObject dialogue;
-        private GameObject miniGame;
-        protected Animator anim;
         public Animator other;
         public GameObject ipadCamera;
+        public GameObject ipad;
+        public Transform leftHand;
+        public Transform rightHand;
+        protected Animator anim;
+        private GameObject dialogue;
+        private GameObject miniGame;
         private GameObject ipadCanvas;
 
         public void Awake()
@@ -51,6 +54,7 @@ namespace AngryScene
             miniGame.SetActive(false);
 
             anim.SetTrigger("IsTakingIPad");
+            other.SetFloat("Speed", 1.0f);
             other.SetBool("IsUsingIPad", false);
             other.SetTrigger("IsLosingIPad");
             StartCoroutine(disableSelf());
@@ -69,18 +73,14 @@ namespace AngryScene
 
         public virtual void MoveIpad()
         {
-            var ipad = GameObject.Find("iPad");
-            var arm = GameObject.Find("Boy:RightHand").transform.parent.gameObject;
-            ipad.transform.parent = arm.transform.FindChild("mixamorig:RightHand");
+            ipad.transform.parent = rightHand;
             ipad.transform.localPosition = new Vector3(-0.133f, 0.094f, 0.085f);
             ipad.transform.localRotation = Quaternion.Euler(90f, 235.7971f, 0f);
         }
 
         public virtual void ShiftToLeftHand()
         {
-            var ipad = GameObject.Find("iPad");
-            var arm = GameObject.Find("Boy:LeftHand").transform.parent.gameObject;
-            ipad.transform.parent = arm.transform.FindChild("mixamorig:LeftHand");
+            ipad.transform.parent = leftHand;
             ipad.transform.localPosition = new Vector3(0.093f, 0.137f, 0.136f);
             ipad.transform.localRotation = Quaternion.Euler(66.94399f, 118.2474f, 34.07929f);
         }

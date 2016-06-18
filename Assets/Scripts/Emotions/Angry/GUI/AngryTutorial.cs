@@ -8,6 +8,7 @@ public class AngryTutorial : TutorialBase
     private AudioSource whatLilyIsPlayingAudio;
 
     public GameObject otherCharacter;
+    public Animator lily;
     private GameObject fingerDrag;
     public GameObject ipadCamera;
     public GameObject miniGame;
@@ -26,6 +27,7 @@ public class AngryTutorial : TutorialBase
     private IEnumerator HelpLilyPlayAudio()
     {
         HideNoInputSymbol();
+        lily.SetTrigger("Swipe");
         ipadCamera.SetActive(true);
         ipadCanvas.SetActive(true);
         miniGame.SetActive(true);

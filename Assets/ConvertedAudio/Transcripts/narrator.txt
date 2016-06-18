@@ -190,11 +190,17 @@ Angry Scene:
 	- Oh look! Here comes Ty. (*HereComesTy)
 	- This is Lily. She's playing with her new iPad and she likes it. (*LilyIntro)
 	- This is what Lily is playing. (*ThisIsWhatLilyIsPlaying)
-	- Uh oh! Ty took Lily's iPad away. Do you know how that makes her feel? (*HowDoesLilyFeel)
+	- How does Lily feel? (*HowDoesLilyFeel) ******
 	- What does your body do when you're angry? (*WhatDoesYourBodyDoAngry)
 	- What else does your body do when you're angry? (*WhatElseDoesYourBodyDoAngry)
 	- Can you find another thing you do when you're angry? (*CanYouFindWhatYouDoAngry)
-	- Actions Menu:
+	- Emotion Actions Menu ******:
+		- Uh oh! Ty took Lily's iPad away. What should Lily do now? (*WhatShouldLilyDoNow)
+		- Do nothing (*DoNothing)
+		- Check her face and body. (*CheckFaceAndBody)
+		- That's not right. Now Lily won't know what she is feeling. Try again. (*LilyWontKnowFeelings)
+		- That's right! Now Lily will find out what she's feeling. Good job! (*WillFindOutFeelings)
+	- Situation Actions Menu:
 		- What should Lily do to make it better? (*WhatShouldLilyDo)
 		- Share (*Share)
 		- Take it back (*TakeItBack)
@@ -205,6 +211,7 @@ Angry Scene:
 		- What are her eyebrows doing to show you how she feels? (*WhatAreHerEyebrowsDoing)
 		- Look at what Lily is doing, and pick an answer that matches. (*LookAtWhatLilyDoing)
 		- What could she do so they are both happy? (*WhatCouldSheDo)
+		- What could she do to find out what she is feeling? (*WhatCouldSheDoFindOutFeeling)
 		
 Happy Scene:
 	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
@@ -332,7 +339,7 @@ Scared Scene:
 		- What could he do to get help with the jump and feel better? (*WhatCanHeDoToFeelBetter)
 		- What could he do that will help him to conquer his fear? (*WhatCanHeDoToConquerFear)
 		
-Emotion Blends Scene (work in progress, don't record these yet): ******
+Emotion Blends Scene: ******
 	- This is Claire and her sister Lily. They're playing outside. (*IntroSisters)
 	- This is Ty and his brother AJ. They're playing outside. (*IntroBrothers)
 	- Here comes their mom. (*HereComesMom)

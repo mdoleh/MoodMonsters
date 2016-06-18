@@ -16,7 +16,8 @@ public class IncorrectActionBase : ActionBase
     {
         DialogueAnimation();
         Utilities.PlayAudio(dialogue);
-        yield return new WaitForSeconds(dialogue.clip.length);
+        if (dialogue != null)
+            yield return new WaitForSeconds(dialogue.clip.length);
         AfterDialogue();
         TriggerIncorrect();
     }

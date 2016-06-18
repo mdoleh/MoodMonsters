@@ -6,6 +6,9 @@ namespace AngryScene
     public class TakeItBack : ActionBase
     {
         public Animator other;
+        public GameObject ipad;
+        public Transform leftHand;
+        public Transform rightHand;
         private bool takingTriggered = false;
 
         public void StartTaking()
@@ -24,20 +27,16 @@ namespace AngryScene
 
         public void MoveIpad()
         {
-            if (!takingTriggered) return; 
-            var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("Girl:RightHand");
-            ipad.transform.parent = hand.transform.parent.FindChild("mixamorig:RightHand");
+            if (!takingTriggered) return;
+            ipad.transform.parent = rightHand;
             ipad.transform.localPosition = new Vector3(-0.104f, 0.122f, 0.114f);
             ipad.transform.localRotation = Quaternion.Euler(26.3481f, 234.883f, 349.391f);
         }
 
         public void ShiftToLeftHand()
         {
-            if (!takingTriggered) return; 
-            var ipad = GameObject.Find("iPad");
-            var hand = GameObject.Find("Girl:LeftHand");
-            ipad.transform.parent = hand.transform.parent.FindChild("mixamorig:LeftHand");
+            if (!takingTriggered) return;
+            ipad.transform.parent = leftHand;
             ipad.transform.localPosition = new Vector3(0.055f, 0.114f, 0.139f);
             ipad.transform.localRotation = Quaternion.Euler(26.44561f, 105.5384f, 11.9465f);
         }

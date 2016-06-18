@@ -11,7 +11,7 @@ namespace EggCatch
         public bool shouldDropEggs = false;
         public int MAX_SCORE = 5;
 
-        protected float lastInput;
+        private float lastInput;
 
         protected void Start()
         {
