@@ -73,7 +73,9 @@ public class GUIHelper : MonoBehaviour
     {
         if (!GameFlags.AdultIsPresent || !SceneManager.GetActiveScene().name.Contains("SmallCity")) return false;
         current.SetActive(false);
-        var passTablet = GameObject.Find("PassTabletCanvas").GetComponent<PassTablet>();
+        var passTabletObject = GameObject.Find("PassTabletCanvas");
+        if (passTabletObject == null) return false;
+        var passTablet = passTabletObject.GetComponent<PassTablet>();
         if (current.name.ToLower().Contains("parent") && !next.name.ToLower().Contains("parent"))
         {
             passTablet.SwitchToChild();
