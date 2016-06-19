@@ -9,8 +9,8 @@
         public static bool CameraTutorialHasRun = true;
         public static bool JoyStickTutorialHasRun = true;
         public static bool HasSeenPASS = true;
-        public static bool AdultIsPresent = true;
-        public static string ParentGender = "Dad";
+        public static bool AdultIsPresent = false;
+        public static string ParentGender = "Mom";
         public static string PlayerGender = "";
 
         public static void ResetValues()

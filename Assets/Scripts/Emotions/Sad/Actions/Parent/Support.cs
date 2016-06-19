@@ -16,11 +16,6 @@ namespace SadScene
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            if (!GameFlags.AdultIsPresent)
-            {
-                GetComponent<AskToSolve>().StartDefaultAction();
-                return;
-            }
             GUIHelper.NextGUI();
         }
 

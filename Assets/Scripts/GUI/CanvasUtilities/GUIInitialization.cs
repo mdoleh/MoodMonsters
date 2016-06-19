@@ -46,7 +46,7 @@ public class GUIInitialization : MonoBehaviour
     {
         if (string.IsNullOrEmpty(SceneLoader.DebugCanvasToLoad)) return;
         // must have loaded an 'actions' scene for this to be used
-        if (!SceneManager.GetActiveScene().name.ToLower().Contains("actions")) return;
+        if (!SceneManager.GetActiveScene().name.Contains("Actions")) return;
         var index = canvases.FindIndex(x => x.name.Contains(SceneLoader.DebugCanvasToLoad));
         if (index == -1 && SceneLoader.DebugCanvasToLoad.Contains("Parent"))
         {
