@@ -5,7 +5,6 @@ namespace ScaredScene
 {
     public class EdgeSlipTrigger : MonoBehaviour
     {
-        public bool AlwaysStumble = false;
         public bool shouldJump = false;
 
         private void OnTriggerEnter(Collider other)

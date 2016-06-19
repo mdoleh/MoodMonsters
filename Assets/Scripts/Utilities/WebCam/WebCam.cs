@@ -81,4 +81,9 @@ public class WebCam : MonoBehaviour
 
         if (takenPhotoTexture2D != null) takenPhotoTexture2D.Image = photo;
     }
+
+    private void OnDestroy()
+    {
+        TurnOffCamera();
+    }
 }

@@ -9,9 +9,9 @@ public class CanvasList : MonoBehaviour
 
     private static int currentIndex = 0;
 
-    public static int IncrementIndex()
+    public static void IncrementIndex()
     {
-        return ++currentIndex;
+        ++currentIndex;
     }
 
     public static int GetIndex()
@@ -22,5 +22,11 @@ public class CanvasList : MonoBehaviour
     public static void ResetIndex()
     {
         currentIndex = 0;
+    }
+
+    // for debugging use only
+    public static void SetIndex(int index)
+    {
+        currentIndex = index;
     }
 }

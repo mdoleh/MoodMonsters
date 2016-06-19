@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Globals;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GUIInitialization : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class GUIInitialization : MonoBehaviour
         canvasList.Canvases = list.ToArray();
 
         GUIHelper.Canvases = canvasList.gameObject;
+        initializeIndexFromDebugTools(list);
     }
 
     private static void cleanupHierarchy(List<GameObject> list, Predicate<GameObject> filter)
@@ -38,5 +40,19 @@ public class GUIInitialization : MonoBehaviour
         var toRemove = list.FindAll(filter);
         list.RemoveAll(filter);
         toRemove.ForEach(Destroy);
+    }
+
+    private static void initializeIndexFromDebugTools(List<GameObject> canvases)
+    {
+        if (string.IsNullOrEmpty(SceneLoader.DebugCanvasToLoad)) return;
+        // must have loaded an 'actions' scene for this to be used
+        if (!SceneManager.GetActiveScene().name.ToLower().Contains("actions")) return;
+        var index = canvases.FindIndex(x => x.name.Contains(SceneLoader.DebugCanvasToLoad));
+        if (index == -1 && SceneLoader.DebugCanvasToLoad.Contains("Parent"))
+        {
+            index = canvases.FindIndex(x => x.name.Contains("Parent"));
+        }
+        if (index == -1) return;
+        CanvasList.SetIndex(index);
     }
 }

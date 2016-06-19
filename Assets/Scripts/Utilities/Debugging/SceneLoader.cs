@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
+    public static string DebugCanvasToLoad;
     public Pause pauseButton;
     public Dropdown scenes;
     public Toggle[] flags;
     public Dropdown[] stringFlags;
     public Dropdown lastSceneCompleted;
+    public Dropdown canvasToLoad;
     public Toggle simulateAllScenesCompleted;
-    public static string sceneToLoad;
+    private string sceneToLoad;
 
     public void Initialize()
     {
@@ -63,7 +65,8 @@ public class SceneLoader : MonoBehaviour
                 "ScaredSceneSmallCity",
                 "HappySceneSmallCity"
             }
-            : new List<string>();
+            : Scenes.CompletedScenes;
+        DebugCanvasToLoad = canvasToLoad.options[canvasToLoad.value].text;
         Utilities.LoadScene(sceneToLoad);
     }
 
