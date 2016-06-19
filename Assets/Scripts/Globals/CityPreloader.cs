@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Globals
 {
@@ -8,7 +9,7 @@ namespace Globals
         private void Start()
         {
             if (CityInitializer.City == null)
-                Application.LoadLevelAdditiveAsync("SmallCity");
+                SceneManager.LoadSceneAsync("SmallCity", LoadSceneMode.Additive);
             else
             {
                 CityInitializer.City.SetActive(false);

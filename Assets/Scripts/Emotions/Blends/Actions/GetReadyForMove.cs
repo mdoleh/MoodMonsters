@@ -28,6 +28,6 @@ public class GetReadyForMove : ActionBase
         Utilities.PlayAudio(dialogue);
         yield return new WaitForSeconds(dialogue.clip.length);
         anim.SetTrigger("Idle");
-        sceneReset.TriggerCorrect(actionExplanation, "MainMenuScreen", true);
+        sceneReset.TriggerCorrect(actionExplanation, "EndScreen", true);
     }
 }

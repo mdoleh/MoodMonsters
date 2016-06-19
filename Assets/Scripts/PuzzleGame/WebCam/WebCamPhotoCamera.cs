@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EndScreen;
 using Globals;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,6 +61,7 @@ public class WebCamPhotoCamera : WebCam
         instructions.picturesToShow.SetActive(false);
         Utilities.StopAudio(Sound.CurrentPlayingSound);
         setAllButtons(buttonsToEnable, false);
+        EndScreenPhotos.AddPhoto(takenPhotoTexture2D.Image);
         cameraActions.RunPostPictureActions();
     }
 

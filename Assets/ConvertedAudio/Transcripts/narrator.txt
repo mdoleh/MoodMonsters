@@ -120,6 +120,9 @@ General Audio (used in all scenes):
  - Scene Intros:
 	- How does he feel? (*HowDoesHeFeel)
 	- How does she feel? (*HowDoesSheFeel)
+	
+ - EndScreen:
+	- Congratulations! You've completed the game! Nice work! (*CompletedGame)
 
 ********************************************************************************************
 End General Audio

@@ -86,9 +86,12 @@ public class Utilities : MonoBehaviour {
             CanvasList.ResetIndex();
             GameFlags.JoyStickTutorialHasRun = false;
             GameFlags.GuidedTutorialHasRun = true;
-            CityInitializer.City.SetActive(false);
-            StopAudio(CityInitializer.City.GetComponent<AudioSource>());
-            var sceneName = Application.loadedLevelName;
+            if (CityInitializer.City != null)
+            {
+                CityInitializer.City.SetActive(false);
+                StopAudio(CityInitializer.City.GetComponent<AudioSource>());
+            }
+            var sceneName = SceneManager.GetActiveScene().name;
             sceneFilters.ForEach(f => sceneName = sceneName.Replace(f, ""));
             if (!Scenes.CompletedScenes.Contains(sceneName) && !Scenes.LoadingSceneThroughDebugging) 
                 Scenes.CompletedScenes.Add(sceneName);
@@ -101,7 +104,7 @@ public class Utilities : MonoBehaviour {
 
     private static IEnumerator loadLevelAsync(string sceneToLoad)
     {
-        yield return Application.LoadLevelAsync(sceneToLoad);
+        yield return SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
     }
 
     public static AudioSource PlayRandomAudio(IList<AudioSource> audioSources)

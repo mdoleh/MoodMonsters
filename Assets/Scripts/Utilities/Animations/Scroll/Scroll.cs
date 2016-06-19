@@ -4,8 +4,9 @@ using System.Collections;
 public class Scroll : MonoBehaviour
 {
     public float startDelay = 3;
-    public float totalTime = 30;
+    public float speed = 1f;
     public Transform lastItem;
+    public EndScrollAction scrollAction;
 
     private bool shouldScroll;
     private Vector3 originalPosition;
@@ -24,8 +25,9 @@ public class Scroll : MonoBehaviour
 
     private void Update()
     {
-        if (shouldScroll) transform.position += new Vector3(0f, 1f, 0f);
+        if (shouldScroll) transform.position += new Vector3(0f, 1f * speed, 0f);
+        if (lastItem == null) return;
         if (lastItem.position.y > transform.GetComponent<RectTransform>().rect.height + lastItem.GetComponent<RectTransform>().rect.height)
-            transform.position = originalPosition - new Vector3(0f, transform.parent.GetComponent<RectTransform>().rect.height, 0f);
+            scrollAction.AfterScrollCompleted(transform, originalPosition);
     }
 }

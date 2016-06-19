@@ -1,4 +1,5 @@
-﻿using Globals;
+﻿using EndScreen;
+using Globals;
 using PuzzleMiniGame;
 using UnityEngine;
 using UnityEngine.UI;
