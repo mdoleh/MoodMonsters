@@ -1,26 +1,26 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using Globals;
+using UnityEngine;
 
 namespace SadScene
 {
     public class Ask : DefaultActionBase
     {
         public OutsideGroupDialogue child;
-        public AudioSource theyWontLetMePlay;
+        public AudioSource childResponse;
         public GameObject[] PASSLetters;
 
         protected override void DialogueAnimation()
         {
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("Empty");
+            PASSLetters.ToList().ForEach(x => x.SetActive(false));
             anim.SetTrigger("Talk");
         }
 
         protected override void AfterDialogue()
         {
             anim.SetTrigger("Idle");
-            StartCoroutine(NextGUI());
+            GUIHelper.NextGUI();
         }
 
         protected override void BeforeExplanation()
@@ -37,20 +37,6 @@ namespace SadScene
             if (!GameFlags.AdultIsPresent) return;
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("payattention")).GetComponent<Animator>().SetTrigger("Empty");
             PASSLetters.ToList().First(x => x.name.ToLower().Equals("ask")).GetComponent<Animator>().SetTrigger("BlowUp");
-        }
-
-        private IEnumerator NextGUI()
-        {
-            yield return child.PlayDialogue(theyWontLetMePlay);
-            child.TriggerIdleAnimation();
-            if (!GameFlags.AdultIsPresent)
-            {
-                GetComponent<Support>().StartDefaultAction();
-            }
-            else
-            {
-                GUIHelper.NextGUI();
-            }
         }
     }
 }

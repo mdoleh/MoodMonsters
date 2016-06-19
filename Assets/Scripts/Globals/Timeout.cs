@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Globals
 {
@@ -9,21 +10,17 @@ namespace Globals
         public float TimeUntilRepeat;
 
         public static Timeout Instance;
-        public static float ResetTime;
-        public static float RepeatTime;
         public static AudioSource WarningAudio;
 
         private static AudioSource RepeatAudio;
-        private static float repeatTimer = 0f;
-        private static float resetTimer = 0f;
-        private static bool shouldRunTimers = false;
-        private static bool shouldReset = false;
+        private float repeatTimer = 0f;
+        private float resetTimer = 0f;
+        private bool shouldRunTimers = false;
+        private bool shouldReset = false;
 
         private void Awake()
         {
             WarningAudio = transform.FindChild("WarningAudio").GetComponent<AudioSource>();
-            ResetTime = TimeUntilReset;
-            RepeatTime = TimeUntilRepeat;
             Instance = gameObject.GetComponent<Timeout>();
             enabled = false;
         }
@@ -32,15 +29,15 @@ namespace Globals
         {
             if (!shouldRunTimers) return;
             repeatTimer += Time.deltaTime;
-            if (resetTimer >= ResetTime && !shouldReset)
+            if (resetTimer >= TimeUntilReset && !shouldReset)
             {
                 Utilities.PlayAudio(WarningAudio);
                 shouldReset = true;
                 resetTimer = 0f;
             }
-            else if (repeatTimer >= RepeatTime)
+            else if (repeatTimer >= TimeUntilRepeat)
             {
-                if (shouldReset) Application.LoadLevel("TitleScreen");
+                if (shouldReset) SceneManager.LoadScene("TitleScreen");
                 resetTimer += repeatTimer;
                 repeatTimer = 0f;
                 StartCoroutine(PlayAudio());
@@ -58,24 +55,24 @@ namespace Globals
 
         public static void StartTimers()
         {
-            shouldRunTimers = true;
+            Instance.shouldRunTimers = true;
             Instance.enabled = true;
         }
 
         public static void StopTimers()
         {
-            shouldRunTimers = false;
-            shouldReset = false;
-            repeatTimer = 0f;
-            resetTimer = 0f;
+            Instance.shouldRunTimers = false;
+            Instance.shouldReset = false;
+            Instance.repeatTimer = 0f;
+            Instance.resetTimer = 0f;
             Instance.enabled = false;
         }
 
         public static void ResetValues()
         {
-            RepeatTime = 15f;
-            ResetTime = 60f;
             StopTimers();
+            Instance.TimeUntilRepeat = 15f;
+            Instance.TimeUntilReset = 60f;
         }
 
         public static void SetRepeatAudio(AudioSource audioToRepeat)

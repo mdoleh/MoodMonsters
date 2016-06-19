@@ -56,17 +56,5 @@ namespace SadScene
             anim.SetTrigger("WalkAway");
             cameraFollow.enabled = true;
         }
-
-        public WaitForSeconds PlayDialogue(AudioSource dialogue)
-        {
-            anim.SetTrigger("Talk");
-            Utilities.PlayAudio(dialogue);
-            return new WaitForSeconds(dialogue.clip.length);
-        }
-
-        public void TriggerIdleAnimation()
-        {
-            anim.SetTrigger("Idle");
-        }
     }
 }

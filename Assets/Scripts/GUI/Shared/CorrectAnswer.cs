@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class CorrectAnswer : ButtonDragDrop
 {
-    private AudioSource[] correctAudio;
-    private AudioSource currentAudioPlaying;
+    protected AudioSource[] correctAudio;
     private Text correctCountText;
     private Coin coin;
 
@@ -43,7 +42,7 @@ public class CorrectAnswer : ButtonDragDrop
         updateCorrectCountText();
     }
 
-    private IEnumerator ShowNextGUI()
+    protected virtual IEnumerator ShowNextGUI()
     {
         var currentAudio = Utilities.PlayRandomAudio(correctAudio);
         yield return new WaitForSeconds(currentAudio.clip.length);

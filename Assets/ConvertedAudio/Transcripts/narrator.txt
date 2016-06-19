@@ -249,8 +249,8 @@ Sad Scene:
 	- What does your body do when you're sad? (*WhatDoesYourBodyDoSad)
 	- What else does your body do when you're sad? (*WhatElseDoesYourBodyDoSad)
 	- Can you find another thing you do when you're sad? (*CanYouFindAnotherThingSad)
-	- Uh oh! Luis [loo-is] has been left out of the game. How does he feel? (*HowDoesLuisFeel)
-	- What should Luis [loo-is] do now? (*WhatShouldLuisDo)
+	- How does Luis feel? (*HowDoesLuisFeel) ******
+	- Uh oh! Luis [loo-is] has been left out of the game. What should Luis [loo-is] do now? (*WhatShouldLuisDo)
 	- What should Luis [loo-is] do about the problem? (*WhatShouldLuisDoProblem)
 	- Actions Menu:
 		- That's not right. Forcing himself into the game only upsets the other kids. Try again. (*ForcingHimselfIntoGameUpsetsOthers)
@@ -262,17 +262,17 @@ Sad Scene:
 		- Force himself into the game. (*ForceIntoGame)
 		- Keep practicing soccer on his own. (*PracticeSoccerAlone)
 		- Stay at the sidelines and watch the game. (*StayAtTheSidelines)
-		- Tell someone he feels sad. (*TellSomeoneHeIsSad)
+		- Tell someone what happened. (*TellSomeoneWhatHappened) ******
 		- Yell at the other kids. (*YellAtOtherKids)
 	- Parent Actions Menu:
-		- Ask Luis [loo-is] why he's sad. (*AskLuis)
+		- Ask Luis [loo-is] how he feels. (*AskLuis) ******
 		- Ask Luis [loo-is] what he thinks he should do about the problem. (*AskLuisWhatToDo)
 		- Provide Luis [loo-is] comfort. (*ComfortLuis)
 		- Distract Luis [loo-is] from the problem. (*DistractLuis)
 		- Make the other kids play with Luis [loo-is]. (*ForceKidsToPlayWithLouis)
 		- Give Luis [loo-is] advice on what to do about the problem. (*GiveAdviceToSolveProblem)
 		- Ignore Luis [loo-is]. (*IgnoreLuis)
-		- Tell Luis [loo-is] he's fine and not sad. (*InvalidateSadness)
+		- Tell Luis [loo-is] everything will be fine. (*InvalidateSadness) ******
 		- Offer Luis [loo-is] emotional support. (*SupportLuis)
 		- That's not right. Distracting Luis [loo-is] doesn't help him fix the problem or show him he can work through it. Try again. (*DistractingDoesntHelpLuis)
 		- That's not right. Forcing the other kids to play with Luis [loo-is] doesn't allow him to handle the situation on his own. Try again.(*DoesntHelpLuisFixItOnHisOwn)
