@@ -189,7 +189,7 @@ Emotion Scenes
 ********************************************************************************************
 
 Angry Scene:
-	- Help Lily play her game by dragging your finger left or right (*HelpLilyPlay)
+	- Help Lily catch the eggs in the bucket by dragging your finger left or right (*HelpLilyPlay) ******
 	- Oh look! Here comes Ty. (*HereComesTy)
 	- This is Lily. She's playing with her new iPad and she likes it. (*LilyIntro)
 	- This is what Lily is playing. (*ThisIsWhatLilyIsPlaying)
@@ -203,6 +203,7 @@ Angry Scene:
 		- Check her face and body. (*CheckFaceAndBody)
 		- That's not right. Now Lily won't know what she is feeling. Try again. (*LilyWontKnowFeelings)
 		- That's right! Now Lily will find out what she's feeling. Good job! (*WillFindOutFeelings)
+		- That's not right. Instead of throwing a tantrum, it's better for Lily to use her words to tell someone what she is feeling. Try again. (*LilyShouldUseHerWords)
 	- Situation Actions Menu:
 		- What should Lily do to make it better? (*WhatShouldLilyDo)
 		- Share (*Share)
