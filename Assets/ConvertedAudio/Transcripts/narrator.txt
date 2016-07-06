@@ -200,7 +200,7 @@ Angry Scene:
 	- Emotion Actions Menu ******:
 		- Uh oh! Ty took Lily's iPad away. What should Lily do now? (*WhatShouldLilyDoNow)
 		- Do nothing (*DoNothing)
-		- Check her face and body. (*CheckFaceAndBody)
+		- Try to figure out what she is feeling. (*FigureOutFeeling)
 		- That's not right. Now Lily won't know what she is feeling. Try again. (*LilyWontKnowFeelings)
 		- That's right! Now Lily will find out what she's feeling. Good job! (*WillFindOutFeelings)
 		- That's not right. Instead of throwing a tantrum, it's better for Lily to use her words to tell someone what she is feeling. Try again. (*LilyShouldUseHerWords)
