@@ -76,7 +76,7 @@ General Audio (used in all scenes):
 	
  - Physical Responses Menu:
 	- Arms in the air (*ArmsInTheAir)
-	- Breathing fast (*BreathingFast)
+	- Heavy Breathing (*BreathingFast) ******
 	- Butterflies in stomach (*Butterflies)
 	- Crying (*Crying)
 	- Making fists with hands (*Fists)
