@@ -28,10 +28,18 @@ namespace AngryScene
         public IEnumerator StartTalking()
         {
             yield return new WaitForSeconds(1f);
+            hideIpadGame();
             anim.SetTrigger("IsTalking");
             var letMePlay = dialogue.transform.FindChild("LetMePlay").GetComponent<AudioSource>();
             Utilities.PlayAudio(letMePlay);
             yield return new WaitForSeconds(letMePlay.clip.length);
+        }
+
+        private void hideIpadGame()
+        {
+            ipadCamera.SetActive(false);
+            ipadCanvas.SetActive(false);
+            miniGame.SetActive(false);
         }
 
         public void TriggerFootStamp()
@@ -49,10 +57,6 @@ namespace AngryScene
 
         public void TakeIPad()
         {
-            ipadCamera.SetActive(false);
-            ipadCanvas.SetActive(false);
-            miniGame.SetActive(false);
-
             anim.SetTrigger("IsTakingIPad");
             other.SetFloat("Speed", 1.0f);
             other.SetBool("IsUsingIPad", false);
