@@ -36,6 +36,13 @@ namespace AngryScene
             ipad.transform.localPosition = new Vector3(0.04f, -0.073f, 0.049f);
             ipad.transform.localRotation = Quaternion.Euler(352.4399f, 357.2535f, 10.56083f);
         }
+
+        public void MoveIpadForSharing()
+        {
+            var ipad = GameObject.Find("iPad");
+            ipad.transform.localPosition = new Vector3(-0.071f, 0.192f, 0.05f);
+            ipad.transform.localRotation = Quaternion.Euler(7.655785f, 0.08176757f, 10.56322f);
+        }
     }
 }
 

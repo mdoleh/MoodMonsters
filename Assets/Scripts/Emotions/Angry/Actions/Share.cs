@@ -25,10 +25,10 @@ namespace AngryScene
             otherAnim.SetTrigger("IsListening");
             var okay = otherAnim.transform.FindChild("Dialogue").FindChild("Okay").GetComponent<AudioSource>();
             Utilities.PlayAudio(okay);
-            StartCoroutine(TriggerSitting());
+            StartCoroutine(TriggerSharing());
         }
 
-        private IEnumerator TriggerSitting()
+        private IEnumerator TriggerSharing()
         {
             yield return new WaitForSeconds(2.5f);
             Timeout.StopTimers();

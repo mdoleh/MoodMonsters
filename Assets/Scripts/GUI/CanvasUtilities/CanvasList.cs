@@ -7,7 +7,7 @@ public class CanvasList : MonoBehaviour
     public GameObject[] HelpCanvasIgnoreList;
     public GameObject[] DisableCanvasIgnoreList;
 
-    private static int currentIndex = 0;
+    private static int currentIndex = 6;
 
     public static void IncrementIndex()
     {
