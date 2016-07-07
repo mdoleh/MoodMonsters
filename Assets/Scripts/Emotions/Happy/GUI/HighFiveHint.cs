@@ -17,7 +17,8 @@ namespace HappyScene
 
         public override void NotifyCanvasChange()
         {
-            prizeWinner.SetTrigger("Idle");
+            if (!prizeWinner.GetCurrentAnimatorStateInfo(1).IsName("Excited"))
+                prizeWinner.SetTrigger("Idle");
             nonWinner.ReturnToOriginalSpot();
         }
     }
