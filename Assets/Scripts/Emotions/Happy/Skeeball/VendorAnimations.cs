@@ -9,6 +9,7 @@ namespace HappyScene
         public Transform prizeBear;
         public Transform rightHand;
         public AudioSource wonPrizeAudio;
+        public GameObject disablePanel;
 
         private Animator anim;
 
@@ -19,6 +20,7 @@ namespace HappyScene
 
         public void WonPrize()
         {
+            disablePanel.SetActive(true);
             StartCoroutine(wonPrize());
         }
 
