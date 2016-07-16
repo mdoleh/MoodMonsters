@@ -15,7 +15,11 @@ namespace SadScene
             }
             else
             {
-                currentIndex = coneManager.currentIndex - 1;
+                // use the index as is if the coneManager is at the end of its sequence objects
+                if (coneManager.currentIndex == coneManager.SequenceObjects.Length)
+                    currentIndex = coneManager.currentIndex;
+                else
+                    currentIndex = coneManager.currentIndex - 1;
                 base.NextInSequence();
             }
         }
