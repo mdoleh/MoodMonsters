@@ -20,8 +20,6 @@ namespace BlendsScene
             disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
             noInputSymbol = disablePanel.transform.FindChild("NoInputSymbol").gameObject;
 
-            if (!GameFlags.AdultIsPresent)
-                GameFlags.ParentGender = Random.Range(0, 2) == 0 ? "Mom" : "Dad";
             childrenPairs.ToList().Find(x => x.name.ToLower().Contains(GameFlags.PlayerGender.ToLower())).SetActive(true);
             currentParent = parents.ToList().Find(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
