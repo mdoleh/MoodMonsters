@@ -46,5 +46,7 @@ public class EmotionHint : SimpleHint
         if (!returnCameraToOriginalPosition) return;
         mainCamera.position = originalPosition;
         mainCamera.rotation = Quaternion.Euler(originalRotation);
+        originalPosition = Vector3.zero;
+        originalRotation = Vector3.zero;
     }
 }
