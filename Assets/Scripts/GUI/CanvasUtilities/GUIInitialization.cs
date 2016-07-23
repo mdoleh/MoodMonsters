@@ -19,6 +19,8 @@ public class GUIInitialization : MonoBehaviour
         }
         else
         {
+            if (string.IsNullOrEmpty(GameFlags.ParentGender))
+                GameFlags.ParentGender = new List<string> {"Mom", "Dad"}[UnityEngine.Random.Range(0, 2)];
             filter = x => x.name.Contains("Parent") && !x.name.Contains("ParentDefault");
         }
         cleanupHierarchy(list, filter);

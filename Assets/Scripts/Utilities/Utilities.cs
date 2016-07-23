@@ -84,6 +84,7 @@ public class Utilities : MonoBehaviour {
         if (sceneToLoad.ToLower().Contains("minigame") && !SceneManager.GetActiveScene().name.ToLower().Contains("minigame"))
         {
             CanvasList.ResetIndex();
+            GameFlags.ParentGender = "";
             GameFlags.JoyStickTutorialHasRun = false;
             GameFlags.GuidedTutorialHasRun = true;
             if (CityInitializer.City != null)
