@@ -54,10 +54,10 @@ public class SceneReset : MonoBehaviour
 
     private IEnumerator DelayLoadingScene(AudioSource audioSource, string sceneToLoad, Action displaySymbol)
     {
+        Timeout.StopTimers();
         Utilities.PlayAudio(audioSource);
         displaySymbol();
         if (audioSource != null) yield return new WaitForSeconds(audioSource.clip.length);
-        Timeout.StopTimers();
         Utilities.LoadScene(sceneToLoad);
     }
 }

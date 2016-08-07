@@ -7,6 +7,7 @@ Angry Scene:
 	
 Blends Scene:
 	- Can I still see my friends after we move? (*CanIStillSeeMyFriendsBoy)
-	- We don't have to go. (*WeDontHaveToGo)
+	- We don't have to go. (*WeDontHaveToGoBoy)
+	- No! I don't want to go. (*DontWantToGoBoy)
 	- Why we have to move? (*WhyDoWeHaveToMoveBoy)
 	- I think we should get ready for the move. (*GetReadyForMoveBoy)

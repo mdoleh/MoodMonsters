@@ -75,7 +75,8 @@ public class Utilities : MonoBehaviour {
         Timeout.StopTimers();
         Timeout.Instance.StopAllCoroutines();
         StopAudio(Sound.CurrentPlayingSound);
-        if (sceneToLoad.ToLower().Contains("mainmenu") && CityInitializer.City != null)
+        if ((sceneToLoad.ToLower().Contains("mainmenu") 
+            || sceneToLoad.ToLower().Contains("title")) && CityInitializer.City != null)
         {
             CityInitializer.City.SetActive(false);
             StopAudio(CityInitializer.City.GetComponent<AudioSource>());
