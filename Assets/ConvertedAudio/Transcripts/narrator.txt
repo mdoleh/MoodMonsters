@@ -58,7 +58,7 @@ General Audio (used in all scenes):
 	- Touch again to start (*TouchAgainToStart)
 	- Touch again to play (*TouchAgainToPlay)
 	
- - Pre-Scene Menus ******:
+ - Pre-Scene Menus
 	- Touch again for yes. (*TouchAgainForYes)
 	- Touch again for no. (*TouchAgainForNo)
 	- Touch again for boy. (*TouchAgainForBoy)
@@ -76,7 +76,7 @@ General Audio (used in all scenes):
 	
  - Physical Responses Menu:
 	- Arms in the air (*ArmsInTheAir)
-	- Heavy Breathing (*BreathingFast) ******
+	- Heavy Breathing (*HeavyBreathing)
 	- Butterflies in stomach (*Butterflies)
 	- Crying (*Crying)
 	- Making fists with hands (*Fists)
@@ -189,15 +189,15 @@ Emotion Scenes
 ********************************************************************************************
 
 Angry Scene:
-	- Help Lily catch the eggs in the bucket by dragging your finger left or right (*HelpLilyPlay) ******
+	- Help Lily catch the eggs in the bucket by dragging your finger left or right (*HelpLilyPlay)
 	- Oh look! Here comes Ty. (*HereComesTy)
 	- This is Lily. She's playing with her new iPad and she likes it. (*LilyIntro)
 	- This is what Lily is playing. (*ThisIsWhatLilyIsPlaying)
-	- How does Lily feel? (*HowDoesLilyFeel) ******
+	- How does Lily feel? (*HowDoesLilyFeel)
 	- What does your body do when you're angry? (*WhatDoesYourBodyDoAngry)
 	- What else does your body do when you're angry? (*WhatElseDoesYourBodyDoAngry)
 	- Can you find another thing you do when you're angry? (*CanYouFindWhatYouDoAngry)
-	- Emotion Actions Menu ******:
+	- Emotion Actions Menu
 		- Uh oh! Ty took Lily's iPad away. What should Lily do now? (*WhatShouldLilyDoNow)
 		- Do nothing (*DoNothing)
 		- Try to figure out what she is feeling. (*FigureOutFeeling)
@@ -250,7 +250,7 @@ Sad Scene:
 	- What does your body do when you're sad? (*WhatDoesYourBodyDoSad)
 	- What else does your body do when you're sad? (*WhatElseDoesYourBodyDoSad)
 	- Can you find another thing you do when you're sad? (*CanYouFindAnotherThingSad)
-	- How does Luis feel? (*HowDoesLuisFeel) ******
+	- How does Luis feel? (*HowDoesLuisFeel)
 	- Uh oh! Luis [loo-is] has been left out of the game. What should Luis [loo-is] do now? (*WhatShouldLuisDo)
 	- What should Luis [loo-is] do about the problem? (*WhatShouldLuisDoProblem)
 	- Actions Menu:
@@ -263,17 +263,17 @@ Sad Scene:
 		- Force himself into the game. (*ForceIntoGame)
 		- Keep practicing soccer on his own. (*PracticeSoccerAlone)
 		- Stay at the sidelines and watch the game. (*StayAtTheSidelines)
-		- Tell someone what happened. (*TellSomeoneWhatHappened) ******
+		- Tell someone what happened. (*TellSomeoneWhatHappened)
 		- Yell at the other kids. (*YellAtOtherKids)
 	- Parent Actions Menu:
-		- Ask Luis [loo-is] how he feels. (*AskLuis) ******
+		- Ask Luis [loo-is] how he feels. (*AskLuis)
 		- Ask Luis [loo-is] what he thinks he should do about the problem. (*AskLuisWhatToDo)
 		- Provide Luis [loo-is] comfort. (*ComfortLuis)
 		- Distract Luis [loo-is] from the problem. (*DistractLuis)
 		- Make the other kids play with Luis [loo-is]. (*ForceKidsToPlayWithLouis)
 		- Give Luis [loo-is] advice on what to do about the problem. (*GiveAdviceToSolveProblem)
 		- Ignore Luis [loo-is]. (*IgnoreLuis)
-		- Tell Luis [loo-is] everything will be fine. (*InvalidateSadness) ******
+		- Tell Luis [loo-is] everything will be fine. (*InvalidateSadness)
 		- Offer Luis [loo-is] emotional support. (*SupportLuis)
 		- That's not right. Distracting Luis [loo-is] doesn't help him fix the problem or show him he can work through it. Try again. (*DistractingDoesntHelpLuis)
 		- That's not right. Forcing the other kids to play with Luis [loo-is] doesn't allow him to handle the situation on his own. Try again.(*DoesntHelpLuisFixItOnHisOwn)
@@ -343,7 +343,7 @@ Scared Scene:
 		- What could he do to get help with the jump and feel better? (*WhatCanHeDoToFeelBetter)
 		- What could he do that will help him to conquer his fear? (*WhatCanHeDoToConquerFear)
 		
-Emotion Blends Scene: ******
+Emotion Blends Scene:
 	- This is Claire and her sister Lily. They're playing outside. (*IntroSisters)
 	- This is Ty and his brother AJ. They're playing outside. (*IntroBrothers)
 	- Here comes their mom. (*HereComesMom)
@@ -368,6 +368,7 @@ Emotion Blends Scene: ******
 		- How would you feel if you had to leave your friends behind? (*LeaveFriendsBehind)
 		- How would you feel if you weren't sure you'd fit in? (*FittingIn)
 		- How would you feel if you couldn't go to your favorite park anymore? (*CantVisitFavoritePark)
+		- How would you feel if you were getting your own room? (*GettingYourOwnRoom) ******
 	- Actions Menu:
 		- Refuse to go. (*RefuseToGo)
 		- Talk about it. (*TalkAboutIt)
@@ -384,6 +385,7 @@ Emotion Blends Scene: ******
 		- Ask them how they feel. (*AskHowFeel)
 		- Offer emotional support. (*OfferSupport)
 		- Provide advice on what to do about the problem. (*ProvideAdvice)
+		- Provide a distraction from the problem. (*OfferDistraction) ******
 		- Ask what they can all do about the problem. (*AskWhatToDo)
 		- That's not right. This invalidates their feelings when there's nothing wrong with having them. Try again. (*InvalidatesFeelings)
 		- That's not right. Distracting them doesn't help them address their feelings about moving. Try again. (*Distracting)
