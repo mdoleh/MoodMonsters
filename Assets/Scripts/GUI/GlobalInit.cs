@@ -13,5 +13,6 @@ public class GlobalInit : MonoBehaviour
         Scenes.ResetValues();
         Help.ResetValues();
         Sound.ResetValues();
+        CanvasList.ResetIndex();
     }
 }

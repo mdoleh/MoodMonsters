@@ -13,16 +13,16 @@ namespace AngryScene
             if (run)
             {
                 float move = Time.deltaTime * 1.5f;
-                transform.position = new Vector3(transform.position.x - move, transform.position.y, transform.position.z);
+                anim.transform.position = new Vector3(anim.transform.position.x - move, anim.transform.position.y, anim.transform.position.z);
             }
-            if (rotationHasCycledBack && transform.rotation.eulerAngles.y <= 265f && !run)
+            if (rotationHasCycledBack && anim.transform.rotation.eulerAngles.y <= 265f && !run)
             {
                 anim.SetBool("IsTurning", false);
                 anim.SetTrigger("IsHiding");
                 run = true;
                 StartCoroutine(triggerReset());
             }
-            if (transform.rotation.eulerAngles.y >= 350f)
+            if (anim.transform.rotation.eulerAngles.y >= 350f)
             {
                 rotationHasCycledBack = true;
             }
@@ -35,7 +35,7 @@ namespace AngryScene
 
         private IEnumerator triggerReset()
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            anim.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             yield return new WaitForSeconds(3f);
             sceneReset.TriggerSceneReset(actionExplanation, true);
         }
