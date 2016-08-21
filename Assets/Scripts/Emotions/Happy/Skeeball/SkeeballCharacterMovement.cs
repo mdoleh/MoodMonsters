@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using HelpGUI;
 using UnityEngine;
 
 namespace HappyScene
@@ -17,7 +18,9 @@ namespace HappyScene
                 GUIHelper.NextGUI();
                 StartCoroutine(goalChooser.FlashBonusHighlighters());
             }
-            else ShowJoystick();
+            ShowJoystick();
+            HelpCanvas.Interactive(true);
+            HelpCanvas.EnableHintButton(false);
             StartCoroutine(startSequence());
         }
 

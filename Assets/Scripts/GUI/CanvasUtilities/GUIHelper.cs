@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using Globals;
+using HelpGUI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,7 +55,12 @@ public class GUIHelper : MonoBehaviour
     public static void NextGUI(GameObject current, GameObject next)
     {
         Timeout.StopTimers();
-        showHelpUI(next);
+        if (!GetHelpCanvasIgnoreList().Contains(next))
+        {
+            HelpCanvas.EnableHelpCanvas(true);
+            HelpCanvas.Interactive(false);
+            HelpCanvas.EnableHintButton(true);
+        }
         if (current != null)
         {
             if (!GetDisableCanvasIgnoreList().Contains(current)) current.SetActive(false);
@@ -72,19 +78,17 @@ public class GUIHelper : MonoBehaviour
     private static bool showPassTablet(GameObject current, GameObject next)
     {
         if (!GameFlags.AdultIsPresent || !SceneManager.GetActiveScene().name.Contains("SmallCity")) return false;
-        var passTabletObject = GameObject.Find("PassTabletCanvas");
-        if (passTabletObject == null) return false;
-        var passTablet = passTabletObject.GetComponent<PassTablet>();
+        if (!PassTablet.HasInstance()) return false;
         if (current.name.ToLower().Contains("parent") && !next.name.ToLower().Contains("parent"))
         {
             current.SetActive(false);
-            passTablet.SwitchToChild();
+            PassTablet.SwitchToChild();
             return true;
         }
         if (!current.name.ToLower().Contains("parent") && next.name.ToLower().Contains("parent"))
         {
             current.SetActive(false);
-            passTablet.SwitchToParent();
+            PassTablet.SwitchToParent();
             return true;
         }
         return false;
@@ -104,21 +108,6 @@ public class GUIHelper : MonoBehaviour
         if (guiCanvas.name.ToLower().Contains("physical") && !guiCanvas.name.Contains("1")) yield break;
         Utilities.PlayAudio(currentAudio.First());
         yield return new WaitForSeconds(currentAudio.First().clip.length);
-    }
-
-    private static void showHelpUI(GameObject guiCanvas)
-    {
-        if (GetHelpCanvasIgnoreList().Contains(guiCanvas)) return;
-        var helpCanvas = GameObject.Find("HelpCanvas");
-        helpCanvas.GetComponent<Canvas>().enabled = true;
-        helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(true);
-    }
-
-    private static void enableUI()
-    {
-        var helpCanvas = GameObject.Find("HelpCanvas");
-        if (helpCanvas != null)
-            helpCanvas.transform.FindChild("DisablePanel").gameObject.SetActive(false);
     }
 
     private static IEnumerator playCanvasAudio(GameObject guiCanvas)
@@ -156,7 +145,7 @@ public class GUIHelper : MonoBehaviour
             yield return Timeout.Instance.StartCoroutine(playTileAudio(child.transform));
         }
         yield return Timeout.Instance.StartCoroutine(playGuidedTutorial(guiCanvas));
-        enableUI();
+        HelpCanvas.Interactive(true);
         Timeout.StartTimers();
     }
 

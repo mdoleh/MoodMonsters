@@ -11,15 +11,22 @@ public class PassTablet : MonoBehaviour
     public AudioSource touchWhenReadyAudio;
     public GameObject arrows;
 
-    private IEnumerator playInstructions(AudioSource audioToPlay)
+    private static PassTablet Instance;
+
+    private void Start()
+    {
+        Instance = this;
+    }
+
+    private static IEnumerator playInstructions(AudioSource audioToPlay)
     {
         yield return new 
             WaitForSeconds(Sound.CurrentPlayingSound.clip.length - Sound.CurrentPlayingSound.time);
         Utilities.PlayAudio(audioToPlay);
         yield return new WaitForSeconds(audioToPlay.clip.length);
-        arrows.SetActive(true);
-        Utilities.PlayAudio(touchWhenReadyAudio);
-        Timeout.SetRepeatAudio(touchWhenReadyAudio);
+        Instance.arrows.SetActive(true);
+        Utilities.PlayAudio(Instance.touchWhenReadyAudio);
+        Timeout.SetRepeatAudio(Instance.touchWhenReadyAudio);
         Timeout.StartTimers();
     }
     
@@ -34,15 +41,20 @@ public class PassTablet : MonoBehaviour
         parentToChildImage.SetActive(false);
     }
 
-    public void SwitchToParent()
+    public static bool HasInstance()
     {
-        childToParentImage.SetActive(true);
-        StartCoroutine(playInstructions(switchToParentAudio));
+        return Instance != null;
     }
 
-    public void SwitchToChild()
+    public static void SwitchToParent()
     {
-        parentToChildImage.SetActive(true);
-        StartCoroutine(playInstructions(switchToChildAudio));
+        Instance.childToParentImage.SetActive(true);
+        Instance.StartCoroutine(playInstructions(Instance.switchToParentAudio));
+    }
+
+    public static void SwitchToChild()
+    {
+        Instance.parentToChildImage.SetActive(true);
+        Instance.StartCoroutine(playInstructions(Instance.switchToChildAudio));
     }
 }

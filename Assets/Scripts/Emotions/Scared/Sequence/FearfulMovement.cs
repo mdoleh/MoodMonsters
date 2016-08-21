@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using Globals;
+using HelpGUI;
 using ScaredScene;
 using UnityEngine;
 
@@ -221,7 +222,8 @@ namespace ScaredScene
         {
             cameraFollow.enabled = false;
             if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
-            joystickCanvas.GetComponent<Canvas>().enabled = true;
+            HelpCanvas.EnableHintButton(false);
+            ShowJoystick();
             mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
             mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
         }

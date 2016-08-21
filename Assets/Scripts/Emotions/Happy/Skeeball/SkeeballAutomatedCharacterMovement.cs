@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using HelpGUI;
 using UnityEngine;
 
 namespace HappyScene
@@ -19,6 +20,7 @@ namespace HappyScene
 
         public void StartSequence()
         {
+            HelpCanvas.Interactive(false);
             resetBallPosition(skeeball);
             resetBallColor(skeeball);
             adjustCamera();

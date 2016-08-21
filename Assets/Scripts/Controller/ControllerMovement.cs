@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Globals;
+using HelpGUI;
 using UnityEngine;
 
 public class ControllerMovement : MonoBehaviour 
@@ -109,14 +110,13 @@ public class ControllerMovement : MonoBehaviour
 
     public void DisableHelpGUI()
     {
-        disablePanel.SetActive(true);
-        noInputSymbol.SetActive(true);
+        HelpCanvas.Interactive(false);
     }
 
     public void EnableHelpGUI()
     {
-        helpCanvas.enabled = true;
-        disablePanel.SetActive(false);
+        HelpCanvas.EnableHelpCanvas(true);
+        HelpCanvas.Interactive(true);
     }
 
     protected void ResetAndDisableJoystick()

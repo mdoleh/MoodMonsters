@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using Globals;
+using HelpGUI;
 
 namespace SadScene
 {
@@ -56,7 +57,8 @@ namespace SadScene
         private void AdjustCamera()
         {
             if (!joystickCanvas.activeInHierarchy) GUIHelper.NextGUI();
-            joystickCanvas.GetComponent<Canvas>().enabled = true;
+            HelpCanvas.EnableHintButton(false);
+            ShowJoystick();
             if (shouldMoveParent) MoveParent();
             mainCamera.transform.position = new Vector3(transform.position.x - 1.0f, transform.position.y + 3.0f, transform.position.z + 0.3f);
             mainCamera.transform.localRotation = Quaternion.Euler(33.56473f, 98.39697f, 5.486476f);
