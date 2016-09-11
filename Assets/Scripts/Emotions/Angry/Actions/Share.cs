@@ -42,13 +42,6 @@ namespace AngryScene
             StartCoroutine(LoadMiniGame());
         }
 
-        public void StartSitting()
-        {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            anim.SetTrigger("IsSharing");
-        }
-
         public void FreezeAllMovement()
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -69,7 +62,7 @@ namespace AngryScene
                 if (transform.position.x >= 204.037f)
                 {
                     anim.SetBool("IsWalking", false);
-                    anim.SetTrigger("IsSharing");
+                    anim.SetBool("IsSharing", true);
                 }
             }
         }
