@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 namespace EndScreen
 {
+    // Holds all of the photos taken by the Puzzle Mini Game
+    // Photos are saved for the End Screen
     public class EndScreenPhotos : MonoBehaviour
     {
         public RawImage[] images;

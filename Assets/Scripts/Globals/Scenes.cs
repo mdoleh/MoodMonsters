@@ -3,6 +3,8 @@ using System.Linq;
 
 namespace Globals
 {
+    // Keeps track of completed scenes and serves as a 
+    // helper class for loading mini games
     public static class Scenes
     {
         public static bool LoadingSceneThroughDebugging = false;

@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
+// Creates simple camera panning movements
+// Used by the Game Introduction
 public class BasicCameraMovements : MonoBehaviour
 {
     private float PAN_SPEED;

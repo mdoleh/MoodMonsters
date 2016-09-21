@@ -12,6 +12,8 @@ public class GUIInitialization : MonoBehaviour
         var canvasList = GameObject.Find("CanvasList").GetComponent<CanvasList>();
         var list = canvasList.Canvases.ToList();
 
+        // determine which Parent canvases to filter out
+        // based on whether or not an adult is present
         Predicate<GameObject> filter;
         if (GameFlags.AdultIsPresent)
         {
@@ -25,6 +27,8 @@ public class GUIInitialization : MonoBehaviour
         }
         cleanupHierarchy(list, filter);
 
+        // filter questions based on player gender if one was provided
+        // player gender is only provided in the Blends Scene
         if (!string.IsNullOrEmpty(GameFlags.PlayerGender))
         {
             filter = x => x.name.Contains("Actions") && !x.name.Contains(GameFlags.PlayerGender);

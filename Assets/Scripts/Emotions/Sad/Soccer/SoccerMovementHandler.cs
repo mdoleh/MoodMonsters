@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+// Used by Sad Scene to move Luis in fixed lanes in the left & right directions
 public class SoccerMovementHandler : MovementHandler
 {
     public LaneBasedMovementHandler laneBasedMovementHandler;
@@ -14,6 +15,7 @@ public class SoccerMovementHandler : MovementHandler
         restrictMovement(joystick);
     }
 
+    // prevents Luis from straying off screen by moving left or right
     private void restrictMovement(Joystick joystickScript)
     {
         var controller = gameObject.GetComponent<ControllerMovement>();

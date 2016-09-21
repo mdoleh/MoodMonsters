@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace PuzzleMiniGame
 {
+    // Uses the image from the WebCam to generate puzzle pieces
+    // Also manages shuffling the pieces around and assigning which
+    // grid panel is the "correct" panel for a given pieces
     public class CreatePuzzlePieces : MonoBehaviour
     {
         public TakenImage image;

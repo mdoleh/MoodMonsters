@@ -2,6 +2,7 @@
 using System.Collections;
 using Globals;
 
+// Pauses the game and displays the debugging tools
 public class Pause : MonoBehaviour
 {
     public GameObject debugOptions;

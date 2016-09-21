@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace EggCatch
 {
+    // Handles the player's input and manages the player's score
     public class PlayerScript : MonoBehaviour
     {
-
         public int theScore = 0;
         public GameObject[] stars;
         public bool shouldDropEggs = false;

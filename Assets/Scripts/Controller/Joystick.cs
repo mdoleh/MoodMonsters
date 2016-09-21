@@ -46,6 +46,11 @@ public class Joystick : MonoBehaviour
         if (shouldStartTimers) Timeout.StartTimers();
     }
 
+    // tracks the joystick movements and recomputes the
+    // output values to be consumed by other scripts
+    // Output will correspond to Max Speed and Direction
+    // Direction ranges from Max to -Max
+    // Speed ranges from 0 to Max
     public void Drag()
     {
         float x = 0f;

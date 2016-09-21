@@ -5,9 +5,9 @@ using Globals;
 
 namespace EggCatch
 {
+    // Updates the player's score when an egg is caught in the bucket
     public class EggCollider : MonoBehaviour
     {
-
         private PlayerScript myPlayerScript;
         public SceneReset sceneReset;
         public AudioSource goodSound;
@@ -17,19 +17,16 @@ namespace EggCatch
         private AudioSource reminderToPlay;
         private bool loadingNextScene = false;
         private const string PREFAB_NAME_BASE = "EggPrefab";
-
-        //Automatically run when a scene starts
+        
         private void Awake()
         {
             myPlayerScript = transform.parent.GetComponent<PlayerScript>();
             lastSceneCompleted = Scenes.GetLastEmotionCompleted();
             reminderToPlay = reminders.ToList().FirstOrDefault(x => lastSceneCompleted.Contains(x.gameObject.name));
         }
-
-        //Triggered by Unity's Physics
+        
         private void OnTriggerEnter(Collider theCollision)
         {
-            //In this game we don't need to check *what* we hit; it must be the eggs
             Transform collisionGO = theCollision.transform;
             StartCoroutine(HandleCollision(collisionGO));
         }

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ControllerMovement : MonoBehaviour 
 {
+    // MovementHandler script exists on the GameObject being controlled by the joystick
+    // responsible to customizing how the joystick should impact the model's movement
+    // (ex: Luis, AJ, Skeeball)
     public MovementHandler movementHandler;
     public GameObject joystickCanvas;
     public Camera mainCamera;
@@ -34,16 +37,20 @@ public class ControllerMovement : MonoBehaviour
         noInputSymbol = disablePanel.transform.FindChild("NoInputSymbol").gameObject;
     }
 
+    // Where movement behavior is controlled
     protected virtual void Update()
     {
         if (isWalking)
         {
+            // controls the speed and direction of the model that
+            // is being controlled with the joystick
             if (trackJoystick)
             {
                 movementHandler.HandleMovement(joystickScript);
                 multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
                 multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
             }
+            // default movement that should occur when the joystick is not being tracked
             else
             {
                 movementHandler.OverrideMovement(Time.deltaTime*multiplierSpeed, Time.deltaTime*multiplierDirection);
@@ -58,6 +65,8 @@ public class ControllerMovement : MonoBehaviour
         StartCoroutine(PlayJoystickInstructions());
     }
 
+    // Primary method that controls when the joystick should appear
+    // and if the instructions audio clips should play
     protected virtual IEnumerator PlayJoystickInstructions()
     {
         DisableHelpGUI();

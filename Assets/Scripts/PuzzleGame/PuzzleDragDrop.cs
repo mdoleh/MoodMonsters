@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace PuzzleMiniGame
 {
+    // Allows puzzle pieces to be dragged and dropped
+    // handles all behavior pertaining to moving pieces around on the grid
+    // swapping positions, etc...
     public class PuzzleDragDrop : MonoBehaviour
     {
         public Vector3 originalPosition;

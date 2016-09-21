@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Linq;
 
+// Covers common behavior among all scene resets
 public class InitOnReset : MonoBehaviour
 {
     protected virtual void Start()
     {
+        // if the current question is a parent question then
+        // we should show the appropriate PASS letters
         var passReminder = GUIHelper.GetCurrentGUI().transform.Find("PASSReminder");
         if (passReminder != null)
         {

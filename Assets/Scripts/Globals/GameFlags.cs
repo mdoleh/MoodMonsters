@@ -1,5 +1,6 @@
 ﻿namespace Globals
 {
+    // Maintain the game state as the player moved through different scenes
     public static class GameFlags
     {
         public static bool GuidedTutorialHasRun = true;

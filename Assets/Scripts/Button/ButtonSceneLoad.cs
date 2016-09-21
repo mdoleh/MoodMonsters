@@ -1,6 +1,7 @@
 ﻿using Globals;
 using UnityEngine;
 
+// Used by GUI buttons that trigger scene loads on second tap
 public class ButtonSceneLoad : ButtonSelect {
 
     public string sceneToLoad;

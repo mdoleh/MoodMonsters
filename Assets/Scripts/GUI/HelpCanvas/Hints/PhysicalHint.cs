@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using UnityEngine;
 
+// Plays an animation on a character to show body language
+// corresponding to one of the answer choices on the screen
+// also plays an audio clip
 public class PhysicalHint : SimpleHint
 {
     public Animator[] anims;

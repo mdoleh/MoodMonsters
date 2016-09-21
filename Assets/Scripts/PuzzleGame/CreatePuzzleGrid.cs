@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace PuzzleMiniGame
 {
+    // Generates the grid the puzzle pieces sit on top of
     public class CreatePuzzleGrid : MonoBehaviour
     {
         public GameObject gridPrefab;

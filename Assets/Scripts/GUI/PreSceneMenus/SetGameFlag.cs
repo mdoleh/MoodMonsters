@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace PreSceneMenus
 {
+    // Used by pre-scene questions to set GameFlags
     public class SetGameFlag : MonoBehaviour
     {
         public string SceneForTesting;

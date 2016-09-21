@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+// generic class that serves as a helper to
+// MovementHandlers to move models in fixed lanes
+// (ex: SoccerMovementHandler)
 public class LaneBasedMovementHandler : MonoBehaviour
 {
     public int currentIndex = 1;

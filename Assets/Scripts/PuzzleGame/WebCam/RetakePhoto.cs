@@ -4,6 +4,7 @@ using System.Linq;
 using Globals;
 using UnityEngine;
 
+// Handles the retaking of a photo if the player chooses to do so
 public class RetakePhoto : MonoBehaviour
 {
     public WebCamPhotoCamera webCam;

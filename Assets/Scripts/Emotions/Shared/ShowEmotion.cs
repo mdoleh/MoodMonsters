@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Used by EmotionHints to show and reset character animations
 public class ShowEmotion : MonoBehaviour
 {
     [Header("Optional")]

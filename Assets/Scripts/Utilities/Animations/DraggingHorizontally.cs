@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Used by the Puzzle Mini Game tutorial to animate the dragging animation
 public class DraggingHorizontally : MonoBehaviour
 {
     public Transform target;

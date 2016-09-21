@@ -4,6 +4,8 @@ using PuzzleMiniGame;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Custom actions for the webcam that trigger
+// the puzzle to start generating
 public class StartGenerating : CameraActions
 {
     public WebCamPhotoCamera webCam;

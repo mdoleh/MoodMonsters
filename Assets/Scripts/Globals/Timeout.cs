@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 namespace Globals
 {
+    // Constantly running the background, tracks how long the player has left the game idle
+    // When hitting the threshold, the game will reset itself to the Title Screen
     public class Timeout : MonoBehaviour
     {
         public float TimeUntilReset;
@@ -53,12 +55,16 @@ namespace Globals
             StartTimers();
         }
 
+        // Restarts the timer, typically done when the player
+        // can interact with the screen
         public static void StartTimers()
         {
             Instance.shouldRunTimers = true;
             Instance.enabled = true;
         }
 
+        // Stops the timer, typically done when the player
+        // is not able to interact with the screen
         public static void StopTimers()
         {
             Instance.shouldRunTimers = false;

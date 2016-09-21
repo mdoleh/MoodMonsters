@@ -2,6 +2,8 @@
 using Globals;
 using UnityEngine;
 
+// Moves the camera to focus on the characters faces
+// to show their expressions and plays an audio clip
 public class EmotionHint : SimpleHint
 {
     public Transform mainCamera;

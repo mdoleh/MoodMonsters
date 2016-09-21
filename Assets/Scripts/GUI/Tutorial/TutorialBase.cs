@@ -3,6 +3,8 @@ using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Shared tutorial script that runs the entire main tutorial
+// that teaches the player about the game mechanics and GUI elements
 public class TutorialBase : MonoBehaviour
 {
     protected AudioSource buttonPushAudio;

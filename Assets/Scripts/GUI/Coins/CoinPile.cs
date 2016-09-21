@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine;
 
+// Manages effects specific to the treasure chest
+// in the corner of the screen, serves as a helper class
+// to the Coin class but manages the treasure chest effects
 public class CoinPile : MonoBehaviour
 {
     public RectTransform backgroundGlow;
@@ -30,6 +33,7 @@ public class CoinPile : MonoBehaviour
 
     public void DecreaseScale(Vector3 value)
     {
+        // don't want the scale to fall below zero or it will invert the image
         if (transform.localScale.x - value.x < 0 || backgroundGlow.localScale.x - value.x < 0) return;
         transform.localScale -= value;
         backgroundGlow.localScale -= value;

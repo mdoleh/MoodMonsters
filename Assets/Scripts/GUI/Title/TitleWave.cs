@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace TitleScreen
 {
+    // Triggers the waving animation by the Title Screen characters
+    // exists on the characters themselves
     public class TitleWave : GroupSoccerAnimation
     {
         public int counter = 0;

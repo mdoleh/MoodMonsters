@@ -4,6 +4,8 @@ using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Explains what kind of face the player should make in the photo
+// and explains the buttons and images on the screen
 public class BeginInstructions : MonoBehaviour
 {
     public AudioSource getFaceIntoOvalAudio;

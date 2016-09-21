@@ -2,6 +2,7 @@
 using System.Collections;
 using Globals;
 
+// Customizable action that assume the answer is incorrect
 public class IncorrectActionBase : ActionBase
 {
     public AudioSource dialogue;

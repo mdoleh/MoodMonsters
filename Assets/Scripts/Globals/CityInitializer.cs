@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Globals
 {
+    // Responsible for keeping a reference to the main city back drop
     public class CityInitializer : MonoBehaviour
     {
         public static GameObject City;

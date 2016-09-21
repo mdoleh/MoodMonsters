@@ -2,6 +2,8 @@
 using Globals;
 using UnityEngine;
 
+// Manages the alert that informs the player when to
+// pass the game back and forth
 public class PassTablet : MonoBehaviour
 {
     public GameObject childToParentImage;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Used by the End Credits to make them scroll up slowly
 public class Scroll : MonoBehaviour
 {
     public float startDelay = 3;

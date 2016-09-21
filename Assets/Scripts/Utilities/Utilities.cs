@@ -5,6 +5,8 @@ using System.Linq;
 using Globals;
 using UnityEngine.SceneManagement;
 
+// Contains helper function for commonly used behaviors throughout the game
+// Primarily playing audio clips and loading scenes
 public class Utilities : MonoBehaviour {
 
     private static readonly List<string> sceneFilters = new List<string>

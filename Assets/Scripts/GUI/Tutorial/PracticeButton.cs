@@ -3,6 +3,8 @@ using System.Collections;
 using Globals;
 using UnityEngine.UI;
 
+// Used the main tutorial to teach the player how to drag and drop answers
+// this is used by the Practice Button itself
 public class PracticeButton : ButtonDragDrop {
     private AudioSource buttonDragAudio;
     private AudioSource buttonPushAudio;

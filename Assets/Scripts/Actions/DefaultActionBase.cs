@@ -2,6 +2,7 @@
 using System.Collections;
 using Globals;
 
+// Allows you to define a "Default" action that can be triggered by Default Canvases
 public class DefaultActionBase : CorrectActionBase
 {
     public void StartDefaultAction()

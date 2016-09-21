@@ -1,4 +1,5 @@
 ﻿// Only works on ARGB32, RGB24 and Alpha8 textures that are marked readable
+// Pulled from the Web to scale down the image taken by the WebCam for use in the Puzzle Mini Game
 
 using System.Threading;
 using UnityEngine;

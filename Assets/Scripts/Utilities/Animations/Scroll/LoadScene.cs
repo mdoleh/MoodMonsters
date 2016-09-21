@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// Loads a scene after scrolling has completed
+// Used on the End Screen by the Credits
 public class LoadScene : EndScrollAction
 {
     public string SceneToLoad;

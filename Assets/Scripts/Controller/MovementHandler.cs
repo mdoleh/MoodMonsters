@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// base class for customized movement behavior
 public abstract class MovementHandler : MonoBehaviour
 {
     public abstract void HandleMovement(Joystick joystick);

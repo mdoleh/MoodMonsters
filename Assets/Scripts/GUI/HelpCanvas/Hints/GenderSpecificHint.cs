@@ -2,6 +2,9 @@
 using Globals;
 using UnityEngine;
 
+// Used only by the Blends Scene
+// Chooses a hint audio clip to play based
+// on the player's gender
 public class GenderSpecificHint : HintBase
 {
     public AudioSource[] hints;

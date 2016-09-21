@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace GameIntro
 {
+    // Makes the adult models walk into frame
     public class ParentMovement : MonoBehaviour
     {
         public float WALKING_SPEED = 0.01f;

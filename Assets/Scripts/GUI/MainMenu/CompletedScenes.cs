@@ -3,6 +3,7 @@ using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Updates the Main Menu to show which scenes are already completed
 public class CompletedScenes : MonoBehaviour
 {
     public GameObject bonusScene;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Globals;
 
+// Clears out the game state and prevents the screen from sleeping
 public class GlobalInit : MonoBehaviour
 {
     void Start()

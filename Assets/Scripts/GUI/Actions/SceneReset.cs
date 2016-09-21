@@ -24,22 +24,28 @@ public class SceneReset : MonoBehaviour
         }
     }
 
+    // Loads the sceneToLoadIncorrect scene
+    // also displays an "X" on the screen and plays audio before loading
     public void TriggerSceneReset(AudioSource audioSource, bool showSymbol)
     {
         StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadIncorrect, () => { ShowIncorrectSymbol(showSymbol);}));
     }
 
+    // Loads a mini game, usually the Catch Eggs game
+    // also displays a check mark on the screen and plays audio before loading
     public void TriggerCorrect(AudioSource audioSource, string sceneToLoadCorrect, bool showSymbol)
     {
         StartCoroutine(DelayLoadingScene(audioSource, sceneToLoadCorrect, () => { ShowCorrectSymbol(showSymbol); }));
     }
 
+    // Shows the check mark on the screen and triggers the gained coins animation
     public void ShowCorrectSymbol(bool show)
     {
         if (coin != null && show) coin.ShowAddCoinAnimation();
         showSymbol(correctSymbol, correctSymbolAnimator, show);
     }
 
+    // Shows the "X" on the screen and triggers the lose coins animation
     public void ShowIncorrectSymbol(bool show)
     {
         if (coin != null && show) coin.ShowRemoveCoinAnimation();

@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 namespace EggCatch
 {
+    // Runs the initial instructions for the mini game
+    // Tells the player which eggs to catch and which to avoid
+    // and how to control the bucket
     public class Tutorial : MonoBehaviour
     {
-
         public GameObject[] instructions;
         private string lastSceneCompleted;
         public PlayerScript player;

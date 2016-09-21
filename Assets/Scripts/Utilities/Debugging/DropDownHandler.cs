@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Fixes issues with the drop downs in the debugging tools
 public class DropDownHandler : MonoBehaviour
 {
     public void HideDropDownList()

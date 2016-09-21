@@ -1,5 +1,7 @@
 ﻿using PreSceneMenus;
 
+// Used by GUI buttons to set game flags
+// (ex: Pre-Scene questions about Adult Present or Player Gender)
 public class ButtonSetFlag : ButtonSelect
 {
     public SetGameFlag flagSetter;

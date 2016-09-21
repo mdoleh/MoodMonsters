@@ -2,6 +2,7 @@
 
 namespace TitleScreen
 {
+    // Positions the models on the Title Screen appropriately for the screen size
     public class TitleScale : MonoBehaviour
     {
         public Transform[] characters;

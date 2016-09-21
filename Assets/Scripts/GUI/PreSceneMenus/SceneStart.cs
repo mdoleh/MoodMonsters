@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace PreSceneMenus
 {
+    // Displays the first pre-scene question
     public class SceneStart : MonoBehaviour
     {
         private void Start()

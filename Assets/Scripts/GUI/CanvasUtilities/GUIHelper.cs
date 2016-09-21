@@ -44,6 +44,9 @@ public class GUIHelper : MonoBehaviour
         return GetAllGUI().ToList().First(x => x.name.Equals(name));
     }
 
+    // This is usually the method that gets called in most places
+    // the overloaded method should only be called if for some
+    // reason the "PassTablet" canvas should not show (ex: after a scene reset)
     public static void NextGUI()
     {
         var current = GetCurrentGUI();
@@ -52,6 +55,7 @@ public class GUIHelper : MonoBehaviour
             NextGUI(current, next);
     }
 
+    // Hides the current canvas and shows the next canvas in the flow
     public static void NextGUI(GameObject current, GameObject next)
     {
         Timeout.StopTimers();
@@ -75,8 +79,14 @@ public class GUIHelper : MonoBehaviour
         Timeout.Instance.StartCoroutine(playCanvasAudio(next));
     }
 
+    // Determines if the "PassTablet" canvas should show based on the canvas names
+    // "PassTablet" shows when moving from a Parent-specific question to a child-specific question
+    // or vice versa
     private static bool showPassTablet(GameObject current, GameObject next)
     {
+        // if we're not in an emotion scene or an adult is not present 
+        // then we don't need to worry about showing the "PassTablet" canvas
+        // (ex: pre-scene questions)
         if (!GameFlags.AdultIsPresent || !SceneManager.GetActiveScene().name.Contains("SmallCity")) return false;
         if (!PassTablet.HasInstance()) return false;
         if (current.name.ToLower().Contains("parent") && !next.name.ToLower().Contains("parent"))
@@ -94,6 +104,8 @@ public class GUIHelper : MonoBehaviour
         return false;
     }
 
+    // These are audio hints that play the first time through that
+    // help the player understand what the correct answers are
     private static IEnumerator playGuidedTutorial(GameObject guiCanvas)
     {
         if (GameFlags.GuidedTutorialHasRun) yield break;
@@ -105,6 +117,8 @@ public class GUIHelper : MonoBehaviour
                 .FindAll(x => guiCanvas.name.ToLower().Contains(x.gameObject.name.ToLower()) &&
                     !x.gameObject.name.ToLower().Contains("parent"));
         if (currentAudio.Count > 1) yield break;
+        // physical questions are asked 3 times, we only want the 
+        // tutorial audio to play once for the question type
         if (guiCanvas.name.ToLower().Contains("physical") && !guiCanvas.name.Contains("1")) yield break;
         Utilities.PlayAudio(currentAudio.First());
         yield return new WaitForSeconds(currentAudio.First().clip.length);
@@ -114,11 +128,13 @@ public class GUIHelper : MonoBehaviour
     {
         if (GetAudioIgnoreList().Contains(guiCanvas)) yield break;
         
+        // shows the PASS letters to the player and plays the "PASSReminder" audio clip
+        // which contains the question along with an additional audio snippet
         var passReminder = guiCanvas.transform.FindChild("PASSReminder");
         if (passReminder != null && GameFlags.AdultIsPresent && GameFlags.HasSeenPASS)
         {
             var passLetters = passReminder.GetComponentsInChildren<Transform>().ToList();
-            // removes PASSReminder from the list of letters
+            // removes PASSReminder parent object from the list of letters
             passLetters.Remove(passLetters.First(x => x.name.Equals(passReminder.name)));
             var passCanvas = GameObject.Find("PASSCanvas").transform;
             passLetters.ForEach(x => passCanvas.FindChild(x.name).gameObject.SetActive(true));
@@ -126,6 +142,7 @@ public class GUIHelper : MonoBehaviour
             Timeout.SetRepeatAudio(passReminder.GetComponent<AudioSource>());
             yield return new WaitForSeconds(passReminder.GetComponent<AudioSource>().clip.length);
         }
+        // plays the question audio for the player
         else
         {
             var guiAudio = guiCanvas.GetComponent<AudioSource>();
@@ -139,6 +156,7 @@ public class GUIHelper : MonoBehaviour
             yield return new WaitForSeconds(guiAudio.clip.length);
         }
 
+        // reads off the answer choices to the player one at a time
         var tiles = guiCanvas.transform.GetComponentsInChildren<ButtonDragDrop>().ToList();
         foreach (var child in tiles)
         {

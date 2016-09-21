@@ -5,9 +5,9 @@ using Globals;
 
 namespace EggCatch
 {
+    // Randomly chooses eggs to drop but gives more precedence to "correct" eggs
     public class SpawnerScript : MonoBehaviour
     {
-
         public Transform[] eggPrefabs;
         public PlayerScript playerScript;
 
@@ -28,10 +28,6 @@ namespace EggCatch
             {
                 SpawnEgg();
                 nextEggTime = Time.time + spawnRate;
-
-                //Speed up the spawnrate for the next egg
-//            spawnRate *= 0.98f;
-//            spawnRate = Mathf.Clamp(spawnRate, 0.3f, 99f);
             }
         }
 

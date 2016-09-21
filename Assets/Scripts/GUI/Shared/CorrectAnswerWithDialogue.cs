@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// Used by non-action answers that trigger dialogue on a character
+// (ex: Sad Scene, Hugging Toys answer choice)
 public class CorrectAnswerWithDialogue : CorrectAnswer
 {
     public AudioSource dialogue;

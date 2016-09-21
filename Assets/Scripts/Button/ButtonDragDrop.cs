@@ -3,15 +3,17 @@ using System.Collections;
 using Globals;
 using UnityEngine.UI;
 
-// this is the base class for all dragable buttons on the GUI
-// override ButtonDown() to customize click event
+// this is the base class for all draggable buttons on the GUI
 public class ButtonDragDrop : MonoBehaviour {
 
     protected static int correctCount = 0;
     protected Vector2 originalPosition;
     protected AudioSource buttonAudio;
+    // container where answers can be submitted
     public Button dropContainer;
     private Color oldColor;
+    // number of correct answers that can be submitted
+    // not really used anymore
     protected int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
     private static Transform currentlyDraggingPiece;
@@ -49,6 +51,7 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
+    // what happens when a button is touched
     public virtual void ButtonDown()
     {
         if (Input.touchCount > 1) return;
@@ -59,6 +62,7 @@ public class ButtonDragDrop : MonoBehaviour {
         StopAllCoroutines();
     }
 
+    // what happens when a button is released
     public virtual void ButtonRelease()
     {
         if (currentlyDraggingPiece != transform) return;
@@ -71,6 +75,7 @@ public class ButtonDragDrop : MonoBehaviour {
         transform.position = originalPosition;
     }
 
+    // if a draggable element is dropped into the submission box
     public virtual void SubmitAnswer() {
         Timeout.StopTimers();
         StopAllCoroutines();
@@ -103,6 +108,7 @@ public class ButtonDragDrop : MonoBehaviour {
         GUIHelper.GetCurrentGUI().GetComponent<Canvas>().enabled = false;
     }
 
+    // navigate to the next question
     protected void NextGUI()
     {
         correctCount = 0;

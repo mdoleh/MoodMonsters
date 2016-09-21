@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Used by non-action answers that are incorrect
+// resets the canvas to its previous state on submit
+// and triggers and audio clip
 public class WrongAnswer : ButtonDragDrop
 {
     private AudioSource[] wrongAudio;

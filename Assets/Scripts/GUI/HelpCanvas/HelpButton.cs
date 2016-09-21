@@ -2,6 +2,8 @@
 
 namespace HelpGUI
 {
+    // Pulls the Hint off the current Canvas and triggers it
+    // used by the HelpButton
     public class HelpButton : HelpBase
     {
         protected override void DoubleClickAction()

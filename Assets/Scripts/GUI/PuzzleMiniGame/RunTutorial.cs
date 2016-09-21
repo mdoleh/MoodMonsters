@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace PuzzleMiniGame
 {
+    // Puzzle Mini Game tutorial explaining how to swap pieces around
     public class RunTutorial : MonoBehaviour
     {
         public Transform buttonDrag;

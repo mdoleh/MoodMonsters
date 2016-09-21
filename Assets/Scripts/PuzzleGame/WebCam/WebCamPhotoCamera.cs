@@ -6,6 +6,10 @@ using Globals;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles the WebCam behavior, takes a photo then
+// asks the player if they want to retake it
+// then triggers post picture actions
+// (ex: in Puzzle Mini Game it triggers the puzzle generation)
 public class WebCamPhotoCamera : WebCam
 {
     public AudioSource pictureCountDownAudio;

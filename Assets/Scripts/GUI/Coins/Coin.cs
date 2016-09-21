@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// Manages the treasure chest in the corner of the screen
+// Used as a helper class to manage all animations and sound effects
+// pertaining to the coins that move into and away from the chest
 public class Coin : MonoBehaviour
 {
     public CoinPile coinPile;

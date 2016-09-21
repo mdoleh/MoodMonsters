@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+// Class used by non-action answer choices that are correct
+// updates the player's treasure chest and moves on to the next question on submit
 public class CorrectAnswer : ButtonDragDrop
 {
     protected AudioSource[] correctAudio;

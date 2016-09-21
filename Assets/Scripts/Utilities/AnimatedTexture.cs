@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// Used to animate the Loading texture
 public class AnimatedTexture : MonoBehaviour
 {
     public int rows;

@@ -2,6 +2,7 @@
 using System.Collections;
 using Globals;
 
+// Play an audio clip when the player touches anywhere on the screen
 public class IntroAudio : MonoBehaviour
 {
     public int SecondsBetweenRepeat;

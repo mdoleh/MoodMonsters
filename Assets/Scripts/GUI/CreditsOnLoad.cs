@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Moves the credits GameObject into the approprate place in the hierarchy
 public class CreditsOnLoad : MonoBehaviour
 {
     public Transform LastItem;

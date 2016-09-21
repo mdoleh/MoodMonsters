@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// Plays an audio clip corresponding to
+// PASS letters on the screen
+// Also animates the PASS letters
 public class ParentHint : HintBase
 {
     public AudioSource[] hints;

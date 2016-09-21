@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Wrapper around the Unity WebCamTexture to make it
+// more convenient to work with the WebCam
 public class WebCam : MonoBehaviour
 {
     protected WebCamTexture webCamTexture;

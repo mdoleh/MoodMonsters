@@ -5,6 +5,8 @@ using Globals;
 
 namespace GameIntro
 {
+    // Runs the game intro that plays before the Main Menu appears
+    // but after the Title Screen
     public class GameIntroduction : MonoBehaviour
     {
         public BasicCameraMovements mainCamera;

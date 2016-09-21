@@ -3,6 +3,9 @@ using System.Collections;
 using Globals;
 using UnityEngine.UI;
 
+// Used for all GUI buttons that require 2 taps to execute their function
+// First tap plays the description of the button's function
+// Overriding DoubleClickAction() determines what the second tap does
 public abstract class ButtonSelect : ButtonDoubleClick
 {
     protected AudioSource instructions;

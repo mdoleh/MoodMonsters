@@ -2,6 +2,8 @@
 
 namespace HelpGUI
 {
+    // Manages the help buttons at the top of the screen
+    // as well as the panel that disables the entire screen
     public class HelpCanvas : MonoBehaviour
     {
         private static HelpCanvas Instance;

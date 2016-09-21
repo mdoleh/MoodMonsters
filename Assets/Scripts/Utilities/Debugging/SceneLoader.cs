@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// On the debugging tools that allows you to load any scene on the fly
+// and update GameFlags to whatever values you set
 public class SceneLoader : MonoBehaviour
 {
     public static string DebugCanvasToLoad;

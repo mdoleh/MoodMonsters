@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// Customizable action that assumes the answer is correct
 public class CorrectActionBase : ActionBase
 {
     public AudioSource dialogue;
