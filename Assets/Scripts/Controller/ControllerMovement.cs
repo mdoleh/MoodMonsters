@@ -23,18 +23,12 @@ public class ControllerMovement : MonoBehaviour
 
     private bool initialInstructionsPlayed = false;
     private GameObject disableJoystickPanel;
-    private GameObject disablePanel;
-    private GameObject noInputSymbol;
-    private Canvas helpCanvas;
 
     protected virtual void Start()
     {
         joystickInstructions = joystickCanvas.GetComponent<AudioSource>();
         disableJoystickPanel = joystickCanvas.transform.FindChild("DisablePanel").gameObject;
         joystickScript = joystickCanvas.transform.FindChild("Base").FindChild("Stick").GetComponent<Joystick>();
-        helpCanvas = GameObject.Find("HelpCanvas").GetComponent<Canvas>();
-        disablePanel = helpCanvas.transform.FindChild("DisablePanel").gameObject;
-        noInputSymbol = disablePanel.transform.FindChild("NoInputSymbol").gameObject;
     }
 
     // Where movement behavior is controlled
@@ -46,9 +40,9 @@ public class ControllerMovement : MonoBehaviour
             // is being controlled with the joystick
             if (trackJoystick)
             {
-                movementHandler.HandleMovement(joystickScript);
                 multiplierSpeed = joystickScript.CurrentSpeedAndDirection.y;
                 multiplierDirection = joystickScript.CurrentSpeedAndDirection.x;
+                movementHandler.HandleMovement(joystickScript);
             }
             // default movement that should occur when the joystick is not being tracked
             else

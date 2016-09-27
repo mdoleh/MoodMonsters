@@ -17,6 +17,7 @@ public class LaneAppear<T> : MonoBehaviour
 
         private void OnTriggerEnter(Collider other)
         {
+            HideAllLanes();
             if (other.GetComponent<T>() != null)
             {
                 if (!shouldShowLanes)
@@ -25,14 +26,6 @@ public class LaneAppear<T> : MonoBehaviour
                     return;
                 }
                 transform.parent.GetComponent<MeshRenderer>().enabled = true;
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.GetComponent<T>() != null && shouldShowLanes)
-            {
-                transform.parent.GetComponent<MeshRenderer>().enabled = false;
             }
         }
 

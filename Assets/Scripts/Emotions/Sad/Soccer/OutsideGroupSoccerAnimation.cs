@@ -28,6 +28,13 @@ namespace SadScene
             currentParent = parents.ToList().Find(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
+        public void LockForwardSpeed()
+        {
+            multiplierDirection = 0f;
+            multiplierSpeed = 2f;
+            trackJoystick = false;
+        }
+
         public void SetSoccerBallFlag(bool flag)
         {
             soccerBall.isWatching = flag;
@@ -174,6 +181,7 @@ namespace SadScene
             anim.SetBool("Run", false);
             isWalking = false;
             multiplierDirection = 0f;
+            GetComponent<SoccerMovementHandler>().ResetMoveSpeed();
         }
 
         public void ResetCamera(bool startTimers, bool shouldAdjustPosition)
