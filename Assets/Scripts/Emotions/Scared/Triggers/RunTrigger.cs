@@ -4,6 +4,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Triggers the characters to run, used on colliders on the path
     public class RunTrigger : MonoBehaviour
     {
 

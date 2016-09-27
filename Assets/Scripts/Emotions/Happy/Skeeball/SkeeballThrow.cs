@@ -2,6 +2,7 @@
 
 namespace HappyScene
 {
+    // Shared behavior between player and automated throws
     public class SkeeballThrow : MonoBehaviour
     {
         public virtual void ThrowBall(Transform ball)

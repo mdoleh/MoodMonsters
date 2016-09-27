@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Controls which cone is activated at a given time
     public class ConeManager : ObjectSequenceManager
     {
         public ObjectSequenceManager ballMissManager;

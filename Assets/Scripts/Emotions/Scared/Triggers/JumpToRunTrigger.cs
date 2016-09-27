@@ -4,6 +4,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Triggers run animation on characters after they've made a jump
     public class JumpToRunTrigger : MonoBehaviour
     {
         public bool shouldPlaySound;

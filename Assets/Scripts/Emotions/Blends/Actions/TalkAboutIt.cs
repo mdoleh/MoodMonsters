@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BlendsScene
 {
+    // Correct option choice for EmotionActions
     public class TalkAboutIt : CorrectActionBase
     {
         public DialogueParent[] parents;

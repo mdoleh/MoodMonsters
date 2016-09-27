@@ -4,6 +4,7 @@ using Globals;
 
 namespace SadScene
 {
+    // Correct option choice for ParentSupport
     public class Support : DefaultActionBase
     {
         public GameObject PASSLetter;

@@ -2,6 +2,8 @@
 
 namespace HappyScene
 {
+    // Hint that triggers a custom animation and movement on
+    // the characters to make them high five each other
     public class HighFiveHint : HintBase
     {
         public AudioSource hintToPlay;

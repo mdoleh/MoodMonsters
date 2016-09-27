@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace SadScene
 {
+    // Controls the movement of the soccerball used by the group playing soccer together
     public class GroupSoccerBallMovement : MonoBehaviour {
 
         protected Rigidbody rigidBody;

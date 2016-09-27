@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Controls which BallMiss trigger is active at a given time
     public class BallMissManager : ObjectSequenceManager
     {
         public OutsideGroupSoccerBallMovement soccerBall;

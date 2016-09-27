@@ -1,5 +1,6 @@
 ﻿namespace ScaredScene
 {
+    // Incorrect option choice for ParentSupport
     public class Distract : IncorrectActionBase
     {
         protected override void DialogueAnimation()

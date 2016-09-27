@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace AngryScene
 {
+    // For scene resets, initializes the scene and animations appropriately
     public class TakeItemActionsMenu : TakeItem
     {
         private void Start()

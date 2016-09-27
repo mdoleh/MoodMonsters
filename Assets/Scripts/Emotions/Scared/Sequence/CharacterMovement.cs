@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Shared behavior by AJ and Scarlet to control their movements on the ledge
     public class CharacterMovement : ControllerMovement
     {
         protected Animator anim;

@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Used on AJ to control his movements on the ledge
     public class FearfulMovement : CharacterMovement
     {
         public CameraFollow cameraFollow;

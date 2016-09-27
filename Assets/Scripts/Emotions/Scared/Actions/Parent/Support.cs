@@ -2,6 +2,7 @@
 
 namespace ScaredScene
 {
+    // Correct option choice for ParentSupport
     public class Support : DefaultActionBase
     {
         public GameObject PASSLetter;

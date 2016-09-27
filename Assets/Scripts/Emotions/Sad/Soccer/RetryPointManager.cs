@@ -2,6 +2,7 @@
 
 namespace SadScene
 {
+    // Controls which Retry point is active at a given time
     public class RetryPointManager : ObjectSequenceManager
     {
         public ObjectSequenceManager coneManager;

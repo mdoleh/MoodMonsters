@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Trigger behind the soccer ball that get hit when the player misses the ball
+    // Triggers Luis to reset his position so the player can try again
     public class BallMiss : MonoBehaviour
     {
         private BallMissManager ballMissManager;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Correct option choice for ParentSolve
     public class AskToSolve : DefaultActionBase
     {
         public ExplainFear fearfulCharacter;

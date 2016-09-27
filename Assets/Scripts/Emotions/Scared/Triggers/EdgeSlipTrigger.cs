@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Used on the last collider in the sequence, looks for AJ
+    // then triggers a stumble animation on him, the second trigger will allow him to jump
     public class EdgeSlipTrigger : MonoBehaviour
     {
         public bool shouldJump = false;

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SadScene
 {
+    // Incorrect option choice for SituationActions
     public class ForceIntoGame : ActionBase
     {
         public GameObject[] parents;

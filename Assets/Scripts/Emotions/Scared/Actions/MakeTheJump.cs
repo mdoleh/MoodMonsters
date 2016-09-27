@@ -2,21 +2,24 @@
 using ScaredScene;
 using UnityEngine;
 
-public class MakeTheJump : ActionBase
+namespace ScaredScene
 {
-
-    public override void StartAction()
+    // Incorrect option choice for both Emotion and Situation Actions
+    public class MakeTheJump : ActionBase
     {
-        base.StartAction();
-        ShowCorrect(true);
-        StartCoroutine(Explain());
-    }
+        public override void StartAction()
+        {
+            base.StartAction();
+            ShowCorrect(true);
+            StartCoroutine(Explain());
+        }
 
-    private IEnumerator Explain()
-    {
-        Utilities.PlayAudio(actionExplanation);
-        yield return new WaitForSeconds(actionExplanation.clip.length);
-        ShowCorrect(false);
-        gameObject.GetComponent<ExplainFear>().StartJumpSequence();
+        private IEnumerator Explain()
+        {
+            Utilities.PlayAudio(actionExplanation);
+            yield return new WaitForSeconds(actionExplanation.clip.length);
+            ShowCorrect(false);
+            gameObject.GetComponent<ExplainFear>().StartJumpSequence();
+        }
     }
 }

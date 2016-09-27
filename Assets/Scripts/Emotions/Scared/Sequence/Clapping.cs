@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Used on Scarlet and Aj's parent to control their clapping behavior
+    // Triggers and animation and audio clip
     public class Clapping : MonoBehaviour
     {
         public Animator anim;

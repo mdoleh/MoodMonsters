@@ -5,6 +5,7 @@ using Globals;
 
 namespace BlendsScene
 {
+    // Correct option for ParentSolve
     public class AskToSolve : DefaultActionBase
     {
         public AudioSource switchToChildAudio;

@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace AngryScene
 {
+    // Override for egg drop game to customize the behavior for the Angry Scene
+    // Don't want to keep score
     public class BucketScript : PlayerScript
     {
         public Animator Lily;

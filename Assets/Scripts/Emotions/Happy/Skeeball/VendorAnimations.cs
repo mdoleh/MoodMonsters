@@ -3,6 +3,8 @@ using System.Collections;
 
 namespace HappyScene
 {
+    // Controls the animations on the Vendor character including
+    // talking and picking up and giving the prize to Scarlet
     public class VendorAnimations : MonoBehaviour
     {
         public PlayerPickupPrize playerCharacter;

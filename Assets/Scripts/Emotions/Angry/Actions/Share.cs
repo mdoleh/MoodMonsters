@@ -4,6 +4,7 @@ using Globals;
 
 namespace AngryScene
 {
+    // Correct option choice for SituationActions
     public class Share : ActionBase
     {
         public Animator otherAnim;

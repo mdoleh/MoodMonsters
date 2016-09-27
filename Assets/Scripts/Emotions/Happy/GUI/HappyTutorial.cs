@@ -2,6 +2,7 @@
 
 namespace HappyScene
 {
+    // Custom behavior to handle on the scene starts after the tutorial plays
     public class HappyTutorial : TutorialBase
     {
         private SkeeballCharacterMovement scarlet;

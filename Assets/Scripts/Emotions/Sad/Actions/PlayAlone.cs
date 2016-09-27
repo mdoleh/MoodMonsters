@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Correct option choice for SituationActions
     public class PlayAlone : ActionBase
     {
         public OutsideGroupSoccerBallMovement soccerBall;

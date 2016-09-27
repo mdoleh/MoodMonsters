@@ -2,6 +2,8 @@
 
 namespace HappyScene
 {
+    // Used to reset the physics on the skeeball to neutral so
+    // that additional added physics are not interfered with
     public class BallAnimation : MonoBehaviour
     {
         private Rigidbody rigidBody;

@@ -6,6 +6,7 @@ using Globals;
 
 namespace BlendsScene
 {
+    // Used on the older child model to control his/her dialogue
     public class DialogueKid : MonoBehaviour
     {
         public AudioSource canSeeFriends;

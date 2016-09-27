@@ -3,6 +3,8 @@ using System.Collections;
 
 namespace AngryScene
 {
+    // Used on Ty to make him walk into frame then later step
+    // forward to take the iPad away
     public class WalkForward : MonoBehaviour
     {
         public Animator anim;

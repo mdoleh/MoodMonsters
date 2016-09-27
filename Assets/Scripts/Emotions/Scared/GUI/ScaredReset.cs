@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Initialization on scene reset for the Scared Scene
     public class ScaredReset : InitOnReset
     {
         public FearfulMovement mainCharacter;

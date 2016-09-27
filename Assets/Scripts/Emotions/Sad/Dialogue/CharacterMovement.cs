@@ -5,6 +5,8 @@ using Globals;
 
 namespace SadScene
 {
+    // Used on Luis to control when he should walk away from the group of other kids
+    // when to enable his parent, and when to make him stop walking away
     public class CharacterMovement : MonoBehaviour
     {
         public GameObject[] parentCharacters;

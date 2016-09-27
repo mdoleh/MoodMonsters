@@ -3,6 +3,7 @@ using Globals;
 using SadScene;
 using UnityEngine;
 
+// Controls how the scene should start after the tutorial has played
 public class SadTutorial : TutorialBase
 {
     public GameObject luis;

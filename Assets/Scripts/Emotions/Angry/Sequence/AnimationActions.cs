@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
+    // Holds all of the behaviors to trigger on animation events
     public class AnimationActions : MonoBehaviour
     {
         private Animator anim;

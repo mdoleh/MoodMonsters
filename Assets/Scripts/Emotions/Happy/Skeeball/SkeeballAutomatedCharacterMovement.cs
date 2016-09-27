@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace HappyScene
 {
+    // Controls the animations on Ty and triggers the skeeball to be thrown automatically
     public class SkeeballAutomatedCharacterMovement : MonoBehaviour
     {
         public SkeeballThrow skeeballThrow;

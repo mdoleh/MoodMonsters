@@ -4,6 +4,7 @@ using Globals;
 
 namespace SadScene
 {
+    // Controls when the dialogue and animations on Luis should trigger
     public class OutsideGroupDialogue : MonoBehaviour
     {
         public AudioSource canIPlay;

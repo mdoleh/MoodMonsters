@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Correct option choice for ParentSolve
     public class AskToSolve : DefaultActionBase
     {
         public GameObject PASSLetter;

@@ -2,6 +2,7 @@
 
 namespace SadScene
 {
+    // Controls the movement of the soccerball Luis is playing with
     public class OutsideGroupSoccerBallMovement : MonoBehaviour
     {
         public bool isWatching = false;

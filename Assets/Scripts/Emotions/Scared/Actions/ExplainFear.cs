@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ScaredScene
 {
+    // Correct option choice for EmotionActions
     public class ExplainFear : ActionBase
     {
         public Animator otherAnim;

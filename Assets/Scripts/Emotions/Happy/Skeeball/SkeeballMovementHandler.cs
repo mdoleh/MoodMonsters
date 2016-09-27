@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace HappyScene
 {
+    // Controls how the skeeball should move based on given joystick positions
+    // Watches how fast the player swiped and adjusts the speed of the ball accordingly
     public class SkeeballMovementHandler : MovementHandler
     {
         [HideInInspector]

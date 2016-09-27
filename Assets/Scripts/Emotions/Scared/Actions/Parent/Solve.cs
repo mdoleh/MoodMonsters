@@ -1,5 +1,6 @@
 ﻿namespace ScaredScene
 {
+    // Incorrect option choice for ParentSolve
     public class Solve : IncorrectActionBase
     {
         protected override void DialogueAnimation()

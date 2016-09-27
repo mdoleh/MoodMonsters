@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Controls when the dialogue and animations should trigger on Claire
     public class GroupDialogue : MonoBehaviour
     {
         public AudioSource cantPlay;

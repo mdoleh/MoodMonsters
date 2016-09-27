@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace BlendsScene
 {
+    // Used on parent model to control when it walks into frame
+    // Also triggers the dialogue between the characters to start
     public class WalkForward : MonoBehaviour
     {
         public Animator[] children;

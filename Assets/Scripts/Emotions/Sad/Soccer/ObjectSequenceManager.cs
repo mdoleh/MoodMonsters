@@ -2,6 +2,8 @@
 
 namespace SadScene
 {
+    // Generic script for handling sequences of objects that need to show one after another
+    // ex: Cones, Miss points
     public class ObjectSequenceManager : MonoBehaviour
     {
         public GameObject[] SequenceObjects;

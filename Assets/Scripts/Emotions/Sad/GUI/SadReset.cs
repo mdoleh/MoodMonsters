@@ -2,6 +2,7 @@
 
 namespace SadScene
 {
+    // Triggered on every Sad Scene reset
     public class SadReset : InitOnReset
     {
         public CharacterMovement mainCharacter;

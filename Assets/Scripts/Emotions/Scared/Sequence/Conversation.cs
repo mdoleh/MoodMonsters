@@ -4,6 +4,8 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Used on AJ and Scarlet for the beginning of the scene
+    // where the characters are talking back and forth
     public class Conversation : MonoBehaviour
     {
         public Animator anim;

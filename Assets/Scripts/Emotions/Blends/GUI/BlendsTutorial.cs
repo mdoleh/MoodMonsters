@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BlendsScene
 {
+    // Initializes the scene and controls when it starts
+    // Tutorial will never run in this scene so it will
+    // always go straight to the scene start code (HelpExplanationComplete)
     public class BlendsTutorial : TutorialBase
     {
         public GameObject[] childrenPairs;

@@ -1,25 +1,27 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using HappyScene;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Sharing : ActionBase
+namespace HappyScene
 {
-    public AutomatedFollowPlayer otherCharacter;
-    public AudioSource dialogue;
-
-    public override void StartAction()
+    // Incorrect option choice for SituationActions
+    public class Sharing : ActionBase
     {
-        base.StartAction();
-        StartCoroutine(sharePrize());
-    }
+        public AutomatedFollowPlayer otherCharacter;
+        public AudioSource dialogue;
 
-    private IEnumerator sharePrize()
-    {
-        anim.SetTrigger("Give");
-        otherCharacter.TakePrize();
-        Utilities.PlayAudio(dialogue);
-        yield return new WaitForSeconds(dialogue.clip.length);
-        TriggerCorrect();
+        public override void StartAction()
+        {
+            base.StartAction();
+            StartCoroutine(sharePrize());
+        }
+
+        private IEnumerator sharePrize()
+        {
+            anim.SetTrigger("Give");
+            otherCharacter.TakePrize();
+            Utilities.PlayAudio(dialogue);
+            yield return new WaitForSeconds(dialogue.clip.length);
+            TriggerCorrect();
+        }
     }
 }

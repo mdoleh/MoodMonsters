@@ -2,6 +2,8 @@
 
 namespace HappyScene
 {
+    // Shared movement behavior between Ty and Scarlet as they
+    // approach the Vendor to collect the prize
     public class CollectPrizeBase : MonoBehaviour
     {
         public Transform rightHand;

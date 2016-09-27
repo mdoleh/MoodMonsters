@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Incorrect option choice for EmotionActions
     public class TemperTantrum : IncorrectActionBase
     {
         protected override void DialogueAnimation()

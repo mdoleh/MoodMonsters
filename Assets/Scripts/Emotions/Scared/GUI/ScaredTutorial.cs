@@ -1,28 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Globals;
 using UnityEngine;
-using UnityEngine.UI;
-using CharacterMovement = ScaredScene.CharacterMovement;
 
-public class ScaredTutorial : TutorialBase
+namespace ScaredScene
 {
-    public GameObject scarlet;
-    public GameObject aj;
-    public GameObject[] parentCharacters;
-
-    protected override void HelpExplanationComplete()
+    // Controls how the scene starts after the tutorial has played
+    public class ScaredTutorial : TutorialBase
     {
-        base.HelpExplanationComplete();
-        if (GameFlags.AdultIsPresent)
+        public GameObject scarlet;
+        public GameObject aj;
+        public GameObject[] parentCharacters;
+
+        protected override void HelpExplanationComplete()
         {
-            parentCharacters.ToList()
-                .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
-                .transform.parent.gameObject
-                .SetActive(true);
+            base.HelpExplanationComplete();
+            if (GameFlags.AdultIsPresent)
+            {
+                parentCharacters.ToList()
+                    .First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()))
+                    .transform.parent.gameObject
+                    .SetActive(true);
+            }
+            scarlet.GetComponent<CharacterMovement>().StartSequence();
+            aj.GetComponent<CharacterMovement>().StartSequence();
         }
-        scarlet.GetComponent<CharacterMovement>().StartSequence();
-        aj.GetComponent<CharacterMovement>().StartSequence();
     }
 }

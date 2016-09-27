@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BlendsScene
 {
+    // Correct option for ParentSupport
     public class Support : DefaultActionBase
     {
         public GameObject PASSLetter;

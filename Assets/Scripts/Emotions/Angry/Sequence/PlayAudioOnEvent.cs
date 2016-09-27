@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace AngryScene
 {
+    // Triggers a sound when the iPad gets taken away
     public class PlayAudioOnEvent : MonoBehaviour
     {
         public AudioSource audioToPlay;

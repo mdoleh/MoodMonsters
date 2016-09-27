@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Used on the Cones themselves to control when they should fall through the ground and deactivate
     public class ConeDisappear : MonoBehaviour
     {
         private bool shouldSink = false;

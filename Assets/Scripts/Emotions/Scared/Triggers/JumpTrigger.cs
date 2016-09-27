@@ -4,6 +4,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Triggers jump animation, used on colliders towards the edges
     public class JumpTrigger : MonoBehaviour
     {
 

@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Incorrect option choice for ParentPayAttentionAsk
     public class InvalidateEmotion : IncorrectActionBase
     {
         protected override void DialogueAnimation()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Correct option choice for ParentPayAttentionAsk
     public class Ask : DefaultActionBase
     {
         public OutsideGroupDialogue child;

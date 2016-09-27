@@ -2,6 +2,9 @@
 
 namespace HappyScene
 {
+    // Used on a collider at the end of the lane to zero
+    // out the force applied to the skeeball and apply new
+    // forces to hit to make it move upward
     public class LaneEndTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)

@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Used on parent model to trigger the question canvases to appear
     public class ParentTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)

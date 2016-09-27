@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace HappyScene
 {
+    // Controls the player's interactions with the joystick to
+    // control when the skeeball gets thrown
     public class SkeeballCharacterMovement : ControllerMovement
     {
         public GoalChooser goalChooser;

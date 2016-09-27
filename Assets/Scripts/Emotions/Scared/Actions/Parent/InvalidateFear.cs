@@ -1,5 +1,6 @@
 ﻿namespace ScaredScene
 {
+    // Incorrect option choice for ParentPayAttentionAsk
     public class InvalidateFear : IncorrectActionBase
     {
         protected override void DialogueAnimation()

@@ -5,6 +5,7 @@ using Globals;
 
 namespace BlendsScene
 {
+    // Correct option for ParentPayAttentionAsk
     public class Ask : DefaultActionBase
     {
         public GameObject[] PASSLetters;

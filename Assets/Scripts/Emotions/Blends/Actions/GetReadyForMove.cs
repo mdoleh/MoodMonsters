@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Globals;
 
+// Correct option for the SituationActions
 public class GetReadyForMove : ActionBase
 {
     public Animator[] siblings;

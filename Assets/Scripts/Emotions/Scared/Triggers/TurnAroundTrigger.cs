@@ -5,6 +5,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Triggers Scarlet to turn around after making a jump to wait for AJ
     public class TurnAroundTrigger : MonoBehaviour
     {
         public bool shouldTurnAround = true;

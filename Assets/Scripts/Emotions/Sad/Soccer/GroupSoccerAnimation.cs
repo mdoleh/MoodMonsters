@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SadScene
 {
+    // Controls when animations should trigger on characters in the group playing soccer together
     public class GroupSoccerAnimation : MonoBehaviour
     {
         public GroupSoccerBallMovement soccerBall;

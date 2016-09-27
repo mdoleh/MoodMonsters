@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace HappyScene
 {
+    // Controls which hole should be "bonus" score for a given throw
+    // Also controls when the highlighers should flash (for the tutorial)
     public class GoalChooser : MonoBehaviour
     {
         public GameObject[] goalHighlighters;

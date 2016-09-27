@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BlendsScene
 {
+    // Triggers on every scene reset of the BlendsScene
     public class BlendsReset : InitOnReset
     {
         public GameObject[] parents;

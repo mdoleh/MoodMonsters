@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace SadScene
 {
+    // Incorrect option choice for ParentSupport
     public class Distract : IncorrectActionBase
     {
         protected override void DialogueAnimation()

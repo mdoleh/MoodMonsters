@@ -4,6 +4,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Triggers the characters to walk, used on colliders after Slow triggers
     public class WalkTrigger : MonoBehaviour
     {
 

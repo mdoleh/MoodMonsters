@@ -4,6 +4,7 @@ using ScaredScene;
 
 namespace ScaredScene
 {
+    // Used on Scarlet to control her movements on the ledge
     public class FearlessMovement : CharacterMovement
     {
         private GameObject otherCharacter;

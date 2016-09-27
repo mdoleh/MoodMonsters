@@ -3,6 +3,9 @@ using System.Collections;
 
 namespace HappyScene
 {
+    // Collider used to indicate to the models when to start turning
+    // Also triggers the automated character (Ty) to start moving once
+    // the Scarlet passing over the trigger
     public class TurnTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)

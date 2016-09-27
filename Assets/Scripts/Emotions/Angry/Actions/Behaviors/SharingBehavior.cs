@@ -2,6 +2,7 @@
 
 namespace AngryScene
 {
+    // Triggers on Sharing animation, updates iPad positioning
     public class SharingBehavior : StateMachineBehaviour
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

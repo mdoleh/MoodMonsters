@@ -7,6 +7,7 @@ using HelpGUI;
 
 namespace SadScene
 {
+    // Controls interactive movement on Luis as well triggers animations appropriately
     public class OutsideGroupSoccerAnimation : ControllerMovement
     {
         public OutsideGroupSoccerBallMovement soccerBall;

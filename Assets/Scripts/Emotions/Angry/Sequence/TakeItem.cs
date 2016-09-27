@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace AngryScene
 {
+    // Script on Ty to control the behavior before/during/after
+    // he takes the iPad away
     public class TakeItem : MonoBehaviour
     {
         public Animator other;

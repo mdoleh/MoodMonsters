@@ -2,6 +2,7 @@
 
 namespace HappyScene
 {
+    // Used on Ty to control his movements to follow Scarlet towards the Vendor
     public class AutomatedFollowPlayer : CollectPrizeBase
     {
         public CollectPrizeBase prizeWinner;

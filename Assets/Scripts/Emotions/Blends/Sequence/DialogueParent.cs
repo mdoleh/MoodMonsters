@@ -6,6 +6,7 @@ using Globals;
 
 namespace BlendsScene
 {
+    // Used on the parent model to control his/her dialogue
     public class DialogueParent : MonoBehaviour
     {
         public AudioSource weAreMoving;

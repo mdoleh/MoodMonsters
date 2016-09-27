@@ -2,6 +2,7 @@
 
 namespace HappyScene
 {
+    // Keeps track of the player's skeeball score
     public class SkeeballScore : MonoBehaviour
     {
         public int Score = 0;

@@ -2,6 +2,8 @@
 
 namespace HappyScene
 {
+    // Used on the individual holes, they trigger when the ball collides with them
+    // This is where points are awarded to the player
     public class ScoreTrigger : MonoBehaviour
     {
         public SkeeballThrow thrower;

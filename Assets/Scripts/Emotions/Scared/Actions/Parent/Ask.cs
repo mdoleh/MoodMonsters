@@ -5,6 +5,7 @@ using Globals;
 
 namespace ScaredScene
 {
+    // Correct option choice for ParentPayAttentionAsk
     public class Ask : DefaultActionBase
     {
         public Conversation child;

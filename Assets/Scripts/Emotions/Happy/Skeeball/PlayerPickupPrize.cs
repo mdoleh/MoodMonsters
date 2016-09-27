@@ -2,6 +2,7 @@
 
 namespace HappyScene
 {
+    // Used on Scarlet for her custom behavior to move towards the Vendor and collect the prize
     public class PlayerPickupPrize : CollectPrizeBase
     {
         public VendorAnimations vendor;

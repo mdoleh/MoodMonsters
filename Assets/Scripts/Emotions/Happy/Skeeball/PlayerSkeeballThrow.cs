@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace HappyScene
 {
+    // Controls the behavior for when the player (Scarlet) throws the ball
+    // Also does the checking to see if the player has reached the "high score"
+    // and triggers the "win sequence"
     public class PlayerSkeeballThrow : SkeeballThrow
     {
         public SkeeballAutomatedCharacterMovement automatedCharacter;
