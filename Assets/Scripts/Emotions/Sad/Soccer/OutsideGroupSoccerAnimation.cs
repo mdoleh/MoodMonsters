@@ -182,7 +182,6 @@ namespace SadScene
             anim.SetBool("Run", false);
             isWalking = false;
             multiplierDirection = 0f;
-            GetComponent<SoccerMovementHandler>().ResetMoveSpeed();
         }
 
         public void ResetCamera(bool startTimers, bool shouldAdjustPosition)

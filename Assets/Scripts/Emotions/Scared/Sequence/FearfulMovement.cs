@@ -34,6 +34,13 @@ namespace ScaredScene
             currentParent = parentCharacters.ToList().First(x => x.name.ToLower().Contains(GameFlags.ParentGender.ToLower()));
         }
 
+        public void LockForwardSpeed()
+        {
+            multiplierDirection = 0f;
+            multiplierSpeed = 2f;
+            trackJoystick = false;
+        }
+
         public void SetWaitingForScarlet(bool isWaiting)
         {
             waitingForScarlet = isWaiting;

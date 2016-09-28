@@ -12,9 +12,12 @@ namespace ScaredScene
 
         public override void HandleMovement(Joystick joystick)
         {
-            float moveSpeed = Time.deltaTime*joystick.CurrentSpeedAndDirection.y;
             float moveDirection = Time.deltaTime*joystick.CurrentSpeedAndDirection.x;
-            transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y,
+            if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
+            {
+                GetComponent<FearfulMovement>().LockForwardSpeed();
+            }
+            transform.position = new Vector3(transform.position.x, transform.position.y,
                 transform.position.z - moveDirection);
             restrictMovement(joystick);
         }

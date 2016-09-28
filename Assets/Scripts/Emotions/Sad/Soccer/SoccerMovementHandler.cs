@@ -8,13 +8,11 @@ namespace SadScene
     public class SoccerMovementHandler : MovementHandler
     {
         public LaneBasedMovementHandler laneBasedMovementHandler;
-        private float moveSpeed = 0f;
 
         public override void HandleMovement(Joystick joystick)
         {
             if (joystick.CurrentSpeedAndDirection.y >= 2.0f)
             {
-                moveSpeed = Time.deltaTime*joystick.CurrentSpeedAndDirection.y;
                 GetComponent<OutsideGroupSoccerAnimation>().LockForwardSpeed();
             }
             var newPositionZ = laneBasedMovementHandler.AdjustPosition(transform, joystick).z;
@@ -33,11 +31,6 @@ namespace SadScene
                 transform.position = new Vector3(controller.mainCamera.transform.position.x + 1.0f, transform.position.y,
                     transform.position.z);
             }
-        }
-
-        public void ResetMoveSpeed()
-        {
-            moveSpeed = 0f;
         }
     }
 }
