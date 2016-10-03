@@ -15,8 +15,11 @@ namespace SadScene
             {
                 GetComponent<OutsideGroupSoccerAnimation>().LockForwardSpeed();
             }
-            var newPositionZ = laneBasedMovementHandler.AdjustPosition(transform, joystick).z;
-            transform.position = new Vector3(transform.position.x, transform.position.y, newPositionZ);
+            else
+            {
+                var newPositionZ = laneBasedMovementHandler.AdjustPosition(transform, joystick).z;
+                transform.position = new Vector3(transform.position.x, transform.position.y, newPositionZ);
+            }
             restrictMovement(joystick);
         }
 
