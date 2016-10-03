@@ -17,7 +17,7 @@ namespace SadScene
             else
             {
                 // use the index as is if the coneManager is at the end of its sequence objects
-                if (coneManager.currentIndex == coneManager.SequenceObjects.Length)
+                if (coneManager.currentIndex - 1 >= coneManager.SequenceObjects.Length)
                     currentIndex = coneManager.currentIndex;
                 else
                     currentIndex = coneManager.currentIndex - 1;

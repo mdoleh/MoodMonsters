@@ -2,39 +2,41 @@
 using UnityEngine;
 
 public class LaneAppear<T> : MonoBehaviour
+{
+    [HideInInspector] public static bool shouldShowLanes;
+
+    private bool isIntersectingPlayer;
+
+    public static void HideAllLanes()
     {
-        [HideInInspector] public static bool shouldShowLanes;
+        GameObject.Find("Lanes")
+            .GetComponentsInChildren<LaneColor>()
+            .ToList()
+            .ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
+    }
 
-        private bool isIntersectingPlayer;
-
-        public static void HideAllLanes()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<T>() != null)
         {
-            GameObject.Find("Lanes")
-                .GetComponentsInChildren<LaneColor>()
-                .ToList()
-                .ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
+            if (!shouldShowLanes)
+            {
+                return;
+            }
             HideAllLanes();
-            if (other.GetComponent<T>() != null)
-            {
-                if (!shouldShowLanes)
-                {
-                    isIntersectingPlayer = true;
-                    return;
-                }
-                transform.parent.GetComponent<MeshRenderer>().enabled = true;
-            }
-        }
-
-        private void Update()
-        {
-            if (isIntersectingPlayer && shouldShowLanes)
-            {
-                isIntersectingPlayer = false;
-                transform.parent.GetComponent<MeshRenderer>().enabled = true;
-            }
+            transform.parent.GetComponent<MeshRenderer>().enabled = true;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<T>() != null)
+        {
+            if (!shouldShowLanes)
+            {
+                return;
+            }
+            transform.parent.GetComponent<MeshRenderer>().enabled = true;
+        }
+    }
+}
