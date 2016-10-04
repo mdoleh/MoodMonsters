@@ -1,8 +1,8 @@
 Narrator
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 General Audio (used in all scenes):
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  - Good! (*Good)
  - Good job! (*GoodJob)
  - Nice job! (*NiceJob)
@@ -124,13 +124,13 @@ General Audio (used in all scenes):
  - EndScreen:
 	- Congratulations! You've completed the game! Nice work! (*CompletedGame)
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 End General Audio
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Mini Games
-********************************************************************************************	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 
 Egg Drop Mini Game:
 	- Try not to catch any other faces or you will lose stars (*AvoidOtherFaces)
@@ -160,13 +160,13 @@ Puzzle Mini Game:
 	- What does your sad face look like? (*WhatDoesYourSadFaceLookLike)
 	- What does your scared face look like? (*WhatDoesYourScaredFaceLookLike)
 	
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 End Mini Games
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Game Intro
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Game Intro (first thing seen after pressing Play):
 	- Your body and face do different things depending on what you are feeling so pay attention to how your body and face are telling you how you feel. (*PayAttentionToBodyAndFace)
 	- Then use a word like (*UseWordsLike)
@@ -180,13 +180,13 @@ Game Intro (first thing seen after pressing Play):
 	- Support your child emotionally (*SupportChildEmotionally)
 	- Solve the problem by working with your child to identify solutions (*SolveByWorkingWithChild)
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 End Game Intro
-********************************************************************************************	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Emotion Scenes
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Angry Scene:
 	- Help Lily catch the eggs in the bucket by dragging your finger left or right (*HelpLilyPlay)
@@ -218,8 +218,8 @@ Angry Scene:
 		- What could she do to find out what she is feeling? (*WhatCouldSheDoFindOutFeeling)
 		
 Happy Scene:
-	- Drag the joystick left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
-	- Drag the joystick left or right to line up the ball with the green bonus holes. (*DragLeftOrRightLineUp)
+	- Drag the red button left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward) ******
+	- Drag the red button left or right to line up the ball with the green bonus holes. (*DragLeftOrRightLineUp) ******
 	- Swipe it forward as fast as you can to roll the ball. (*SwipeForwardToRollBall)
 	- Scarlet is playing skeeball with her friend Ty [tie] and is having fun. (*ScarletIntro)
 	- Help Scarlet get the high score (*HelpScarletGetHighScore)
@@ -240,8 +240,8 @@ Happy Scene:
 		- What should Scarlet do to be a good friend in this situation? (*BeAGoodFriend)
 	
 Sad Scene:
-	- Drag the joystick forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)
-	- Drag the joystick forward to make Luis [loo-is] run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis)
+	- Swipe the red button forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun) ******
+	- Swipe the red button forward to make Luis [loo-is] run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis) ******
 	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom)
 	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad)
 	- Use the soccer ball to knock over the cones. Move Luis [loo-is] toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
@@ -299,8 +299,8 @@ Sad Scene:
 
 Scared Scene:
 	- AJ is playing with his friend Scarlet and is having fun. (*AJIntro)
-	- Drag the joystick forward to make AJ run. (*DragJoystickForwardMakeAJRun)
-	- Drag the joystick forward to make AJ run. Drag it left or right to control his direction (*DragJoystickRunAndDirectionsAJ)
+	- Swipe the red button forward to make AJ run. (*DragJoystickForwardMakeAJRun) ******
+	- Swipe the red button forward to make AJ run. Drag it left or right to control his direction (*DragJoystickRunAndDirectionsAJ) ******
 	- Help AJ jump over the gaps (*HelpAJJumpOverGaps)
 	- You should tell someone about your feelings so they can help you through them. Now you get to play a game. (*TellSomeoneFeelingsHelpYou)
 	- Oops! AJ wasn't running fast enough to jump the gap. Try again. (*WasntRunningFastEnough)
@@ -393,6 +393,6 @@ Emotion Blends Scene:
 		- Good! The first S stands for support. It will validate their feelings. (*Support)
 		- Good! The second S stands for solve. They should be guided to find a solution. (*AskToSolve)
 		
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 End Emotion Scenes
-********************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
