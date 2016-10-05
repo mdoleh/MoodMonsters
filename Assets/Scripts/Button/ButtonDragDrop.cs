@@ -86,6 +86,8 @@ public class ButtonDragDrop : MonoBehaviour {
         }
     }
 
+    // SubmitAnswer() automatically increments the correctCount
+    // so we need a way to decrement it for wrong answers
     protected void DecrementCorrectCount()
     {
         --correctCount;
