@@ -34,6 +34,7 @@ namespace PuzzleMiniGame
             {
                 for (int x = 0; x < dimensions; ++x)
                 {
+                    // Creates a puzzle piece and sets it's texture to a portion of the photo
                     piece = (GameObject) Instantiate(piecePrefab);
                     piece.transform.SetParent(transform);
                     imageData = photo.GetPixels(x * width, y * height, width, height);
@@ -43,6 +44,7 @@ namespace PuzzleMiniGame
 
                     piece.GetComponent<RawImage>().texture = texture;
                     piece.GetComponent<RawImage>().SetNativeSize();
+                    // Each puzzle pieces remembers which gridPanel is the "correct" panel
                     piece.GetComponent<PuzzleDragDrop>().correctContainer =
                         GetGridPanelByName(gridPanels, panelBase + panelNumber++).transform;
                     pieces.Add(piece);
@@ -80,17 +82,22 @@ namespace PuzzleMiniGame
             }
         }
 
+        // Shuffles puzzle pieces by randomly choosing 2 pieces and swapping them
+        // Since there's an odd number of pieces one piece won't get swapped
         private IEnumerator ShufflePositions(List<GameObject> pieces, AudioSource shuffleSound)
         {
             yield return new WaitForSeconds(3.0f);
             PieceAnimation(pieces, true);
             yield return new WaitForSeconds(1.0f);
             PieceAnimation(pieces, false);
+            // Don't want to mess with the original collection so make a copy
             var piecesMutable = new List<GameObject>(pieces);
             while (piecesMutable.Count > 0)
             {
                 var first = piecesMutable[Random.Range(0, piecesMutable.Count)];
                 piecesMutable.Remove(first);
+                // If there are no more pieces to swap then tell the gridPanel what its
+                // current piece is and line up the piece's position with the gridPanel
                 if (piecesMutable.Count == 0)
                 {
                     first.GetComponent<PuzzleDragDrop>().correctContainer.GetComponent<GridPanel>().CurrentPuzzlePiece = first;
