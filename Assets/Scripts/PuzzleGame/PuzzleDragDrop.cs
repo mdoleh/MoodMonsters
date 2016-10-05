@@ -51,22 +51,17 @@ namespace PuzzleMiniGame
 
         public void MovePanel()
         {
-            if (currentlyDraggingPiece != transform) return;
-            if (disabled) return;
+            if (currentlyDraggingPiece != transform || disabled) return;
             Timeout.StopTimers();
             MoveToHierarchyBottom();
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
             // check if in range of container and highlight the container
             intersectingPanel = FindIntersectingPanel(gridPanels, gameObject);
+            ResetAllPanelColors(gridPanels);
             if (intersectingPanel != null)
-            {
-                ResetAllPanelColors(gridPanels);
+            {   
                 intersectingPanel.transform.FindChild("Highlight").gameObject.SetActive(true);
-            }
-            else
-            {
-                ResetAllPanelColors(gridPanels);
             }
         }
 
@@ -82,6 +77,8 @@ namespace PuzzleMiniGame
             }
             else
             {
+                // Each piece knows it's own correctContainer so we can check if
+                // the piece is on it before calling this method
                 StartCoroutine(SubmitAnswer(intersectingPanel, intersectingPanel == correctContainer.gameObject));
             }
             Timeout.StartTimers();
