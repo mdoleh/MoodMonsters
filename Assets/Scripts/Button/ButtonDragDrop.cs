@@ -13,7 +13,7 @@ public class ButtonDragDrop : MonoBehaviour {
     public Button dropContainer;
     private Color oldColor;
     // number of correct answers that can be submitted
-    // not really used anymore
+    // not really used anymore, defaults to 1
     protected int CORRECT_AMOUNT;
     protected bool shouldShowNextGUI = false;
     private static Transform currentlyDraggingPiece;
