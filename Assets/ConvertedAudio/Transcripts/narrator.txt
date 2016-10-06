@@ -241,7 +241,7 @@ Happy Scene:
 	
 Sad Scene:
 	- Swipe the red button forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun) ******
-	- Swipe the red button forward to make Luis [loo-is] run. Drag it left or right to control his direction. (*DragJoystickRunAndDirectionsLuis) ******
+	- Swipe the red button forward to make Luis [loo-is] run. Swipe it left or right move him one lane in that direction. (*DragJoystickRunAndDirectionsLuis) ******
 	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom)
 	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad)
 	- Use the soccer ball to knock over the cones. Move Luis [loo-is] toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
