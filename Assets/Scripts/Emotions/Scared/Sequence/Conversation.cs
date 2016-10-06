@@ -4,8 +4,8 @@ using ScaredScene;
 
 namespace ScaredScene
 {
-    // Used on AJ and Scarlet for the beginning of the scene
-    // where the characters are talking back and forth
+    // Used on Scarlet for her half of
+    // the dialogue to convince AJ to jump
     public class Conversation : MonoBehaviour
     {
         public Animator anim;
@@ -16,6 +16,7 @@ namespace ScaredScene
         public AudioSource comfortDialogue;
         public AudioSource successDialogue;
         public AudioSource explanationAudio;
+        public AudioSource clappingAudio;
 
         private bool accoladeTriggered = false;
 
@@ -46,6 +47,7 @@ namespace ScaredScene
             accoladeTriggered = true;
             anim.SetBool("IsIdle", false);
             anim.SetTrigger("Clap");
+            Utilities.PlayAudioUnBlockable(clappingAudio);
         }
 
         private IEnumerator PlayExplanation()

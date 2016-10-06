@@ -13,12 +13,12 @@ namespace ScaredScene
         {
             if (shouldRunBase) base.Start();
             anim = GetComponent<Animator>();
-            multiplierSpeed = 1f;
+            multiplierSpeed = 1.1f;
         }
 
         public virtual void StepForward()
         {
-            multiplierDirection = 1f;
+            multiplierDirection = 1.1f;
             multiplierSpeed = 0f;
             StartWalking();
         }
@@ -77,7 +77,7 @@ namespace ScaredScene
 
         public virtual void Walk()
         {
-            multiplierSpeed = 1f;
+            multiplierSpeed = 1.1f;
         }
 
         public virtual void TurnAround()
