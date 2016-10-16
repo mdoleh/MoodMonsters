@@ -41,6 +41,11 @@ General Audio (used in all scenes):
 	- Your face helps you know what you are feeling. (*FaceHelpYouKnow)
 	- Your body can also help you know what you are feeling. (*BodyHelpsYouKnow)
 	- It's good to talk to others about your feelings and have them help you solve the situation. (*GoodToTalkToOthers)
+	- It's good to face your fears. (*GoodToFaceFears) ******
+	- It's good to practice. (*GoodToPractice) ******
+	- It's good to find out what you are feeling. (*GoodToFindOutFeelings) ******
+	- It's good to play with others. (*GoodToPlayWithOthers) ******
+	- It's good to others a turn. (*GoodToGiveOthersATurn) ******
 	
  - Hints
 	- Shared
