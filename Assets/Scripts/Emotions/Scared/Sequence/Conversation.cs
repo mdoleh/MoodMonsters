@@ -38,6 +38,7 @@ namespace ScaredScene
             anim.SetBool("IsIdle", false);
             if (accoladeTriggered) return;
             accoladeTriggered = true;
+            Utilities.PlayAudioUnBlockable(clappingAudio);
             Utilities.PlayAudio(successDialogue);
             StartCoroutine(PlayExplanation());
         }
