@@ -41,11 +41,11 @@ General Audio (used in all scenes):
 	- Your face helps you know what you are feeling. (*FaceHelpYouKnow)
 	- Your body can also help you know what you are feeling. (*BodyHelpsYouKnow)
 	- It's good to talk to others about your feelings and have them help you solve the situation. (*GoodToTalkToOthers)
-	- It's good to face your fears. (*GoodToFaceFears) ******
-	- It's good to practice. (*GoodToPractice) ******
-	- It's good to find out what you are feeling. (*GoodToFindOutFeelings) ******
-	- It's good to play with others. (*GoodToPlayWithOthers) ******
-	- It's good to others a turn. (*GoodToGiveOthersATurn) ******
+	- It's good to face your fears. (*GoodToFaceFears)
+	- It's good to practice. (*GoodToPractice)
+	- It's good to find out what you are feeling. (*GoodToFindOutFeelings)
+	- It's good to play with others. (*GoodToPlayWithOthers)
+	- It's good to others a turn. (*GoodToGiveOthersATurn)
 	
  - Hints
 	- Shared
@@ -223,8 +223,8 @@ Angry Scene:
 		- What could she do to find out what she is feeling? (*WhatCouldSheDoFindOutFeeling)
 		
 Happy Scene:
-	- Drag the red button left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward) ******
-	- Drag the red button left or right to line up the ball with the green bonus holes. (*DragLeftOrRightLineUp) ******
+	- Drag the red button left or right to line up the ball with the green bonus holes. Swipe it forward as fast as you can to roll the ball. (*DragJoystickLeftRightAndForward)
+	- Drag the red button left or right to line up the ball with the green bonus holes. (*DragLeftOrRightLineUp)
 	- Swipe it forward as fast as you can to roll the ball. (*SwipeForwardToRollBall)
 	- Scarlet is playing skeeball with her friend Ty [tie] and is having fun. (*ScarletIntro)
 	- Help Scarlet get the high score (*HelpScarletGetHighScore)
@@ -245,8 +245,8 @@ Happy Scene:
 		- What should Scarlet do to be a good friend in this situation? (*BeAGoodFriend)
 	
 Sad Scene:
-	- Swipe the red button forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun) ******
-	- Swipe the red button forward to make Luis [loo-is] run. Swipe it left or right move him one lane in that direction. (*DragJoystickRunAndDirectionsLuis) ******
+	- Swipe the red button forward to make Luis [loo-is] run (*DragJoystickForwardMakeLuisRun)
+	- Swipe the red button forward to make Luis [loo-is] run. Swipe it left or right move him one lane in that direction. (*DragJoystickRunAndDirectionsLuis)
 	- Luis's [loo-is] mom took him to the park and he's having fun. (*LuisIntroMom)
 	- Luis's [loo-is] dad took him to the park and he's having fun. (*LuisIntroDad)
 	- Use the soccer ball to knock over the cones. Move Luis [loo-is] toward the ball to kick it. (*UseSoccerBallToKnockOverCones)
@@ -304,8 +304,8 @@ Sad Scene:
 
 Scared Scene:
 	- AJ is playing with his friend Scarlet and is having fun. (*AJIntro)
-	- Swipe the red button forward to make AJ run. (*DragJoystickForwardMakeAJRun) ******
-	- Swipe the red button forward to make AJ run. Drag it left or right to control his direction (*DragJoystickRunAndDirectionsAJ) ******
+	- Swipe the red button forward to make AJ run. (*DragJoystickForwardMakeAJRun)
+	- Swipe the red button forward to make AJ run. Drag it left or right to control his direction (*DragJoystickRunAndDirectionsAJ)
 	- Help AJ jump over the gaps (*HelpAJJumpOverGaps)
 	- You should tell someone about your feelings so they can help you through them. Now you get to play a game. (*TellSomeoneFeelingsHelpYou)
 	- Oops! AJ wasn't running fast enough to jump the gap. Try again. (*WasntRunningFastEnough)
@@ -373,7 +373,7 @@ Emotion Blends Scene:
 		- How would you feel if you had to leave your friends behind? (*LeaveFriendsBehind)
 		- How would you feel if you weren't sure you'd fit in? (*FittingIn)
 		- How would you feel if you couldn't go to your favorite park anymore? (*CantVisitFavoritePark)
-		- How would you feel if you were getting your own room? (*GettingYourOwnRoom) ******
+		- How would you feel if you were getting your own room? (*GettingYourOwnRoom)
 	- Actions Menu:
 		- Refuse to go. (*RefuseToGo)
 		- Talk about it. (*TalkAboutIt)
@@ -390,7 +390,7 @@ Emotion Blends Scene:
 		- Ask them how they feel. (*AskHowFeel)
 		- Offer emotional support. (*OfferSupport)
 		- Provide advice on what to do about the problem. (*ProvideAdvice)
-		- Provide a distraction from the problem. (*OfferDistraction) ******
+		- Provide a distraction from the problem. (*OfferDistraction)
 		- Ask what they can all do about the problem. (*AskWhatToDo)
 		- That's not right. This invalidates their feelings when there's nothing wrong with having them. Try again. (*InvalidatesFeelings)
 		- That's not right. Distracting them doesn't help them address their feelings about moving. Try again. (*Distracting)
