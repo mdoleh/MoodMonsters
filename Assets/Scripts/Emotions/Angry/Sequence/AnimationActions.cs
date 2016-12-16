@@ -4,6 +4,7 @@ using System.Collections;
 namespace AngryScene
 {
     // Holds all of the behaviors to trigger on animation events
+    // Used only on Ty
     public class AnimationActions : MonoBehaviour
     {
         private Animator anim;

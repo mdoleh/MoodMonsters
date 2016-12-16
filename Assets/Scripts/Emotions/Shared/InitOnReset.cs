@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 
 // Covers common behavior among all scene resets
+// Only used in ActionsMenu scenes
 public class InitOnReset : MonoBehaviour
 {
     protected virtual void Start()

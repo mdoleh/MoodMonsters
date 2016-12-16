@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using AngryScene;
 using UnityEngine;
 
 namespace AngryScene
@@ -29,6 +28,7 @@ namespace AngryScene
 
         private IEnumerator HelpLilyPlayAudio()
         {
+            // activate the bucket game
             HideNoInputSymbol();
             lily.SetTrigger("Swipe");
             ipadCamera.SetActive(true);
@@ -37,10 +37,13 @@ namespace AngryScene
             Utilities.PlayAudio(whatLilyIsPlayingAudio);
             yield return new WaitForSeconds(whatLilyIsPlayingAudio.clip.length);
 
+            // play the bucket game instructions
             Utilities.PlayAudio(helpLilyPlayAudio);
             fingerDrag.SetActive(true);
             yield return new WaitForSeconds(helpLilyPlayAudio.clip.length);
             fingerDrag.SetActive(false);
+
+            // bring Ty into frame
             otherCharacter.SetActive(true);
             otherCharacter.GetComponent<WalkForward>().StartWalking();
         }
@@ -61,6 +64,7 @@ namespace AngryScene
             whatLilyIsPlayingAudio = transform.Find("WhatLilyIsPlaying").gameObject.GetComponent<AudioSource>();
         }
 
+        // keeps the yellow circle over the bucket in sync with the bucket itself
         private void Update()
         {
             var percentMoved = (bucket.position.x + 2.5f)/5.0f;
