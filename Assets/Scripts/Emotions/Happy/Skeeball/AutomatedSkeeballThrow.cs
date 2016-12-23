@@ -12,9 +12,7 @@ namespace HappyScene
         public override void ResetForNextThrow(Transform ball)
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
-            Utilities.StopAudio(ball.GetComponent<AudioSource>());
-            ball.GetComponent<BallAnimation>().NeutralizeForce();
-            ball.GetComponent<Rigidbody>().useGravity = false;
+            base.ResetForNextThrow(ball);
             Timeout.StartTimers();
             playerCharacter.StartSequence();
         }
