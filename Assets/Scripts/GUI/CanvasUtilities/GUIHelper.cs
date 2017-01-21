@@ -114,9 +114,9 @@ public class GUIHelper : MonoBehaviour
         var guidedAudio = guidedTutorial.GetComponentsInChildren<AudioSource>();
         var currentAudio =
             guidedAudio.ToList()
-                .FindAll(x => guiCanvas.name.ToLower().Contains(x.gameObject.name.ToLower()) &&
+                .FindAll(x => guiCanvas.name.ToLower().Equals(x.gameObject.name.ToLower() + "canvas") &&
                     !x.gameObject.name.ToLower().Contains("parent"));
-        if (currentAudio.Count > 1) yield break;
+        if (currentAudio.Count < 1) yield break;
         // physical questions are asked 3 times, we only want the 
         // tutorial audio to play once for the question type
         if (guiCanvas.name.ToLower().Contains("physical") && !guiCanvas.name.Contains("1")) yield break;
