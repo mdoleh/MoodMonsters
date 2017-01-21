@@ -9,7 +9,8 @@ public class LaneAppear<T> : MonoBehaviour
 
     public static void HideAllLanes()
     {
-        GameObject.Find("Lanes")
+        var lanes = GameObject.Find("Lanes");
+        if (lanes != null) lanes
             .GetComponentsInChildren<LaneColor>()
             .ToList()
             .ForEach(lane => lane.GetComponent<MeshRenderer>().enabled = false);
